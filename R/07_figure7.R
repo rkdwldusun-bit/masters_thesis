@@ -21,7 +21,8 @@ p <- ggplot(d, aes(x = share, y = crop, fill = cat)) +
        title = fig_title("fig7", "Insured-to-Normal Yield Ratio, Eight Largest Fruit Crops, 2024"),
        caption = wrap(paste(
          sprintf("Note: APFS 2024 fruit contract-detail file (%s rows; %s exact duplicate rows; no contract identifier).", comma(n_rows), comma(n_dup)),
-         "Crop disaster insurance only; records with zero or invalid normal yield excluded. 'Equal to 1' = ratio within ±0.0005.",
+         "Crop disaster insurance only; records with a missing or non-positive insured or normal yield are excluded.",
+         "'Equal to 1' = ratio within \u00b10.0005.",
          "Shares are taken from the supplied crop-level summary; the raw record file is not part of the verified bundle. Descriptive only.",
          "Source: Korea Agricultural Policy Insurance & Finance Service (APFS), public data; author's calculations."), 108)) +
   theme_thesis()

@@ -1,5 +1,5 @@
 id: fig2
 title: [Figure 2] Annual Crops: Estimated Change after Nationwide Availability, by Estimator
-x: Estimated change after nationwide availability (log points)
+x: Average estimated change, e = 0 to 9 (log points)
 y: 
-caption: Note: Same treated crops, controls and period as Figure 1. Group-time and imputation rows average e = 0 to 9; the two TWFE rows are single static coefficients over all post-availability years (up to e = 12) and are benchmarks only. Intervals: 95% crop-level wild bootstrap (group-time and imputation; custom procedure); TWFE: estimate ± 1.96 crop-clustered standard errors (normal approximation; restricted wild cluster bootstrap p-values are in the results table). Estimates are associations, not established causal effects. Source: KOSIS Crop Production Survey (national series); author's calculations.
+caption: Note: Same treated crops, controls and period as Figure 1. All rows cover the same post-availability horizon, e = 0 to 9: group-time and imputation rows average the event-time estimates; the two TWFE rows are static coefficients estimated with treated observations beyond e = 9 excluded, and are benchmarks only. Intervals: 95% crop-level wild bootstrap (group-time and imputation; custom procedure); TWFE: estimate ± 1.96 crop-clustered standard errors (normal approximation; restricted wild cluster bootstrap p-values are in the results table). Estimates are associations, not established causal effects. Source: KOSIS Crop Production Survey (national series); author's calculations.

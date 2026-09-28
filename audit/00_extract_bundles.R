@@ -8,6 +8,8 @@
 
 library(readxl)
 
+STALE <- c("EVENT_SUPPORT", "COHORT_SUPPORT", "CONTROL_COMP", "EVENT_SUPPORT_RAW", "COHORT_SUPPORT_RAW", "CONTROL_COMP_RAW")
+
 find_header <- function(raw) {
   # header = first row, among the first 6, with the maximum number of non-empty cells
   n <- min(6, nrow(raw))
@@ -29,7 +31,10 @@ extract <- function(xlsx, outdir) {
     names(body) <- hdr
     body <- body[rowSums(!is.na(body)) > 0, , drop = FALSE]
     note <- if (h > 1) paste(na.omit(unlist(raw[seq_len(h - 1), 1])), collapse = " ") else ""
-    write.csv(body, file.path(outdir, paste0(sh, ".csv")), row.names = FALSE, na = "", fileEncoding = "UTF-8")
+    # stale diagnostics from an earlier pipeline (obsolete crop IDs, 20-crop pool): quarantined, never used
+    dest <- if (sh %in% STALE) file.path(outdir, "stale_do_not_use") else outdir
+    dir.create(dest, showWarnings = FALSE)
+    write.csv(body, file.path(dest, paste0(sh, ".csv")), row.names = FALSE, na = "", fileEncoding = "UTF-8")
     log <- rbind(log, data.frame(sheet = sh, header_row = h, rows = nrow(body), cols = ncol(body), note = note))
   }
   write.csv(log, file.path(outdir, "_sheet_log.csv"), row.names = FALSE, fileEncoding = "UTF-8")

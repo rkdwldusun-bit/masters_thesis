@@ -1,0 +1,3 @@
+crop_id,crop,year,area_ha,yield_kg10a,production_t,implied_yield_kg10a,identity_gap,in_estimation
+sesame,Sesame,2020,22930,30,6795,29.6,-0.01229,TRUE
+spring_radish,Spring radish,2001,15988,3415,506904,3170.5,-0.07428,TRUE

@@ -18,24 +18,24 @@ FC <- fread(file.path(V, "verified_apfs_fruit_2024_by_crop.csv"), encoding = "UT
 P  <- fread(file.path(V, "verified_master_panel.csv"))
 
 BANNED <- c("Asian pear", "Japanese apricot", "Chinese cabbage", "Daikon", "Satsuma", "Yuzu", "Citron", "maize",
-            "real farm-gate", "CPI-deflated real price index", "causal effect of", "Callaway")
+            "real farm-gate", "CPI-deflated real price index", "causal effect of", "Callaway", "cancels exactly")
 
 figs <- list(
   list(id = "fig1", script = "R/01_figure1.R", file = "fig1_annual_event_study", src = "verified_results_dynamic.csv",
        need_title = c("associated with insurance expansion"), need_note = c("omitted", "not established causal", "custom")),
   list(id = "fig2", script = "R/02_figure2.R", file = "fig2_estimator_comparison", src = "verified_results_summary.csv",
-       need_title = c("estimator"), need_note = c("benchmark", "associations", "up to e = 12")),
+       need_title = c("estimator"), need_note = c("benchmark", "associations", "same post-availability horizon, e = 0 to 9", "beyond e = 9 excluded")),
   list(id = "fig3", script = "R/03_figure3.R", file = "fig3_annual_robustness", src = "verified_results_summary.csv",
        need_title = c("robustness"), need_note = c("associations", "custom")),
   list(id = "fig4", script = "R/04_figure4.R", file = "fig4_fruit_event_study", src = "verified_results_dynamic.csv",
-       need_title = c("suggestive"), need_note = c("not comparable", "orchard area", "not-yet-treated fruit")),
+       need_title = c("suggestive"), need_note = c("consists primarily of annual crops", "later-treated fruit crops may also serve as not-yet-treated", "Astringent persimmon", "Plum", "orchard area")),
   list(id = "fig5", script = "R/05_figure5.R", file = "fig5_price_event_study", src = "verified_results_dynamic.csv",
        need_title = c("relative farm-gate"), need_note = c("not a CPI-deflated real price", "reduced-form"),
        need_y = "Log relative farm-gate price index"),
   list(id = "fig6", script = "R/06_figure6.R", file = "fig6_rice_descriptive", src = "verified_master_panel.csv; verified_treatment_coding.csv",
        need_title = c("descriptive"), need_note = c("no difference-in-differences inference")),
   list(id = "fig7", script = "R/07_figure7.R", file = "fig7_insured_to_normal_yield", src = "verified_apfs_fruit_2024_by_crop.csv; verified_apfs_fruit_2024_audit.csv",
-       need_title = c("insured-to-normal"), need_note = c("descriptive", "not part of the verified bundle")),
+       need_title = c("insured-to-normal"), need_note = c("descriptive", "not part of the verified bundle", "non-positive insured or normal yield")),
   list(id = "fig8", script = "R/08_figure8.R", file = "fig8_record_composition", src = "verified_apfs_fruit_2024_by_crop.csv; verified_apfs_fruit_2024_audit.csv",
        need_title = c("administrative contract-detail records"), need_note = c("not necessarily unique contracts")),
   list(id = "fig9", script = "R/09_figure9.R", file = "fig9_apfs_national_trends", src = "verified_apfs_national.csv",

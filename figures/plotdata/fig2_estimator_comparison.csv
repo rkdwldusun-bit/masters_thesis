@@ -11,9 +11,9 @@ CS-B5 (mean of last 5 clean-pre years),ln_yield,-0.00845888102119281,-0.10449312
 Imputation (FE on clean cells),ln_area,0.244486160453002,-0.106001180540944,0.594973501446949,wild bootstrap
 Imputation (FE on clean cells),ln_production,0.216218378650885,-0.145841428542847,0.578278185844618,wild bootstrap
 Imputation (FE on clean cells),ln_yield,-0.0280091693315312,-0.155723784946222,0.0997054462831591,wild bootstrap
-"TWFE static, Han-style naive coding (benchmark)",ln_area,0.174417115162788,-0.163507655438741,0.512341885764317,est +/- 1.96 SE
-"TWFE static, Han-style naive coding (benchmark)",ln_production,0.162616165655605,-0.176899647067988,0.502131978379198,est +/- 1.96 SE
-"TWFE static, Han-style naive coding (benchmark)",ln_yield,-0.0114451833356289,-0.124825634995552,0.101935268324294,est +/- 1.96 SE
-"TWFE static, clean cells (benchmark)",ln_area,0.263409170851231,-0.0969856758264161,0.623804017528878,est +/- 1.96 SE
-"TWFE static, clean cells (benchmark)",ln_production,0.237515885485336,-0.131179510651038,0.60621128162171,est +/- 1.96 SE
-"TWFE static, clean cells (benchmark)",ln_yield,-0.0256059712030965,-0.164625092299542,0.113413149893349,est +/- 1.96 SE
+"TWFE static, Han-style naive coding, e = 0..9 (benchmark)",ln_area,0.156347383273921,-0.190659933091262,0.503354699639104,est +/- 1.96 SE
+"TWFE static, Han-style naive coding, e = 0..9 (benchmark)",ln_production,0.134918712279197,-0.211345239922429,0.481182664480823,est +/- 1.96 SE
+"TWFE static, Han-style naive coding, e = 0..9 (benchmark)",ln_yield,-0.0210432170632713,-0.131231203606401,0.0891447694798581,est +/- 1.96 SE
+"TWFE static, clean cells, e = 0..9 (benchmark)",ln_area,0.242951048453911,-0.133319302338123,0.619221399245945,est +/- 1.96 SE
+"TWFE static, clean cells, e = 0..9 (benchmark)",ln_production,0.214717415635033,-0.169162721811077,0.598597553081143,est +/- 1.96 SE
+"TWFE static, clean cells, e = 0..9 (benchmark)",ln_yield,-0.0279267204526999,-0.164240434567658,0.108386993662258,est +/- 1.96 SE

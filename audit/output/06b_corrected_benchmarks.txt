@@ -1,0 +1,90 @@
+R all-post re-run vs legacy Python TWFE clean: max |d est| = 2.045863e-13  max |d se| = 3.913536e-15  n_obs equal: TRUE 
+
+    sample                                                           spec
+ 1: annual                 TWFE static, clean cells, e = 0..9 (benchmark)
+ 2: annual      TWFE static, Han-style naive coding, e = 0..9 (benchmark)
+ 3: annual                 TWFE static, clean cells, e = 0..9 (benchmark)
+ 4: annual      TWFE static, Han-style naive coding, e = 0..9 (benchmark)
+ 5: annual                 TWFE static, clean cells, e = 0..9 (benchmark)
+ 6: annual      TWFE static, Han-style naive coding, e = 0..9 (benchmark)
+ 7:  fruit     TWFE static, clean cells, preferred fruit pool (benchmark)
+ 8:  fruit TWFE static, clean cells, preferred fruit pool, e = 0..9 (supp
+ 9:  fruit     TWFE static, clean cells, preferred fruit pool (benchmark)
+10:  fruit TWFE static, clean cells, preferred fruit pool, e = 0..9 (supp
+11: annual                           TWFE static, clean cells (benchmark)
+12: annual                TWFE static, Han-style naive coding (benchmark)
+13: annual                           TWFE static, clean cells (benchmark)
+14: annual                TWFE static, Han-style naive coding (benchmark)
+15: annual                           TWFE static, clean cells (benchmark)
+16: annual                TWFE static, Han-style naive coding (benchmark)
+17:  fruit                           TWFE static, clean cells (benchmark)
+18:  fruit                           TWFE static, clean cells (benchmark)
+19:  price                           TWFE static, clean cells (benchmark)
+               outcome     est     se p_wcr  G n_obs post_e_max
+ 1:            ln_area  0.2430 0.1920 0.231 31   868          9
+ 2:            ln_area  0.1563 0.1770 0.392 31   976          9
+ 3:           ln_yield -0.0279 0.0695 0.716 31   868          9
+ 4:           ln_yield -0.0210 0.0562 0.738 31   976          9
+ 5:      ln_production  0.2147 0.1959 0.290 31   868          9
+ 6:      ln_production  0.1349 0.1767 0.460 31   976          9
+ 7: ln_area_harmonized  0.4137 0.1854 0.053 37   974         21
+ 8: ln_area_harmonized  0.4259 0.1964 0.088 37   918          9
+ 9:      ln_production  0.3990 0.1620 0.047 37   974         21
+10:      ln_production  0.4070 0.1800 0.073 37   918          9
+11:            ln_area  0.2634 0.1839 0.192 31   882         12
+12:            ln_area  0.1744 0.1724 0.339 31   990         12
+13:           ln_yield -0.0256 0.0709 0.722 31   882         12
+14:           ln_yield -0.0114 0.0578 0.860 31   990         12
+15:      ln_production  0.2375 0.1881 0.222 31   882         12
+16:      ln_production  0.1626 0.1732 0.378 31   990         12
+17: ln_area_harmonized  0.4319 0.1851 0.054 30   850         21
+18:      ln_production  0.4114 0.1649 0.044 30   850         21
+19:     ln_real_linked -0.0550 0.1853 0.764 11   444         12
+                        status
+ 1:  CURRENT (approved item 6)
+ 2:  CURRENT (approved item 6)
+ 3:  CURRENT (approved item 6)
+ 4:  CURRENT (approved item 6)
+ 5:  CURRENT (approved item 6)
+ 6:  CURRENT (approved item 6)
+ 7:  CURRENT (approved item 7)
+ 8:              SUPPLEMENTARY
+ 9:  CURRENT (approved item 7)
+10:              SUPPLEMENTARY
+11: LEGACY benchmark (all post
+12: LEGACY benchmark (all post
+13: LEGACY benchmark (all post
+14: LEGACY benchmark (all post
+15: LEGACY benchmark (all post
+16: LEGACY benchmark (all post
+17: SUPERSEDED (non-comparable
+18: SUPERSEDED (non-comparable
+19: UNCHANGED (price benchmark
+
+Listed control-pool series: 24 
+Control-pool series that ever contribute: 22   never: winter_napa, winter_radish 
+Not-yet-treated treated crops used as controls at some e: corn, garlic, onion, red_pepper, spring_potato, sweet_potato, soybean 
+    event_time n_treated controls_min controls_max distinct_controls
+ 1:          0         7           22           22                22
+ 2:          1         7           22           22                22
+ 3:          2         7           20           22                22
+ 4:          3         7           20           22                22
+ 5:          4         7           15           22                22
+ 6:          5         7           14           20                20
+ 7:          6         7           11           20                20
+ 8:          7         7           10           15                15
+ 9:          8         7           10           14                14
+10:          9         7            8           11                11
+
+T12 equivalent vs RESULTS T12: rows 110  mismatches: 0 
+T13 equivalent vs RESULTS T13: rows 72  mismatches: 0 
+
+Crop-years in the annual estimation sample with |ln P - ln A - ln Y + ln 100| > 0.01:
+         crop_id          crop year area_ha yield_kg10a production_t
+1:        sesame        Sesame 2020   22930          30         6795
+2: spring_radish Spring radish 2001   15988        3415       506904
+   implied_yield_kg10a identity_gap in_estimation
+1:                29.6     -0.01229          TRUE
+2:              3170.5     -0.07428          TRUE
+Summary over 990 cells: median |gap| 0.000138 ; 95th pct 0.00354 ; max 0.0743 
+Aggregated: area + yield = 0.020014 ; production = 0.019883 ; difference = 0.000131

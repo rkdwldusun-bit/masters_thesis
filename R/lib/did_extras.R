@@ -54,12 +54,15 @@ run_imputation_inf <- function(panel, outcome, treated, controls, years = c(1991
 }
 
 run_twfe_wcr <- function(panel, outcome, treated, controls, variant = "clean", years = c(1991, 2024),
-                         B = 9999, seed = 1) {
+                         B = 9999, seed = 1, e_max = Inf) {
   d <- as.data.table(panel)[crop_id %in% c(treated, controls) & year >= years[1] & year <= years[2]]
   d <- d[, .(crop_id, year, y = as.numeric(get(outcome)), p = as.numeric(pilot_year), gn = as.numeric(national_year))]
   d <- d[!is.na(y) & is.finite(y)]
   d[, post := as.numeric(crop_id %in% treated & !is.na(gn) & year >= gn)]
   if (variant == "clean") d <- d[(is.na(p) | year < p) | post == 1]
+  # horizon restriction: treated cells beyond e_max are dropped (not recoded as untreated),
+  # so the static coefficient averages over e = 0..e_max like the group-time estimators
+  if (is.finite(e_max)) d <- d[!(crop_id %in% treated & !is.na(gn) & year - gn > e_max)]
   X  <- model.matrix(~ post + factor(crop_id) + factor(year), data = d)
   X  <- X[, qr(X)$pivot[seq_len(qr(X)$rank)], drop = FALSE]
   n  <- nrow(X); k <- ncol(X); G <- uniqueN(d$crop_id)

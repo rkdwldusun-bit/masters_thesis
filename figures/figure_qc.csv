@@ -1,6 +1,6 @@
 figure,output_files,underlying_data_file,number_of_plotted_observations,numeric_match_to_verified_results,label_match,note_match,style_match_to_my_R_code,status
 [Figure 1],"figures/fig1_annual_event_study.{png,pdf}",verified_results/verified_results_dynamic.csv,54,MATCH (max |diff| = 0.0e+00),MATCH,MATCH,MATCH,PASS
-[Figure 2],"figures/fig2_estimator_comparison.{png,pdf}",verified_results/verified_results_summary.csv,18,MATCH (max |diff| = 3.3e-16),MATCH,MATCH,MATCH,PASS
+[Figure 2],"figures/fig2_estimator_comparison.{png,pdf}",verified_results/verified_results_summary.csv,18,MATCH (max |diff| = 4.4e-16),MATCH,MATCH,MATCH,PASS
 [Figure 3],"figures/fig3_annual_robustness.{png,pdf}",verified_results/verified_results_summary.csv,30,MATCH (max |diff| = 0.0e+00),MATCH,MATCH,MATCH,PASS
 [Figure 4],"figures/fig4_fruit_event_study.{png,pdf}",verified_results/verified_results_dynamic.csv,38,MATCH (max |diff| = 0.0e+00),MATCH,MATCH,MATCH,PASS
 [Figure 5],"figures/fig5_price_event_study.{png,pdf}",verified_results/verified_results_dynamic.csv,18,MATCH (max |diff| = 0.0e+00),MATCH,MATCH,MATCH,PASS

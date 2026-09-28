@@ -298,7 +298,69 @@ cl("C128", "Overall loss ratio 97.9% (2024)", "APFS", "DOC working summary; ì—°ê
 cl("C129", "Callaway and Sant'Anna (2021), Han (2014), BJS, MacKinnon-Webb citations", "external (literature)", "memo s.0",
    "citations", "Not audited", "C", "UNSUPPORTED", "Verify originals before citing.")
 
+# ---------------- new claims introduced by the approved corrections (2026-09-28)
+cl("C130", "Annual static TWFE, clean cells, estimated over e = 0..9 (same horizon as the other estimators)", "estimator comparison",
+   "docs/METHODOLOGICAL_MEMO_v3 s.6; Figure 2; audit/06b", "0.243 / -0.028 / 0.215",
+   "0.242951 / -0.027927 / 0.214717; CR1 SE 0.1920 / 0.0695 / 0.1959; WCR p 0.231 / 0.716 / 0.290 (9,999 draws); n = 868, G = 31",
+   "A", "VERIFIED", "Computed in R from embedded data (new benchmark; no Python counterpart). All-post legacy version retained: 0.263 / -0.026 / 0.238.")
+cl("C131", "Annual static TWFE, Han-style naive coding, estimated over e = 0..9", "estimator comparison",
+   "docs/METHODOLOGICAL_MEMO_v3 s.6; Figure 2; audit/06b", "0.156 / -0.021 / 0.135",
+   "0.156347 / -0.021043 / 0.134919; CR1 SE 0.1770 / 0.0562 / 0.1767; WCR p 0.392 / 0.738 / 0.460; n = 976, G = 31",
+   "A", "VERIFIED", "Legacy all-post version retained: 0.174 / -0.011 / 0.163.")
+cl("C132", "Fruit static TWFE on the preferred fruit comparison pool (24 annual controls + 7 annual treated crops before their pilots)", "fruit",
+   "docs/METHODOLOGICAL_MEMO_v3 s.8; audit/06b", "0.414 / 0.399",
+   "Orchard area 0.413716 (SE 0.1854, WCR p 0.053); production 0.399009 (SE 0.1620, WCR p 0.047); G = 37, n = 974, all post years (e <= 21). Supplementary e = 0..9 version: 0.426 / 0.407",
+   "A", "VERIFIED", "Supersedes the annual-controls-only benchmark (0.432 / 0.411, G = 30). Benchmark only; the p-values carry no interpretive weight (the benchmark absorbs the pre-trend).")
+cl("C133", "24 control-pool series listed; 22 contribute; eligible control support shrinks to about 8-11 controls by e = 9", "sample",
+   "docs/METHODOLOGICAL_MEMO_v3 s.1, s.7, s.12(6); Figure 1 note", "24 / 22 / 8-11",
+   "24 listed; 22 contribute (Winter napa cabbage and Winter radish never do); per treated crop min-max controls: e=0 22-22, e=4 15-22, e=5 14-20, e=6 11-20, e=7 10-15, e=8 10-14, e=9 8-11 (11 distinct series at e=9)",
+   "A", "VERIFIED", "verified_results/verified_event_time_support.csv")
+cl("C134", "Current support tables (T12/T13 equivalents) replace the stale EVENT_SUPPORT / COHORT_SUPPORT / CONTROL_COMP sheets", "provenance",
+   "verified_results/verified_event_time_support.csv, verified_control_composition.csv", "code-consistent support",
+   "Rebuilt from the current design; identical to RESULTS T12 (110 rows) and T13 (72 rows)", "A", "VERIFIED", "Stale sheets quarantined in audit/extracted/*/stale_do_not_use/.")
+cl("C135", "Relative-price and nominal-index estimates are numerically almost identical; the small difference arises from building annual relative prices from quarterly relative indices", "price",
+   "docs/METHODOLOGICAL_MEMO_v3 README and s.9", "almost identical",
+   "Main: -0.118062 (relative) vs -0.117974 (nominal); max event-time difference 0.0063 (0.0030 post); implied annual divisor varies 0.1-6.5% across crops within a year",
+   "A", "VERIFIED", "Replaces C076 wording.")
+cl("C136", "Price placebo coefficients: 8 (e = -12..-5; 4-8 years per crop) with the linked series vs 6 (e = -10..-5; 2-4 per crop) with DT_1J60 alone", "price",
+   "docs/METHODOLOGICAL_MEMO_v3 s.9", "8 vs 6", "Per crop linked: Onion 8, Sweet potato 7, Garlic 8, Red pepper 4; DT_1J60 only: 3, 3, 4, 2", "A", "VERIFIED", "Replaces C069 wording.")
+cl("C137", "Fruit comparison group consists primarily of annual crops; later-treated fruit crops may serve as not-yet-treated controls in clean pre-pilot periods (Astringent persimmon, Plum)", "fruit",
+   "docs/METHODOLOGICAL_MEMO_v3 s.8, s.12(6); Figure 4 note", "wording", "Astringent persimmon (to 2005) and Plum (to 2007) in 18 of 60 post comparisons (e = 0..4 for Apple, Pear, Tangerine, Sweet persimmon)",
+   "A", "VERIFIED", "Replaces C061 wording; specification unchanged.")
+cl("C138", "Crop-year log production identity discrepancies > 0.01 in the estimation sample", "coherence",
+   "verified_results/verified_identity_discrepancies.csv", "documented",
+   "Spring radish 2001 (gap -0.0743; reported yield 3,415 vs implied 3,170.5 kg/10a); Sesame 2020 (-0.0123). Source values unchanged",
+   "A", "VERIFIED", "Aggregated: area + yield 0.020014 vs production 0.019883 -> 'approximately consistent with the log production identity'.")
+cl("C139", "Figure 7 excludes records with a missing or non-positive insured or normal yield", "APFS", "Figure 7 note; 05_apfs_descriptives.py",
+   "exclusion rule", "Code: ratio = insured / normal yield after non-positive values set to missing; shares on non-missing ratios", "B", "VERIFIED", "Raw records not embedded.")
+
 A <- rbindlist(rows)
 stopifnot(!anyDuplicated(A$claim_id))
+
+# ---------------- resolutions of the approved corrections (status of the original finding is kept)
+res <- c(
+  C014 = "Item 1: corrected to '4-8 years before nationwide availability (e = -8 to -4)'.",
+  C032 = "Item 2: corrected to 0.40 (0.4049 unrounded); non-rejection explicitly not evidence of parallel trends.",
+  C069 = "Item 3: replaced by the actual counts (see C136).",
+  C076 = "Item 4: every 'cancels' statement about the divisor removed; replaced by 'numerically almost identical' (see C135).",
+  C061 = "Item 5: specification unchanged; description replaced by the approved wording; Astringent persimmon and Plum documented (see C137).",
+  C020 = "Item 6: Figure 2 now uses TWFE estimated over e = 0..9 (C130, C131); all-post TWFE retained as LEGACY benchmark.",
+  C109 = "Item 6: Figure 2 axis and note corrected; all rows now cover e = 0..9.",
+  C054 = "Item 6: horizon difference removed from the Figure 2 comparison by construction.",
+  C062 = "Item 7: fruit TWFE re-estimated on the preferred fruit pool (C132); old result SUPERSEDED in verified_benchmark_record.csv. Range now 0.38-0.41.",
+  C005 = "Item 8: stale sheets quarantined; replaced by code-consistent T12/T13 equivalents (C134).",
+  C007 = "Item 9: verified_master_panel.csv carries the re-decoded UTF-8 labels.",
+  C003 = "Item 10: reconciled in docs/PROVENANCE.md; DT_1J50 documented; AUTHOR ACTION remains for 08/10 file names and the DT_1J50 hash.",
+  C004 = "Item 10: documented in docs/PROVENANCE.md (reproducibility statement).",
+  C091 = "Item 11: loss ratio defined as indemnities / risk premium x 100 in Figure 9 and memo v3.",
+  C096 = "Item 12: audit label corrected to 'rows with missing or non-positive normal yield'; value unchanged.",
+  C033 = "Item 13: pre-trend prose corrected (production all four; area e = -11 marginal, p ~ 0.058).",
+  C031 = "Item 14: influence discussion now names Red pepper (negative) and Onion (opposite direction).",
+  C025 = "Item 15: support limitation added; numbers verified (C133).",
+  C108 = "Item 15: Figure 1 note states 24 listed, 22 contribute, 8-11 at e = 9 (computed from data).",
+  C050 = "Item 16: 'approximately consistent with the log production identity'; crop-year discrepancies documented (C138).",
+  C100 = "Memo v3 s.12(2): '2-7 transition years (3-7 for the annual crops)'.")
+A[claim_id %in% names(res), notes := paste0(notes, fifelse(notes == "", "", " | "), "RESOLVED 2026-09-28 -- ", res[claim_id])]
+stopifnot(all(names(res) %in% A$claim_id))
 fwrite(A, "verified_results/claim_audit.csv", bom = TRUE)
 cat("claims:", nrow(A), "\n"); print(A[, .N, by = .(verification_level, status)][order(verification_level, status)])

@@ -53,8 +53,29 @@ S <- S[, .(sample, spec_internal = spec, spec_thesis = lab_spec(spec), outcome_i
              "CR1 crop-clustered SE; p from restricted wild cluster bootstrap-t (Webb, 1,999 draws). No CI reported. Static coefficient over ALL post years (annual up to e=12; fruit up to e=21), not e=0..9.",
              "Custom inference: score-based CR1-type SE; symmetric CI est +/- 95% quantile of |Webb multiplier draws of the crop score sum| (9,999 draws)."))]
 S <- S[sample != "price_audit"]
+# benchmark status (approved corrections 6 and 7, 2026-09-28)
+S[, benchmark_status := fcase(
+  sample == "annual" & grepl("TWFE", spec_internal), "LEGACY: all post years (e up to 12); superseded in Figure 2 by the e = 0..9 benchmark",
+  sample == "fruit"  & grepl("TWFE", spec_internal), "SUPERSEDED: non-comparable control pool (24 annual controls only; G = 30)",
+  sample == "price"  & grepl("TWFE", spec_internal), "UNCHANGED: price benchmark, all post years (e up to 12)",
+  default = "")]
+# corrected benchmarks (R only; computed from embedded data in audit/06b)
+CB <- fread("audit/output/06b_benchmarks.csv")[grepl("^CURRENT|^SUPPLEMENTARY", status)]
+CB <- CB[, .(sample, spec_internal = spec, spec_thesis = fcase(
+                grepl("Han-style", spec), "Static TWFE, naive coding as in Han (2014), e = 0 to 9 (benchmark only)",
+                grepl("e = 0..9 \\(supplementary", spec), "Static TWFE, clean cells, preferred fruit comparison pool, e = 0 to 9 (supplementary)",
+                grepl("fruit pool", spec), "Static TWFE, clean cells, preferred fruit comparison pool (benchmark only)",
+                default = "Static TWFE, clean cells, e = 0 to 9 (benchmark only)"),
+             outcome_internal = outcome, outcome_thesis = thesis_outcome[outcome], evidence_class = "Benchmark only",
+             est, se_cluster, p_wild_py = NA_real_, G, n_treated, n_obs, R_est = est, R_se = se_cluster, R_p_wild = p_wcr,
+             replication_status = "R-only (corrected benchmark; computed from embedded data)", bootstrap_draws_py = NA_integer_,
+             inference_note = paste("CR1 crop-clustered SE; p from restricted wild cluster bootstrap-t (Webb, 9,999 draws, R).",
+                                    sprintf("Static coefficient over post years e = 0..%d.", post_e_max), note),
+             benchmark_status = status)]
+S <- rbind(S, CB, fill = TRUE)
 setorder(S, sample, spec_internal, outcome_internal)
 fwrite(S, "verified_results/verified_results_summary.csv")
+fwrite(fread("audit/output/06b_benchmarks.csv"), "verified_results/verified_benchmark_record.csv")
 
 # ---------------- dynamic
 Dn <- RD[, .(sample, spec, outcome, event_time = suppressWarnings(as.integer(event_time)), est, se_cluster,
@@ -86,7 +107,7 @@ fwrite(rbindlist(list(
           ci_hi = ci_hi_wild_py, p_wild = p_wild_py, G, n_treated, replication_status)],
   PRd[, .(table = "dynamic (main sample)", spec_thesis, outcome_thesis, event_time, est, se_cluster, ci_lo = ci_lo_wild,
           ci_hi = ci_hi_wild, p_wild, G = G_contrib, n_treated, replication_status = "REPLICATED")],
-  nominal[, .(table = "audit: undivided crop index (tests divisor cancellation)",
+  nominal[, .(table = "comparison: nominal (undivided) crop index; numerically almost identical to the relative-price estimate",
               spec_thesis = "Main price sample on nominal linked crop index (not a thesis estimate)",
               outcome_thesis = "Log nominal farm-gate price index (linked)", event_time = NA_integer_, est = R_est,
               se_cluster = R_se, ci_lo = R_lo, ci_hi = R_hi, p_wild = R_p, G = R_G, n_treated = R_n_tr,
@@ -119,5 +140,15 @@ N[, components_share_of_net_premium := (central_gov_mkrw + provincial_mkrw + mun
 N[, loss_ratio_recomputed := round(indemnity_mkrw / risk_premium_mkrw * 100, 1)]
 fwrite(N, "verified_results/verified_apfs_national.csv")
 fwrite(fread("audit/extracted/data/APFS_FRUIT_CROP.csv", encoding = "UTF-8"), "verified_results/verified_apfs_fruit_2024_by_crop.csv")
-fwrite(fread("audit/extracted/data/APFS_FRUIT_AUD.csv", encoding = "UTF-8"), "verified_results/verified_apfs_fruit_2024_audit.csv")
+FA <- fread("audit/extracted/data/APFS_FRUIT_AUD.csv", encoding = "UTF-8")
+# approved item 12: the count refers to normal yield only (05_apfs_descriptives.py counts missing 평년수확량
+# after non-positive values are set to missing); the value itself is unchanged
+FA[grepl("zero/invalid yield or price", item),
+   item := "rows with missing or non-positive normal yield (평년수확량; set to missing)"]
+fwrite(FA, "verified_results/verified_apfs_fruit_2024_audit.csv")
+
+# ---------------- approved items 8, 15, 16: code-consistent support tables and identity record
+fwrite(fread("audit/output/06b_event_time_support.csv"), "verified_results/verified_event_time_support.csv")
+fwrite(fread("audit/output/06b_control_composition.csv", encoding = "UTF-8"), "verified_results/verified_control_composition.csv")
+fwrite(fread("audit/output/06b_identity_discrepancies.csv"), "verified_results/verified_identity_discrepancies.csv")
 cat("frozen files:\n"); print(list.files("verified_results"))

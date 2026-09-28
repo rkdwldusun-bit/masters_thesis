@@ -21,9 +21,10 @@ p <- plot_event_study(d, facet = "panel", ncol = 1) +
   labs(title = fig_title("fig4", "Perennial Fruit: Estimated Changes Associated with Insurance Expansion, 1991–2024 (Suggestive Only)"),
        caption = wrap(paste(
          paste0("Note: Treated (nationwide year): ", treated_txt, "."),
-         "No never-treated perennial series exists. Comparison crops are annual crops before their first pilot and, for early event",
-         paste0("times, the not-yet-treated fruit crops ", nyt_txt, "; annual controls are not comparable"),
-         "perennial controls, and orchard area (a stock of trees) is compared with annual cultivated area. Pre-pilot estimates rise",
+         "The comparison group consists primarily of annual crops, while later-treated fruit crops may also serve as not-yet-treated",
+         paste0("controls during their clean pre-pilot periods: ", nyt_txt, " contribute in some comparisons at early event times."),
+         "No never-treated perennial series exists; annual crops are not comparable perennial controls, and orchard area (a stock of",
+         "trees) is compared with annual cultivated area. Pre-pilot estimates rise",
          "steadily and the post-period path continues that slope, so the estimates are suggestive at most. Sweet and Astringent",
          "persimmon series begin in 1998. Custom group-time difference-in-differences; reference year = final clean pre-pilot year",
          paste0("(", ref_txt, "); crop-specific transition years omitted. 95% crop-level wild bootstrap intervals (custom procedure)."),
