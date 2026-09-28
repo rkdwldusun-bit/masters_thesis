@@ -1,0 +1,7 @@
+item,value
+rows in file,336232
+exact duplicate rows,12099
+unique contract identifier,none in file
+rows from revenue-insurance grape (excluded from crop-disaster figures),694
+rows with zero/invalid yield or price fields (set to missing),10529
+observation unit,administrative contract-detail record (not necessarily a contract)

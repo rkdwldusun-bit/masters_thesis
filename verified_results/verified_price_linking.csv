@@ -1,0 +1,32 @@
+price_unit,display,item_1J49,item_1J60,match_class,linkable_quarterly_rule,linkable_annual_rule,price_sample_main,price_sample_strict,annual_corr_dlog,annual_ratio_cv_pct,annual_max_disc_pct,corr_qoq_dlog_full_2005_2012,ratio_cv_pct_full_2005_2012,max_abs_disc_pct_full_2005_2012,link_decision
+soybean,Soybean,콩,콩,exact,FALSE,FALSE,FALSE,FALSE,0.9918,4.354,11.936,0.9191,5.3048,16.8357,not linked: fails statistical rule
+onion,Onion,양파,양파,exact,FALSE,TRUE,TRUE,FALSE,0.9989,1.342,2.726,0.9871,2.9641,12.6968,not linked: fails statistical rule
+sweet_potato,Sweet potato,고구마,고구마,exact,TRUE,TRUE,TRUE,TRUE,0.996,1.442,2.415,0.9969,1.7245,4.9286,linked
+corn,Corn,옥수수,옥수수,exact,FALSE,FALSE,FALSE,FALSE,-0.1793,9.146,18.458,0.2585,8.6926,18.4579,not linked: fails statistical rule
+garlic,Garlic,마늘,마늘,exact,TRUE,TRUE,TRUE,TRUE,0.9971,1.074,2.373,0.9854,1.6785,5.3079,linked
+red_pepper,Red pepper,건고추,건고추,exact,FALSE,TRUE,TRUE,FALSE,0.9826,2.171,5.676,0.9408,3.3877,22.4982,not linked: fails statistical rule
+potato,Potato (all seasons),감자,감자,approximate,TRUE,TRUE,FALSE,FALSE,0.999,0.629,1.32,0.9984,1.1231,4.9297,linked
+rice,Rice,일반미,멥쌀,approximate,TRUE,TRUE,FALSE,FALSE,1,0.073,0.169,0.9993,0.1156,0.3823,linked
+red_bean,Red bean,팥,팥,exact,TRUE,TRUE,TRUE,TRUE,0.9995,1.057,1.843,0.9868,1.6716,6.2348,linked
+mung_bean,Mung bean,녹두,"",old-only,FALSE,FALSE,FALSE,FALSE,,,,,,,not linked: no overlap / old-only
+barley,Barley,쌀보리,쌀보리(조곡),approximate,FALSE,FALSE,FALSE,FALSE,0.6882,4.728,10.462,0.4457,5.773,17.4158,not linked: fails statistical rule
+malting_barley,Malting barley,맥주맥,맥주보리,approximate,FALSE,FALSE,FALSE,FALSE,0.8142,3.453,7.861,0.7714,4.2023,13.4291,not linked: fails statistical rule
+cabbage,Cabbage,양배추,양배추,exact,TRUE,TRUE,TRUE,TRUE,0.999,0.909,2.169,0.996,1.895,7.2828,linked
+carrot,Carrot,당근,당근,exact,FALSE,TRUE,TRUE,FALSE,0.9747,2.589,6.13,0.9831,4.19,19.3585,not linked: fails statistical rule
+ginger,Ginger,생강,생강,exact,FALSE,TRUE,TRUE,FALSE,0.9993,0.961,1.952,0.9831,3.551,16.6438,not linked: fails statistical rule
+sesame,Sesame,참깨,참깨,exact,TRUE,TRUE,TRUE,TRUE,0.9999,0.104,0.25,0.998,0.3148,1.5101,linked
+perilla,Perilla,들깨,들깨,exact,TRUE,TRUE,TRUE,TRUE,0.9998,0.116,0.279,0.9982,0.2416,0.7844,linked
+peanut,Peanut,땅콩,땅콩,exact,TRUE,TRUE,TRUE,TRUE,0.9999,0.125,0.303,0.998,0.43,1.4061,linked
+napa_cabbage,Napa cabbage (all seasons),배추,배추,approximate,TRUE,TRUE,FALSE,FALSE,0.9997,0.405,0.775,0.998,1.6514,6.535,linked
+radish,Radish (all seasons),무,무,approximate,FALSE,TRUE,FALSE,FALSE,0.9994,1.289,2.876,0.9922,2.8207,11.9692,not linked: fails statistical rule
+green_onion,Green onion (all types),파,파,approximate,TRUE,TRUE,FALSE,FALSE,0.9999,0.63,1.2,0.9904,2.2958,8.9337,linked
+spinach,Spinach (all),시금치,시금치,approximate,FALSE,TRUE,FALSE,FALSE,0.9934,2.345,5.441,0.9867,5.3877,20.8292,not linked: fails statistical rule
+leaf_lettuce,Leaf lettuce (all),상추,상추,approximate,TRUE,TRUE,FALSE,FALSE,0.9997,0.782,1.477,0.999,1.8016,5.9483,linked
+apple,Apple,사과(후지),사과,incompatible,FALSE,FALSE,FALSE,FALSE,0.9997,0.709,1.774,0.9678,2.7593,13.6425,not linked: incompatible definition
+pear,Pear,배,배,exact,FALSE,TRUE,TRUE,FALSE,0.9528,3.926,8.662,0.9061,6.641,19.648,not linked: fails statistical rule
+peach,Peach,복숭아,복숭아,exact,FALSE,TRUE,TRUE,FALSE,0.9914,1.229,2.938,0.9391,3.5754,12.4939,not linked: fails statistical rule
+sweet_persimmon,Sweet persimmon,감,단감,incompatible,FALSE,FALSE,FALSE,FALSE,0.9985,3.038,6.665,0.9779,4.3016,14.6878,not linked: incompatible definition
+tangerine,Tangerine,감귤,감귤,approximate,FALSE,FALSE,FALSE,FALSE,,,,,,,not linked: no overlap / old-only
+plum,Plum,자두,자두,no-overlap,FALSE,FALSE,FALSE,FALSE,,,,,,,not linked: no overlap / old-only
+grape,Grape,포도,포도,approximate,FALSE,FALSE,FALSE,FALSE,,,,,,,not linked: no overlap / old-only
+green_plum,Green plum,매실,매실,no-overlap,FALSE,FALSE,FALSE,FALSE,,,,,,,not linked: no overlap / old-only

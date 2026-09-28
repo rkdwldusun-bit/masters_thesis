@@ -1,0 +1,439 @@
+==== PANEL STRUCTURE ====
+rows: 1935  crops: 43  years: 1980 - 2024 
+duplicate crop x year: 0 
+rows per crop (all should be 45):
+
+45 
+43 
+crop groups:
+   crop_group perennial  n
+1:      fruit         1  9
+2:  vegetable         0 18
+3:      tuber         0  4
+4:      grain         0  5
+5:      pulse         0  4
+6:    special         0  3
+roles:
+                 role  n
+1:   baseline_treated 13
+2:       control_pool 24
+3: robustness_treated  3
+4:           excluded  2
+5:          rice_case  1
+                                                                                                                                                                                                                                                                          crops
+1:                                                                                                                                               apple,astringent_persimmon,corn,garlic,onion,pear,plum,red_pepper,soybean,spring_potato,sweet_persimmon,sweet_potato,tangerine
+2: autumn_napa,autumn_radish,barley,cabbage,carrot,ginger,highland_napa,highland_radish,large_green_onion,leaf_lettuce,malting_barley,mung_bean,other_pulses,peanut,perilla,red_bean,sesame,small_green_onion,spinach,spring_napa,spring_radish,wheat,winter_napa,winter_radish
+3:                                                                                                                                                                                                                                                    autumn_potato,grape,peach
+4:                                                                                                                                                                                                                                                   green_plum,highland_potato
+5:                                                                                                                                                                                                                                                                         rice
+
+Korean label encoding: MASTER_PANEL raw == crosswalk: 0 / 43 ; after latin1->utf8 repair: 43 / 43 
+
+==== MISSINGNESS (1991-2024) ====
+                 crop_id               role perennial  n area_obs yield_obs
+ 1:                 corn   baseline_treated         0 34       34        34
+ 2:               garlic   baseline_treated         0 34       34        34
+ 3:                onion   baseline_treated         0 34       34        34
+ 4:           red_pepper   baseline_treated         0 34       34        34
+ 5:              soybean   baseline_treated         0 34       34        34
+ 6:        spring_potato   baseline_treated         0 34       34        34
+ 7:         sweet_potato   baseline_treated         0 34       34        34
+ 8:          autumn_napa       control_pool         0 34       34        34
+ 9:        autumn_radish       control_pool         0 34       34        34
+10:               barley       control_pool         0 34       34        34
+11:              cabbage       control_pool         0 34       34        34
+12:               carrot       control_pool         0 34       34        34
+13:               ginger       control_pool         0 34       34        34
+14:        highland_napa       control_pool         0 34       34        34
+15:      highland_radish       control_pool         0 34       34        34
+16:    large_green_onion       control_pool         0 34       25        25
+17:         leaf_lettuce       control_pool         0 34       34        34
+18:       malting_barley       control_pool         0 34       34        34
+19:            mung_bean       control_pool         0 34       34        34
+20:         other_pulses       control_pool         0 34       34        34
+21:               peanut       control_pool         0 34       34        34
+22:              perilla       control_pool         0 34       34        34
+23:             red_bean       control_pool         0 34       34        34
+24:               sesame       control_pool         0 34       34        34
+25:    small_green_onion       control_pool         0 34       25        25
+26:              spinach       control_pool         0 34       34        34
+27:          spring_napa       control_pool         0 34       34        34
+28:        spring_radish       control_pool         0 34       34        34
+29:                wheat       control_pool         0 34       34        34
+30:          winter_napa       control_pool         0 34       11        11
+31:        winter_radish       control_pool         0 34       11        11
+32:      highland_potato           excluded         0 34       34        34
+33:                 rice          rice_case         0 34       34        34
+34:        autumn_potato robustness_treated         0 34       34        34
+35:                apple   baseline_treated         1 34        0         0
+36: astringent_persimmon   baseline_treated         1 34        0         0
+37:                 pear   baseline_treated         1 34        0         0
+38:                 plum   baseline_treated         1 34        0         0
+39:      sweet_persimmon   baseline_treated         1 34        0         0
+40:            tangerine   baseline_treated         1 34        0         0
+41:           green_plum           excluded         1 34        0         0
+42:                grape robustness_treated         1 34        0         0
+43:                peach robustness_treated         1 34        0         0
+                 crop_id               role perennial  n area_obs yield_obs
+    prod_obs orchard_obs first_prod last_prod
+ 1:       34           0       1991      2024
+ 2:       34           0       1991      2024
+ 3:       34           0       1991      2024
+ 4:       34           0       1991      2024
+ 5:       34           0       1991      2024
+ 6:       34           0       1991      2024
+ 7:       34           0       1991      2024
+ 8:       34           0       1991      2024
+ 9:       34           0       1991      2024
+10:       34           0       1991      2024
+11:       34           0       1991      2024
+12:       34           0       1991      2024
+13:       34           0       1991      2024
+14:       34           0       1991      2024
+15:       34           0       1991      2024
+16:       25           0       2000      2024
+17:       34           0       1991      2024
+18:       34           0       1991      2024
+19:       34           0       1991      2024
+20:       34           0       1991      2024
+21:       34           0       1991      2024
+22:       34           0       1991      2024
+23:       34           0       1991      2024
+24:       34           0       1991      2024
+25:       25           0       2000      2024
+26:       34           0       1991      2024
+27:       34           0       1991      2024
+28:       34           0       1991      2024
+29:       34           0       1991      2024
+30:       11           0       2014      2024
+31:       11           0       2014      2024
+32:       34           0       1991      2024
+33:       34           0       1991      2024
+34:       34           0       1991      2024
+35:       34          34       1991      2024
+36:       27          27       1998      2024
+37:       34          34       1991      2024
+38:       34          34       1991      2024
+39:       27          27       1998      2024
+40:       34          34       1991      2024
+41:        6           6       2019      2024
+42:       34          34       1991      2024
+43:       34          34       1991      2024
+    prod_obs orchard_obs first_prod last_prod
+
+==== LOG TRANSFORMATIONS ====
+max |log(area_ha) - ln_area| = 1.776e-15 ; non-positive raw values: 0 ; log present when raw missing: 0
+max |log(yield_kg10a) - ln_yield| = 1.776e-15 ; non-positive raw values: 0 ; log present when raw missing: 0
+max |log(production_t) - ln_production| = 1.776e-15 ; non-positive raw values: 0 ; log present when raw missing: 0
+max |log(total_orchard_area_ha) - ln_total_orchard_area| = 1.776e-15 ; non-positive raw values: 0 ; log present when raw missing: 0
+max |log(bearing_area_ha) - ln_bearing_area| = 1.776e-15 ; non-positive raw values: 0 ; log present when raw missing: 0
+ln_area_harmonized identity max gap: 0 
+
+==== TREATMENT CODING ====
+one timing row per crop: TRUE 
+panel timing == TREATMENT input (pilot, national, alt, fullscale): TRUE TRUE TRUE TRUE 
+clean_pre identity mismatches: 0 
+transition identity mismatches: 0 
+national_treatment identity mismatches: 0 
+event_time == year - national_year mismatches: 0 
+cells in >1 of {clean, transition, national}: 0 
+piloted crop-years in none of the three states: 0 
+crops with pilot_year but no national_year (post-pilot years coded transition):
+              crop_id         role pilot_year
+ 1:       autumn_napa control_pool       2022
+ 2:     autumn_radish control_pool       2024
+ 3:           cabbage control_pool       2017
+ 4:            carrot control_pool       2019
+ 5:            ginger control_pool       2025
+ 6:         mung_bean control_pool       2025
+ 7:           perilla control_pool       2027
+ 8:            sesame control_pool       2025
+ 9: small_green_onion control_pool       2019
+10:       spring_napa control_pool       2024
+11:       winter_napa control_pool       2020
+12:     winter_radish control_pool       2020
+
+==== CROP-LEVEL TREATMENT TABLE ====
+                     crop              crop_id     group      role_in_input
+ 1:                 Onion                onion vegetable   baseline_treated
+ 2:               Soybean              soybean     pulse   baseline_treated
+ 3:                  Corn                 corn     grain   baseline_treated
+ 4:                Garlic               garlic vegetable   baseline_treated
+ 5:         Spring potato        spring_potato     tuber   baseline_treated
+ 6:          Sweet potato         sweet_potato     tuber   baseline_treated
+ 7:            Red pepper           red_pepper vegetable   baseline_treated
+ 8:         Autumn potato        autumn_potato     tuber robustness_treated
+ 9:   Autumn napa cabbage          autumn_napa vegetable       control_pool
+10:         Autumn radish        autumn_radish vegetable       control_pool
+11:               Cabbage              cabbage vegetable       control_pool
+12:                Carrot               carrot vegetable       control_pool
+13:                Ginger               ginger vegetable       control_pool
+14:          Leaf lettuce         leaf_lettuce vegetable       control_pool
+15:             Mung bean            mung_bean     pulse       control_pool
+16:          Other pulses         other_pulses     pulse       control_pool
+17:                Peanut               peanut   special       control_pool
+18:               Perilla              perilla   special       control_pool
+19:                Sesame               sesame   special       control_pool
+20:     Small green onion    small_green_onion vegetable       control_pool
+21:   Spring napa cabbage          spring_napa vegetable       control_pool
+22:         Spring radish        spring_radish vegetable       control_pool
+23:   Winter napa cabbage          winter_napa vegetable       control_pool
+24:         Winter radish        winter_radish vegetable       control_pool
+25:                 Wheat                wheat     grain       control_pool
+26: Highland napa cabbage        highland_napa vegetable       control_pool
+27:       Highland radish      highland_radish vegetable       control_pool
+28:     Large green onion    large_green_onion vegetable       control_pool
+29:              Red bean             red_bean     pulse       control_pool
+30:                Barley               barley     grain       control_pool
+31:        Malting barley       malting_barley     grain       control_pool
+32:               Spinach              spinach vegetable       control_pool
+33:            Green plum           green_plum     fruit           excluded
+34:       Highland potato      highland_potato     tuber           excluded
+35:                 Grape                grape     fruit robustness_treated
+36:                 Peach                peach     fruit robustness_treated
+37:                 Apple                apple     fruit   baseline_treated
+38:                  Pear                 pear     fruit   baseline_treated
+39:       Sweet persimmon      sweet_persimmon     fruit   baseline_treated
+40:             Tangerine            tangerine     fruit   baseline_treated
+41:  Astringent persimmon astringent_persimmon     fruit   baseline_treated
+42:                  Plum                 plum     fruit   baseline_treated
+43:                  Rice                 rice     grain          rice_case
+                     crop              crop_id     group      role_in_input
+    pilot_year national_year               alternative_dates timing_confidence
+ 1:       2009          2012 alt table=2011; full-scale=2012              high
+ 2:       2008          2012 alt table=2011; full-scale=2012              high
+ 3:       2009          2013 alt table=2012; full-scale=2013              high
+ 4:       2010          2013 alt table=2012; full-scale=2013              high
+ 5:       2008          2013 alt table=2011; full-scale=2013            medium
+ 6:       2009          2013 alt table=2012; full-scale=2013              high
+ 7:       2008          2015 alt table=2014; full-scale=2015              high
+ 8:       2008          2012 alt table=2011; full-scale=2012               low
+ 9:       2022            NA     alt table=NA; full-scale=NA              high
+10:       2024            NA     alt table=NA; full-scale=NA              high
+11:       2017            NA     alt table=NA; full-scale=NA            medium
+12:       2019            NA     alt table=NA; full-scale=NA            medium
+13:       2025            NA     alt table=NA; full-scale=NA              high
+14:         NA            NA     alt table=NA; full-scale=NA            medium
+15:       2025            NA     alt table=NA; full-scale=NA              high
+16:         NA            NA     alt table=NA; full-scale=NA              high
+17:         NA            NA     alt table=NA; full-scale=NA            medium
+18:       2027            NA     alt table=NA; full-scale=NA              high
+19:       2025            NA     alt table=NA; full-scale=NA              high
+20:       2019            NA     alt table=NA; full-scale=NA            medium
+21:       2024            NA     alt table=NA; full-scale=NA              high
+22:         NA            NA     alt table=NA; full-scale=NA            medium
+23:       2020            NA     alt table=NA; full-scale=NA            medium
+24:       2020            NA     alt table=NA; full-scale=NA            medium
+25:       2017          2021 alt table=2024; full-scale=2025               low
+26:       2019          2024   alt table=NA; full-scale=2024              high
+27:       2019          2024   alt table=NA; full-scale=2024              high
+28:       2019          2024   alt table=NA; full-scale=2024              high
+29:       2020          2024 alt table=2024; full-scale=2024              high
+30:       2021          2025 alt table=2024; full-scale=2025            medium
+31:       2021          2025 alt table=2024; full-scale=2025               low
+32:       2021          2025 alt table=2024; full-scale=2025              high
+33:       2010          2013 alt table=2012; full-scale=2013              high
+34:       2009          2024   alt table=NA; full-scale=2024               low
+35:       2002          2004 alt table=2010; full-scale=2017               low
+36:       2002          2004 alt table=2010; full-scale=2019               low
+37:       2001          2003 alt table=2001; full-scale=2003            medium
+38:       2001          2003 alt table=2001; full-scale=2003            medium
+39:       2002          2004 alt table=2004; full-scale=2004              high
+40:       2002          2004 alt table=2004; full-scale=2004              high
+41:       2006          2008 alt table=2008; full-scale=2008              high
+42:       2008          2012 alt table=2011; full-scale=2012              high
+43:       2009          2014 alt table=2012; full-scale=2017               low
+    pilot_year national_year               alternative_dates timing_confidence
+    last_clean_pre_year_rule last_clean_pre_obs_production transition_length
+ 1:                     2008                          2008                 3
+ 2:                     2007                          2007                 4
+ 3:                     2008                          2008                 4
+ 4:                     2009                          2009                 3
+ 5:                     2007                          2007                 5
+ 6:                     2008                          2008                 4
+ 7:                     2007                          2007                 7
+ 8:                     2007                          2007                 4
+ 9:                     2021                          2021                NA
+10:                     2023                          2023                NA
+11:                     2016                          2016                NA
+12:                     2018                          2018                NA
+13:                     2024                          2024                NA
+14:                       NA                          2024                NA
+15:                     2024                          2024                NA
+16:                       NA                          2024                NA
+17:                       NA                          2024                NA
+18:                     2026                          2024                NA
+19:                     2024                          2024                NA
+20:                     2018                          2018                NA
+21:                     2023                          2023                NA
+22:                       NA                          2024                NA
+23:                     2019                          2019                NA
+24:                     2019                          2019                NA
+25:                     2016                          2016                 4
+26:                     2018                          2018                 5
+27:                     2018                          2018                 5
+28:                     2018                          2018                 5
+29:                     2019                          2019                 4
+30:                     2020                          2020                 4
+31:                     2020                          2020                 4
+32:                     2020                          2020                 4
+33:                     2009                            NA                 3
+34:                     2008                          2008                15
+35:                     2001                          2001                 2
+36:                     2001                          2001                 2
+37:                     2000                          2000                 2
+38:                     2000                          2000                 2
+39:                     2001                          2001                 2
+40:                     2001                          2001                 2
+41:                     2005                          2005                 2
+42:                     2007                          2007                 4
+43:                     2008                          2008                 5
+    last_clean_pre_year_rule last_clean_pre_obs_production transition_length
+    reference_event_time
+ 1:                   -4
+ 2:                   -5
+ 3:                   -5
+ 4:                   -4
+ 5:                   -6
+ 6:                   -5
+ 7:                   -8
+ 8:                   -5
+ 9:                   NA
+10:                   NA
+11:                   NA
+12:                   NA
+13:                   NA
+14:                   NA
+15:                   NA
+16:                   NA
+17:                   NA
+18:                   NA
+19:                   NA
+20:                   NA
+21:                   NA
+22:                   NA
+23:                   NA
+24:                   NA
+25:                   -5
+26:                   -6
+27:                   -6
+28:                   -6
+29:                   -5
+30:                   -5
+31:                   -5
+32:                   -5
+33:                   NA
+34:                  -16
+35:                   -3
+36:                   -3
+37:                   -3
+38:                   -3
+39:                   -3
+40:                   -3
+41:                   -3
+42:                   -5
+43:                   -6
+    reference_event_time
+                                                   analysis_role
+ 1:                            Annual: treated (headline sample)
+ 2:                            Annual: treated (headline sample)
+ 3:                            Annual: treated (headline sample)
+ 4:                            Annual: treated (headline sample)
+ 5:                            Annual: treated (headline sample)
+ 6:                            Annual: treated (headline sample)
+ 7:                            Annual: treated (headline sample)
+ 8: Coded 'robustness_treated' but not used by any specification
+ 9:         Control (annual and fruit samples; clean years only)
+10:         Control (annual and fruit samples; clean years only)
+11:         Control (annual and fruit samples; clean years only)
+12:         Control (annual and fruit samples; clean years only)
+13:         Control (annual and fruit samples; clean years only)
+14:         Control (annual and fruit samples; clean years only)
+15:         Control (annual and fruit samples; clean years only)
+16:         Control (annual and fruit samples; clean years only)
+17:         Control (annual and fruit samples; clean years only)
+18:         Control (annual and fruit samples; clean years only)
+19:         Control (annual and fruit samples; clean years only)
+20:         Control (annual and fruit samples; clean years only)
+21:         Control (annual and fruit samples; clean years only)
+22:         Control (annual and fruit samples; clean years only)
+23:         Control (annual and fruit samples; clean years only)
+24:         Control (annual and fruit samples; clean years only)
+25:         Control (annual and fruit samples; clean years only)
+26:         Control (annual and fruit samples; clean years only)
+27:         Control (annual and fruit samples; clean years only)
+28:         Control (annual and fruit samples; clean years only)
+29:         Control (annual and fruit samples; clean years only)
+30:         Control (annual and fruit samples; clean years only)
+31:         Control (annual and fruit samples; clean years only)
+32:         Control (annual and fruit samples; clean years only)
+33:                                                     Excluded
+34:                                                     Excluded
+35:          Fruit: added only in robustness (dates 2004 / 2010)
+36:          Fruit: added only in robustness (dates 2004 / 2010)
+37:                                  Fruit: treated (suggestive)
+38:                                  Fruit: treated (suggestive)
+39:                                  Fruit: treated (suggestive)
+40:                                  Fruit: treated (suggestive)
+41:                                  Fruit: treated (suggestive)
+42:                                  Fruit: treated (suggestive)
+43:                           Rice: descriptive single-crop case
+                                                   analysis_role
+
+==== CONTROL CLEANLINESS ====
+control-pool crop-years at/after own pilot in panel (these must be excluded by the estimator):
+              crop_id N
+ 1:       autumn_napa 3
+ 2:     autumn_radish 1
+ 3:            barley 4
+ 4:           cabbage 8
+ 5:            carrot 6
+ 6:     highland_napa 6
+ 7:   highland_radish 6
+ 8: large_green_onion 6
+ 9:    malting_barley 4
+10:          red_bean 5
+11: small_green_onion 6
+12:           spinach 4
+13:       spring_napa 1
+14:             wheat 8
+15:       winter_napa 5
+16:     winter_radish 5
+dropped-observation log reasons:
+                                                                           reason
+1:                   national value <= 0 recoded to missing (series not reported)
+2:                  transition year (pilot<=year<national) excluded from baseline
+3: control crop exposed to pilot/insurance -> not a valid control from pilot year
+    N
+1:  9
+2: 44
+3: 78
+
+==== PRODUCTION IDENTITY ====
+Units: area ha; yield kg/10a; production t.  1 ha = 10 x 10a  =>  kg = area*yield*10 ; t = area*yield/100
+stored identity_gap == recomputed gap, max diff: 3.650726e-15 
+All annual crops, all years:
+             n        max_abs        p50_abs        p95_abs        p99_abs 
+   1354.000000       0.596807       0.000163       0.003757       0.007963 
+ share_gt_0.01 share_gt_0.001 
+      0.004431       0.231905 
+Estimation window 1991-2024, 7 treated + 24 controls:
+             n        max_abs        p50_abs        p95_abs        p99_abs 
+    990.000000       0.074279       0.000138       0.003541       0.007464 
+ share_gt_0.01 share_gt_0.001 
+      0.002020       0.233333 
+Largest discrepancies:
+          crop_id year area_ha yield_kg10a production_t      gap_own
+ 1: spring_radish 2001   15988        3415       506904 -0.074279390
+ 2:        sesame 2020   22930          30         6795 -0.012286245
+ 3:        sesame 2015   25139          46        11678  0.009815094
+ 4:        sesame 2009   34875          37        12780 -0.009636518
+ 5:        sesame 1998   52814          52        27725  0.009484694
+ 6:        sesame 2021   19218          53        10090 -0.009424233
+ 7:        sesame 2012   25076          39         9690 -0.009208248
+ 8:        sesame 2013   23184          53        12392  0.008466990
+ 9:        sesame 1991   57717          52        29767 -0.008224893
+10:        sesame 2018   24760          51        12727  0.007840826
+
+Window cells with production but no area or yield (annual 31 crops):
+Empty data.table (0 rows and 5 cols): crop_id,year,area_ha,yield_kg10a,production_t

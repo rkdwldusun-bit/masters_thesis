@@ -1,0 +1,5 @@
+id: fig5
+title: [Figure 5] Relative Farm-Gate Prices: Reduced-Form Estimated Changes Associated with Insurance Expansion (Secondary)
+x: Years relative to nationwide availability (e)
+y: Log relative farm-gate price index
+caption: Note: Treated: Onion, Sweet potato, Garlic, Red pepper (exact item match, annual linking rule). Controls: Red bean, Cabbage, Carrot, Ginger, Sesame, Perilla, Peanut, each before its first pilot. Outcome: annual mean of the quarterly ratio of the crop farm-gate price index to the linked all-farm-output price index (a relative price, not a CPI-deflated real price); 1980–2004 from the 2005=100 crop series rebased to 2020=100 over 2005Q1–2012Q4, 2005–2024 from the 2020=100 series. Custom group-time difference-in-differences; reference year = final clean pre-pilot year (e = −8 to −4); crop-specific transition years omitted. Only four treated crops; prices and production are jointly determined, so estimates are reduced-form associations. 95% crop-level wild bootstrap intervals (custom procedure). Source: KOSIS farm-gate price index tables DT_1J49 and DT_1J60; author's calculations.

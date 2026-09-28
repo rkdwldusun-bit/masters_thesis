@@ -1,0 +1,335 @@
+==== PRICE: annual panel construction ====
+rows: 3948  units: 31  windows: early_2005_2006 full_2005_2012 late_2010_2012 
+duplicate unit x window x year: 0 
+max |log(real_linked) - ln_real_linked| = 4.44e-16
+max |log(real_old) - ln_real_old| = 0.00e+00
+max |log(real_new) - ln_real_new| = 0.00e+00
+annual value present with <4 quarters (linked/old/new): 0 0 0 
+year>=2005: max |real_linked - real_new| = 0 
+year<2005: max |real_linked/real_old - link_factor(rounded 4dp in diag)| = 4.842927e-05 
+  within-unit sd of implied k (should be ~0): 1.695894e-16 
+units with linked values before 2005 but no link factor: 0 
+
+==== PRICE: linking rule application (given the reported statistics) ====
+recomputed quarterly/annual/main/strict flags == reported: TRUE TRUE TRUE TRUE 
+         price_unit  match_class quarterly annual  main strict ann_corr ann_cv
+ 1:         soybean        exact     FALSE  FALSE FALSE  FALSE   0.9918  4.354
+ 2:           onion        exact     FALSE   TRUE  TRUE  FALSE   0.9989  1.342
+ 3:    sweet_potato        exact      TRUE   TRUE  TRUE   TRUE   0.9960  1.442
+ 4:            corn        exact     FALSE  FALSE FALSE  FALSE  -0.1793  9.146
+ 5:          garlic        exact      TRUE   TRUE  TRUE   TRUE   0.9971  1.074
+ 6:      red_pepper        exact     FALSE   TRUE  TRUE  FALSE   0.9826  2.171
+ 7:          potato  approximate      TRUE   TRUE FALSE  FALSE   0.9990  0.629
+ 8:            rice  approximate      TRUE   TRUE FALSE  FALSE   1.0000  0.073
+ 9:        red_bean        exact      TRUE   TRUE  TRUE   TRUE   0.9995  1.057
+10:       mung_bean     old-only     FALSE  FALSE FALSE  FALSE       NA     NA
+11:          barley  approximate     FALSE  FALSE FALSE  FALSE   0.6882  4.728
+12:  malting_barley  approximate     FALSE  FALSE FALSE  FALSE   0.8142  3.453
+13:         cabbage        exact      TRUE   TRUE  TRUE   TRUE   0.9990  0.909
+14:          carrot        exact     FALSE   TRUE  TRUE  FALSE   0.9747  2.589
+15:          ginger        exact     FALSE   TRUE  TRUE  FALSE   0.9993  0.961
+16:          sesame        exact      TRUE   TRUE  TRUE   TRUE   0.9999  0.104
+17:         perilla        exact      TRUE   TRUE  TRUE   TRUE   0.9998  0.116
+18:          peanut        exact      TRUE   TRUE  TRUE   TRUE   0.9999  0.125
+19:    napa_cabbage  approximate      TRUE   TRUE FALSE  FALSE   0.9997  0.405
+20:          radish  approximate     FALSE   TRUE FALSE  FALSE   0.9994  1.289
+21:     green_onion  approximate      TRUE   TRUE FALSE  FALSE   0.9999  0.630
+22:         spinach  approximate     FALSE   TRUE FALSE  FALSE   0.9934  2.345
+23:    leaf_lettuce  approximate      TRUE   TRUE FALSE  FALSE   0.9997  0.782
+24:           apple incompatible     FALSE  FALSE FALSE  FALSE   0.9997  0.709
+25:            pear        exact     FALSE   TRUE  TRUE  FALSE   0.9528  3.926
+26:           peach        exact     FALSE   TRUE  TRUE  FALSE   0.9914  1.229
+27: sweet_persimmon incompatible     FALSE  FALSE FALSE  FALSE   0.9985  3.038
+28:       tangerine  approximate     FALSE  FALSE FALSE  FALSE       NA     NA
+29:            plum   no-overlap     FALSE  FALSE FALSE  FALSE       NA     NA
+30:           grape  approximate     FALSE  FALSE FALSE  FALSE       NA     NA
+31:      green_plum   no-overlap     FALSE  FALSE FALSE  FALSE       NA     NA
+         price_unit  match_class quarterly annual  main strict ann_corr ann_cv
+    ann_maxdisc
+ 1:      11.936
+ 2:       2.726
+ 3:       2.415
+ 4:      18.458
+ 5:       2.373
+ 6:       5.676
+ 7:       1.320
+ 8:       0.169
+ 9:       1.843
+10:          NA
+11:      10.462
+12:       7.861
+13:       2.169
+14:       6.130
+15:       1.952
+16:       0.250
+17:       0.279
+18:       0.303
+19:       0.775
+20:       2.876
+21:       1.200
+22:       5.441
+23:       1.477
+24:       1.774
+25:       8.662
+26:       2.938
+27:       6.665
+28:          NA
+29:          NA
+30:          NA
+31:          NA
+    ann_maxdisc
+
+Approximate re-computation of annual-rule statistics from embedded annual RELATIVE series
+ (exact inputs = nominal quarterly series, not embedded):
+         price_unit n   corr rep_corr    cv rep_cv maxdisc rep_maxdisc
+ 1:           apple 8 0.9996   0.9997 0.733  0.709   1.837       1.774
+ 2:          barley 8 0.7185   0.6882 4.827  4.728  10.657      10.462
+ 3:         cabbage 8 0.9988   0.9990 0.925  0.909   2.212       2.169
+ 4:          carrot 8 0.9766   0.9747 2.615  2.589   6.222       6.130
+ 5:            corn 8 0.0790  -0.1793 9.146  9.146  18.458      18.458
+ 6:          garlic 8 0.9969   0.9971 1.073  1.074   2.365       2.373
+ 7:          ginger 8 0.9993   0.9993 0.967  0.961   1.919       1.952
+ 8:     green_onion 8 0.9999   0.9999 0.621  0.630   1.185       1.200
+ 9:    leaf_lettuce 8 0.9997   0.9997 0.792  0.782   1.471       1.477
+10:  malting_barley 8 0.8489   0.8142 3.529  3.453   8.020       7.861
+11:    napa_cabbage 8 0.9997   0.9997 0.414  0.405   0.787       0.775
+12:           onion 8 0.9991   0.9989 1.345  1.342   2.664       2.726
+13:           peach 8 0.9894   0.9914 1.223  1.229   2.943       2.938
+14:          peanut 8 0.9999   0.9999 0.126  0.125   0.306       0.303
+15:            pear 8 0.9409   0.9528 3.956  3.926   8.750       8.662
+16:         perilla 8 0.9998   0.9998 0.115  0.116   0.278       0.279
+17:          potato 8 0.9989   0.9990 0.621  0.629   1.301       1.320
+18:          radish 8 0.9994   0.9994 1.325  1.289   2.976       2.876
+19:        red_bean 8 0.9995   0.9995 1.046  1.057   1.838       1.843
+20:      red_pepper 8 0.9802   0.9826 2.155  2.171   5.634       5.676
+21:            rice 8 1.0000   1.0000 0.073  0.073   0.170       0.169
+22:          sesame 8 0.9999   0.9999 0.103  0.104   0.248       0.250
+23:         soybean 8 0.9917   0.9918 4.350  4.354  11.928      11.936
+24:         spinach 8 0.9932   0.9934 2.362  2.345   5.464       5.441
+25: sweet_persimmon 8 0.9981   0.9985 2.999  3.038   6.590       6.665
+26:    sweet_potato 8 0.9951   0.9960 1.449  1.442   2.432       2.415
+         price_unit n   corr rep_corr    cv rep_cv maxdisc rep_maxdisc
+
+==== PRICE: implied annual divisor dispersion (tests 'common divisor') ====
+If the divisor were common within a year, range_pct would be 0. Summary of range_pct across years:
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+ 0.1138  0.7793  1.3510  1.5924  2.2691  6.5302 
+   year n_units      min       max range_pct
+1: 1980      25 21.59792  23.00830  6.530170
+2: 2005      28 70.37049  73.18399  3.998124
+3: 1983      25 30.70547  31.90600  3.909803
+4: 2020      30 98.60879 101.49883  2.930816
+5: 2019      30 90.18259  92.67220  2.760633
+
+==== PRICE: master panel columns vs PRICE_ANNUAL ====
+rows: 1721  max |relative_price_index - real_linked|: 1.136868e-13  max |ln_rel_price_linked - ln_real_linked|: 8.881784e-16 
+crosswalk classes:
+         price_unit                    display  match_class
+ 1:         soybean                    Soybean        exact
+ 2:           onion                      Onion        exact
+ 3:    sweet_potato               Sweet potato        exact
+ 4:            corn                       Corn        exact
+ 5:          garlic                     Garlic        exact
+ 6:      red_pepper                 Red pepper        exact
+ 7:          potato       Potato (all seasons)  approximate
+ 8:            rice                       Rice  approximate
+ 9:        red_bean                   Red bean        exact
+10:       mung_bean                  Mung bean     old-only
+11:          barley                     Barley  approximate
+12:  malting_barley             Malting barley  approximate
+13:         cabbage                    Cabbage        exact
+14:          carrot                     Carrot        exact
+15:          ginger                     Ginger        exact
+16:          sesame                     Sesame        exact
+17:         perilla                    Perilla        exact
+18:          peanut                     Peanut        exact
+19:    napa_cabbage Napa cabbage (all seasons)  approximate
+20:          radish       Radish (all seasons)  approximate
+21:     green_onion    Green onion (all types)  approximate
+22:         spinach              Spinach (all)  approximate
+23:    leaf_lettuce         Leaf lettuce (all)  approximate
+24:           apple                      Apple incompatible
+25:            pear                       Pear        exact
+26:           peach                      Peach        exact
+27: sweet_persimmon            Sweet persimmon incompatible
+28:       tangerine                  Tangerine  approximate
+29:            plum                       Plum   no-overlap
+30:           grape                      Grape  approximate
+31:      green_plum                 Green plum   no-overlap
+         price_unit                    display  match_class
+                                          production_crop_ids
+ 1:                                                   soybean
+ 2:                                                     onion
+ 3:                                              sweet_potato
+ 4:                                                      corn
+ 5:                                                    garlic
+ 6:                                                red_pepper
+ 7:                                             spring_potato
+ 8:                                                      rice
+ 9:                                                  red_bean
+10:                                                 mung_bean
+11:                                                    barley
+12:                                            malting_barley
+13:                                                   cabbage
+14:                                                    carrot
+15:                                                    ginger
+16:                                                    sesame
+17:                                                   perilla
+18:                                                    peanut
+19:         spring_napa;highland_napa;autumn_napa;winter_napa
+20: spring_radish;highland_radish;autumn_radish;winter_radish
+21:                       large_green_onion;small_green_onion
+22:                                                   spinach
+23:                                              leaf_lettuce
+24:                                                     apple
+25:                                                      pear
+26:                                                     peach
+27:                                           sweet_persimmon
+28:                                                 tangerine
+29:                                                      plum
+30:                                                     grape
+31:                                                green_plum
+                                          production_crop_ids
+
+
+==== APFS national series ====
+APFS_NATIONAL == merge(ENROLL_RAW, PAY_RAW): TRUE 
+    year net_prem central province municipal farmer comp_share loss_ratio
+ 1: 2001     3016    1508        0         0   1508     1.0000       45.7
+ 2: 2002     8008    4004        0         0   4004     1.0000      433.5
+ 3: 2003    17202    8601        0         0   8601     1.0000      290.8
+ 4: 2004    32143   16071        0         0  16071     1.0000       42.3
+ 5: 2005    54847   33608        0         0  21239     1.0000       43.5
+ 6: 2006    57627   33891        0         0  23736     1.0000       36.6
+ 7: 2007    55670   30050        0         0  25620     1.0000      110.4
+ 8: 2008    55423   29014        0         0  26409     1.0000       45.0
+ 9: 2009    62524   30989        0         0  31535     1.0000      105.8
+10: 2010    86357   43241        0         0  21693     0.7519      104.6
+11: 2011   111004   55515        0         0  27004     0.7434      119.5
+12: 2012   151609   75804    12990     26835  35981     1.0000      357.1
+13: 2013   226900  113448    17082     44641  51730     1.0000       21.9
+14: 2014   233962  116977    18943     47678  50363     1.0000       66.9
+15: 2015   308477  154252    27856     66424  59945     1.0000       18.2
+16: 2016   344669  172157    31976     74447  66090     1.0000       33.1
+17: 2017   334252  166707    35443     70524  61578     1.0000       89.0
+18: 2018   550149  271334    57973    126858  93984     1.0000      103.2
+19: 2019   511146  252154    62068    123237  73688     1.0000      186.2
+20: 2020   722223  355306    84360    180563 101994     1.0000      150.6
+21: 2021   848524  417546   100073    213311 117595     1.0000       74.2
+22: 2022   949656  466677   116121    247167 119692     1.0000       65.0
+23: 2023  1039681  506116   130793    273302 129469     1.0000      107.3
+24: 2024  1141145  544222   145285    307424 144213     1.0000         NA
+    year net_prem central province municipal farmer comp_share loss_ratio
+    lr_recalc area_rate
+ 1:      45.7      17.5
+ 2:     433.4      18.3
+ 3:     290.8      15.2
+ 4:      42.3      18.2
+ 5:      43.5      23.4
+ 6:      36.6      24.0
+ 7:     110.4      22.7
+ 8:      45.0      23.1
+ 9:     105.8      12.5
+10:     104.6      13.6
+11:     119.5      15.0
+12:     323.8      13.6
+13:      19.9      19.1
+14:      62.0      16.1
+15:      17.0      21.5
+16:      31.0      27.4
+17:      83.7      29.7
+18:      97.1      32.9
+19:     175.7      38.8
+20:     140.7      45.0
+21:      67.6      49.4
+22:      58.5      49.9
+23:      96.6      52.0
+24:        NA      54.2
+    lr_recalc area_rate
+max |reported loss ratio - indemnity/net premium*100| (2001-2023): 33.25511 
+2010-2011 component share of net premium: 0.7519 0.7434 ; provincial+municipal: 0 0 
+
+==== APFS 2023 crop-level ====
+derived == raw (values): TRUE  rows: 82 
+sum over crops: net premium 1040539  after refunds 1039681  indemnity 1004249  -> loss ratio 96.59 
+  national 2023: net premium (after refunds) 1039681  indemnity 1004249  loss ratio 107.3 
+max |loss ratio - indemnity/premium after refunds|: 43.21158 
+
+==== APFS province 2023/2024 ====
+2023 가입농가수 : national 547183  sum of regions 547183 
+2023 가입건수 : national 634212  sum of regions 634212 
+2023 환급금차감후순보험료 : national 1039681  sum of regions 1039681 
+2023 보험금 : national 1004249  sum of regions 1004249 
+2023 loss ratio national: 107.289  recomputed: 96.592 
+2024 가입농가수 : national 589676  sum of regions 589676 
+2024 가입건수 : national 684140  sum of regions 684140 
+2024 환급금차감후순보험료 : national 1141145  sum of regions 1141145 
+2024 보험금 : national 1020784  sum of regions 1020784 
+2024 loss ratio national: 97.893  recomputed: 89.453 
+regions: 전국,서울,부산,대구,인천,광주,대전,울산,세종,경기,강원,충북,충남,전북,전남,경북,경남,제주 
+
+==== APFS 2024 fruit contract-detail summaries ====
+                                                                      item
+1:                                                            rows in file
+2:                                                    exact duplicate rows
+3:                                              unique contract identifier
+4: rows from revenue-insurance grape (excluded from crop-disaster figures)
+5:           rows with zero/invalid yield or price fields (set to missing)
+6:                                                        observation unit
+                                                                value
+1:                                                             336232
+2:                                                              12099
+3:                                                       none in file
+4:                                                                694
+5:                                                              10529
+6: administrative contract-detail record (not necessarily a contract)
+sum of crop-level records: 335538  = rows - revenue grape rows: 335538  ->  TRUE 
+sum of records_zero_or_invalid_yield: 10518  vs audit (incl. revenue grape): 10529 
+share triplets sum to 1 (max |sum-1|): 0 
+                      crop records  below  equal  above ins_price_p25
+ 1:                  Apple  145984 0.0595 0.9061 0.0344          2057
+ 2:                  Peach   60503 0.0014 0.9986 0.0000          2690
+ 3:                   Pear   24440 0.0436 0.9406 0.0158          1426
+ 4:   Astringent persimmon   20131 0.0254 0.9746 0.0000          1198
+ 5:                   Plum   16780 0.0006 0.9994 0.0000          2279
+ 6:              Tangerine   15980 0.0188 0.9812 0.0000           996
+ 7:               Chestnut   12662 0.0085 0.9914 0.0001          2383
+ 8:                 Jujube   10131 0.0195 0.9805 0.0000          5132
+ 9:        Sweet persimmon    7079 0.0185 0.9815 0.0000          1981
+10:             Green plum    7035 0.0033 0.9967 0.0000          2453
+11:                  Grape    6809 0.0063 0.9937 0.0000          3187
+12:                   Yuja    4103 0.0000 1.0000 0.0000          2887
+13:              Kiwifruit     921 0.0000 1.0000 0.0000          2220
+14: Korean black raspberry     598 0.0000 1.0000 0.0000         13420
+15:                 Dureup     528 0.0057 0.9943 0.0000         17514
+16:              Blueberry     518 0.0298 0.9702 0.0000         13200
+17:                Apricot     321 0.0000 1.0000 0.0000          2359
+18:                 Walnut     307 0.0106 0.9894 0.0000          1383
+19:                    Fig     271 0.0000 1.0000 0.0000          3825
+20:                  Omija     248 0.0081 0.9919 0.0000          8586
+21:               Mulberry     189 0.0000 1.0000 0.0000          7928
+                      crop records  below  equal  above ins_price_p25
+    ins_price_med ins_price_p75
+ 1:          2057          2298
+ 2:          3075          3220
+ 3:          1576          1576
+ 4:          1397          1397
+ 5:          2279          2643
+ 6:           996           996
+ 7:          2383          2383
+ 8:         12525         13375
+ 9:          1981          1981
+10:          2453          2453
+11:          5939          6132
+12:          2887          2887
+13:          2220          3130
+14:         13420         13420
+15:         17514         17514
+16:         13200         13200
+17:          2359          2359
+18:          1383          1383
+19:          3825          3825
+20:          8586          8586
+21:          7928          7928
+    ins_price_med ins_price_p75
+crops in file: 21 

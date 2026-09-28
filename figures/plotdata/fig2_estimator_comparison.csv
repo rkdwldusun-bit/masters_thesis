@@ -1,0 +1,19 @@
+spec_internal,outcome_internal,est,lo,hi,interval
+CS-A (preferred),ln_area,0.0484190733195,-0.212778074560528,0.309616221199528,wild bootstrap
+CS-A (preferred),ln_production,0.0198832667621557,-0.287362592675304,0.327129126199615,wild bootstrap
+CS-A (preferred),ln_yield,-0.0284052547052099,-0.131777070129044,0.0749665607186242,wild bootstrap
+CS-B (mean of all clean-pre years),ln_area,0.264360933002946,-0.0852658109211056,0.613987676926998,wild bootstrap
+CS-B (mean of all clean-pre years),ln_production,0.227833041515655,-0.132646944353253,0.588313027384562,wild bootstrap
+CS-B (mean of all clean-pre years),ln_yield,-0.0362180981106565,-0.169903294416774,0.0974670981954608,wild bootstrap
+CS-B5 (mean of last 5 clean-pre years),ln_area,0.0754290234228748,-0.2116119405387,0.36246998738445,wild bootstrap
+CS-B5 (mean of last 5 clean-pre years),ln_production,0.0668558016166309,-0.248637424153032,0.382349027386294,wild bootstrap
+CS-B5 (mean of last 5 clean-pre years),ln_yield,-0.00845888102119281,-0.104493121331609,0.0875753592892229,wild bootstrap
+Imputation (FE on clean cells),ln_area,0.244486160453002,-0.106001180540944,0.594973501446949,wild bootstrap
+Imputation (FE on clean cells),ln_production,0.216218378650885,-0.145841428542847,0.578278185844618,wild bootstrap
+Imputation (FE on clean cells),ln_yield,-0.0280091693315312,-0.155723784946222,0.0997054462831591,wild bootstrap
+"TWFE static, Han-style naive coding (benchmark)",ln_area,0.174417115162788,-0.163507655438741,0.512341885764317,est +/- 1.96 SE
+"TWFE static, Han-style naive coding (benchmark)",ln_production,0.162616165655605,-0.176899647067988,0.502131978379198,est +/- 1.96 SE
+"TWFE static, Han-style naive coding (benchmark)",ln_yield,-0.0114451833356289,-0.124825634995552,0.101935268324294,est +/- 1.96 SE
+"TWFE static, clean cells (benchmark)",ln_area,0.263409170851231,-0.0969856758264161,0.623804017528878,est +/- 1.96 SE
+"TWFE static, clean cells (benchmark)",ln_production,0.237515885485336,-0.131179510651038,0.60621128162171,est +/- 1.96 SE
+"TWFE static, clean cells (benchmark)",ln_yield,-0.0256059712030965,-0.164625092299542,0.113413149893349,est +/- 1.96 SE

@@ -1,0 +1,5 @@
+id: figA1
+title: [Appendix Figure A1] Insured-Price Field by Fruit Crop, 2024
+x: Insured price as recorded in the APFS file (log scale)
+y: 
+caption: Note: Bar = interquartile range; point = median. Eight crops with the most records. The measurement unit of this field is not defined in the available official sources; values are shown as recorded and should not be compared with market prices. Quartiles are taken from the supplied crop-level summary (raw records not in the verified bundle). Descriptive only. Source: Korea Agricultural Policy Insurance & Finance Service (APFS), public data; author's calculations.

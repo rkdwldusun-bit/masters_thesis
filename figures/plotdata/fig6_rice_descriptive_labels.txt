@@ -1,0 +1,5 @@
+id: fig6
+title: [Figure 6] Rice: Area, Yield and Production with Alternative Insurance Dates (Descriptive Case Only)
+x: Year
+y: Log difference from 2008
+caption: Note: Paddy rice, national series, 1991–2024, expressed as the log difference from 2008, the last year before the first pilot. Rice is a single treated crop, so no difference-in-differences inference is reported; its insurance timing also overlaps with rice-specific policies. Vertical lines mark alternative dates from the treatment-coding input. Descriptive only. Source: KOSIS Crop Production Survey (national series); author's calculations.

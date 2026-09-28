@@ -1,0 +1,7 @@
+"sample","outcome","pre_slope_per_year","pre_coefs","mean_pre"
+"annual","Area","0.0467","8","-0.066"
+"annual","Production","0.0528","8","-0.082"
+"annual","Yield","0.0063","8","-0.016"
+"fruit","Orchard area","0.0388","9","-0.174"
+"fruit","Production","0.0164","9","-0.208"
+"price","Relative price","0.0057","8","-0.127"

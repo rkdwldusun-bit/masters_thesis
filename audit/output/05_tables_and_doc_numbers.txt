@@ -1,0 +1,78 @@
+==== (a) presentation tables vs RAW_SUMMARY ====
+MISMATCH T3_estimator_comparison 11 Imputation (FE on clean cells) Yield 
+MISMATCH T9_price 2 CS-B main Relative price 
+rows checked: 108  mismatches: 2 
+T2_annual_dynamic : rows 54  matched 54  max |round4 diff| 0 
+T8_fruit_dynamic : rows 38  matched 38  max |round4 diff| 0 
+T10_price_dynamic : rows 18  matched 18  max |round4 diff| 0 
+
+==== (b) full-precision values for DOCUMENTATION numbers ====
+A area                                                             0.048419   doc: 0.048
+A yield                                                           -0.028405   doc: -0.028
+A production                                                       0.019883   doc: 0.020
+A area + A yield                                                   0.020014   doc: = 0.020 = production
+A area CI lo/hi                                                   -0.212778   doc: -0.213
+                                                                   0.309616   doc: 0.310
+A yield CI lo/hi                                                  -0.131777   doc: -0.132
+                                                                   0.074967   doc: 0.075
+A prod CI lo/hi                                                   -0.287363   doc: -0.287
+                                                                   0.327129   doc: 0.327
+MDE 2.8 x SE ln_production                                         0.445553   doc: 0.45 / 0.39 / 0.15
+MDE 2.8 x SE ln_area                                               0.389328   doc: 0.45 / 0.39 / 0.15
+MDE 2.8 x SE ln_yield                                              0.153385   doc: 0.45 / 0.39 / 0.15
+exp(CI lo)-1 production                                           -0.249760   doc: -25%
+exp(CI hi)-1 production                                            0.386981   doc: +38%
+pre Wald p ln_area                                                 0.346200   doc: 0.35 / 0.67 / 0.41
+pre Wald p ln_yield                                                0.670200   doc: 0.35 / 0.67 / 0.41
+pre Wald p ln_production                                           0.404900   doc: 0.35 / 0.67 / 0.41
+dates alt-table area                                               0.061689   doc: 0.062
+dates alt-table production                                         0.036398   doc: 0.036
+pilot clock area                                                   0.034486   doc: 0.034
+pilot clock production                                             0.016682   doc: 0.017
+fruit AP2001 area                                                  0.129992   doc: 0.130
+fruit AP2001 production                                            0.117243   doc: 0.117
+fruit A area                                                       0.135664   doc: 0.136
+fruit A production                                                 0.114542   doc: 0.115
+prod excl. other pulses                                            0.050692   doc: range -0.105 .. 0.051; field -0.091 [-0.53,0.35]
+prod excl. likely spillover (leaf lettuce, sp                     -0.054720   doc: range -0.105 .. 0.051; field -0.091 [-0.53,0.35]
+prod field crops only                                             -0.091290   doc: range -0.105 .. 0.051; field -0.091 [-0.53,0.35]
+prod excl. uncertain seasonal forms                               -0.104599   doc: range -0.105 .. 0.051; field -0.091 [-0.53,0.35]
+field-only CI lo                                                  -0.528975   doc: -0.53
+field-only CI hi                                                   0.346394   doc: 0.35
+LOO red pepper production                                          0.131755   doc: 0.132
+LOO red pepper prod CI lo                                         -0.103149   doc: -0.10
+LOO red pepper prod CI hi                                          0.366658   doc: 0.37
+LOO red pepper area                                                0.129428   doc: 0.129
+CS-B (mean of all clean-pre ye ln_area                             0.264361   doc: memo s.6 table
+CS-B (mean of all clean-pre ye ln_yield                           -0.036218   doc: memo s.6 table
+CS-B (mean of all clean-pre ye ln_production                       0.227833   doc: memo s.6 table
+CS-B5 (mean of last 5 clean-pr ln_area                             0.075429   doc: memo s.6 table
+CS-B5 (mean of last 5 clean-pr ln_yield                           -0.008459   doc: memo s.6 table
+CS-B5 (mean of last 5 clean-pr ln_production                       0.066856   doc: memo s.6 table
+Imputation (FE on clean cells) ln_area                             0.244486   doc: memo s.6 table
+Imputation (FE on clean cells) ln_yield                           -0.028009   doc: memo s.6 table
+Imputation (FE on clean cells) ln_production                       0.216218   doc: memo s.6 table
+TWFE static, clean cells (benc ln_area                             0.263409   doc: memo s.6 table
+TWFE static, clean cells (benc ln_yield                           -0.025606   doc: memo s.6 table
+TWFE static, clean cells (benc ln_production                       0.237516   doc: memo s.6 table
+TWFE static, Han-style naive c ln_area                             0.174417   doc: memo s.6 table
+TWFE static, Han-style naive c ln_yield                           -0.011445   doc: memo s.6 table
+TWFE static, Han-style naive c ln_production                       0.162616   doc: memo s.6 table
+p_normal production                                                0.900561   doc: 0.901
+p_wild production                                                  0.903200   doc: 0.903
+Cohort 2015 only p (prod)                                          0.000100   doc: 0.000
+cohort-only pre-trend Wald p range: 0.6943 0.9967   doc: 0.7-1.0
+fruit B / TWFE range: 0.3797916 0.4318586   doc: 0.38-0.43
+price CS-A main (exact match, annual linking r                    -0.118062   doc: -0.118/-0.051/-0.145/-0.019
+price Strict sample (both linking rules)                          -0.051436   doc: -0.118/-0.051/-0.145/-0.019
+price Approximate matches included (+ all-pota                    -0.145121   doc: -0.118/-0.051/-0.145/-0.019
+price CS-B main                                                   -0.019063   doc: -0.118/-0.051/-0.145/-0.019
+price new-only 6 crops                                            -0.165833   doc: -0.166
+price new-only 4 crops                                            -0.118062   doc: -0.118
+price CI lo                                                       -0.288555   doc: -0.289
+price CI hi                                                        0.052431   doc: 0.052
+Link window 2005-2006                                             -0.118062   doc: -0.118
+Link window 2010-2012                                             -0.118062   doc: -0.118
+
+G / treated / controls for preferred annual: 29 7 24   doc: 29 / 7 / 24
+field-only clusters: 15 21   doc: 15

@@ -1,0 +1,32 @@
+"price_unit","display","item_1J49","item_1J60","production_crop_ids","match_class","definition_note"
+"soybean","Soybean","콩","콩","soybean","exact","Same item name in both tables."
+"onion","Onion","양파","양파","onion","exact",
+"sweet_potato","Sweet potato","고구마","고구마","sweet_potato","exact",
+"corn","Corn","옥수수","옥수수","corn","exact","Production series may include forage corn."
+"garlic","Garlic","마늘","마늘","garlic","exact",
+"red_pepper","Red pepper","건고추","건고추","red_pepper","exact","Dried red pepper in both tables."
+"potato","Potato (all seasons)","감자","감자","spring_potato","approximate","Price pools spring, highland and autumn potatoes; treatment of spring potato only."
+"rice","Rice","일반미","멥쌀","rice","approximate","Item renamed (일반미 -> 멥쌀); rice case only."
+"red_bean","Red bean","팥","팥","red_bean","exact",
+"mung_bean","Mung bean","녹두",,"mung_bean","old-only","DT_1J49 ends 2004Q4; absent in DT_1J60."
+"barley","Barley","쌀보리","쌀보리(조곡)","barley","approximate","Naked barley price only; production = hulled + naked; 조곡 qualifier added in DT_1J60."
+"malting_barley","Malting barley","맥주맥","맥주보리","malting_barley","approximate","Item renamed (맥주맥 -> 맥주보리)."
+"cabbage","Cabbage","양배추","양배추","cabbage","exact",
+"carrot","Carrot","당근","당근","carrot","exact","All forms in both production and price."
+"ginger","Ginger","생강","생강","ginger","exact","DT_1J49 starts 1995Q1."
+"sesame","Sesame","참깨","참깨","sesame","exact",
+"perilla","Perilla","들깨","들깨","perilla","exact",
+"peanut","Peanut","땅콩","땅콩","peanut","exact",
+"napa_cabbage","Napa cabbage (all seasons)","배추","배추","spring_napa;highland_napa;autumn_napa;winter_napa","approximate","Pools seasonal forms and greenhouse napa cabbage (insured from 2014)."
+"radish","Radish (all seasons)","무","무","spring_radish;highland_radish;autumn_radish;winter_radish","approximate","Pools seasonal forms and greenhouse radish (insured from 2015)."
+"green_onion","Green onion (all types)","파","파","large_green_onion;small_green_onion","approximate","Pools large and small green onion and greenhouse green onion (insured from 2014)."
+"spinach","Spinach (all)","시금치","시금치","spinach","approximate","Pools open-field and greenhouse spinach (greenhouse insured from 2013)."
+"leaf_lettuce","Leaf lettuce (all)","상추","상추","leaf_lettuce","approximate","Pools open-field and greenhouse lettuce (greenhouse insured from 2013)."
+"apple","Apple","사과(후지)","사과","apple","incompatible","Old series = Fuji variety only; new = all apples."
+"pear","Pear","배","배","pear","exact",
+"peach","Peach","복숭아","복숭아","peach","exact",
+"sweet_persimmon","Sweet persimmon","감","단감","sweet_persimmon","incompatible","Old series = all persimmons."
+"tangerine","Tangerine","감귤","감귤","tangerine","approximate","Old 감귤 ends 2004; 2005-12 split into 온주밀감/한라봉 -> no overlap for 감귤."
+"plum","Plum","자두","자두","plum","no-overlap","Old ends 2012Q4; new starts 2015Q1."
+"grape","Grape","포도","포도","grape","approximate","Old 포도 ends 2004; varieties 2005-12 -> no overlap for 포도."
+"green_plum","Green plum","매실","매실","green_plum","no-overlap","Old ends 2012Q4; new starts 2015Q1."

@@ -1,0 +1,23 @@
+"Sheet","Source file","Role","Rows","Columns","Notes"
+"MASTER_PANEL","ch5_master_panel_national_v2(2).csv","Final thesis-facing master panel","1935","55","Latest relative-price variable names"
+"TREATMENT","treatment_coding_input(4).csv","Treatment timing input","43","12",
+"PROD_CROSSWALK","crop_crosswalk_production(1).csv","Production crop crosswalk/provenance","43","10",
+"NOMENCLATURE","appendix_crop_nomenclature(1).csv","Appendix crop nomenclature","43","8",
+"PRICE_ANNUAL","price_annual_panel(1).csv","Annual price panel","3948","13","Intermediate columns retain real_* names; README maps them to thesis labels"
+"PRICE_ITEMS","price_item_crosswalk(1).csv","DT_1J49 × DT_1J60 item crosswalk","31","7",
+"PRICE_LINK_DIAG","price_linking_diagnostics(1).csv","Price linking diagnostics","31","38",
+"PRICE_DEFL_LINK","price_deflator_link(1).csv","All-farm-output index link parameters","1","7",
+"APFS_NATIONAL","apfs_national_series(1).csv","National APFS series","24","15",
+"APFS_CROP_2023","apfs_crop_level_2023(1).csv","2023 crop-level APFS cross-section","82","16",
+"APFS_PROV_23_24","apfs_province_2023_2024(2).csv","2023–2024 province comparison","18","31",
+"APFS_FRUIT_CROP","apfs_fruit_records_2024_by_crop(1).csv","2024 fruit administrative-record summaries","21","29","Full raw 336,232-row source omitted from transfer workbook"
+"APFS_FRUIT_AUD","apfs_fruit_records_2024_audit(1).csv","2024 fruit raw-file audit summary","6","2",
+"COHORT_SUPPORT","cohort_year_support(2).csv","Cohort-year support diagnostics","204","8",
+"EVENT_SUPPORT","event_time_support(2).csv","Event-time support diagnostics","44","6",
+"CONTROL_COMP","control_composition(2).csv","Control composition diagnostics","138","5",
+"DROPPED_LOG","dropped_observation_log(4).csv","Dropped-observation log","131","5",
+"APFS_ENROLL_RAW","농업정책보험금융원_농작물재해보험 연도별 가입 현황_20241231.csv","Original public annual enrollment CSV","24","12",
+"APFS_PAY_RAW","농업정책보험금융원_농작물재해보험 연도별 지급현황_20231231.csv","Original public annual payment CSV","23","4",
+"APFS_CROPJOIN23","농업정책보험금융원_농작물재해보험 품목별 가입 및 지급현황_20231231.csv","Original public 2023 crop enrollment/payment CSV","82","16",
+"KOSIS_METADATA","kosis_metadata(4).json","KOSIS source metadata","81","3",
+"FILE_MANIFEST","generated","Integrity/source manifest","38","4",

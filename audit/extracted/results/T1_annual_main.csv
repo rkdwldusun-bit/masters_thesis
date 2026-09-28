@@ -1,0 +1,4 @@
+"Specification","Outcome","Estimated_change","SE_crop_clustered","CI95_wild_bootstrap","p_wild_bootstrap","p_cluster_normal","Treated_crops","Clusters","Pretrend_Wald_p"
+"Custom group-time DiD, final clean pre-pilot year (preferred)","Area","0.048","0.139","[-0.213, 0.310]","0.727","0.728","7","29","0.346"
+"Custom group-time DiD, final clean pre-pilot year (preferred)","Yield","-0.028","0.055","[-0.132, 0.075]","0.618","0.604","7","29","0.67"
+"Custom group-time DiD, final clean pre-pilot year (preferred)","Production","0.02","0.159","[-0.287, 0.327]","0.903","0.901","7","29","0.405"

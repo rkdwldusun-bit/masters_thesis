@@ -1,0 +1,349 @@
+*******************************************************
+* Figure 2-2-2. Annual Premiums and Premium Rate
+* Crop Disaster Insurance
+*******************************************************
+
+clear all
+set more off
+
+* Font setting
+graph set window fontface "Arial Narrow"
+
+*******************************************************
+* 1. Enter data
+*******************************************************
+
+input year premium_after_refunds premium_rate
+2001     3016     3.68
+2005    54847     9.25
+2010    86357     5.52
+2015   308477     6.14
+2016   344669     4.89
+2017   334252     3.94
+2018   550149     4.23
+2019   511146     3.26
+2020   722223     3.62
+2021   848524     3.80
+2022   949656     3.63
+2023  1039681     3.56
+2024  1141145     3.62
+end
+
+*******************************************************
+* 2. Create x-axis and labels
+*******************************************************
+
+gen x = _n
+
+gen premium_label = string(premium_after_refunds, "%12.0fc")
+replace premium_label = strtrim(premium_label)
+
+gen rate_label = string(premium_rate, "%4.2f")
+replace rate_label = strtrim(rate_label)
+
+* Label positions
+gen premium_label_y = premium_after_refunds + 35000
+gen rate_label_y = premium_rate + 0.35
+
+replace rate_label_y = premium_rate + 0.75 if year == 2001
+replace rate_label_y = premium_rate + 0.70 if year == 2010
+replace rate_label_y = premium_rate - 0.80 if year == 2018
+replace rate_label_y = premium_rate + 0.20 if year == 2019
+*******************************************************
+* 3. Draw graph
+*******************************************************
+
+#delimit ;
+
+twoway
+    (bar premium_after_refunds x,
+        yaxis(1)
+        barwidth(0.55)
+        fcolor("153 199 164")
+        lcolor(none))
+
+    (scatter premium_label_y x,
+        yaxis(1)
+        msymbol(none)
+        mlabel(premium_label)
+        mlabcolor(black)
+        mlabsize(small)
+        mlabposition(12))
+
+    (connected premium_rate x,
+        yaxis(2)
+        lcolor(cranberry)
+        mcolor(cranberry)
+        msymbol(O)
+        msize(small)
+        lwidth(medthin))
+
+    (scatter rate_label_y x,
+        yaxis(2)
+        msymbol(none)
+        mlabel(rate_label)
+        mlabcolor(cranberry)
+        mlabsize(small)
+        mlabposition(12)),
+
+    title("[Figure 2-2-2] Annual Premiums and Premium Rate",
+        size(medium)
+        color(black))
+
+    xlabel(1 "2001" 2 "2005" 3 "2010" 4 "2015" 5 "2016" 6 "2017"
+           7 "2018" 8 "2019" 9 "2020" 10 "2021" 11 "2022"
+           12 "2023" 13 "2024",
+           labsize(small))
+
+    ylabel(0(200000)1200000,
+        axis(1)
+        format(%12.0fc)
+        labsize(small)
+        angle(0)
+        grid
+        glcolor(gs12)
+        glpattern(dash))
+
+    ylabel(0(1)10,
+        axis(2)
+        format(%4.2f)
+        labsize(small)
+        angle(0))
+
+    ytitle("KRW million",
+        axis(1)
+        size(small))
+
+    ytitle("%",
+        axis(2)
+        size(small))
+
+    xtitle("")
+
+    legend(order(1 "Premiums after Refunds" 3 "Premium Rate (%)")
+        position(12)
+        ring(1)
+        row(1)
+        size(small)
+        region(lcolor(white)))
+
+    note("Source: NH NongHyup Property & Casualty Insurance, Agricultural Insurance Department",
+        size(small)
+        position(7))
+
+    graphregion(color(white) lcolor(navy) lwidth(thin))
+    plotregion(color(white) lcolor(white))
+    bgcolor(white)
+
+    xscale(range(0.4 13.6))
+    yscale(axis(1) range(0 1250000))
+    yscale(axis(2) range(0 10));
+
+#delimit cr
+
+*******************************************************
+* 4. Export graph
+*******************************************************
+
+graph export "figure_2_2_2_annual_premiums_premium_rate.png", replace width(2400)
+
+library(ggplot2)
+
+# Agricultural Disaster Insurance budget
+# Unit: million KRW
+
+budget_total <- data.frame(
+  year = 2014:2026,
+  budget = c(
+    270110,  # 2014
+    285349,  # 2015
+    286885,  # 2016
+    286995,  # 2017
+    252148,  # 2018
+    326046,  # 2019
+    479416,  # 2020
+    475464,  # 2021
+    632413,  # 2022
+    730922,  # 2023
+    657104,  # 2024
+    801929,  # 2025
+    887089   # 2026
+  )
+)
+
+ggplot(budget_total, aes(x = year, y = budget)) +
+  geom_line(size = 0.9, color = "#66C2A5") +
+  geom_point(size = 2.5, color = "#66C2A5") +
+  scale_x_continuous(
+    breaks = 2014:2026
+  ) +
+  scale_y_continuous(
+    labels = function(x) format(x, big.mark = ",", scientific = FALSE),
+    breaks = seq(0, 900000, by = 200000),
+    limits = c(0, 900000),
+    expand = expansion(mult = c(0, 0.03))
+  ) +
+  labs(
+    x = "Year",
+    y = "Budget (million KRW)"
+  ) +
+  theme_bw(base_family = "sans", base_size = 14) +
+  theme(
+    plot.title = element_blank(),
+    panel.border = element_rect(color = "grey40", fill = NA, size = 0.8),
+    panel.grid.major = element_line(color = "grey90", size = 0.6),
+    panel.grid.minor = element_line(color = "grey95", size = 0.4),
+    axis.title = element_text(size = 15, color = "black"),
+    axis.text = element_text(size = 11, color = "grey30"),
+    axis.text.x = element_text(angle = 0, hjust = 0.5, vjust = 0.5),
+    legend.position = "none",
+    plot.background = element_rect(fill = "white", color = NA),
+    panel.background = element_rect(fill = "white", color = NA)
+  )
+
+*******************************************************
+* Figure 2-2-1. Insured by Year and Insurance Uptake Rate
+* Crop Disaster Insurance
+*******************************************************
+
+clear all
+set more off
+
+* Font setting
+graph set window fontface "Arial Narrow"
+
+*******************************************************
+* 1. Enter data
+*******************************************************
+
+input year insured_policies uptake_rate
+2001   8086    17.5
+2005   27780   23.4
+2010   73593   13.0
+2015   154176  21.5
+2016   240781  27.4
+2017   281648  29.7
+2018   330243  32.9
+2019   397689  38.8
+2020   515037  45.0
+2021   577917  49.4
+2022   593943  49.9
+2023   634212  52.0
+2024   684140  54.2
+end
+
+*******************************************************
+* 2. Create x-axis and labels
+*******************************************************
+
+gen x = _n
+
+gen insured_label = string(insured_policies, "%12.0fc")
+replace insured_label = strtrim(insured_label)
+
+gen rate_label = string(uptake_rate, "%4.1f")
+replace rate_label = strtrim(rate_label)
+
+* Put labels for large bars inside the bar to avoid overlap
+gen insured_label_y = insured_policies + 18000
+replace insured_label_y = insured_policies - 30000 if insured_policies >= 500000
+
+* Add buffer above the line labels
+gen rate_label_y = uptake_rate + 2.2
+
+*******************************************************
+* 3. Draw graph
+*******************************************************
+
+#delimit ;
+
+twoway
+    (bar insured_policies x,
+        yaxis(1)
+        barwidth(0.55)
+        fcolor(eltblue)
+        lcolor(none))
+
+    (scatter insured_label_y x,
+        yaxis(1)
+        msymbol(none)
+        mlabel(insured_label)
+        mlabcolor(black)
+        mlabsize(small)
+        mlabposition(12))
+
+    (connected uptake_rate x,
+        yaxis(2)
+        lcolor(cranberry)
+        mcolor(cranberry)
+        msymbol(O)
+        msize(small)
+        lwidth(medthin))
+
+    (scatter rate_label_y x,
+        yaxis(2)
+        msymbol(none)
+        mlabel(rate_label)
+        mlabcolor(cranberry)
+        mlabsize(small)
+        mlabposition(12)),
+
+    title("[Figure 2-2-1] Insured by Year and Insurance Uptake Rate",
+        size(medium)
+        color(black))
+
+    xlabel(1 "2001" 2 "2005" 3 "2010" 4 "2015" 5 "2016" 6 "2017"
+           7 "2018" 8 "2019" 9 "2020" 10 "2021" 11 "2022"
+           12 "2023" 13 "2024",
+           labsize(small))
+
+    ylabel(0(130000)780000,
+        axis(1)
+        format(%12.0fc)
+        labsize(small)
+        angle(0)
+        grid
+        glcolor(gs12)
+        glpattern(dash))
+
+    ylabel(0(10)60,
+        axis(2)
+        labsize(small)
+        angle(0))
+
+    ytitle("Cases",
+        axis(1)
+        size(small))
+
+    ytitle("%",
+        axis(2)
+        size(small))
+
+    xtitle("")
+
+    legend(order(1 "Number of Insured Policies" 3 "Insurance Uptake Rate (%)")
+        position(12)
+        ring(1)
+        row(1)
+        size(small)
+        region(lcolor(white)))
+
+    note("Source: NH NongHyup Property & Casualty Insurance, Agricultural Insurance Department",
+        size(small)
+        position(7))
+
+    graphregion(color(white) lcolor(navy) lwidth(thin))
+    plotregion(color(white) lcolor(white))
+    bgcolor(white)
+
+    xscale(range(0.4 13.6))
+    yscale(axis(1) range(0 820000))
+    yscale(axis(2) range(0 62));
+
+#delimit cr
+
+*******************************************************
+* 4. Export graph
+*******************************************************
+
+graph export "figure_2_2_1_insured_by_year_uptake_rate.png", replace width(2400)
