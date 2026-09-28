@@ -37,7 +37,7 @@ EDITS = [
   "- For TWFE: a restricted wild cluster bootstrap (WCR, Webb weights; 1,999 draws for the legacy benchmarks, 9,999 draws for the corrected benchmarks)."),
  # ---- item 15 (+ support) in section 1
  ("15", "**Preferred estimates** (7 treated crops, 24 control series, 29 contributing clusters):",
-  "**Preferred estimates** (7 treated crops; 24 control-pool series listed, of which 22 contribute — Winter napa cabbage and Winter radish have no data in any treated crop's reference year; 29 contributing clusters):"),
+  "**Preferred estimates** (7 treated crops; 24 control-pool series listed, of which 22 contribute — Winter Napa cabbage and Winter Radish have no data in any treated crop's reference year; 29 contributing clusters):"),
  # ---- item 14 in section 1
  ("14", "The estimates are also sensitive to Red pepper (see §3–4). This, too, argues against treating them as a precise causal estimate.",
   "The aggregate estimate is also sensitive to individual treated crops (see §4): Red pepper exerts a sizable negative influence and Onion a sizable influence in the opposite direction. This, too, argues against treating the estimates as a precise causal estimate."),
@@ -56,7 +56,7 @@ EDITS = [
   "**The aggregate estimate is sensitive to individual crops.** Red pepper exerts a sizable negative influence and Onion a sizable influence in the opposite direction. Red pepper's dried-pepper area and production fell sharply during its long 2008–2014 transition."),
  # ---- item 16 (section 5)
  ("16", "**Yes, arithmetically.**\n- Area 0.048 + yield −0.028 = 0.020, which equals production. The log identity holds on the common sample.",
-  "**Approximately.**\n- Area 0.048 + yield −0.028 = 0.020 (0.020014 unrounded) against production 0.020 (0.019883): the aggregated estimates are approximately consistent with the log production identity, not exactly equal.\n- At the crop-year level the identity ln P = ln A + ln Y − ln 100 (t = ha × kg/10a / 100) also holds only approximately: on the 990 estimation-sample cells the median |gap| is 0.00014 (KOSIS reports yield in whole kg/10a). Two crop-years exceed 0.01: Spring radish 2001 (−0.074; reported yield 3,415 vs implied 3,171 kg/10a) and Sesame 2020 (−0.012). Source values are left unchanged and documented in `verified_results/verified_identity_discrepancies.csv`."),
+  "**Approximately.**\n- Area 0.048 + yield −0.028 = 0.020 (0.020014 unrounded) against production 0.020 (0.019883): the aggregated estimates are approximately consistent with the log production identity, not exactly equal.\n- At the crop-year level the identity ln P = ln A + ln Y − ln 100 (t = ha × kg/10a / 100) also holds only approximately: on the 990 estimation-sample cells the median |gap| is 0.00014 (KOSIS reports yield in whole kg/10a). Two crop-years exceed 0.01: Spring Radish 2001 (−0.074; reported yield 3,415 vs implied 3,171 kg/10a) and Sesame 2020 (−0.012). Source values are left unchanged and documented in `verified_results/verified_identity_discrepancies.csv`."),
  # ---- item 6 (section 6 table)
  ("6", "| TWFE, clean cells | 0.263 | −0.026 | 0.238 |\n| TWFE, Han (2014)-style naive coding | 0.174 | −0.011 | 0.163 |",
   "| TWFE, clean cells, e = 0…9 | 0.243 | −0.028 | 0.215 |\n| TWFE, Han (2014)-style naive coding, e = 0…9 | 0.156 | −0.021 | 0.135 |\n| *Legacy:* TWFE, clean cells, all post years (e ≤ 12) | 0.263 | −0.026 | 0.238 |\n| *Legacy:* TWFE, Han-style naive coding, all post years (e ≤ 12) | 0.174 | −0.011 | 0.163 |"),
@@ -85,6 +85,11 @@ EDITS = [
   "6. **Control comparability and support.** Controls are mostly vegetables; field-crop-only controls change the signs. Although 24 control-pool series are listed, only 22 contribute to the preferred estimation, and eligible control support shrinks substantially at later event times (8–11 controls per treated crop by e = 9). For fruit, no never-treated perennial controls exist: the comparison group consists primarily of annual crops, with Astringent persimmon and Plum contributing as clean not-yet-treated controls in some comparisons."),
  ("14", "2. **Transition gap.** ATT includes pilot-period exposure and any change during 2–7 transition years. The Red pepper decline shows how this can dominate.",
   "2. **Transition gap.** ATT includes pilot-period exposure and any change during 2–7 transition years (3–7 for the annual crops). The Red pepper decline shows how this can dominate; more generally the aggregate estimate is sensitive to individual crops (Red pepper negative, Onion positive)."),
+ # ---- final presentation corrections (approved 2026-09-28, second round)
+ ("F1", "The data therefore **cannot rule out** production changes of roughly −25% to +38%.",
+  "The data therefore **cannot rule out** production changes of roughly −25% to +39% (the 95% interval [−0.287, 0.327] in log points)."),
+ ("F2", "Cohort-specific estimates such as \"Cohort 2015 only\" (1 crop, p = 0.000)",
+  "Cohort-specific estimates such as \"Cohort 2015 only\" (1 crop, bootstrap p < 0.001, the smallest value the bootstrap can produce)"),
 ]
 
 log = []
@@ -99,6 +104,7 @@ for m in re.finditer(r"[^.\n]*cancel[^.\n]*[.\n]", text):
     s = m.group(0)
     assert "divisor" not in s and "denominator" not in s, s
 assert "2–7 years before" not in text and "0.41 (production)" not in text and "8–12 years" not in text
+assert "+38%" not in text and "p = 0.000" not in text
 
 header = """# Chapter 5 — Methodological memo and package README, v3 (corrected)
 
@@ -111,7 +117,7 @@ All numbers refer to `verified_results/`.
 ---
 
 """
-changelog = "\n\n---\n\n## Change log (v2 → v3, approved 2026-09-28)\n\n| Item | Original | Corrected |\n|---|---|---|\n"
+changelog = "\n\n---\n\n## Change log (v2 → v3, approved 2026-09-28; items F1–F2 from the final presentation round)\n\n| Item | Original | Corrected |\n|---|---|---|\n"
 for item, old, new in log:
     changelog += "| {} | {} | {} |\n".format(item, old.replace("\n", " ").replace("|", "\\|"), new.replace("\n", " ").replace("|", "\\|"))
 open("docs/METHODOLOGICAL_MEMO_v3.md", "w", encoding="utf-8").write(header + text + changelog)

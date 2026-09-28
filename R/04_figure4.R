@@ -28,7 +28,7 @@ p <- plot_event_study(d, facet = "panel", ncol = 1) +
          "steadily and the post-period path continues that slope, so the estimates are suggestive at most. Sweet and Astringent",
          "persimmon series begin in 1998. Custom group-time difference-in-differences; reference year = final clean pre-pilot year",
          paste0("(", ref_txt, "); crop-specific transition years omitted. 95% crop-level wild bootstrap intervals (custom procedure)."),
-         "Source: KOSIS Crop Production Survey (national series); author's calculations."), 108))
+         "Source: KOSIS Crop Production Survey (national series); author's calculations."), NOTE_WIDTH))
 
 save_thesis_fig(p, "fig4", "fig4_fruit_event_study", height = 8.6,
                 data = d[, .(outcome, event_time, period, est, ci_lo_wild, ci_hi_wild, n_treated)])

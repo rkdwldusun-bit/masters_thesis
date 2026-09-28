@@ -25,7 +25,7 @@ p <- plot_event_study(d, facet = "panel", ncol = 1) +
          "Crop-specific pilot-to-national transition years are omitted (not estimated); the e = \u22125 estimate rests on two crops.",
          "Estimates are associations, not established causal effects. Vertical bars: 95% crop-level wild bootstrap intervals",
          "(Webb weights, 9,999 draws; custom procedure).",
-         "Source: KOSIS Crop Production Survey (national series); author's calculations."), 108))
+         "Source: KOSIS Crop Production Survey (national series); author's calculations."), NOTE_WIDTH))
 
 save_thesis_fig(p, "fig1", "fig1_annual_event_study", height = 10.5,
                 data = d[, .(outcome, event_time, period, est, ci_lo_wild, ci_hi_wild, n_treated, n_ctrl_min, n_ctrl_max)])

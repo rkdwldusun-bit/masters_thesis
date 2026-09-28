@@ -1,5 +1,5 @@
 id: fig10
-title: [Figure 10] Financing of Net Premiums by Payer, 2001–2024
+title: 
 x: Year
 y: Share of net premium
 caption: Note: APFS public national series. In 2010 and 2011 the reported components sum to 75.2% and 74.3% of the net premium, and the provincial and municipal subsidy fields are recorded as zero. The public dataset does not explain the residual (unfilled segment); it is not attributed to any payer. Descriptive only. Source: Korea Agricultural Policy Insurance & Finance Service (APFS), public data; author's calculations.

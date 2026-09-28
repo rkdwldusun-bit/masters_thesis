@@ -10,6 +10,10 @@
 # =====================================================================
 
 suppressPackageStartupMessages(library(data.table))
+source("R/lib/thesis_names.R")
+# display rule (approved 2026-09-28): a bootstrap p-value that would display as 0.000 is shown as "p < 0.001";
+# the underlying numerical value is kept unchanged in the numeric column
+p_display <- function(p) ifelse(is.na(p), NA_character_, ifelse(p < 0.001, "p < 0.001", sprintf("%.3f", p)))
 dir.create("verified_results", showWarnings = FALSE)
 RS <- fread("audit/extracted/results/RAW_SUMMARY.csv")
 RD <- fread("audit/extracted/results/RAW_DYNAMIC.csv")
@@ -73,6 +77,8 @@ CB <- CB[, .(sample, spec_internal = spec, spec_thesis = fcase(
                                     sprintf("Static coefficient over post years e = 0..%d.", post_e_max), note),
              benchmark_status = status)]
 S <- rbind(S, CB, fill = TRUE)
+S[, p_display := p_display(fifelse(is.na(p_wild_py), R_p_wild, p_wild_py))]
+S[, pre_p_display := p_display(pre_p_boot_py)]
 setorder(S, sample, spec_internal, outcome_internal)
 fwrite(S, "verified_results/verified_results_summary.csv")
 fwrite(fread("audit/output/06b_benchmarks.csv"), "verified_results/verified_benchmark_record.csv")
@@ -86,6 +92,7 @@ Dn <- merge(Dn, DX[, .(sample, spec, outcome, event_time, R_est = est, R_ci_lo =
 Dn[, abs_diff_est := abs(R_est - est)]
 Dn[, spec_thesis := lab_spec(spec)][, outcome_thesis := thesis_outcome[outcome]]
 Dn[, period := fifelse(event_time < 0, "clean pre-pilot (placebo)", "after nationwide availability")]
+Dn[, p_display := p_display(p_wild)]
 setcolorder(Dn, c("sample", "spec", "spec_thesis", "outcome", "outcome_thesis", "event_time", "period"))
 setorder(Dn, sample, spec, outcome, event_time)
 fwrite(Dn, "verified_results/verified_results_dynamic.csv")
@@ -104,9 +111,9 @@ PRd <- Dn[sample == "price" & spec == "CS-A main (exact match, annual linking ru
 nominal <- X[sample == "price_audit"]
 fwrite(rbindlist(list(
   PRs[, .(table = "summary", spec_thesis, outcome_thesis, event_time = NA_integer_, est, se_cluster, ci_lo = ci_lo_wild_py,
-          ci_hi = ci_hi_wild_py, p_wild = p_wild_py, G, n_treated, replication_status)],
+          ci_hi = ci_hi_wild_py, p_wild = p_wild_py, p_display, G, n_treated, replication_status)],
   PRd[, .(table = "dynamic (main sample)", spec_thesis, outcome_thesis, event_time, est, se_cluster, ci_lo = ci_lo_wild,
-          ci_hi = ci_hi_wild, p_wild, G = G_contrib, n_treated, replication_status = "REPLICATED")],
+          ci_hi = ci_hi_wild, p_wild, p_display, G = G_contrib, n_treated, replication_status = "REPLICATED")],
   nominal[, .(table = "comparison: nominal (undivided) crop index; numerically almost identical to the relative-price estimate",
               spec_thesis = "Main price sample on nominal linked crop index (not a thesis estimate)",
               outcome_thesis = "Log nominal farm-gate price index (linked)", event_time = NA_integer_, est = R_est,
@@ -126,10 +133,14 @@ kcols <- c("crop_ko_official", "kosis_production_label_original", "kosis_price_l
 for (v in kcols) P[, (v) := redecode(get(v))]
 XW <- fread("audit/extracted/data/PROD_CROSSWALK.csv", encoding = "UTF-8")
 stopifnot(all(merge(unique(P[, .(crop_id, crop_ko_official)]), XW[, .(crop_id, k2 = crop_ko_official)])[, crop_ko_official == k2]))
+# final thesis-facing names (display label only; crop_id and all values unchanged)
+P[, crop_en_display := thesis_name(crop_id, crop_en_display)]
 fwrite(P, "verified_results/verified_master_panel.csv", bom = TRUE)
 
 # ---------------- treatment coding (audit table)
-fwrite(fread("audit/output/01_treatment_audit_table.csv"), "verified_results/verified_treatment_coding.csv")
+TT <- fread("audit/output/01_treatment_audit_table.csv", encoding = "UTF-8")
+TT[, crop := thesis_name(crop_id, crop)]
+fwrite(TT, "verified_results/verified_treatment_coding.csv")
 
 # ---------------- APFS (descriptive; embedded public tables)
 N <- fread("audit/extracted/data/APFS_NATIONAL.csv", encoding = "UTF-8")
@@ -149,6 +160,8 @@ fwrite(FA, "verified_results/verified_apfs_fruit_2024_audit.csv")
 
 # ---------------- approved items 8, 15, 16: code-consistent support tables and identity record
 fwrite(fread("audit/output/06b_event_time_support.csv"), "verified_results/verified_event_time_support.csv")
-fwrite(fread("audit/output/06b_control_composition.csv", encoding = "UTF-8"), "verified_results/verified_control_composition.csv")
-fwrite(fread("audit/output/06b_identity_discrepancies.csv"), "verified_results/verified_identity_discrepancies.csv")
+CC <- fread("audit/output/06b_control_composition.csv", encoding = "UTF-8")[, control := thesis_name(crop_id, control)]
+fwrite(CC, "verified_results/verified_control_composition.csv")
+ID <- fread("audit/output/06b_identity_discrepancies.csv")[, crop := thesis_name(crop_id, crop)]
+fwrite(ID, "verified_results/verified_identity_discrepancies.csv")
 cat("frozen files:\n"); print(list.files("verified_results"))

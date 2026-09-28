@@ -9,17 +9,17 @@ library(data.table)
 
 # ---------------------------------------------------------------------
 # Font
-# "sans" as in my R budget figure; switch to "Arial Narrow" to match the
-# Chapter 2 Stata figures. On machines without Arial, a metric-compatible
-# substitute is used for rendering.
+# Final decision (2026-09-28): Arial Narrow, as in my Chapter 2 Stata figures
+# (graph set window fontface "Arial Narrow"). Fallback: Nimbus Sans Narrow
+# (metric-compatible) where Arial Narrow is not installed.
 # ---------------------------------------------------------------------
-THESIS_FONT <- "sans"
+THESIS_FONT <- "Arial Narrow"
 
 resolve_font <- function(f) {
   have <- tryCatch(system("fc-list : family", intern = TRUE), error = function(e) character(0))
   have <- unique(trimws(unlist(strsplit(have, ","))))
   subs <- list("sans" = c("Arial", "Liberation Sans", "Helvetica"),
-               "Arial Narrow" = c("Arial Narrow", "Liberation Sans Narrow", "Nimbus Sans Narrow"))
+               "Arial Narrow" = c("Arial Narrow", "Nimbus Sans Narrow"))
   cand <- if (f %in% names(subs)) subs[[f]] else f
   hit <- cand[cand %in% have]
   if (length(hit)) hit[1] else f
@@ -56,7 +56,9 @@ geom_ci <- function(..., horizontal = FALSE) {
 # Figure dimensions: 8 in x 300 dpi = 2400 px wide (my Stata export width)
 # ---------------------------------------------------------------------
 FIG <- list(width = 8, height_single = 5.8, dpi = 300)
-show_title <- TRUE
+# Final decision (2026-09-28): no figure numbers or titles inside the graphics;
+# numbers and full captions are added in the thesis document.
+show_title <- FALSE
 FIG_NO <- c(fig1 = "[Figure 1]", fig2 = "[Figure 2]", fig3 = "[Figure 3]", fig4 = "[Figure 4]", fig5 = "[Figure 5]",
             fig6 = "[Figure 6]", fig7 = "[Figure 7]", fig8 = "[Figure 8]", fig9 = "[Figure 9]", fig10 = "[Figure 10]",
             figA1 = "[Appendix Figure A1]")
@@ -97,7 +99,12 @@ theme_thesis <- function(base_size = SIZE$base, base_family = FONT) {
 # ---------------------------------------------------------------------
 comma <- function(x) format(x, big.mark = ",", scientific = FALSE, trim = TRUE)
 
-wrap <- function(x, width = 100) paste(strwrap(x, width = width), collapse = "\n")
+# note width in characters for the narrow thesis font; "=" expressions are kept on one line
+NOTE_WIDTH <- 128
+wrap <- function(x, width = NOTE_WIDTH) {
+  x <- gsub(" = ", "\u00a0=\u00a0", x)
+  paste(strwrap(x, width = width), collapse = "\n")
+}
 
 fig_title <- function(id, text, width = 80) if (show_title) wrap(paste(FIG_NO[[id]], text), width) else NULL
 

@@ -19,7 +19,7 @@ p <- ggplot(d, aes(y = crop)) +
          "Note: Bar = interquartile range; point = median. Eight crops with the most records. The measurement unit of this field",
          "is not defined in the available official sources; values are shown as recorded and should not be compared with market",
          "prices. Quartiles are taken from the supplied crop-level summary (raw records not in the verified bundle). Descriptive only.",
-         "Source: Korea Agricultural Policy Insurance & Finance Service (APFS), public data; author's calculations."), 108)) +
+         "Source: Korea Agricultural Policy Insurance & Finance Service (APFS), public data; author's calculations."), NOTE_WIDTH)) +
   theme_thesis()
 
 save_thesis_fig(p, "figA1", "figA1_insured_price_appendix", height = 5.8, data = d)

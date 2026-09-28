@@ -39,7 +39,7 @@ p <- plot_forest(d, lv) +
                  num(lo_row$est), sub("Leave out ", "", lo_row$spec_internal), num(hi_row$est), sub("Leave out ", "", hi_row$spec_internal)),
          "95% crop-level wild bootstrap intervals (Webb weights, 9,999 draws; custom procedure).",
          "Estimates are associations, not established causal effects.",
-         "Source: KOSIS Crop Production Survey (national series); author's calculations."), 108))
+         "Source: KOSIS Crop Production Survey (national series); author's calculations."), NOTE_WIDTH))
 
 save_thesis_fig(p, "fig3", "fig3_annual_robustness", height = 9,
                 data = d[, .(spec_internal, outcome_internal, est, lo, hi)])

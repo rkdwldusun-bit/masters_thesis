@@ -1,5 +1,5 @@
 id: fig9
-title: [Figure 9] Crop Disaster Insurance: National Enrollment and Loss Experience, 2001–2024
+title: 
 x: Year
 y: %
 caption: Note: APFS public national series. Area enrollment rate 2001–2024; loss ratio 2001–2023 (indemnities paid / risk premium × 100, recomputed from the same file). The eligible-area denominator of the enrollment rate expands as crops are added, so the rate is not comparable across years without adjustment. Dashed line: loss ratio of 100%. Descriptive only. Source: Korea Agricultural Policy Insurance & Finance Service (APFS), public data; author's calculations.

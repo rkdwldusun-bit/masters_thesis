@@ -21,7 +21,7 @@ p <- plot_event_study(d, ylab = "Log relative farm-gate price index") +
          paste0("Custom group-time difference-in-differences; reference year = final clean pre-pilot year (", ref_txt, ");"),
          "crop-specific transition years omitted. Only four treated crops; prices and production are jointly determined, so",
          "estimates are reduced-form associations. 95% crop-level wild bootstrap intervals (custom procedure).",
-         "Source: KOSIS farm-gate price index tables DT_1J49 and DT_1J60; author's calculations."), 108))
+         "Source: KOSIS farm-gate price index tables DT_1J49 and DT_1J60; author's calculations."), NOTE_WIDTH))
 
 save_thesis_fig(p, "fig5", "fig5_price_event_study", height = 6.8,
                 data = d[, .(outcome, event_time, period, est, ci_lo_wild, ci_hi_wild, n_treated)])

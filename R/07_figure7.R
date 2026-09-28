@@ -24,7 +24,7 @@ p <- ggplot(d, aes(x = share, y = crop, fill = cat)) +
          "Crop disaster insurance only; records with a missing or non-positive insured or normal yield are excluded.",
          "'Equal to 1' = ratio within \u00b10.0005.",
          "Shares are taken from the supplied crop-level summary; the raw record file is not part of the verified bundle. Descriptive only.",
-         "Source: Korea Agricultural Policy Insurance & Finance Service (APFS), public data; author's calculations."), 108)) +
+         "Source: Korea Agricultural Policy Insurance & Finance Service (APFS), public data; author's calculations."), NOTE_WIDTH)) +
   theme_thesis()
 
 save_thesis_fig(p, "fig7", "fig7_insured_to_normal_yield", height = 5.8, data = d)

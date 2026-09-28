@@ -34,7 +34,7 @@ p <- ggplot(d, aes(year, value_rel)) +
          "first pilot. Rice is a single treated crop, so no difference-in-differences inference is reported; its insurance timing",
          "also overlaps with rice-specific policies. Vertical lines mark alternative dates from the treatment-coding input.",
          "Descriptive only.",
-         "Source: KOSIS Crop Production Survey (national series); author's calculations."), 108)) +
+         "Source: KOSIS Crop Production Survey (national series); author's calculations."), NOTE_WIDTH)) +
   theme_thesis()
 
 save_thesis_fig(p, "fig6", "fig6_rice_descriptive", height = 9.4,

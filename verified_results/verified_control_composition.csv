@@ -1,12 +1,12 @@
 cohort,crop_id,control,group,clean_years,clean_after_cohort_year
-2012,autumn_napa,Autumn napa cabbage,vegetable,1991–2021,10
-2012,autumn_radish,Autumn radish,vegetable,1991–2023,12
+2012,autumn_napa,Autumn Napa cabbage,vegetable,1991–2021,10
+2012,autumn_radish,Autumn Radish,vegetable,1991–2023,12
 2012,barley,Barley,grain,1991–2020,9
 2012,cabbage,Cabbage,vegetable,1991–2016,5
 2012,carrot,Carrot,vegetable,1991–2018,7
 2012,ginger,Ginger,vegetable,1991–2024,13
-2012,highland_napa,Highland napa cabbage,vegetable,1991–2018,7
-2012,highland_radish,Highland radish,vegetable,1991–2018,7
+2012,highland_napa,Highland Napa cabbage,vegetable,1991–2018,7
+2012,highland_radish,Highland Radish,vegetable,1991–2018,7
 2012,large_green_onion,Large green onion,vegetable,2000–2018,7
 2012,leaf_lettuce,Leaf lettuce,vegetable,1991–2024,13
 2012,malting_barley,Malting barley,grain,1991–2020,9
@@ -18,19 +18,19 @@ cohort,crop_id,control,group,clean_years,clean_after_cohort_year
 2012,sesame,Sesame,special,1991–2024,13
 2012,small_green_onion,Small green onion,vegetable,2000–2018,7
 2012,spinach,Spinach,vegetable,1991–2020,9
-2012,spring_napa,Spring napa cabbage,vegetable,1991–2023,12
-2012,spring_radish,Spring radish,vegetable,1991–2024,13
+2012,spring_napa,Spring Napa cabbage,vegetable,1991–2023,12
+2012,spring_radish,Spring Radish,vegetable,1991–2024,13
 2012,wheat,Wheat,grain,1991–2016,5
-2012,winter_napa,Winter napa cabbage,vegetable,2014–2019,6
-2012,winter_radish,Winter radish,vegetable,2014–2019,6
-2013,autumn_napa,Autumn napa cabbage,vegetable,1991–2021,9
-2013,autumn_radish,Autumn radish,vegetable,1991–2023,11
+2012,winter_napa,Winter Napa cabbage,vegetable,2014–2019,6
+2012,winter_radish,Winter Radish,vegetable,2014–2019,6
+2013,autumn_napa,Autumn Napa cabbage,vegetable,1991–2021,9
+2013,autumn_radish,Autumn Radish,vegetable,1991–2023,11
 2013,barley,Barley,grain,1991–2020,8
 2013,cabbage,Cabbage,vegetable,1991–2016,4
 2013,carrot,Carrot,vegetable,1991–2018,6
 2013,ginger,Ginger,vegetable,1991–2024,12
-2013,highland_napa,Highland napa cabbage,vegetable,1991–2018,6
-2013,highland_radish,Highland radish,vegetable,1991–2018,6
+2013,highland_napa,Highland Napa cabbage,vegetable,1991–2018,6
+2013,highland_radish,Highland Radish,vegetable,1991–2018,6
 2013,large_green_onion,Large green onion,vegetable,2000–2018,6
 2013,leaf_lettuce,Leaf lettuce,vegetable,1991–2024,12
 2013,malting_barley,Malting barley,grain,1991–2020,8
@@ -42,19 +42,19 @@ cohort,crop_id,control,group,clean_years,clean_after_cohort_year
 2013,sesame,Sesame,special,1991–2024,12
 2013,small_green_onion,Small green onion,vegetable,2000–2018,6
 2013,spinach,Spinach,vegetable,1991–2020,8
-2013,spring_napa,Spring napa cabbage,vegetable,1991–2023,11
-2013,spring_radish,Spring radish,vegetable,1991–2024,12
+2013,spring_napa,Spring Napa cabbage,vegetable,1991–2023,11
+2013,spring_radish,Spring Radish,vegetable,1991–2024,12
 2013,wheat,Wheat,grain,1991–2016,4
-2013,winter_napa,Winter napa cabbage,vegetable,2014–2019,6
-2013,winter_radish,Winter radish,vegetable,2014–2019,6
-2015,autumn_napa,Autumn napa cabbage,vegetable,1991–2021,7
-2015,autumn_radish,Autumn radish,vegetable,1991–2023,9
+2013,winter_napa,Winter Napa cabbage,vegetable,2014–2019,6
+2013,winter_radish,Winter Radish,vegetable,2014–2019,6
+2015,autumn_napa,Autumn Napa cabbage,vegetable,1991–2021,7
+2015,autumn_radish,Autumn Radish,vegetable,1991–2023,9
 2015,barley,Barley,grain,1991–2020,6
 2015,cabbage,Cabbage,vegetable,1991–2016,2
 2015,carrot,Carrot,vegetable,1991–2018,4
 2015,ginger,Ginger,vegetable,1991–2024,10
-2015,highland_napa,Highland napa cabbage,vegetable,1991–2018,4
-2015,highland_radish,Highland radish,vegetable,1991–2018,4
+2015,highland_napa,Highland Napa cabbage,vegetable,1991–2018,4
+2015,highland_radish,Highland Radish,vegetable,1991–2018,4
 2015,large_green_onion,Large green onion,vegetable,2000–2018,4
 2015,leaf_lettuce,Leaf lettuce,vegetable,1991–2024,10
 2015,malting_barley,Malting barley,grain,1991–2020,6
@@ -66,8 +66,8 @@ cohort,crop_id,control,group,clean_years,clean_after_cohort_year
 2015,sesame,Sesame,special,1991–2024,10
 2015,small_green_onion,Small green onion,vegetable,2000–2018,4
 2015,spinach,Spinach,vegetable,1991–2020,6
-2015,spring_napa,Spring napa cabbage,vegetable,1991–2023,9
-2015,spring_radish,Spring radish,vegetable,1991–2024,10
+2015,spring_napa,Spring Napa cabbage,vegetable,1991–2023,9
+2015,spring_radish,Spring Radish,vegetable,1991–2024,10
 2015,wheat,Wheat,grain,1991–2016,2
-2015,winter_napa,Winter napa cabbage,vegetable,2014–2019,5
-2015,winter_radish,Winter radish,vegetable,2014–2019,5
+2015,winter_napa,Winter Napa cabbage,vegetable,2014–2019,5
+2015,winter_radish,Winter Radish,vegetable,2014–2019,5

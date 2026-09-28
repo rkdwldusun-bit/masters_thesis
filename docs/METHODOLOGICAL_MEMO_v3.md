@@ -108,7 +108,7 @@ Citations for these methods must be verified in LINER before they are used in th
 
 **Only partly. The design is informative, but it is not strong enough for a causal claim about the size of any change.**
 
-**Preferred estimates** (7 treated crops; 24 control-pool series listed, of which 22 contribute — Winter napa cabbage and Winter radish have no data in any treated crop's reference year; 29 contributing clusters):
+**Preferred estimates** (7 treated crops; 24 control-pool series listed, of which 22 contribute — Winter Napa cabbage and Winter Radish have no data in any treated crop's reference year; 29 contributing clusters):
 
 | Outcome | Estimate | 95% CI |
 |---|---|---|
@@ -121,7 +121,7 @@ These intervals are wide. Using the minimum-detectable-effect rule (a standard p
 - about ±0.39 for area;
 - about ±0.15 for yield.
 
-The data therefore **cannot rule out** production changes of roughly −25% to +38%. A statement such as "no effect" is not supported. The correct statement is "no statistically detectable change, with low power".
+The data therefore **cannot rule out** production changes of roughly −25% to +39% (the 95% interval [−0.287, 0.327] in log points). A statement such as "no effect" is not supported. The correct statement is "no statistically detectable change, with low power".
 
 The aggregate estimate is also sensitive to individual treated crops (see §4): Red pepper exerts a sizable negative influence and Onion a sizable influence in the opposite direction. This, too, argues against treating the estimates as a precise causal estimate.
 
@@ -169,7 +169,7 @@ The Apple and Pear date conflict is therefore **not consequential** for the resu
 
 **Approximately.**
 - Area 0.048 + yield −0.028 = 0.020 (0.020014 unrounded) against production 0.020 (0.019883): the aggregated estimates are approximately consistent with the log production identity, not exactly equal.
-- At the crop-year level the identity ln P = ln A + ln Y − ln 100 (t = ha × kg/10a / 100) also holds only approximately: on the 990 estimation-sample cells the median |gap| is 0.00014 (KOSIS reports yield in whole kg/10a). Two crop-years exceed 0.01: Spring radish 2001 (−0.074; reported yield 3,415 vs implied 3,171 kg/10a) and Sesame 2020 (−0.012). Source values are left unchanged and documented in `verified_results/verified_identity_discrepancies.csv`.
+- At the crop-year level the identity ln P = ln A + ln Y − ln 100 (t = ha × kg/10a / 100) also holds only approximately: on the 990 estimation-sample cells the median |gap| is 0.00014 (KOSIS reports yield in whole kg/10a). Two crop-years exceed 0.01: Spring Radish 2001 (−0.074; reported yield 3,415 vs implied 3,171 kg/10a) and Sesame 2020 (−0.012). Source values are left unchanged and documented in `verified_results/verified_identity_discrepancies.csv`.
 - Dynamically, area and production move together, and yield stays flat within ±0.10.
 
 **Substantive reading.** The yield estimate is small and imprecise, providing no statistically detectable evidence of an intensive-margin response. The area estimate is also imprecise.
@@ -200,7 +200,7 @@ The Apple and Pear date conflict is therefore **not consequential** for the resu
 - There are only **7 treated clusters** in the annual sample, 6 in fruit, and 4 in the main price sample.
 - Control support also shrinks with the event horizon: 22 control series contribute at e = 0, but only 8–11 eligible controls per treated crop (11 distinct control series) remain at e = 9, as controls reach their own pilot years.
 - Analytic clustered p-values and wild-bootstrap p-values happen to be similar here: 0.901 vs 0.903 for production.
-- No available procedure is reliable with 1–2 treated clusters. Cohort-specific estimates such as "Cohort 2015 only" (1 crop, p = 0.000) and all rice estimates must be treated as **descriptive**.
+- No available procedure is reliable with 1–2 treated clusters. Cohort-specific estimates such as "Cohort 2015 only" (1 crop, bootstrap p < 0.001, the smallest value the bootstrap can produce) and all rice estimates must be treated as **descriptive**.
 - Joint pre-trend tests have low power.
 
 ## 8. Are the perennial-fruit estimates credible enough for causal interpretation?
@@ -289,7 +289,7 @@ Soybean and Corn therefore appear only in the new-series (2005–2024) variant.
 
 ---
 
-## Change log (v2 → v3, approved 2026-09-28)
+## Change log (v2 → v3, approved 2026-09-28; items F1–F2 from the final presentation round)
 
 | Item | Original | Corrected |
 |---|---|---|
@@ -300,14 +300,14 @@ Soybean and Corn therefore appear only in the new-series (2005–2024) variant.
 | 1 | The reference year therefore lies **2–7 years before nationwide availability**: | The reference year therefore lies **4–8 years before nationwide availability (e = −8 to −4)**: |
 | 6 | - Benchmark only: static TWFE on clean cells, and TWFE with Han (2014)-style naive coding. | - Benchmark only: static TWFE on clean cells, and TWFE with Han (2014)-style naive coding. For the annual estimator comparison both are estimated over the same post-treatment horizon as the other estimators, e = 0…9 (treated observations with e > 9 excluded); the earlier all-post-year versions are kept as legacy benchmarks. The fruit TWFE benchmark uses the same comparison pool as the preferred fruit estimator. |
 | 6 | - For TWFE: a restricted wild cluster bootstrap (WCR, Webb weights, 1,999 draws). | - For TWFE: a restricted wild cluster bootstrap (WCR, Webb weights; 1,999 draws for the legacy benchmarks, 9,999 draws for the corrected benchmarks). |
-| 15 | **Preferred estimates** (7 treated crops, 24 control series, 29 contributing clusters): | **Preferred estimates** (7 treated crops; 24 control-pool series listed, of which 22 contribute — Winter napa cabbage and Winter radish have no data in any treated crop's reference year; 29 contributing clusters): |
+| 15 | **Preferred estimates** (7 treated crops, 24 control series, 29 contributing clusters): | **Preferred estimates** (7 treated crops; 24 control-pool series listed, of which 22 contribute — Winter Napa cabbage and Winter Radish have no data in any treated crop's reference year; 29 contributing clusters): |
 | 14 | The estimates are also sensitive to Red pepper (see §3–4). This, too, argues against treating them as a precise causal estimate. | The aggregate estimate is also sensitive to individual treated crops (see §4): Red pepper exerts a sizable negative influence and Onion a sizable influence in the opposite direction. This, too, argues against treating the estimates as a precise causal estimate. |
 | 2 | - **Joint test does not reject.** The joint Wald tests on the clean pre-period coefficients give p = 0.35 (area), 0.67 (yield) and 0.41 (production). | - **Joint test does not reject.** The joint Wald tests on the clean pre-period coefficients give p = 0.35 (area), 0.67 (yield) and 0.40 (production; 0.4049 unrounded). With seven treated crops these tests have low power; failure to reject is not evidence that parallel trends hold. |
 | 13 | - **Individual long leads do reject.** For area and production, the leads at e = −12 to −9 are individually negative and significant (production: −0.30 to −0.15, wild p = 0.01–0.03). | - **Individual long leads.** For production, all four leads at e = −12 to −9 are individually negative and significant (−0.30 to −0.15; wild p = 0.011–0.023). For area, the leads over the same range are negative (−0.23 to −0.13); e = −12, −10 and −9 are individually significant at 5%, while e = −11 is marginal (p ≈ 0.058). Yield leads are not significant. |
 | 13 | - **The pattern flattens near the reference year.** Coefficients at e = −8 to −6 are close to zero. | - **The pattern flattens near the reference year.** Coefficients at e = −8 to −6 are close to zero. The change between e = −9 and e = −8 coincides with a change in composition (Red pepper contributes only up to e = −9), and e = −5 rests on two crops (Onion, Garlic), so the linear slope is a summary only. |
 | 14 | - **Leaving out Red pepper** raises production to 0.132 [−0.10, 0.37] and area to 0.129. | - **Leaving out single treated crops.** Leaving out Red pepper raises production to 0.132 [−0.10, 0.37] and area to 0.129; leaving out Onion lowers production to −0.044 [−0.34, 0.25] and area to −0.007. Across the seven leave-one-crop-out estimates, production ranges from −0.044 to 0.132. |
 | 14 | **Red pepper is influential.** Its dried-pepper area and production fell sharply during its long 2008–2014 transition. | **The aggregate estimate is sensitive to individual crops.** Red pepper exerts a sizable negative influence and Onion a sizable influence in the opposite direction. Red pepper's dried-pepper area and production fell sharply during its long 2008–2014 transition. |
-| 16 | **Yes, arithmetically.** - Area 0.048 + yield −0.028 = 0.020, which equals production. The log identity holds on the common sample. | **Approximately.** - Area 0.048 + yield −0.028 = 0.020 (0.020014 unrounded) against production 0.020 (0.019883): the aggregated estimates are approximately consistent with the log production identity, not exactly equal. - At the crop-year level the identity ln P = ln A + ln Y − ln 100 (t = ha × kg/10a / 100) also holds only approximately: on the 990 estimation-sample cells the median \|gap\| is 0.00014 (KOSIS reports yield in whole kg/10a). Two crop-years exceed 0.01: Spring radish 2001 (−0.074; reported yield 3,415 vs implied 3,171 kg/10a) and Sesame 2020 (−0.012). Source values are left unchanged and documented in `verified_results/verified_identity_discrepancies.csv`. |
+| 16 | **Yes, arithmetically.** - Area 0.048 + yield −0.028 = 0.020, which equals production. The log identity holds on the common sample. | **Approximately.** - Area 0.048 + yield −0.028 = 0.020 (0.020014 unrounded) against production 0.020 (0.019883): the aggregated estimates are approximately consistent with the log production identity, not exactly equal. - At the crop-year level the identity ln P = ln A + ln Y − ln 100 (t = ha × kg/10a / 100) also holds only approximately: on the 990 estimation-sample cells the median \|gap\| is 0.00014 (KOSIS reports yield in whole kg/10a). Two crop-years exceed 0.01: Spring Radish 2001 (−0.074; reported yield 3,415 vs implied 3,171 kg/10a) and Sesame 2020 (−0.012). Source values are left unchanged and documented in `verified_results/verified_identity_discrepancies.csv`. |
 | 6 | \| TWFE, clean cells \| 0.263 \| −0.026 \| 0.238 \| \| TWFE, Han (2014)-style naive coding \| 0.174 \| −0.011 \| 0.163 \| | \| TWFE, clean cells, e = 0…9 \| 0.243 \| −0.028 \| 0.215 \| \| TWFE, Han (2014)-style naive coding, e = 0…9 \| 0.156 \| −0.021 \| 0.135 \| \| *Legacy:* TWFE, clean cells, all post years (e ≤ 12) \| 0.263 \| −0.026 \| 0.238 \| \| *Legacy:* TWFE, Han-style naive coding, all post years (e ≤ 12) \| 0.174 \| −0.011 \| 0.163 \| |
 | 6 | **Why they differ.** B, imputation and TWFE all use the full pre-period as their baseline. | **Why they differ.** All rows above except the legacy rows cover the same post horizon, e = 0…9. B, imputation and TWFE all use the full pre-period as their baseline. |
 | 15 | - There are only **7 treated clusters** in the annual sample, 6 in fruit, and 4 in the main price sample. | - There are only **7 treated clusters** in the annual sample, 6 in fruit, and 4 in the main price sample. - Control support also shrinks with the event horizon: 22 control series contribute at e = 0, but only 8–11 eligible controls per treated crop (11 distinct control series) remain at e = 9, as controls reach their own pilot years. |
@@ -318,3 +318,5 @@ Soybean and Corn therefore appear only in the new-series (2005–2024) variant.
 | 11 | APFS national series 2001–2024 (enrollment, financing shares, loss ratios; | APFS national series 2001–2024 (enrollment, financing shares, loss ratios defined as indemnities / risk premium × 100; |
 | 5 | 6. **Control comparability.** Controls are mostly vegetables; field-crop-only controls change the signs. For fruit, no perennial controls exist. | 6. **Control comparability and support.** Controls are mostly vegetables; field-crop-only controls change the signs. Although 24 control-pool series are listed, only 22 contribute to the preferred estimation, and eligible control support shrinks substantially at later event times (8–11 controls per treated crop by e = 9). For fruit, no never-treated perennial controls exist: the comparison group consists primarily of annual crops, with Astringent persimmon and Plum contributing as clean not-yet-treated controls in some comparisons. |
 | 14 | 2. **Transition gap.** ATT includes pilot-period exposure and any change during 2–7 transition years. The Red pepper decline shows how this can dominate. | 2. **Transition gap.** ATT includes pilot-period exposure and any change during 2–7 transition years (3–7 for the annual crops). The Red pepper decline shows how this can dominate; more generally the aggregate estimate is sensitive to individual crops (Red pepper negative, Onion positive). |
+| F1 | The data therefore **cannot rule out** production changes of roughly −25% to +38%. | The data therefore **cannot rule out** production changes of roughly −25% to +39% (the 95% interval [−0.287, 0.327] in log points). |
+| F2 | Cohort-specific estimates such as "Cohort 2015 only" (1 crop, p = 0.000) | Cohort-specific estimates such as "Cohort 2015 only" (1 crop, bootstrap p < 0.001, the smallest value the bootstrap can produce) |

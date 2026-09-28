@@ -1,5 +1,5 @@
 id: fig3
-title: [Figure 3] Annual Crops: Robustness of the Average Estimated Change after Nationwide Availability
+title: 
 x: Average estimated change, e = 0 to 9 (log points)
 y: 
-caption: Note: Custom group-time difference-in-differences with clean not-yet-treated and never-treated controls; reference year = final clean pre-pilot year. Field crops only: 8 control series (15 clusters); excluding uncertain seasonal forms: 13 control series. Leaving out single treated crops moves production from −0.044 (Onion) to 0.132 (Red pepper); see the results table. 95% crop-level wild bootstrap intervals (Webb weights, 9,999 draws; custom procedure). Estimates are associations, not established causal effects. Source: KOSIS Crop Production Survey (national series); author's calculations.
+caption: Note: Custom group-time difference-in-differences with clean not-yet-treated and never-treated controls; reference year = final clean pre-pilot year. Field crops only: 8 control series (15 clusters); excluding uncertain seasonal forms: 13 control series. Leaving out single treated crops moves production from −0.044 (Onion) to 0.132 (Red pepper); see the results table. 95% crop-level wild bootstrap intervals (Webb weights, 9,999 draws; custom procedure). Estimates are associations, not established causal effects. Source: KOSIS Crop Production Survey (national series); author's calculations.

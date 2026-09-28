@@ -21,7 +21,7 @@ p <- ggplot(d, aes(x = records, y = crop)) +
          sprintf("records excluded). Records are administrative contract-detail rows, not necessarily unique contracts: the file has no"),
          sprintf("contract identifier and contains %s exact duplicate rows. Counts are taken from the supplied crop-level summary. Descriptive only.",
                  comma(n_dup)),
-         "Source: Korea Agricultural Policy Insurance & Finance Service (APFS), public data; author's calculations."), 108)) +
+         "Source: Korea Agricultural Policy Insurance & Finance Service (APFS), public data; author's calculations."), NOTE_WIDTH)) +
   theme_thesis()
 
 save_thesis_fig(p, "fig8", "fig8_record_composition", height = 7.4, data = d)

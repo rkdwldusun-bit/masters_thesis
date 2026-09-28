@@ -17,23 +17,24 @@ N  <- fread(file.path(V, "verified_apfs_national.csv"))
 FC <- fread(file.path(V, "verified_apfs_fruit_2024_by_crop.csv"), encoding = "UTF-8")
 P  <- fread(file.path(V, "verified_master_panel.csv"))
 
-BANNED <- c("Asian pear", "Japanese apricot", "Chinese cabbage", "Daikon", "Satsuma", "Yuzu", "Citron", "maize",
+source("R/lib/thesis_names.R")
+BANNED <- c(BANNED_CROP_NAMES,
             "real farm-gate", "CPI-deflated real price index", "causal effect of", "Callaway", "cancels exactly")
 
 figs <- list(
   list(id = "fig1", script = "R/01_figure1.R", file = "fig1_annual_event_study", src = "verified_results_dynamic.csv",
-       need_title = c("associated with insurance expansion"), need_note = c("omitted", "not established causal", "custom")),
+       need_title = c("associated with insurance expansion"), need_note = c("omitted", "not established causal", "custom", "24 listed", "22 contribute")),
   list(id = "fig2", script = "R/02_figure2.R", file = "fig2_estimator_comparison", src = "verified_results_summary.csv",
        need_title = c("estimator"), need_note = c("benchmark", "associations", "same post-availability horizon, e = 0 to 9", "beyond e = 9 excluded")),
   list(id = "fig3", script = "R/03_figure3.R", file = "fig3_annual_robustness", src = "verified_results_summary.csv",
        need_title = c("robustness"), need_note = c("associations", "custom")),
   list(id = "fig4", script = "R/04_figure4.R", file = "fig4_fruit_event_study", src = "verified_results_dynamic.csv",
-       need_title = c("suggestive"), need_note = c("consists primarily of annual crops", "later-treated fruit crops may also serve as not-yet-treated", "Astringent persimmon", "Plum", "orchard area")),
+       need_title = c("suggestive"), need_note = c("suggestive at most", "consists primarily of annual crops", "later-treated fruit crops may also serve as not-yet-treated", "Astringent persimmon", "Plum", "orchard area")),
   list(id = "fig5", script = "R/05_figure5.R", file = "fig5_price_event_study", src = "verified_results_dynamic.csv",
-       need_title = c("relative farm-gate"), need_note = c("not a CPI-deflated real price", "reduced-form"),
+       need_title = c("relative farm-gate"), need_note = c("not a CPI-deflated real price", "reduced-form", "associations"),
        need_y = "Log relative farm-gate price index"),
   list(id = "fig6", script = "R/06_figure6.R", file = "fig6_rice_descriptive", src = "verified_master_panel.csv; verified_treatment_coding.csv",
-       need_title = c("descriptive"), need_note = c("no difference-in-differences inference")),
+       need_title = c("descriptive"), need_note = c("no difference-in-differences inference", "Descriptive only")),
   list(id = "fig7", script = "R/07_figure7.R", file = "fig7_insured_to_normal_yield", src = "verified_apfs_fruit_2024_by_crop.csv; verified_apfs_fruit_2024_audit.csv",
        need_title = c("insured-to-normal"), need_note = c("descriptive", "not part of the verified bundle", "non-positive insured or normal yield")),
   list(id = "fig8", script = "R/08_figure8.R", file = "fig8_record_composition", src = "verified_apfs_fruit_2024_by_crop.csv; verified_apfs_fruit_2024_audit.csv",
@@ -96,7 +97,7 @@ style_check <- function(p) {
           minor = identical(t$panel.grid.minor$colour, "grey95"),
           axis_title = t$axis.title$size == 15, axis_text = t$axis.text$size == 11 && identical(t$axis.text$colour, "grey30"),
           legend = identical(t$legend.position, "top") || identical(t$legend.position, "none"),
-          font = identical(t$text$family, FONT), base = t$text$size == 14)
+          font = identical(t$text$family, FONT) && FONT %in% c("Arial Narrow", "Nimbus Sans Narrow"), base = t$text$size == 14)
   if (all(ok)) "MATCH" else paste("MISMATCH:", paste(names(ok)[!ok], collapse = ","))
 }
 
@@ -110,9 +111,10 @@ for (f in figs) {
   lab <- p$labels
   alltext <- paste(lab$title, lab$caption, lab$x, lab$y, paste(levels(factor(unlist(pd[, lapply(.SD, as.character), .SDcols = is.character]))), collapse = " "))
   banned <- BANNED[vapply(BANNED, function(b) grepl(b, alltext, ignore.case = TRUE), TRUE)]
-  tl <- all(vapply(f$need_title, function(s) grepl(s, lab$title, ignore.case = TRUE), TRUE)) &&
-        (is.null(f$need_y) || identical(lab$y, f$need_y)) && !length(banned)
-  nt <- all(vapply(f$need_note, function(s) grepl(s, gsub("\n", " ", lab$caption), ignore.case = TRUE), TRUE))
+  # final style decision (2026-09-28): no figure number and no thesis title inside the graphic
+  no_title <- is.null(lab$title) && !grepl("Figure\\s*[0-9A]", alltext)
+  tl <- no_title && (is.null(f$need_y) || identical(lab$y, f$need_y)) && !length(banned)
+  nt <- all(vapply(f$need_note, function(s) grepl(s, gsub("[\n\u00a0]", " ", lab$caption), ignore.case = TRUE), TRUE))
   dev <- numeric_check(f$id, pd)
   st <- style_check(p)
   files_ok <- all(file.exists(file.path("figures", paste0(f$file, c(".png", ".pdf")))))

@@ -24,7 +24,7 @@ p <- ggplot(d, aes(year, value)) +
                  min(N$year), max(N$year), min(N[!is.na(loss_ratio_pct), year]), max(N[!is.na(loss_ratio_pct), year])),
          "recomputed from the same file). The eligible-area denominator of the enrollment rate expands as crops are added, so the",
          "rate is not comparable across years without adjustment. Dashed line: loss ratio of 100%. Descriptive only.",
-         "Source: Korea Agricultural Policy Insurance & Finance Service (APFS), public data; author's calculations."), 108)) +
+         "Source: Korea Agricultural Policy Insurance & Finance Service (APFS), public data; author's calculations."), NOTE_WIDTH)) +
   theme_thesis()
 
 save_thesis_fig(p, "fig9", "fig9_apfs_national_trends", height = 7.6, data = d)

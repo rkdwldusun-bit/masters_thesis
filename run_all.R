@@ -15,10 +15,13 @@ steps <- c(
   "audit/07_freeze_verified.R",          # verified_results/*
   "audit/08_claim_audit.R",              # verified_results/claim_audit.csv
   "audit/09_corrected_memo.py",          # docs/METHODOLOGICAL_MEMO_v3.md (approved wording corrections)
+  "audit/10_final_manifest.py",         # docs/SOURCE_MANIFEST_FINAL.csv + PROVENANCE.md table (validated)
   sprintf("R/%02d_figure%s.R", 1:11, c(1:10, "A1")),
-  "R/12_figure_qc.R")
+  "R/12_figure_qc.R",
+  "audit/11_final_consistency.py")       # final consistency checks (fails the run on any inconsistency)
 
 for (s in steps) {
+  if (s == "audit/11_final_consistency.py") file.copy("figures/figure_qc.csv", "verified_results/figure_qc.csv", overwrite = TRUE)
   message("== ", s)
   status <- system2(if (grepl("\\.py$", s)) "python3" else "Rscript", s)
   if (status != 0) stop("failed: ", s)

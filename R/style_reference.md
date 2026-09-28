@@ -21,13 +21,13 @@ decision and the reason are stated.
 | Element | Convention used for Chapter 5 | Evidence (line) | Note |
 |---|---|---|---|
 | Base theme | `theme_bw()` | R1 190 | |
-| Font family | `"sans"` (renders as Arial on Windows/macOS; Liberation Sans here) | R1 190 `base_family = "sans"` | **Conflict:** S1 10 and S2 213 use `"Arial Narrow"`. Kept `sans` because R1 is the only R script; one-line switch `THESIS_FONT` in `00_theme_thesis.R`. **Your decision.** |
+| Font family | **Arial Narrow** (fallback Nimbus Sans Narrow), final decision §2 | S1 10, S2 213 (`"Arial Narrow"`); R1 190 used `"sans"` | Superseded draft choice: `sans` |
 | Base font size | 14 | R1 190 `base_size = 14` | |
 | Axis-title size | 15, black | R1 196 | |
 | Axis-label size | 11, `grey30` | R1 197 | |
 | x-axis labels | horizontal, centred | R1 198; S1/S2 `angle(0)` 102, 304 | |
-| Title | Present, bracketed number, title case, black, plain: `[Figure 1] ...` | S1 89–91, S2 291–293 (`size(medium) color(black)`) | R1 192 blanks the title. Titles kept because both numbered thesis figures carry them and the brief prescribes title wording. `show_title = FALSE` removes them if captions go in Word. |
-| Title size | 15 (= axis title) | Stata `medium`/`small` = 3.81/2.77 ≈ 1.38 × label size 11 ≈ 15 | derived ratio |
+| Title | **None inside the graphic**; figure number and caption go in the thesis document (final decision §2) | R1 192 `plot.title = element_blank()` | S1/S2 put bracketed titles in the graph; not used |
+| Title size | not applicable (no in-graphic title) | — | |
 | Subtitle | none | none in any script | |
 | Caption / source note | bottom-left, same size as axis labels (11), starts `Source:` | S1 130–132, S2 331–333 (`note(... size(small) position(7))`) | Methodological caveats go in the same note. |
 | Legend | top, one row, no box, text 11, no legend title | S1 123–128, S2 324–329 (`position(12) row(1) size(small) region(lcolor(white))`) | R1 199 `legend.position = "none"` (single series only) |
@@ -52,11 +52,13 @@ decision and the reason are stated.
 | Aspect ratio | Stata default 5.5 × 4 in (≈ 1.38) for single-panel figures; taller for stacked panels | Stata default graph size (S1/S2 do not override it) | |
 | Additional format | PDF (requested in the brief; not in my earlier workflow) | — | |
 
-## 2. Decisions that need your confirmation
+## 2. Final decisions (author, 2026-09-28)
 
-1. **Font:** `sans` (R1) vs `Arial Narrow` (S1, S2). Change `THESIS_FONT` to `"Arial Narrow"` to match the Chapter 2 Stata figures.
-2. **In-figure titles:** kept (S1, S2). Set `show_title = FALSE` if the thesis puts figure titles in Word captions (R1 practice).
-3. **Numbering:** `[Figure 1]` … `[Figure 10]`, `[Appendix Figure A1]` as named in the brief. Chapter 2 used chapter-based numbers (`[Figure 2-2-1]`); if Chapter 5 should read `[Figure 5-1]`, change the `FIG_NO` vector in `00_theme_thesis.R`.
+1. **Font:** **Arial Narrow** (S1 line 10, S2 line 213). Fallback where Arial Narrow is not installed: **Nimbus Sans Narrow** (metric-compatible). The published PNG/PDF files in `figures/` were rendered with the fallback, because Arial Narrow is not installed on the build machine; on a machine with Arial Narrow the same scripts use it automatically (`THESIS_FONT` in `00_theme_thesis.R`).
+2. **No figure numbers and no thesis titles inside the graphics** (`show_title = FALSE`). Figure numbers and full captions are added in the thesis document, as in my R budget figure (R1 line 192, `plot.title = element_blank()`). The graphics keep only panel labels, axes, legends and the necessary methodological note.
+3. **Unchanged:** the theme, font sizes, margins, line widths, point sizes and colours in §1. Only the font family changed. The note wrap width was widened from 108 to 128 characters so that notes in the narrower font fill the plot width (`NOTE_WIDTH`).
+
+The table in §1 still lists `sans` as R1's choice; it is superseded for the thesis by decision 1.
 
 ## 3. What was deliberately not copied from the existing Python figures
 

@@ -84,7 +84,7 @@ cl("C024", "Pre-trend joint Wald test using the bootstrap covariance", "inferenc
 
 # ---------------- main estimates
 cl("C025", "Preferred sample: 7 treated crops, 24 control series, 29 contributing clusters", "sample", "memo s.1",
-   "7 / 24 / 29", "7 / 24 / 29. Winter napa cabbage and Winter radish (data from 2014) never meet a 2007-2009 base year, so only 22 controls ever contribute; post-period controls fall from 22 (e=0) to 8-11 (e=9)",
+   "7 / 24 / 29", "7 / 24 / 29. Winter Napa cabbage and Winter Radish (data from 2014) never meet a 2007-2009 base year, so only 22 controls ever contribute; post-period controls fall from 22 (e=0) to 8-11 (e=9)",
    "A", "VERIFIED_WITH_CAVEAT", "State 'up to 22 contributing controls' and the shrinking control set at long horizons.")
 cl("C026", "Area 0.048 [-0.213, 0.310]", "main estimate", "memo s.1", "0.048 [-0.213, 0.310]", "0.048419; SE 0.13905; R CI [-0.217, 0.314] (99,999 draws)", "A", "VERIFIED", "audit/02")
 cl("C027", "Yield -0.028 [-0.132, 0.075]", "main estimate", "memo s.1", "-0.028 [-0.132, 0.075]", "-0.028405; SE 0.05478; R CI [-0.133, 0.076]", "A", "VERIFIED", "audit/02")
@@ -143,7 +143,7 @@ cl("C049", "Red pepper decline cannot be attributed to insurance", "interpretati
 
 # ---------------- coherence, estimator comparison
 cl("C050", "Area 0.048 + yield -0.028 = 0.020 = production; the log identity holds on the common sample", "coherence", "memo s.5",
-   "exact identity", "0.048419 + (-0.028405) = 0.020014 vs production 0.019883 (gap 0.00013). Cell-level ln P - ln A - ln Y + ln 100: median |gap| 0.00014, 95th pct 0.0035, max 0.074 (Spring radish 2001) in estimation sample",
+   "exact identity", "0.048419 + (-0.028405) = 0.020014 vs production 0.019883 (gap 0.00013). Cell-level ln P - ln A - ln Y + ln 100: median |gap| 0.00014, 95th pct 0.0035, max 0.074 (Spring Radish 2001) in estimation sample",
    "A", "VERIFIED_WITH_CAVEAT", "Identity holds approximately (KOSIS rounds yield to whole kg/10a; one outlier). Say 'approximately equals'. Unit relation verified: t = ha x kg/10a / 100.")
 cl("C051", "Dynamically area and production move together; yield flat within +/-0.10", "coherence", "memo s.5", "within +/-0.10",
    "Yield event-time estimates -0.092..0.031 (post), -0.066..0.009 (pre)", "A", "VERIFIED")
@@ -215,7 +215,7 @@ cl("C083", "Incompatible: Apple (Fuji -> all), Sweet persimmon (all persimmons -
 cl("C084", "Soybean and Corn appear only in the new-series (2005-2024) variant", "price", "memo s.10", "new-series only", "Confirmed", "A", "VERIFIED")
 cl("C085", "Price-item definitions (e.g. rice 일반미 -> 멥쌀; potato pools seasons; leaf lettuce vs lettuce)", "price", "memo s.10, s.12(9); PRICE_ITEMS",
    "item crosswalk", "Crosswalk internally consistent", "C", "VERIFIED_WITH_CAVEAT", "Item definitions require the KOSIS item metadata (not embedded).")
-cl("C086", "Pooled price units carry hard-coded dates (napa cabbage 2014, radish 2015, green onion 2014, spinach 2013, leaf lettuce 2013; potato 2008/2013)", "price", "03_estimate.py PD dict",
+cl("C086", "Pooled price units carry hard-coded dates (Napa cabbage 2014, Radish 2015, green onion 2014, spinach 2013, leaf lettuce 2013; potato 2008/2013)", "price", "03_estimate.py PD dict",
    "hard-coded", "Not in TREATMENT input; used only in the approximate-match variant", "C", "VERIFIED_WITH_CAVEAT", "Greenhouse-product dates need the Yearbook.")
 
 # ---------------- rice
@@ -258,7 +258,7 @@ cl("C101", "Changes of +/-25-40% in area or production cannot be excluded", "lim
    "Production CI -25%..+39%; area CI -19%..+36%", "A", "VERIFIED")
 cl("C102", "Controls mostly vegetables; field-crop-only controls change the signs", "limitation", "memo s.12(6)", "mostly vegetables",
    "15 of 24 control series are vegetables; field-only: area -0.054, production -0.091 (sign change)", "A", "VERIFIED")
-cl("C103", "Winter forms observed only from 2014", "limitation", "memo s.12(9)", "2014", "Winter napa / winter radish first year 2014 (2011 zero recoded missing)", "A", "VERIFIED")
+cl("C103", "Winter forms observed only from 2014", "limitation", "memo s.12(9)", "2014", "Winter Napa cabbage / Winter Radish first year 2014 (2011 zero recoded missing)", "A", "VERIFIED")
 cl("C104", "Crop-year conversion assumes historical sales windows equal those in the 2026 guideline", "limitation", "memo s.12(7)", "assumption", "Not verifiable", "C", "UNSUPPORTED", "EXTERNAL SOURCE VERIFICATION REQUIRED.")
 cl("C105", "Corn series may include forage corn; Spring potato and Rice prices approximate", "limitation", "memo s.12(9)", "definitions", "Not verifiable from bundles", "C", "VERIFIED_WITH_CAVEAT")
 cl("C106", "Scientific names and method citations must be verified", "limitation", "memo s.12(11); NOMENCLATURE", "to verify", "Not verified", "C", "UNSUPPORTED")
@@ -313,7 +313,7 @@ cl("C132", "Fruit static TWFE on the preferred fruit comparison pool (24 annual 
    "A", "VERIFIED", "Supersedes the annual-controls-only benchmark (0.432 / 0.411, G = 30). Benchmark only; the p-values carry no interpretive weight (the benchmark absorbs the pre-trend).")
 cl("C133", "24 control-pool series listed; 22 contribute; eligible control support shrinks to about 8-11 controls by e = 9", "sample",
    "docs/METHODOLOGICAL_MEMO_v3 s.1, s.7, s.12(6); Figure 1 note", "24 / 22 / 8-11",
-   "24 listed; 22 contribute (Winter napa cabbage and Winter radish never do); per treated crop min-max controls: e=0 22-22, e=4 15-22, e=5 14-20, e=6 11-20, e=7 10-15, e=8 10-14, e=9 8-11 (11 distinct series at e=9)",
+   "24 listed; 22 contribute (Winter Napa cabbage and Winter Radish never do); per treated crop min-max controls: e=0 22-22, e=4 15-22, e=5 14-20, e=6 11-20, e=7 10-15, e=8 10-14, e=9 8-11 (11 distinct series at e=9)",
    "A", "VERIFIED", "verified_results/verified_event_time_support.csv")
 cl("C134", "Current support tables (T12/T13 equivalents) replace the stale EVENT_SUPPORT / COHORT_SUPPORT / CONTROL_COMP sheets", "provenance",
    "verified_results/verified_event_time_support.csv, verified_control_composition.csv", "code-consistent support",
@@ -329,10 +329,21 @@ cl("C137", "Fruit comparison group consists primarily of annual crops; later-tre
    "A", "VERIFIED", "Replaces C061 wording; specification unchanged.")
 cl("C138", "Crop-year log production identity discrepancies > 0.01 in the estimation sample", "coherence",
    "verified_results/verified_identity_discrepancies.csv", "documented",
-   "Spring radish 2001 (gap -0.0743; reported yield 3,415 vs implied 3,170.5 kg/10a); Sesame 2020 (-0.0123). Source values unchanged",
+   "Spring Radish 2001 (gap -0.0743; reported yield 3,415 vs implied 3,170.5 kg/10a); Sesame 2020 (-0.0123). Source values unchanged",
    "A", "VERIFIED", "Aggregated: area + yield 0.020014 vs production 0.019883 -> 'approximately consistent with the log production identity'.")
 cl("C139", "Figure 7 excludes records with a missing or non-positive insured or normal yield", "APFS", "Figure 7 note; 05_apfs_descriptives.py",
    "exclusion rule", "Code: ratio = insured / normal yield after non-positive values set to missing; shares on non-missing ratios", "B", "VERIFIED", "Raw records not embedded.")
+
+cl("C140", "DT_1J50 source: 농가판매가격지수_2005100__분기__20260927183931.xlsx, KOSIS DT_1J50 농가판매가격지수(2005=100, 분기), SHA-256 d0d3ceca...ca01", "provenance",
+   "docs/PROVENANCE.md s.2; docs/SOURCE_MANIFEST_FINAL.csv", "author-supplied", "File not in the uploaded bundles; hash cannot be recomputed here. Role (총지수, linked to DT_1J60 with k = 0.7079) consistent with code and PRICE_DEFL_LINK",
+   "C", "VERIFIED_WITH_CAVEAT", "Verify the hash when the original is staged with audit/stage_raw_copies.py.")
+cl("C141", "Physical files 08_vegetables_spices.xls and 10_vegetables_root.xls are swapped relative to contents (DT_1ET0029 root / DT_1ET0291 seasoning)", "provenance",
+   "docs/PROVENANCE.md s.1; docs/SOURCE_MANIFEST_FINAL.csv", "author-supplied",
+   "Consistent with the code (series selected by table ID) and the KOSIS metadata snapshot (08_...root -> DT_1ET0029; 10_...spices -> DT_1ET0291). Provenance issue only; no numerical data affected",
+   "B", "VERIFIED", "Copies are renamed to semantic names by audit/stage_raw_copies.py; raw values untouched.")
+cl("C142", "Final thesis-facing names: Other pulses, Malting barley, Ginger, Walnut; Spring/Highland/Autumn/Winter Napa cabbage; Spring/Highland/Autumn/Winter Radish; Leaf lettuce = 상추 (Lettuce = 양상추)", "terminology",
+   "R/lib/thesis_names.R; verified_master_panel.csv crop_en_display; verified_treatment_coding.csv; verified_control_composition.csv", "author decision",
+   "Applied to display labels only (crop_id and values unchanged); no banned name in thesis-facing files (figure QC and final consistency check)", "A", "VERIFIED")
 
 A <- rbindlist(rows)
 stopifnot(!anyDuplicated(A$claim_id))
@@ -350,7 +361,11 @@ res <- c(
   C062 = "Item 7: fruit TWFE re-estimated on the preferred fruit pool (C132); old result SUPERSEDED in verified_benchmark_record.csv. Range now 0.38-0.41.",
   C005 = "Item 8: stale sheets quarantined; replaced by code-consistent T12/T13 equivalents (C134).",
   C007 = "Item 9: verified_master_panel.csv carries the re-decoded UTF-8 labels.",
-  C003 = "Item 10: reconciled in docs/PROVENANCE.md; DT_1J50 documented; AUTHOR ACTION remains for 08/10 file names and the DT_1J50 hash.",
+  C003 = "Item 10 + final round: fully reconciled in docs/PROVENANCE.md and docs/SOURCE_MANIFEST_FINAL.csv. DT_1J50 source file, table ID and SHA-256 author-supplied (C140); 08/10 physical names swapped relative to contents, identification by KOSIS table ID (C141). No numerical data changed.",
+  C009 = "Final round: author-approved names applied to all thesis-facing labels (C142).",
+  C030 = "Final round: memo v3 now reads 'roughly -25% to +39%' and quotes the log-point CI [-0.287, 0.327].",
+  C057 = "Final round: displayed as 'bootstrap p < 0.001' (memo v3; p_display columns); numeric value 1e-4 unchanged.",
+  C077 = "Final round: DT_1J50 source documented (C140); hash author-supplied, not recomputable from the bundles.",
   C004 = "Item 10: documented in docs/PROVENANCE.md (reproducibility statement).",
   C091 = "Item 11: loss ratio defined as indemnities / risk premium x 100 in Figure 9 and memo v3.",
   C096 = "Item 12: audit label corrected to 'rows with missing or non-positive normal yield'; value unchanged.",

@@ -31,7 +31,7 @@ p <- ggplot(d, aes(x = year, y = share, fill = payer, colour = payer)) +
                  paste(sprintf("%.1f%%", 100 * N[year %in% gap_years, components_share_of_net_premium]), collapse = " and ")),
          "provincial and municipal subsidy fields are recorded as zero. The public dataset does not explain the residual (unfilled",
          "segment); it is not attributed to any payer. Descriptive only.",
-         "Source: Korea Agricultural Policy Insurance & Finance Service (APFS), public data; author's calculations."), 108)) +
+         "Source: Korea Agricultural Policy Insurance & Finance Service (APFS), public data; author's calculations."), NOTE_WIDTH)) +
   theme_thesis()
 
 save_thesis_fig(p, "fig10", "fig10_apfs_financing_shares", height = 6.2, data = d)

@@ -1,5 +1,5 @@
 id: fig7
-title: [Figure 7] Insured-to-Normal Yield Ratio, Eight Largest Fruit Crops, 2024
+title: 
 x: Share of administrative contract-detail records (insured yield / normal yield)
 y: 
-caption: Note: APFS 2024 fruit contract-detail file (336,232 rows; 12,099 exact duplicate rows; no contract identifier). Crop disaster insurance only; records with a missing or non-positive insured or normal yield are excluded. 'Equal to 1' = ratio within ±0.0005. Shares are taken from the supplied crop-level summary; the raw record file is not part of the verified bundle. Descriptive only. Source: Korea Agricultural Policy Insurance & Finance Service (APFS), public data; author's calculations.
+caption: Note: APFS 2024 fruit contract-detail file (336,232 rows; 12,099 exact duplicate rows; no contract identifier). Crop disaster insurance only; records with a missing or non-positive insured or normal yield are excluded. 'Equal to 1' = ratio within ±0.0005. Shares are taken from the supplied crop-level summary; the raw record file is not part of the verified bundle. Descriptive only. Source: Korea Agricultural Policy Insurance & Finance Service (APFS), public data; author's calculations.

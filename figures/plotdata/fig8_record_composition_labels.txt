@@ -1,5 +1,5 @@
 id: fig8
-title: [Figure 8] Administrative Contract-Detail Records by Fruit Crop, 2024
+title: 
 x: Number of administrative contract-detail records
 y: 
 caption: Note: APFS 2024 fruit contract-detail file, crop disaster insurance only (335,538 records; 694 revenue-insurance grape records excluded). Records are administrative contract-detail rows, not necessarily unique contracts: the file has no contract identifier and contains 12,099 exact duplicate rows. Counts are taken from the supplied crop-level summary. Descriptive only. Source: Korea Agricultural Policy Insurance & Finance Service (APFS), public data; author's calculations.

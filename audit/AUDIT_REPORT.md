@@ -155,7 +155,7 @@ CI = reported 95% wild-bootstrap interval (Python). R reproduces every point est
 
 - **Scores.** Each estimator is linear, θ = Σ a_ct·Y_ct, and each crop's score is ψ_c = Σ_t a_ct·ê_ct.
 - **Residuals.** ê comes from a two-way FE model (crop + year) fitted on clean cells only. For treated post cells, ê = Y − fit − ATT(e). This demeans by the event-time average, so heterogeneity across treated crops enters the variance.
-- **Contributing clusters.** Only crops with a non-zero score contribute: G = 29, meaning 7 treated plus 22 controls. The 24 listed controls include Winter napa cabbage and Winter radish, which never meet a 2007–2009 reference year.
+- **Contributing clusters.** Only crops with a non-zero score contribute: G = 29, meaning 7 treated plus 22 controls. The 24 listed controls include Winter Napa cabbage and Winter Radish, which never meet a 2007–2009 reference year.
 - **Standard error.** SE = √(G/(G−1)·Σψ²), which is CR1-type. The normal p-value uses this SE.
 - **Bootstrap.** One Webb 6-point multiplier per crop is drawn per replication, shared across event times. The replicated statistic is θ* = Σ v_c ψ_c.
   - CI = θ ± 95th percentile of |θ*|. This is a symmetric, non-studentised interval.
@@ -164,7 +164,7 @@ CI = reported 95% wild-bootstrap interval (Python). R reproduces every point est
 - **Status.** This is a **custom** inference procedure and must be called custom. It is related to the multiplier-bootstrap and wild-cluster literatures but is not a documented textbook procedure.
 - **TWFE.** Inference is a standard restricted wild cluster bootstrap-t (WCR, Webb, 1,999 draws, CR1 with small-sample factor). With 7 treated clusters out of 31, WCR is known to be conservative.
 - **Fragility.** With 7 / 6 / 4 treated clusters, inference **should be described as fragile**. Analytic and bootstrap p-values agree (0.901 vs 0.903) because both rest on the same 7 treated scores; that agreement is not independent confirmation.
-- **Single-crop cases.** With one treated crop (Cohort 2015 only), p = 0.0001 = 1/(B+1). This is degenerate: descriptive only.
+- **Single-crop cases.** With one treated crop (Cohort 2015 only), bootstrap p < 0.001 (numerically 1/(B+1) = 0.0001, the smallest attainable value). This is degenerate: descriptive only.
 - **Reproducibility.** One RNG stream is shared by all specifications in run order, so bootstrap intervals are reproducible only for the exact script order.
 
 ---
@@ -190,7 +190,7 @@ All items were approved and resolved on 2026-09-28 (§8). The table records the 
 
 **Caveats that must stay in the thesis text (not errors).**
 - Area + yield = 0.020014 against production 0.019883: approximately equal, not "equals".
-- The cell identity ln P = ln A + ln Y − ln 100 holds only up to KOSIS rounding: median gap 0.00014, maximum 0.074 (Spring radish 2001).
+- The cell identity ln P = ln A + ln Y − ln 100 holds only up to KOSIS rounding: median gap 0.00014, maximum 0.074 (Spring Radish 2001).
 - Red pepper is influential (leaving it out gives production 0.132). Onion is nearly as influential in the opposite direction (−0.044), so the estimate is sensitive to single crops.
 - The upper production bound corresponds to +38.7% (write +39%).
 - Only 22 controls ever contribute, and 8–11 remain at e = 9.
@@ -217,10 +217,10 @@ All items were approved and resolved on 2026-09-28 (§8). The table records the 
 | 2010–2011 financing residual | A | Components 75.2% / 74.3%; provincial and municipal fields zero; residual unexplained. Nothing further is supported |
 | Institutional history, budget, reinsurance, literature citations | C | Not audited from memory |
 
-The full claim-by-claim audit is in `verified_results/claim_audit.csv` (139 claims):
-- **Level A:** 95 claims (66 verified, 21 with caveat, 8 original errors or conflicts, all now resolved).
-- **Level B:** 15 claims.
-- **Level C:** 29 claims.
+The full claim-by-claim audit is in `verified_results/claim_audit.csv` (142 claims):
+- **Level A:** 96 claims (67 verified, 21 with caveat, 8 original errors or conflicts, all now resolved).
+- **Level B:** 16 claims.
+- **Level C:** 30 claims.
 
 Original findings keep their status; resolutions are appended to `notes` ("RESOLVED 2026-09-28").
 
@@ -256,16 +256,40 @@ Checks on the new benchmarks:
 
 | Item | Verified value |
 |---|---|
-| 15: control support | 24 listed; 22 contribute (Winter napa cabbage, Winter radish never do); controls per treated crop by event time: e = 0: 22–22, e = 4: 15–22, e = 5: 14–20, e = 6: 11–20, e = 7: 10–15, e = 8: 10–14, e = 9: 8–11 (11 distinct series) |
+| 15: control support | 24 listed; 22 contribute (Winter Napa cabbage, Winter Radish never do); controls per treated crop by event time: e = 0: 22–22, e = 4: 15–22, e = 5: 14–20, e = 6: 11–20, e = 7: 10–15, e = 8: 10–14, e = 9: 8–11 (11 distinct series) |
 | 4: relative vs nominal price index | −0.118062 vs −0.117974; max event-time difference 0.0063 (0.0030 after availability) |
 | 5: fruit not-yet-treated controls | Astringent persimmon (clean to 2005) and Plum (clean to 2007) in 18 of 60 post comparisons |
-| 16: identity | Aggregated area + yield 0.020014 vs production 0.019883; crop-year gaps > 0.01: Spring radish 2001 (−0.0743), Sesame 2020 (−0.0123), recorded in `verified_identity_discrepancies.csv`, source values unchanged |
+| 16: identity | Aggregated area + yield 0.020014 vs production 0.019883; crop-year gaps > 0.01: Spring Radish 2001 (−0.0743), Sesame 2020 (−0.0123), recorded in `verified_identity_discrepancies.csv`, source values unchanged |
 | 8: support tables | Rebuilt T12/T13 equivalents match RESULTS T12 (110 rows) and T13 (72 rows) exactly; stale sheets quarantined |
 | 12: APFS audit | 10,529 = rows with missing or non-positive normal yield (label corrected; value unchanged) |
 | 11: loss ratio | indemnities / risk premium × 100 (reported = recomputed to 0.1) |
 
-### 8.3 Not changed (outside the approved list)
+### 8.3 Not changed in this round
 
-- The memo's "roughly −25% to +38%" (the upper bound is +38.7%).
-- The memo's description "Cohort 2015 only (1 crop, p = 0.000)"; that p is the minimum attainable, 1/(B+1).
-- These remain noted in `claim_audit.csv` (C030, C057).
+- The memo's "−25% to +38%" and "p = 0.000" wording were outside this round's list; both are corrected in §9.
+
+---
+
+## 9. Final documentation and presentation corrections (approved 2026-09-28)
+
+**No estimate was re-run**; no new specification was added. Re-run: provenance/manifest validation
+(`audit/10_final_manifest.py`), table-display formatting and names (`audit/07_freeze_verified.R`,
+which only reads saved results), claim audit, memo, all figure exports, figure QC, and the final
+consistency checks (`audit/11_final_consistency.py`).
+
+| # | Correction | Where | Numbers changed? |
+|---|---|---|---|
+| 1 | Production CI in percentages: "roughly −25% to +39%", with the log-point interval [−0.287, 0.327] quoted | memo v3 §1 (edit F1); README | No |
+| 2 | Bootstrap p-values that would show 0.000 are displayed as "p < 0.001" (Cohort 2015 only: 3 summary rows; 27 event-time rows) | `p_display` columns in `verified_results_summary.csv`, `verified_results_dynamic.csv`, `verified_price_results.csv`; memo v3 §7 (edit F2) | No: numeric p values unchanged (e.g. 1e-4) |
+| 3 | DT_1J50 source documented: `농가판매가격지수_2005100__분기__20260927183931.xlsx`, KOSIS DT_1J50 농가판매가격지수(2005=100, 분기), SHA-256 `d0d3ceca9cb412a2442a1c77f057bb55b5306bcfe02e7668c89879efa037ca01` (author-supplied; not recomputable without the file) | `docs/PROVENANCE.md` §2; `docs/SOURCE_MANIFEST_FINAL.csv`; claim C140 | No |
+| 4 | Vegetable files: physical `08_vegetables_spices.xls` = DT_1ET0029 (root vegetables), physical `10_vegetables_root.xls` = DT_1ET0291 (seasoning vegetables); identification by KOSIS table ID; copies renamed only by `audit/stage_raw_copies.py` (hash-verified, byte-identical) | `docs/PROVENANCE.md` §1; manifest; claim C141 | No |
+| 5 | Font Arial Narrow, fallback Nimbus Sans Narrow (used for the published files; Arial Narrow is not installed on the build machine); no figure numbers or titles inside the graphics; theme, sizes, margins, line widths, points and colours unchanged; note wrap widened for the narrower font | `R/00_theme_thesis.R`; `R/style_reference.md` §2; all 11 figures | No |
+| 6 | Final names: Other pulses, Malting barley, Ginger, Walnut; Spring / Highland / Autumn / Winter Napa cabbage; Spring / Highland / Autumn / Winter Radish; Leaf lettuce = 상추 | `R/lib/thesis_names.R`; `crop_en_display` in the frozen panel; treatment, control-composition and identity tables; documents; claim C142 | No: labels only; `crop_id` and all values unchanged |
+
+**Checks.**
+- Figure QC: 11/11 PASS. Plotted values match the verified files (max |diff| ≤ 5e-14); no title or figure number inside any graphic; font = Nimbus Sans Narrow (approved fallback).
+- `audit/11_final_consistency.py`: all checks pass, including:
+  - no banned crop name, "p = 0.000", "+38%" or "cancels exactly" in thesis-facing files;
+  - the DT_1J50 hash identical in the manifest, PROVENANCE.md and the claim audit;
+  - every crop name in the frozen files on the approved list;
+  - every non-label cell of the master panel byte-identical to the bundle.
