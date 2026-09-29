@@ -1,0 +1,10 @@
+check,outcome,variant,max_error
+WCR vectorized vs literal refit,ln_area,False,1.2256862191861728e-13
+WCR vectorized vs literal refit,ln_area,True,8.1601392309949e-14
+WCR vectorized vs literal refit,ln_yield,False,2.48245868306185e-13
+WCR vectorized vs literal refit,ln_yield,True,2.0228263508670352e-13
+WCR vectorized vs literal refit,ln_production,False,1.765254609153999e-13
+WCR vectorized vs literal refit,ln_production,True,1.20570220474292e-13
+Null score map vs original estimator,ln_production,0,2.220446049250313e-16
+Null score map vs original estimator,ln_production,1,8.326672684688674e-17
+Null score map vs original estimator,ln_production,2,4.440892098500626e-16

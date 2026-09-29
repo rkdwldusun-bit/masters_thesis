@@ -1,0 +1,60 @@
+Custom grid completed: ln_area
+Custom grid completed: ln_yield
+Custom grid completed: ln_production
+Effect results:          method       outcome    clock  base horizon       est  se_cluster  p_wild  p_holm_all54
+original_custom       ln_area national  last     0_9  0.048419    0.139046  0.7371           1.0
+original_custom       ln_area national  last     0_2  0.046685    0.141225  0.7517           1.0
+original_custom       ln_area national  last     3_5 -0.003641    0.134218  0.9787           1.0
+original_custom       ln_area national  last     6_9  0.088764    0.161616  0.5924           1.0
+original_custom       ln_area national last5     0_9  0.075429    0.149875  0.6245           1.0
+original_custom       ln_area national last5     0_2  0.071529    0.146335  0.6350           1.0
+original_custom       ln_area national last5     3_5  0.025543    0.146269  0.8644           1.0
+original_custom       ln_area national last5     6_9  0.115769    0.175599  0.5122           1.0
+original_custom       ln_area    pilot  last     0_9  0.034486    0.113448  0.7705           1.0
+original_custom       ln_area    pilot  last     0_2 -0.012602    0.088063  0.8870           1.0
+original_custom       ln_area    pilot  last     3_5  0.115375    0.129073  0.3833           1.0
+original_custom       ln_area    pilot  last     6_9  0.009134    0.138585  0.9482           1.0
+original_custom       ln_area    pilot last5     0_9  0.060579    0.120060  0.6241           1.0
+original_custom       ln_area    pilot last5     0_2  0.008640    0.090472  0.9262           1.0
+original_custom       ln_area    pilot last5     3_5  0.140258    0.134716  0.3032           1.0
+original_custom       ln_area    pilot last5     6_9  0.039773    0.147559  0.7957           1.0
+original_custom      ln_yield national  last     0_9 -0.028405    0.054780  0.6102           1.0
+original_custom      ln_yield national  last     0_2  0.003409    0.046758  0.9456           1.0
+original_custom      ln_yield national  last     3_5 -0.060685    0.055174  0.2781           1.0
+original_custom      ln_yield national  last     6_9 -0.028056    0.074439  0.7066           1.0
+original_custom      ln_yield national last5     0_9 -0.008459    0.050041  0.8680           1.0
+original_custom      ln_yield national last5     0_2  0.024498    0.042745  0.5711           1.0
+original_custom      ln_yield national last5     3_5 -0.037812    0.047377  0.4194           1.0
+original_custom      ln_yield national last5     6_9 -0.011161    0.071283  0.8720           1.0
+original_custom      ln_yield    pilot  last     0_9 -0.017788    0.044709  0.6899           1.0
+original_custom      ln_yield    pilot  last     0_2  0.003579    0.040920  0.9316           1.0
+original_custom      ln_yield    pilot  last     3_5 -0.011325    0.049664  0.8177           1.0
+original_custom      ln_yield    pilot  last     6_9 -0.038660    0.049328  0.4486           1.0
+original_custom      ln_yield    pilot last5     0_9  0.003332    0.037368  0.9259           1.0
+original_custom      ln_yield    pilot last5     0_2  0.023567    0.031857  0.4598           1.0
+original_custom      ln_yield    pilot last5     3_5  0.009557    0.042479  0.8192           1.0
+original_custom      ln_yield    pilot last5     6_9 -0.016512    0.043888  0.7060           1.0
+original_custom ln_production national  last     0_9  0.019883    0.159126  0.9064           1.0
+original_custom ln_production national  last     0_2  0.049448    0.156914  0.7626           1.0
+original_custom ln_production national  last     3_5 -0.064540    0.147610  0.6768           1.0
+original_custom ln_production national  last     6_9  0.061027    0.189859  0.7545           1.0
+original_custom ln_production national last5     0_9  0.066856    0.164336  0.6884           1.0
+original_custom ln_production national last5     0_2  0.095366    0.150707  0.5397           1.0
+original_custom ln_production national last5     3_5 -0.012491    0.154489  0.9382           1.0
+original_custom ln_production national last5     6_9  0.104984    0.203117  0.6112           1.0
+original_custom ln_production    pilot  last     0_9  0.016682    0.127501  0.9002           1.0
+original_custom ln_production    pilot  last     0_2 -0.008354    0.108136  0.9407           1.0
+original_custom ln_production    pilot  last     3_5  0.103823    0.141758  0.4751           1.0
+original_custom ln_production    pilot  last     6_9 -0.029896    0.148772  0.8488           1.0
+original_custom ln_production    pilot last5     0_9  0.063888    0.127039  0.6259           1.0
+original_custom ln_production    pilot last5     0_2  0.032872    0.104665  0.7627           1.0
+original_custom ln_production    pilot last5     3_5  0.149573    0.138134  0.2862           1.0
+original_custom ln_production    pilot last5     6_9  0.022887    0.152755  0.8828           1.0
+     TWFE_clean       ln_area national    FE     0_9  0.242951    0.191978  0.2306           1.0
+    TWFE_trends       ln_area national    FE     0_9 -0.085626    0.139155  0.5232           1.0
+     TWFE_clean      ln_yield national    FE     0_9 -0.027927    0.069549  0.7208           1.0
+    TWFE_trends      ln_yield national    FE     0_9  0.020203    0.055774  0.7139           1.0
+     TWFE_clean ln_production national    FE     0_9  0.214717    0.195861  0.2920           1.0
+    TWFE_trends ln_production national    FE     0_9 -0.066397    0.162907  0.6751           1.0
+Null calibration: [{'rho': 0.0, 'repetitions': 2000, 'bootstrap_draws': 1999, 'rejection_rate': np.float64(0.118), 'mc_se': np.float64(0.007213736895673421), 'mc_95_lo': np.float64(0.1038610756844801), 'mc_95_hi': np.float64(0.1321389243155199)}, {'rho': 0.7, 'repetitions': 2000, 'bootstrap_draws': 1999, 'rejection_rate': np.float64(0.0955), 'mc_se': np.float64(0.006571900410079264), 'mc_95_lo': np.float64(0.08261907519624465), 'mc_95_hi': np.float64(0.10838092480375536)}, {'rho': 0.95, 'repetitions': 2000, 'bootstrap_draws': 1999, 'rejection_rate': np.float64(0.0915), 'mc_se': np.float64(0.00644700511865781), 'mc_95_lo': np.float64(0.0788638699674307), 'mc_95_hi': np.float64(0.1041361300325693)}]
+COMPLETE {"source_commit": "00b60931ef577aca690d0d3aa2fc4a4c3bed5e64", "seed": 20260929, "bootstrap_draws": 9999, "numpy": "2.3.5", "pandas": "2.2.3", "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]", "input_sha256": "0d2fe6117edd1ac1e2ff1ed4c6cb97c0bf1d59009268180e29e57780897ec76c", "effect_tests": 54, "raw_p_below_05": 0, "holm_p_below_05": 0, "limitations": ["Exploratory after prior results inspected", "Original custom score inference not established by replication", "TWFE and linear-trend models are benchmarks, not automatically valid causal estimates", "No new data or external date validation"]}
