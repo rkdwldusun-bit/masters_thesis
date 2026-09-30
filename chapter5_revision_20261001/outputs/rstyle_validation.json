@@ -60,7 +60,7 @@
   "pages": 23,
   "native_math": 30,
   "visual_review": "Current CI rendering exported for review; automated checks do not replace visual review. Earlier local 23-page styling reviewed before environment loss.",
-  "docx_sha256": "5b1726bc9661921589534d4120a942d8524c8f5dd749d70df6c60c2e2ad39a4c",
+  "docx_sha256": "6fc143082319c147cbd43c58f8e68b0c8759a8255a6d5f442b4dae78826d483d",
   "source_csv_sha256": {
     "pretrend_crop_paths.csv": "a734508ad41519820599850a15e942d1b4356b5dba35b9695e56810ae9a13b2a",
     "secondary_price_frozen.csv": "5908bdc62a5ecd9960df71c66909d3e0aa102c98e611f448eb805d109e5d3515",
