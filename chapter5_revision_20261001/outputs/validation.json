@@ -1,0 +1,360 @@
+{
+  "checks": [
+    {
+      "check": "all 420 direct contrasts vs frozen September 30",
+      "max_abs_error": 2.220446049250313e-16,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "fixed preperiod donor gaps vs frozen September 30",
+      "max_abs_error": 4.142519660632615e-15,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "original: identical support across outcomes",
+      "max_abs_error": 0.0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "check": "exclude_spring: identical support across outcomes",
+      "max_abs_error": 0.0,
+      "tolerance": 0,
+      "passed": true
+    },
+    {
+      "check": "specification 1 ln_area point vs archive",
+      "max_abs_error": 1.942890293094024e-15,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "specification 1 ln_yield point vs archive",
+      "max_abs_error": 1.6375789613221059e-15,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "specification 1 ln_production point vs archive",
+      "max_abs_error": 2.6749435999562365e-15,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "specification 2 ln_area point vs archive",
+      "max_abs_error": 2.0539125955565396e-15,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "specification 2 ln_yield point vs archive",
+      "max_abs_error": 1.6844164951734797e-15,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "specification 2 ln_production point vs archive",
+      "max_abs_error": 3.0531133177191805e-15,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "specification 3 ln_area point vs archive",
+      "max_abs_error": 3.3306690738754696e-16,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "specification 3 ln_yield point vs archive",
+      "max_abs_error": 2.7755575615628914e-16,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "specification 3 ln_production point vs archive",
+      "max_abs_error": 1.3322676295501878e-15,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "specification 4 ln_area point vs archive",
+      "max_abs_error": 2.345346139520643e-15,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "specification 4 ln_yield point vs archive",
+      "max_abs_error": 2.338407245616736e-15,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "specification 4 ln_production point vs archive",
+      "max_abs_error": 2.4841240175987878e-15,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "specification 5 ln_area point vs archive",
+      "max_abs_error": 1.6861512186494565e-15,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "specification 5 ln_yield point vs archive",
+      "max_abs_error": 1.1449174941446927e-15,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "specification 5 ln_production point vs archive",
+      "max_abs_error": 2.4702462297909733e-15,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "specification 6 ln_area point vs archive",
+      "max_abs_error": 1.4155343563970746e-15,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "specification 6 ln_yield point vs archive",
+      "max_abs_error": 1.0894063429134349e-15,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "specification 6 ln_production point vs archive",
+      "max_abs_error": 2.3869795029440866e-15,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "specification 7 ln_area point vs archive",
+      "max_abs_error": 1.9290125052862095e-15,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "specification 7 ln_yield point vs archive",
+      "max_abs_error": 1.4155343563970746e-15,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "specification 7 ln_production point vs archive",
+      "max_abs_error": 2.9837243786801082e-15,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "specification 8 ln_area point vs archive",
+      "max_abs_error": 3.469446951953614e-17,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "specification 8 ln_yield point vs archive",
+      "max_abs_error": 4.0939474033052647e-16,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "specification 8 ln_production point vs archive",
+      "max_abs_error": 1.249000902703301e-16,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "leave-one-out soybean ln_area",
+      "max_abs_error": 4.3021142204224816e-16,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "leave-one-out soybean ln_yield",
+      "max_abs_error": 5.065392549852277e-16,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "leave-one-out soybean ln_production",
+      "max_abs_error": 6.140921104957897e-16,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "leave-one-out onion ln_area",
+      "max_abs_error": 8.239936510889834e-17,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "leave-one-out onion ln_yield",
+      "max_abs_error": 5.551115123125783e-17,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "leave-one-out onion ln_production",
+      "max_abs_error": 2.7755575615628914e-16,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "leave-one-out sweet_potato ln_area",
+      "max_abs_error": 2.983724378680108e-16,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "leave-one-out sweet_potato ln_yield",
+      "max_abs_error": 4.0939474033052647e-16,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "leave-one-out sweet_potato ln_production",
+      "max_abs_error": 6.71066934659903e-16,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "leave-one-out corn ln_area",
+      "max_abs_error": 3.191891195797325e-16,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "leave-one-out corn ln_yield",
+      "max_abs_error": 3.8163916471489756e-16,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "leave-one-out corn ln_production",
+      "max_abs_error": 8.049116928532385e-16,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "leave-one-out garlic ln_area",
+      "max_abs_error": 5.065392549852277e-16,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "leave-one-out garlic ln_yield",
+      "max_abs_error": 4.510281037539698e-16,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "leave-one-out garlic ln_production",
+      "max_abs_error": 8.396061623727746e-16,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "leave-one-out spring_potato ln_area",
+      "max_abs_error": 6.843484112728504e-16,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "leave-one-out spring_potato ln_yield",
+      "max_abs_error": 6.678685382510707e-16,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "leave-one-out spring_potato ln_production",
+      "max_abs_error": 1.160530005428484e-15,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "leave-one-out red_pepper ln_area",
+      "max_abs_error": 8.604228440844963e-16,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "leave-one-out red_pepper ln_yield",
+      "max_abs_error": 6.487865800153259e-16,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "leave-one-out red_pepper ln_production",
+      "max_abs_error": 1.2212453270876722e-15,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "area weights sum",
+      "max_abs_error": 0.0,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "crop mean aggregation original ln_area",
+      "max_abs_error": 2.2065682614424986e-15,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "crop mean aggregation original ln_yield",
+      "max_abs_error": 2.3071822230491534e-15,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "crop mean aggregation original ln_production",
+      "max_abs_error": 3.858025010572419e-15,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "crop mean aggregation exclude_spring ln_area",
+      "max_abs_error": 2.5396351688300456e-15,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "crop mean aggregation exclude_spring ln_yield",
+      "max_abs_error": 2.3522850334245504e-15,
+      "tolerance": 1e-10,
+      "passed": true
+    },
+    {
+      "check": "crop mean aggregation exclude_spring ln_production",
+      "max_abs_error": 2.5118795932144167e-15,
+      "tolerance": 1e-10,
+      "passed": true
+    }
+  ],
+  "all_passed": true,
+  "direct_contrasts": 420,
+  "raw_treated_identity_max_abs": 0.0033723323538303873,
+  "raw_treated_identity_median_abs": 0.00013970833673271343,
+  "source_sha256": {
+    "verified_results/verified_master_panel.csv": "0d2fe6117edd1ac1e2ff1ed4c6cb97c0bf1d59009268180e29e57780897ec76c",
+    "verified_results/verified_treatment_coding.csv": "a4804c3e67e85c26018e31cfb171d41a810b1dd0e80d4a65d7fd2ae47ceca45e",
+    "verified_results/verified_results_summary.csv": "81447112fe59df9764ae88905a39b068e2dbe3de14fb6e72e341a1d81be9a4a8",
+    "reanalysis_20260929/original_engine.py": "2ec5cb7c7baaff1611450448d57c1a60d13efdeb23c6df079036d3e2342d9dde",
+    "reanalysis_20260930/outputs/main_inference.csv": "195e69eda59cf1c3be424bcd0406c4e0303f1799160550ef2eb054280cec9cd4",
+    "reanalysis_20260930/outputs/balanced_pretrends.csv": "451c258c28c7e9eee33a7505960c49d9702c3b8a5f3b807da131a37a4a7f502a",
+    "reanalysis_20260930/outputs/simulation_calibration.csv": "5477a2479bbbeafef0f0a621465ba734e727690e2fdca2e6d20dde37682ae0a8",
+    "chapter5_revision_20261001/REVISION_PLAN.md": "dc52032a669d214c69720981439656fb9e49dd9c6678858ccfd28c4a526cc773"
+  },
+  "stata_executed": false,
+  "new_bootstrap_or_simulation": false,
+  "independent_raw_source_validation": false,
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "pandas": "2.2.3",
+  "numpy": "2.3.5"
+}

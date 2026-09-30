@@ -1,0 +1,7 @@
+variant,outcome,method,est,se,ci_lo,ci_hi,p,treated_crops,contributing_controls,ci_method,inference_status
+original,ln_area,original_multiplier,0.0484190733195043,0.1390457545418562,-0.2206488301631637,0.3174869768021724,0.7338,7,22,original_multiplier,diagnostic_not_validated
+original,ln_yield,original_multiplier,-0.0284052547052058,0.0547804444546008,-0.1314800474415248,0.0746695380311131,0.6027,7,22,original_multiplier,diagnostic_not_validated
+original,ln_production,original_multiplier,0.0198832667621626,0.1591259716476963,-0.2810368161041715,0.3208033496284969,0.9077,7,22,original_multiplier,diagnostic_not_validated
+exclude_spring,ln_area,original_multiplier,-0.0413782928029065,0.1337408682853089,-0.2941754721727571,0.211418886566944,0.7583,7,20,original_multiplier,diagnostic_not_validated
+exclude_spring,ln_yield,original_multiplier,-0.0321746711864214,0.0582472450491979,-0.1428569404169419,0.0785075980440991,0.5876,7,20,original_multiplier,diagnostic_not_validated
+exclude_spring,ln_production,original_multiplier,-0.0736786115167067,0.1574314898625525,-0.3708808099260529,0.2235235868926393,0.6523,7,20,original_multiplier,diagnostic_not_validated

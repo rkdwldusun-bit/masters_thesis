@@ -1,0 +1,12 @@
+{
+  "rendered_pages": 23,
+  "all_pages_visually_inspected": true,
+  "native_word_math_objects": 30,
+  "embedded_figures": 4,
+  "tables_including_panels": 9,
+  "input_docx_sha256": "7b964ca52769ed56905943d51a33ee4978816b2a1192edad49aa5d4655fa6a5e",
+  "output_docx_sha256": "69eedf84cca0a4d94c356c73dc29dec0dde05e71bdc4bd6cd431b7efb7c236e5",
+  "source_commit": "e1057dd7f11b385a582bff335452ccf9dbb7ab2c",
+  "new_weight_inference": false,
+  "stata_executed": false
+}

@@ -1,0 +1,22 @@
+omitted_crop,crop_name,outcome,est
+soybean,Soybean,ln_area,0.07820768261754457
+soybean,Soybean,ln_yield,-0.0613020247430686
+soybean,Soybean,ln_production,0.016662633541282185
+onion,Onion,ln_area,-0.007230026489943382
+onion,Onion,ln_yield,-0.03701202066418636
+onion,Onion,ln_production,-0.044394758113311575
+sweet_potato,Sweet potato,ln_area,0.019641082773488
+sweet_potato,Sweet potato,ln_yield,-0.01922427079480621
+sweet_potato,Sweet potato,ln_production,0.00030511291732322895
+corn,Corn,ln_area,0.06578206710113468
+corn,Corn,ln_yield,-0.04386287467267108
+corn,Corn,ln_production,0.021915603443733694
+garlic,Garlic,ln_area,0.04991273411542389
+garlic,Garlic,ln_yield,-0.02789103697093805
+garlic,Garlic,ln_production,0.02198318111426516
+spring_potato,Spring potato,ln_area,0.0031914761633309156
+spring_potato,Spring potato,ln_yield,-0.012051838062117768
+spring_potato,Spring potato,ln_production,-0.009043632026177261
+red_pepper,Red pepper,ln_area,0.12942849695553613
+red_pepper,Red pepper,ln_yield,0.002507282971331451
+red_pepper,Red pepper,ln_production,0.13175472645799377

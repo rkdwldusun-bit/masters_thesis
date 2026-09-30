@@ -1,0 +1,13 @@
+variant,outcome,weighting,est,concentration_index,treated_crops,inference
+original,ln_area,Equal crop,0.048419073319502084,7.0,7,not_computed
+original,ln_area,Pre-pilot area,-0.09121653331836732,4.4317550647379536,7,not_computed
+original,ln_yield,Equal crop,-0.02840525470520811,7.0,7,not_computed
+original,ln_yield,Pre-pilot area,-0.001845346036868617,4.4317550647379536,7,not_computed
+original,ln_production,Equal crop,0.019883266762158763,7.0,7,not_computed
+original,ln_production,Pre-pilot area,-0.09297321360999292,4.4317550647379536,7,not_computed
+exclude_spring,ln_area,Equal crop,-0.041378292802909035,7.0,7,not_computed
+exclude_spring,ln_area,Pre-pilot area,-0.17879806278688776,4.4317550647379536,7,not_computed
+exclude_spring,ln_yield,Equal crop,-0.03217467118642375,7.0,7,not_computed
+exclude_spring,ln_yield,Pre-pilot area,-0.006595292064128462,4.4317550647379536,7,not_computed
+exclude_spring,ln_production,Equal crop,-0.07367861151670921,7.0,7,not_computed
+exclude_spring,ln_production,Pre-pilot area,-0.18529297034834893,4.4317550647379536,7,not_computed

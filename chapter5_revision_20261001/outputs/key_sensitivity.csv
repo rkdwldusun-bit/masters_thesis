@@ -1,0 +1,25 @@
+order,specification,outcome,est,comparison_change,treated_crops,events
+1,Reference: last clean year,ln_area,0.048419073319501946,Reference comparison,7,10
+1,Reference: last clean year,ln_yield,-0.02840525470520826,Reference comparison,7,10
+1,Reference: last clean year,ln_production,0.019883266762158375,Reference comparison,7,10
+2,Last five clean years,ln_area,0.07542902342287275,Changes reference contrast,7,10
+2,Last five clean years,ln_yield,-0.008458881021194485,Changes reference contrast,7,10
+2,Last five clean years,ln_production,0.06685580161662785,Changes reference contrast,7,10
+3,All clean years,ln_area,0.26436093300294566,Changes reference contrast,7,10
+3,All clean years,ln_yield,-0.03621809811065678,Changes reference contrast,7,10
+3,All clean years,ln_production,0.22783304151565367,Changes reference contrast,7,10
+4,Exclude two spring series,ln_area,-0.04137829280290885,Changes donor comparison,7,10
+4,Exclude two spring series,ln_yield,-0.03217467118642374,Changes donor comparison,7,10
+4,Exclude two spring series,ln_production,-0.07367861151670918,Changes donor comparison,7,10
+5,Field-crop donors only,ln_area,-0.053996046327485614,Changes donor comparison,7,10
+5,Field-crop donors only,ln_yield,-0.037215032640076355,Changes donor comparison,7,10
+5,Field-crop donors only,ln_production,-0.09129049010355623,Changes donor comparison,7,10
+6,Exclude uncertain seasonal forms,ln_area,-0.08207991967724408,Changes donor comparison,7,10
+6,Exclude uncertain seasonal forms,ln_yield,-0.02233228846834841,Changes donor comparison,7,10
+6,Exclude uncertain seasonal forms,ln_production,-0.10459875181613762,Changes donor comparison,7,10
+7,Product-table dates,ln_area,0.06168928649527593,Changes target dates,7,10
+7,Product-table dates,ln_yield,-0.025127832899536184,Changes target dates,7,10
+7,Product-table dates,ln_production,0.03639780217731618,Changes target dates,7,10
+8,Pilot-year clock,ln_area,0.034485524020294936,Changes policy exposure target,7,10
+8,Pilot-year clock,ln_yield,-0.01778765804569541,Changes policy exposure target,7,10
+8,Pilot-year clock,ln_production,0.016682357435331176,Changes policy exposure target,7,10
