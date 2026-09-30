@@ -1,0 +1,64 @@
+name: Build Chapter 5 R style
+on:
+  push:
+    branches: [codex/chapter5-revision-20261001]
+    paths:
+      - '.github/workflows/chapter5-rstyle.yml'
+      - 'chapter5_revision_20261001/R/**'
+      - 'chapter5_revision_20261001/build_chapter_rstyle.py'
+      - 'chapter5_revision_20261001/check_rstyle.py'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  render:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install R and document tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends r-base-core r-cran-ggplot2 r-cran-data.table pandoc libreoffice-writer fonts-urw-base35 fonts-liberation
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install Python document and validation libraries
+        run: pip install pandas numpy python-docx Pillow PyMuPDF
+      - name: Render R figures and editable Word tables
+        run: |
+          set -euo pipefail
+          Rscript chapter5_revision_20261001/R/render_chapter5.R | tee chapter5_revision_20261001/R/render.log
+          python chapter5_revision_20261001/build_chapter_rstyle.py
+          mkdir -p chapter5_revision_20261001/qa_rstyle
+          libreoffice -env:UserInstallation=file:///tmp/ch5-lo --headless --convert-to pdf --outdir chapter5_revision_20261001/qa_rstyle chapter5_revision_20261001/Chapter5_RStyle.docx
+          python chapter5_revision_20261001/check_rstyle.py
+          git diff --exit-code -- chapter5_revision_20261001/outputs/*.csv
+      - name: Bundle chapter and reproducibility files
+        run: |
+          python chapter5_revision_20261001/pack_review.py
+          python - <<'PY'
+          import zipfile
+          from pathlib import Path
+          r=Path('.'); h=r/'chapter5_revision_20261001'
+          with zipfile.ZipFile(h/'Chapter5_Review_Package.zip','a',zipfile.ZIP_DEFLATED) as z:
+              for p in [r/'R/00_theme_thesis.R',r/'R/style_reference.md',r/'input/MY_R_STYLE_REFERENCE.txt']:
+                  if str(p) not in z.namelist(): z.write(p,str(p))
+          PY
+      - name: Upload review package and rendered pages
+        uses: actions/upload-artifact@v4
+        with:
+          name: chapter5-rstyle-review
+          path: |
+            chapter5_revision_20261001/Chapter5_Review_Package.zip
+            chapter5_revision_20261001/qa_rstyle/
+          retention-days: 30
+      - name: Commit validated generated files to the revision branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add chapter5_revision_20261001/Chapter5_RStyle.docx chapter5_revision_20261001/Chapter5_RStyle.md chapter5_revision_20261001/figures_r chapter5_revision_20261001/tables_r chapter5_revision_20261001/outputs/rstyle_validation.json chapter5_revision_20261001/R/render.log
+          if ! git diff --cached --quiet; then
+            git commit -m "Build validated R figures and styled Chapter 5"
+            git push origin HEAD:codex/chapter5-revision-20261001
+          fi
