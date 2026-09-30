@@ -1,0 +1,13 @@
+{
+  "seed": 20260930,
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "numpy": "2.3.5",
+  "pandas": "2.2.3",
+  "input_sha256": "0d2fe6117edd1ac1e2ff1ed4c6cb97c0bf1d59009268180e29e57780897ec76c",
+  "original_engine_sha256": "2ec5cb7c7baaff1611450448d57c1a60d13efdeb23c6df079036d3e2342d9dde",
+  "plan_sha256": "7b0bdbcccca6f92f9949d596fa3a4eceba077eeed4b6ec44953f99cf365d3ba4",
+  "original_bootstrap_draws": 9999,
+  "wcr_actual_draws": 1999,
+  "stata_executed": false,
+  "raw_sources_rerun": false
+}

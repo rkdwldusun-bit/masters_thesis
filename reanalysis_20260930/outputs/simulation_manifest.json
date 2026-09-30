@@ -1,0 +1,17 @@
+{
+  "seed": 20260930,
+  "repetitions": 4000,
+  "bootstrap_draws": 999,
+  "scenarios": 18,
+  "methods": 3,
+  "bootstrap_weights": "fresh per replicate",
+  "rho_definition": "within-group standardized innovation correlation",
+  "calibration": "clean TWFE residual SD and consecutive-year AR1 clipped to [-.95,.95]",
+  "elapsed_seconds": 28.75088620185852,
+  "limitations": [
+    "Parametric zero-effect DGP only",
+    "Calibration uncertainty not propagated",
+    "No outcome/parameter reselection",
+    "No certification of causal identification or actual p-values"
+  ]
+}

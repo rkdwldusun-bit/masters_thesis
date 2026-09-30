@@ -1,0 +1,60 @@
+run_utc=2026-09-30T07:20:50.112460+00:00
+python=3.12.3 pandas=3.0.2 openpyxl=3.1.5 numpy=2.4.4
+RAW_DIR=/mnt/user-data/uploads/
+
+[input files]
+01_fruit_total.xls	DT_1ET0292	SHA-256=99be575280a5b1a55a2bfe48e7ea6861d1ddd381424c9531c54671ba6f4ab38a	reader=xml2003 (same parser as build)
+02_fruit_bearing.xlsx	DT_1ET0296	SHA-256=52b152deefc54629a85dd6b00f9be8bedf63e35391a92e570d4eb9b4a46ceb24	reader=openpyxl (independent of build reader)
+03_rice.xlsx	DT_1ET0222	SHA-256=4ea31c77065cbba1db24d6a0c99ec08030fbbdb23cde2a8857b4a432dd2bdd19	reader=openpyxl (independent of build reader)
+04_beans.xlsx	DT_1ET0025	SHA-256=dd6ace60ab37f300c149fceaaa7996311acbe561285c960ff694b1895c0f8c02	reader=openpyxl (independent of build reader)
+05_coarse_grains.xlsx	DT_1ET0024	SHA-256=6f09b9daca14821c6832594391b45f570eeef1114124ed1c154ff2ae2560f83d	reader=openpyxl (independent of build reader)
+06_potatoes.xlsx	DT_1ET0026	SHA-256=4b8bdce346243349fbf093c46ada167a04ca59f137b118c7c6acba65e8c8e9f0	reader=openpyxl (independent of build reader)
+07_barely.xlsx	DT_1ET0231	SHA-256=526bb5d084ef6033a7547bc15b22af54ac0043b9b7e0374165d1456a444fb3e3	reader=openpyxl (independent of build reader)
+08_vegetables_root.xls	DT_1ET0029	SHA-256=fb300963a1538b36500dab6ecc44cf00d3b232a46b3ae893dbb8508e0e6167b5	reader=xml2003 (same parser as build)
+09_vegetables_leafy.xls	DT_1ET0028	SHA-256=89c30b64b35c2b94d26ba39c14a1dff47367dfa2511eed7d4c77136de85d228f	reader=xml2003 (same parser as build)
+10_vegetables_spices.xls	DT_1ET0291	SHA-256=a869a6078826688217c651d52a1d6eb0e7a6afa4865eeaeaccd3a1478f898013	reader=xml2003 (same parser as build)
+13_특용작물생산량__땅콩_.xlsx	DT_1ET0293	SHA-256=85f2263b31bb659f18d1fc6689534871ac42164e61d1d454e3d0b855decc3b09	reader=openpyxl (independent of build reader)
+
+verified panel rows=1935 crops=43 years=1980-2024
+numeric cells compared=5805
+status                 both_missing  exact
+variable                                  
+area_ha                         176   1354
+bearing_area_ha                 271    134
+production_t                    252   1683
+total_orchard_area_ha            76    329
+yield_kg10a                     176   1354
+
+max abs diff among non-missing cells=0.0
+value_mismatch=0 missing_mismatch=0
+raw cells not found=399 (all have panel value missing: True)
+not-found cells by variable and crop (year range):
+                                       min   max  count
+variable        crop_id                                
+area_ha         autumn_potato         1980  1990     11
+                highland_potato       1980  1990     11
+                peanut                1980  1981      2
+                spring_potato         1980  1990     11
+                sweet_potato          1980  1990     11
+bearing_area_ha apple                 1980  2008     29
+                astringent_persimmon  1980  2008     29
+                grape                 1980  2008     29
+                green_plum            1980  2008     29
+                peach                 1980  2008     29
+                pear                  1980  2008     29
+                plum                  1980  2008     29
+                sweet_persimmon       1980  2008     29
+                tangerine             1980  2008     29
+production_t    autumn_potato         1980  1990     11
+                highland_potato       1980  1990     11
+                peanut                1980  1981      2
+                spring_potato         1980  1990     11
+                sweet_potato          1980  1990     11
+yield_kg10a     autumn_potato         1980  1990     11
+                highland_potato       1980  1990     11
+                peanut                1980  1981      2
+                spring_potato         1980  1990     11
+                sweet_potato          1980  1990     11
+
+[treatment years: internal consistency only]
+crops compared=43 mismatches=0 []

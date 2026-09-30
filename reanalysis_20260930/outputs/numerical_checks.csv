@@ -1,0 +1,13 @@
+variant,outcome,check,max_error,weight_error
+original,ln_area,literal WLS/bootstrap and original score map,4.996003610813204e-16,5.551115123125783e-17
+original,ln_area,full engine point SE p reproduction,4.3298697960381105e-15,
+original,ln_yield,literal WLS/bootstrap and original score map,4.996003610813204e-16,5.551115123125783e-17
+original,ln_yield,full engine point SE p reproduction,4.0419056990259605e-15,
+original,ln_production,literal WLS/bootstrap and original score map,4.996003610813204e-16,5.551115123125783e-17
+original,ln_production,full engine point SE p reproduction,6.977057820378718e-15,
+exclude_spring,ln_area,literal WLS/bootstrap and original score map,2.7755575615628914e-16,5.551115123125783e-17
+exclude_spring,ln_area,full engine point SE p reproduction,3.83026943495679e-15,
+exclude_spring,ln_yield,literal WLS/bootstrap and original score map,2.7755575615628914e-16,5.551115123125783e-17
+exclude_spring,ln_yield,full engine point SE p reproduction,3.3653635433950058e-15,
+exclude_spring,ln_production,literal WLS/bootstrap and original score map,2.7755575615628914e-16,5.551115123125783e-17
+exclude_spring,ln_production,full engine point SE p reproduction,4.468647674116255e-15,
