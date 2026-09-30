@@ -1,3 +1,19 @@
+# Chapter 5 — 최신 R 스타일 개정본
+
+현재 검토 대상은 **[Chapter5_RStyle.docx](Chapter5_RStyle.docx)**입니다. 이전 `Chapter5_Revised.docx`와 Python 그림은 보존했습니다.
+
+- 우수논문 표 예시를 따라 가로선·이탤릭 제목·패널 구성으로 변경했습니다.
+- 그림 4개는 저장소의 `R/00_theme_thesis.R`로 R에서 생성했습니다. PNG·PDF와 표시 데이터는 `figures_r/`에 있습니다.
+- 부록 별도 PDF의 빈 파일 문제를 수정하고 네 PDF의 실제 열기·렌더링을 검사했습니다.
+- GitHub Actions 실행에서 53개 검사 통과, Word 23쪽·수식 30개 보존. 분석용 CSV와 기존 추정치는 변경하지 않았습니다.
+- 자동 검사와 별개로 최신 전체 Word의 시각적 검토는 검토자에게 남깁니다. 로컬 중단 전 23쪽 버전은 육안 확인했고, 새 실행 그림 중 부록·사후 경로는 원격 PNG로 재확인했습니다.
+
+재현 방법은 [RSTYLE_README_KO.md](RSTYLE_README_KO.md), 외부 검토 요청문은 [REVIEW_HANDOFF_KO.md](REVIEW_HANDOFF_KO.md)를 보십시오. 검증 기록은 `outputs/rstyle_validation.json`입니다.
+
+---
+
+## 이전 분석 개정 이력 — Python 그림 버전
+
 # Chapter 5 개정본
 
 ## 읽을 파일

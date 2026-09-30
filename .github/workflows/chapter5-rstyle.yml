@@ -62,3 +62,4 @@ jobs:
             git commit -m "Build validated R figures and styled Chapter 5"
             git push origin HEAD:codex/chapter5-revision-20261001
           fi
+# Rebuild review archive with the updated RStyle handoff and completion notes.

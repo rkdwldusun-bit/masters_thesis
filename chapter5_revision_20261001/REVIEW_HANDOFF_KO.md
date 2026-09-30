@@ -1,8 +1,10 @@
+> 최신 검토 대상: **Chapter5_RStyle.docx**. 그림은 R 실행본이며 `figures_r/`에 있습니다. R 코드는 `R/render_chapter5.R`, 새 표시 형식의 검증은 `check_rstyle.py`와 `outputs/rstyle_validation.json`을 참고하십시오. 기존 추정치·추론의 한계는 그대로입니다.
+
 # 외부 검토용 전달 안내
 
 ## 함께 보낼 것
 
-모든 검토자에게 `Chapter5_Revised.docx`, `README_KO.md`, `REVISION_PLAN.md`를 보냅니다. 원고 비교가 필요하면 사용자가 보유한 원본 `Chapter5_Final_WordEquations(3).docx`도 보냅니다. 원본과 비공개 문서는 공개 저장소에 새로 올리지 않았습니다.
+모든 검토자에게 `Chapter5_RStyle.docx`, `README_KO.md`, `REVISION_PLAN.md`를 보냅니다. 원고 비교가 필요하면 사용자가 보유한 원본 `Chapter5_Final_WordEquations(3).docx`도 보냅니다. 원본과 비공개 문서는 공개 저장소에 새로 올리지 않았습니다.
 
 Claude에게는 검토 ZIP 전체 또는 전용 GitHub 브랜치를 추가로 제공합니다. ZIP에는 새 원고·코드·표·그림과 재현에 필요한 기존 패널·엔진·고정 결과가 저장소 상대경로 그대로 포함됩니다. Liner에게는 보험연감·사업시행지침·KOSIS 원문 자료도 사용자가 보유한 파일에서 별도로 첨부해야 합니다. 이 ZIP은 그 공식 원문 전체를 대체하지 않습니다.
 

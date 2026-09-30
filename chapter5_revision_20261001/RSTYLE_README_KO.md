@@ -1,6 +1,6 @@
 # R 스타일 개정본
 
-최신 검토 대상은 빌드 성공 후 생성되는 Chapter5_RStyle.docx입니다. 기존 Chapter5_Revised.docx는 보존합니다.
+최신 검토 대상은 빌드 성공을 확인한 Chapter5_RStyle.docx입니다. 기존 Chapter5_Revised.docx는 보존합니다.
 
 첨부 우수논문의 표 예시를 따라 가로선 중심, 음영 없음, 이탤릭 제목·패널, 결과변수별 열로 구성합니다. 그림은 기존 R/00_theme_thesis.R를 사용합니다. Arial Narrow가 없으면 저장소 규칙대로 Nimbus Sans Narrow를 사용합니다.
 
@@ -22,6 +22,6 @@ python chapter5_revision_20261001/check_rstyle.py
 
 ## 복구 및 검증 상태
 
-로컬 환경 중단 전 R 그림 4개, Word 23쪽, 수치 대조 40건을 확인했습니다. 다만 부록 별도 PDF가 빈 파일이어서 전체 패키지를 최종 완료로 볼 수 없었습니다. 현재 코드는 GitHub의 기존 빌더와 대화에 보존된 수정사항으로 복구한 것으로, 성공 여부는 새 실행 로그와 outputs/rstyle_validation.json에서 확인해야 합니다. 이전 실행 결과를 새 코드의 실행 결과로 대신하지 않습니다.
+로컬 환경 중단 전 R 그림 4개, Word 23쪽, 수치 대조 40건을 확인했습니다. 다만 부록 별도 PDF가 빈 파일이어서 전체 패키지를 최종 완료로 볼 수 없었습니다. 현재 코드는 GitHub의 기존 빌더와 대화에 보존된 수정사항으로 복구했으며, GitHub Actions 실행에서 53개 검사를 통과했습니다. 네 PDF가 실제로 열리고 렌더링됨을 확인했습니다. Word는 23쪽이며 편집 가능한 수식 30개가 유지됩니다. 실행 로그와 outputs/rstyle_validation.json에 기록했습니다. 이전 실행 결과를 새 코드의 실행 결과로 대신하지 않습니다.
 
-외부 검토자는 REVIEW_HANDOFF_KO.md의 요청문을 사용하되 대상 파일명을 Chapter5_RStyle.docx로 바꾸십시오. 원본 우수논문이나 기관 원문 PDF는 이 변경에 공개 업로드하지 않습니다.
+외부 검토자는 최신 파일명으로 갱신한 REVIEW_HANDOFF_KO.md의 요청문을 사용하십시오. 원본 우수논문이나 기관 원문 PDF는 이 변경에 공개 업로드하지 않습니다.
