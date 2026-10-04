@@ -1,0 +1,14277 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="ko" class="no-js modern">
+<head>
+
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=2.0,user-scalable=yes, target-densitydpi=device-dpi" />
+<meta name="format-detection" content="telephone=no,email=no,address=no" />
+<meta name="description" content="기후위기 대응을 선도하는 글로벌 물기업" />
+<meta name="keywords" content="K-water 한국수자원공사" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="K-water 한국수자원공사" />
+<meta property="og:description" content="기후위기 대응을 선도하는 글로벌 물기업, 한국수자원공사" />
+<meta property="og:image" content="web/images/common/favicon.ico" />
+<meta name="twitter:image" content="web/images/common/favicon.ico" />
+
+<link rel="shortcut icon" type="image/x-icon" href="/web/images/common/favicon.ico" />
+<link rel="apple-touch-icon" href="/images/common/favicon.ico" />
+<link rel="stylesheet" href="/web/font/NotoSansKR/fonts.css?v=20200612" media="all" />
+<link rel="stylesheet" href="/web/font/NotoSans/fonts.css?v=20200612" media="all" />
+<link rel="stylesheet" href="/web/font/NanumBarunGothic/nanumbarungothic.css?v=20200612" media="all" />
+<link rel="stylesheet" href="/web/font/NanumGothic/nanumgothic.css?v=20200612" media="all" />
+<link rel="stylesheet" href="/web/font/SangSang/font.css?v=20200612" media="all" />
+<link rel="stylesheet" href="/web/font/TitilliumWeb/font.css?v=20200612" media="all" />
+<link rel="stylesheet" href="/web/css/style.css?v=20260526" media="all" />
+<link rel="stylesheet" href="/web/css/layout_2020.css?v=20260106" media="all" />
+<link rel="stylesheet" href="/web/css/renew_2019/new_cont.css?v=20260423" media="all" />
+<link rel="stylesheet" href="/web/css/common.css?v=20250122" media="all" />
+<link rel="stylesheet" href="/web/css/online-museum.css?v=20240415" media="all" />
+
+<link rel="stylesheet" href="/web/css/cardinfo.css?v=20210216" media="all" />
+<link rel="stylesheet" href="/web/css/jquery.bxslider.css?v=20200612" media="all" />
+
+<script src="/web/js/js_2020.js?v=20250916"></script>
+<script src="/web/js/sub_2020.js?v=20260702"></script>
+<script src="/web/js/common_2017.js?v=20200612"></script>
+<!-- <script src="/web/js/action.js"></script> -->
+<!-- <script src="/web/js/action02.js"></script> -->
+<!--[if lt IE 9]>
+	<script src="/web/js/html5.js"></script>
+	<script src="/web/js/respond.min.js"></script>
+<![endif]-->
+<!-- datepicker -->
+<link rel="stylesheet" href="/web/js/jquery-ui-1.10.3.custom/css/smoothness/jquery-ui-1.10.3.custom.min.css?v=20200612" media="all" />
+<script src="/web/js/jquery-ui-1.10.3.custom/js/jquery-ui-1.10.3.custom.min.js?v=20200612"></script>
+<script src="/web/js/jquery-ui-1.10.3.custom/js/jquery.ui.datepicker-ko.js?v=20200612"></script>
+<!-- CKEditor  -->
+
+<script src="/web/js/video.js?v=20200612"></script>
+<script>
+// errorMsg 변수 체크
+function filter(errorMsg){
+	var loc=location.href.replace(/errorMsg=[^&]*&?/g,'').replace(/&&+/g,'');
+	loc.replace(/</g, "").replace(/>/g, "");
+	return loc;
+}
+(function() {
+	var errorMsg='';
+	if (errorMsg) {
+		alert(errorMsg);
+		location.replace(filter(errorMsg));
+	}
+})();
+// #BaseModul start
+var BaseModule={
+	// #CKEditor start
+	ckeditor: function(baseConf, datepickerConf) {
+		var config={
+			endDateId: 'endDate'
+			, startDateId: 'startDate'
+			, regDateId: 'regDate'
+			, contentId: 'content'
+			, maskFormat: '9999-99-99'
+		};
+		$.extend(config, baseConf||{});
+
+		if ($('#'+config.contentId).size()) {
+			initEditor(config.contentId);
+		}
+
+		if ($('#'+config.endDateId).size()) {
+			$('#'+config.endDateId).mask(config.maskFormat);
+		}
+		if ($('#'+config.startDateId).size()) {
+			$('#'+config.startDateId).mask(config.maskFormat);
+		}
+		if ($('#'+config.regDateId).size()) {
+			$('#'+config.regDateId).mask(config.maskFormat);
+		}
+		BaseModule.datepicker(datepickerConf);
+	}
+	// @CKEditor end
+	, datepicker: function(datepickerConf) {
+		var datepickerConfig={
+			showOn: 'button'
+			, buttonImageOnly : true
+			, buttonImage : "/web/images/btn/btn06_clnt.gif"
+			, buttonText : "Calendar"
+			, duration : "fast"
+			, changeMonth: true
+			, changeYear: true
+			, endDateId: 'endDate'
+			, startDateId: 'startDate'
+			, regDateId: 'regDate'
+		};
+		$.extend(datepickerConfig, datepickerConf||{});
+		$('#'+datepickerConfig.startDateId).datepicker(datepickerConfig);
+		$('#'+datepickerConfig.endDateId).datepicker(datepickerConfig);
+		$('#'+datepickerConfig.regDateId).datepicker(datepickerConfig);
+		$("img.ui-datepicker-trigger").wrap("<a href='#this'/>");
+	}
+
+	// #파일관련처리 start
+	, fileAttach : function(conf) {
+		var config={
+			fileIdPrefix: 'attFile'
+			, disposableClassName: 'disposable'
+			, checkboxClassName: 'file_cb'
+			, hiddenDelSeqsId: 'attDelSeqs'
+			, baseTableId: 'baseTable'
+			, attTemplateId: 'attTemplate'
+			, fileAttLimit: 1
+			, btnFileClassName: 'btnFile'
+			, btnFileAddClassName: 'btnFileAdd'
+			, btnFileDeleteClassName: 'btnFileDelete'
+		}
+		$.extend(config, conf||{});
+
+		var getCurTpl=function() {
+			return tpl.replace(/#/g,curFileAttSize);
+		}
+		var addAtt=function() {
+			curFileAttSize++;
+			$t.append(getCurTpl());
+		}
+		var deleteAtt=function() {
+			var $$=$('#'+config.fileIdPrefix+curFileAttSize);
+			if ($$.closest('tr').hasClass(config.disposableClassName)) {
+				$$.closest('tr').remove();
+				curFileAttSize--;
+			}
+		}
+		// 체크박스 클릭: 기존 첨부파일 삭제 및 새 입력 폼 토글
+		$('.'+config.checkboxClassName).click(function() {
+			var $file=$('#'+config.fileIdPrefix+$(this).attr('id').replace(/\D/g,''));
+			var flag=this.checked ? 'visible' : 'hidden';
+			$file.css('visibility', flag);
+			if (flag=='hidden') {
+				$file.val('');
+			}
+			var seqs=[];
+			$(':checkbox.'+config.checkboxClassName).each(function() {
+				if (this.checked) {
+					seqs.push(this.value);
+				}
+			});
+			$('#'+config.hiddenDelSeqsId).val(seqs.join(','));
+		});
+		var $t=$('#'+config.baseTableId+' tbody');
+		var tpl=$('#'+config.attTemplateId).val();
+		var fileAttLimit=config.fileAttLimit;
+		var curFileAttSize=fileAttLimit;
+		$('.'+config.btnFileClassName).click(function() {
+			var $$=$(this);
+			var isAdd=$$.hasClass(config.btnFileAddClassName);
+			isAdd ? addAtt() : deleteAtt();
+			$('.'+config.btnFileDeleteClassName).css('visibility', curFileAttSize > fileAttLimit ? 'visible' : 'hidden');
+		});
+	}
+
+	// 게시판리스트 체크박스 일괄 토글
+	, replaceDelSeqStatus: function () {
+		$('input[name=delSeq]').attr('checked', $(this).is(':checked'));
+	}
+	// 게시판리스트 선택삭제시 기본동작
+	, checkDelSrl: function () {
+		var isDelChecked = false;
+		$('input[name=delSeq]').each(function(){
+			if ($(this).is(':checked')) {
+				isDelChecked = true;
+				return;
+			}
+		});
+		if (isDelChecked == false) {
+			alert('삭제할 게시물을 선택해주세요.');
+			return false;
+		} else {
+			var msg = '데이터를 삭제하시겠습니까?';
+			return confirm(msg);
+		}
+	}
+	// 삭제 in viewpage
+	, delConfirm: function() {
+		var msg = '데이터를 삭제하시겠습니까?';
+		return confirm(msg);
+	}
+	// @파일관련처리 end
+
+	// #통합게시판 '분류' 검색기능 확장
+	, installTypeSearch: function() {
+		var toggle=function(removeCls, addCls) {
+			$('#txBox3')
+				.removeClass(removeCls)
+				.addClass(addCls)
+			;
+			try {
+				if (removeCls=='txHide') {	// 구분 <select/> 활성화
+					$('#s_text').val('');
+				} else {						// #s_text 활성화
+					$('#type')
+						.trigger('change');
+				}
+			} catch(e) {}
+		}
+		$('#s_type').change(function() {
+			if (this.value=='type') {
+				toggle('selHide', 'txHide');
+			} else {
+				toggle('txHide', 'selHide');
+			}
+		});
+		$('#type').change(function() {
+			$('#s_text').val(this.value);
+		});
+		try {
+			if ($('#s_type').val()=='type') {
+				toggle('selHide', 'txHide');
+			}
+		} catch(e) {}
+	}
+	, prependSelectHeader: function() {
+		$("select").each(function() {
+			try {
+				if ($("option:first", this).attr("value") !="all") {
+					$(this).prepend("<option value='all'>전체</option>");
+				}
+			} catch(e) {}
+		});
+	}
+	, phoneMask: function(selector) {
+		var $obj=$(selector);
+		$obj.attr("maxlength", 13);
+		var chkSeoul=function(obj) {
+			return obj.value.indexOf("02")===0;
+		}
+		var chkKey=function(e) {
+			var key=e.keyCode;
+			if (!e.target.value && key !=48 && key !=96) {	// 첫글자는 무조건 '0'
+				return false;
+			}
+			var result=(key==45 || key==109 || (key>=48 && key<=57) || (key>=96 && key<=105) || key==229);
+
+			return result;
+		}
+		$obj
+			.bind('keypress', function(e) {
+
+				return chkKey(e);
+			})
+			.bind('keyup', function(e) {
+				if (!chkKey(e)) return true;
+				var obj=e.target;
+				var val=obj.value.replace(/\D/g,'');
+				if (val.length<3) return true;
+				var newVal=null;
+				if (chkSeoul(obj)) {
+					newVal=val.substr(0,2)+'-'+val.substr(2);
+				} else {
+					newVal=val.substr(0,3)+'-'+val.substr(3);
+				}
+				var format=[];
+				format=newVal.split('-');
+				if (format[1].length>=4) {
+					var tmp=format[1];
+					format[1]=tmp.substr(0,4);
+					format[2]=tmp.substr(4);
+				}
+				obj.value=format.join('-');
+			})
+			.bind("blur", function() {
+				var val=this.value||'';
+				if (!val) return;
+				var isSeoul=chkSeoul(this);
+				// 11자리 이하이거나, 11자리이면서 서울지역번호(02) 가 아닌 경우
+				if (val.length<11 || (!isSeoul && val.length==11) || (isSeoul && val.length>12) || val.indexOf('0') !==0 || val.indexOf('00')===0) {
+					this.value='';
+					return;
+				}
+				var format=[];
+				val=val.replace(/\D/g,'');
+				// 서울
+				format[0]=isSeoul ? '02' : val.substring(0,3);
+				format[1]='';
+				format[2]=val.replace(/^.*(\d{4})$/, "$1");
+				val=val.replace(new RegExp('^'+format[0]), '');
+				val=val.replace(new RegExp(format[2]+'$'), '');
+				format[1]=val;
+				var result=format.join('-');
+				this.value=result;
+			});
+	}
+	, birthdayMask: function(selector) {
+		var $obj=$(selector);
+		$obj.attr("maxlength", 10);
+		
+		var chkKey=function(e) {
+			var key=e.keyCode;
+			
+			var result=(key==45 || key==109 || (key>=48 && key<=57) || (key>=96 && key<=105) || key==229);
+
+			return result;
+		}
+		$obj
+			.bind('keypress', function(e) {
+
+				return chkKey(e);
+			})
+			.bind('keyup', function(e) {
+				if (!chkKey(e)) return true;
+				var obj=e.target;
+				var val=obj.value.replace(/\D/g,'');
+				if (val.length<4) return true;
+				var newVal=null;
+				newVal=val.substr(0,4)+'-'+val.substr(4);
+				var format=[];
+				format=newVal.split('-');
+				if (format[1].length>=4) {
+					var tmp=format[1];
+					format[1]=tmp.substr(0,2);
+					format[2]=tmp.substr(2);
+				}
+				var result=format.join('-');
+				if(result.length>10){
+					result=result.substring(0,10);
+				}
+				obj.value=result;
+			})
+			.bind("blur", function() {
+				var val=this.value||'';
+				if (!val) return;
+				// 10자리 이하인 경우
+				if (val.length<10) {
+					this.value='';
+					return;
+				}
+				var format=[];
+				val=val.replace(/\D/g,'');
+				format[0]=val.substring(0,4);
+				var tmp=val.substring(4);
+				format[1]=tmp.substr(0,2);
+				format[2]=tmp.substr(2);
+// 				format[1]='';
+// 				format[2]=val.replace(/^.*(\d{2})$/, "$1");
+// 				val=val.replace(new RegExp('^'+format[0]), '');
+// 				val=val.replace(new RegExp(format[2]+'$'), '');
+// 				format[1]=val;
+				var result=format.join('-');
+				if(result.length>10){
+					result=result.substring(0,10);
+				}
+				this.value=result;
+			});
+	}
+	, mailMask: function(selector) {
+		var re=/^[0-9a-z\-_\.]+@([0-9a-z\-\_]+\.)+[a-z]+$/i;
+		var $obj=$(selector);
+		var chkEmail=function(obj) {
+			var val=obj.value;
+			if (!val) return true;
+			return re.test(val);
+		}
+		var prevent=function(e, obj) {
+			if (!chkEmail(obj)) {
+				alert("유효하지 않은 이메일 형식 입니다.");
+				obj.value='';
+				e.preventDefault();
+				return false;
+			}
+			return true;
+		}
+		$obj
+			.bind('keypress', function(e) {
+				if (e.keyCode==13) {
+					if (!prevent(e, this)) {
+						return;
+					}
+				}
+			})
+			.bind('blur', function(e) {
+				if (!prevent(e, this)) {
+				}
+			})
+		;
+	}
+	, checkMaxlength: function(selector, maxlength) {
+		var $obj=$(selector);
+		var isKorean = function(str) {
+			var kor_regex = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/;
+			return kor_regex.test(str);
+		}
+		var getByteSize = function(str) {
+			var i = 0,
+				byte_size = 0,
+				str_len = str.length;
+			
+			for ( i=0; i < str_len; i++ ) {
+				if (isKorean(str.charAt(i))) {
+					byte_size += 2;
+				} else {
+					byte_size += 1;
+				}
+			}
+			return byte_size;
+		}
+		$obj
+			.bind('change keyup', function(e) {
+				if (!$obj.size() || !$obj.val()) return;
+				
+				var contents = $obj.val();
+				var	limit = parseInt(maxlength);
+				var byte_size = getByteSize(contents);
+				var lastCharIdx = limit;
+				var i = 0,
+					byte_size = 0,
+					contents_len = contents.length;
+			
+				for ( i=0; i < contents_len; i++ ) {
+					if (isKorean(contents.charAt(i))) {
+						byte_size += 2;
+					} else {
+						byte_size += 1;
+					}
+					if (byte_size <= limit) {
+						lastCharIdx = i;
+					}
+				}
+				
+			   if(byte_size > limit){  
+					$obj.val(contents.substr(0, lastCharIdx+1));
+					alert(maxlength+'byte 이하까지만 작성 가능합니다.');
+			   } 
+			});
+	}
+}	// @BaseModule end
+
+$(function() {
+	
+	
+	// 최상단 체크박스 찍으면 모두 선택/해제 토글
+	var monitoredCheckbox=$('#delAll');
+	if (monitoredCheckbox.size()==1) monitoredCheckbox.on('click', $.proxy(BaseModule.replaceDelSeqStatus, monitoredCheckbox));
+
+	var thumbnailId="thumbnail";
+	var $thumbnail=$('#'+thumbnailId);
+	// thumbnail 확장자 제한
+	$thumbnail.change(function() {
+		if (!this.value) return;
+		var ext=(this.value.replace(/^.*(\.[a-zA-Z0-9]+)$/, '$1')||'').toLowerCase();
+		if (!ext || !(ext=='.jpg' || ext=='.gif')) {
+			alert('Not allowed image extension.');
+			this.value='';
+		}
+	});
+
+	var s_text="검색어를 입력하세요.";
+
+	// thumbnail이 첨부가 안된 경우 업로드시 에러 발생
+	$('form').bind('submit', function() {
+		$(':file', this).each(function(i, o) {
+			if (!$(o).val()) {
+				$(o).attr('disabled', true);
+			}
+		});
+		var $st=$('#s_text');
+		if ($st.size()>0 && $st.val()==s_text) {
+			$st.val('');
+		}
+		return true;
+	});
+	
+	// 목록화면 페이징 처리 공통 - IE 일부 하위 버전의 호환성 이슈로 인해 기능 추가
+	(function() {
+		var paging=['.numBox', '.mobileNumBox'];
+		for (var i=0; i<paging.length; i++) {
+			var $numDiv=$(paging[i]);
+			if (!$numDiv.size()) break;
+			var $table=$(paging[i].replace('.','#')+'Tb');
+			var $tr = $('<tr>');
+			var $p=$(paging[i]+' > div.list-page-num');
+			$p.children().each(function(i, tagObj) {
+				var $tagObj = $(tagObj);
+				var $td = $('<td>');
+				var cls=$tagObj.prop('class')||'';
+				if (cls != '') {
+					$td.prop({'class':cls});
+				}
+				if ($tagObj.prop('tagName') == 'A') {
+					var href = $tagObj.prop('href')||'#';
+
+					if (href.indexOf('?') != -1) {
+						var params = href.replace(/[^?]+\?(.*)/, '$1');
+						
+						if (params.indexOf('&amp;') != -1) {
+							params = params.split('&amp;');
+						} else {
+							params = params.split('&');
+						}
+						
+						if (params && (/.*[가-힣].*/g).test(params)) {
+							var newParams = '?';
+							for (var i=0; i < params.length; i++) {
+								var p = params[i].split('=');
+								if (p[1]) {
+									if (!(/.*\?pageNo/).test(p[1])) {
+										newParams += p[0] + '=' + encodeURIComponent(p[1]).replace('%C2%A7', '');
+									} else {
+										newParams += p[0] + '=' + encodeURIComponent(p[1].replace(/(.*)\?pageNo/,'$1')).replace('%C2%A7', '');
+									}
+								} else {
+										newParams += params[i];
+								}
+								if ((i+1) != params.length) newParams += '&';
+							}
+							href = href.replace(/([^?]+)\?.*/, '$1') + newParams.replace('%23', '#');
+						}
+					}
+					var $a = $('<a>').attr({'href':href, 'title':($tagObj.prop('title')||'')}).text($tagObj.text()||'');
+				} else {
+					var $a = $('<a>').attr({'title':'현재페이지','href':'#this'}).text($tagObj.text()||'');
+				}
+				
+				$td.append($a);
+				$tr.append($td);
+			});
+			$table.append($tr);
+		}
+		$("div.list-page-num").css("display", "none");
+	})();
+	
+	// 게시판 조회 정렬방식
+	(function() {
+		var orderByField="SEQ";	// SEQ|HITS
+		var orderByDirection="DESC";
+		$('a.orderByForm').each(function(i, o) {
+			var $o=$(o);
+			$o.addClass($o.hasClass(orderByField) ? 'on' : 'last');
+			
+			if($o.hasClass(orderByField)){
+				$o.prop('title','선택됨');
+			}
+		})
+		.bind('click', function() {
+			var $form=$('form.orderByForm');
+			if ($form.size()) {
+				$('input[name="orderByField"]', $form).val($(this).hasClass('SEQ') ? 'SEQ' : 'HITS');
+				$('input[name="orderByDirection"]', $form).val('DESC');	// 고정
+				$form.submit();
+			}
+		})
+		;
+	})();
+
+	// View페이지에서 "삭제" 실행
+	(function() {
+		$("#deleteLink").click(function(e) {
+			var $pw=$("#pwDiv");
+			var cls="invisible";
+			var isVisible=!$pw.hasClass(cls);
+			if (isVisible) {
+				$pw.addClass(cls);
+			} else {
+				$pw.removeClass(cls);
+				$("input.regPw:first").focus();
+			}
+		});
+	})();
+
+	// Write 페이지에서 "등록" 링크 클릭시 form submit
+	(function() {
+		$("a.submit").click(function(e) {
+			$("input.submit:first").trigger("click");
+		});
+	})();
+
+	// title 을 동일 포맷화
+	var titleChange=function(isBonbuEvent) {
+		var $title  = $("div#contents div.path:first strong:first");
+		var $tabBtn = $("div#contents .tabBtn a.on");
+		var $tabBar = $("div#contents .tabBar a.on");
+		var $custMap = $("div#contents .custMap");
+		var $tourTitle = $(".mapTit");
+		
+		if (!$title.size()) {
+			return;
+		}
+		var suffix=' | K-water 한국수자원공사';
+		var title=$title.text();
+		title+=suffix;
+		
+		/* 탭 있는 경우 */
+		if($tabBtn.size()){
+			title=$tabBtn.text()+' - '+ title;
+		}else if($tabBar.size()){
+			title=$tabBar.text()+' - '+ title;
+		}
+		/* 견학안내 */
+		if($custMap.size() || $tourTitle.size()){
+			title=$tourTitle.text()+' - '+ title;
+		}
+		if (isBonbuEvent) {
+			var $h2=$("div#contents h2:first");
+			var $tab=$("div#contents #subTab a.on");
+			if ($h2.size()) {
+				title=$tab.text()+' - '+$h2.text()+ ' '+suffix;
+			}
+		}
+		document.title=title;
+	};
+	titleChange();
+	$("div#contents div.path").bind('redraw', function(e) {
+		titleChange(true);
+	});
+
+	// maxlength
+	(function() {
+		var dic={s_text: 100};	// 검색어
+
+		if (location.href.indexOf('brdId=') >=0) {
+			$.extend(dic, {
+				regName: 		10
+				, regPw:			20
+				, regTel:			13
+				, regEmail:		50
+				, title:				200
+				, url:				200
+				, thumbnailDesc:	100
+			});
+		}
+		for (key in dic) {
+			$("#"+key).attr("maxlength", dic[key]);
+		}
+	})();
+});
+
+function goJusoPopup(){
+	var pop = window.open("/common/jusoPop.jsp","jusoPopup","width=570,height=420, scrollbars=yes, resizable=yes");
+}
+
+function goDeptPopup(){
+	var pop = window.open("/cust/offer/deptPop.do","deptPopup","width=570,height=420, scrollbars=yes, resizable=yes");
+}
+</script>
+<style>
+.invisible {display:none;}
+/* 	div.list-page-num {display:none;} */
+
+.listSearchBox{border:1px solid #fff;}
+div.list-page-num{display:block;text-align:center;margin-top:30px;}
+div.list-page-num span.on,
+div.list-page-num a{padding:0 15px;}
+.numBox a.BtnNext1{background:url(/web/images/list/btn_wNext01.gif) 7px 5px no-repeat;}
+.numBox a.BtnNext2{background:url(/web/images/list/btn_wNext02.gif) 7px 5px no-repeat;}
+.numBox a.BtnPrev1{background:url(/web/images/list/btn_wPrev01.gif) 7px 5px no-repeat;}
+.numBox a.BtnPrev2{background:url(/web/images/list/btn_wPrev02.gif) 7px 5px no-repeat;}
+
+.mobileNumBox a.BtnNext1{background:url(/web/images/list/btn_wNext01.gif) 7px 5px no-repeat;}
+.mobileNumBox a.BtnNext2{background:url(/web/images/list/btn_wNext02.gif) 7px 5px no-repeat;}
+.mobileNumBox a.BtnPrev1{background:url(/web/images/list/btn_wPrev01.gif) 7px 5px no-repeat;}
+.mobileNumBox a.BtnPrev2{background:url(/web/images/list/btn_wPrev02.gif) 7px 5px no-repeat;}
+
+
+input.file_att			{visibility:hidden}
+input.base_font_color		{color: #494949 !important}
+.ui-datepicker select.ui-datepicker-year { width:37%;}
+.ui-datepicker select.ui-datepicker-month { width:35%;}
+.ui-datepicker-trigger {padding-left: 5px;padding-bottom: 2px;cursor: pointer;vertical-align: middle;}
+p.err-msg		{color:red}
+
+/*
+input.att		{width: 50% !important}
+td.flat_file	{display: inline !important}
+input.file_cb	{width:15px !important; vertical-align:middle !important}
+.invisible2	{visibility:hidden}
+.float_right	{float: right}
+*/
+</style>
+<title>금강보관리단 하는 일 - Kwater</title>
+
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=f7a4238019077a102d1ff70f3dffe506&libraries=services,clusterer,drawing"></script>
+<script type="text/javascript" src="/web/js/kakaoMap.js"></script>
+<style type="text/css">
+.guidWrap h4 {
+	font-weight: bold;
+	color: #0472ab;
+	margin: 35px 0 5px 0;
+}
+.guidWrap h4 .car {
+	background: url('/web/images/water/sub01/sub09/bg_car.gif') center center no-repeat;
+	background-size: cover;
+ filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/web/images/water/sub01/sub09/bg_car.gif', sizingMethod='scale');
+ -ms-filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/web/images/water/sub01/sub09/bg_car.gif', sizingMethod='scale');
+	width: 25px;
+	height: 19px;
+	display: inline-block;
+	vertical-align: bottom;
+	margin-right: 5px;
+}
+.guidWrap h4 .bus {
+	background: url('/web/images/water/sub01/sub09/bg_bus.gif') center center no-repeat;
+	background-size: cover;
+ filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/web/images/water/sub01/sub09/bg_bus.gif', sizingMethod='scale');
+ -ms-filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/web/images/water/sub01/sub09/bg_bus.gif', sizingMethod='scale');
+	width: 25px;
+	height: 24px;
+	display: inline-block;
+	display: inline-block;
+	vertical-align: bottom;
+	margin-right: 5px;
+}
+</style>
+</head>
+<body class="sub">
+
+
+<!-- skip :S -->
+<div id="skip">
+	<strong class="hidden">반복영역 건너뛰기</strong>
+	<ul>
+		<li><a href="#contents">본문 바로가기</a></li>
+		<li><a href="#gnb">주요메뉴 바로가기</a></li>
+	</ul>
+</div>
+<!-- skip :E -->
+
+
+
+
+
+<div id="wrap">
+	
+
+
+<!--
+[  ] 
+ -->
+
+
+
+
+
+	<div class="js_mobile_check"></div>
+	<!-- header :S -->
+	<div id="header">
+		<h1 class="logo"><a href="/">K water 한국수자원공사</a></h1>
+		<div id="gnb" class="type_02" > <!-- 메뉴타입 type_01 : 개별메뉴 A타입 / type_02 : 전체메뉴 타입 / type_03 : 개별메뉴 B타입 --> 
+			<div id="blind"><span></span></div>
+            <ul class="nav">
+            	
+            	
+            	
+            	
+				
+				
+				
+					
+	            	
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+					
+					<li class="sub01">
+					<a href="/water/sub01/sub04/outlPage.do?s_mid=1889"><span>기관소개</span></a>
+				
+				
+				
+				
+				
+				<ul>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+							 <!-- 3 -->
+							<li class="sub01_01">
+						
+						
+						
+						
+					
+					<a href="/water/sub01/sub04/outlPage.do?s_mid=1889" target="_self"><span>경영전략</span></a>
+							
+				
+				
+				
+				<ul>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub01_01_01">
+						
+						
+						
+					
+					<a href="/water/sub01/sub04/outlPage.do?s_mid=1889" target="_self"><span>가치체계</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub01_01_02">
+						
+						
+						
+					
+					<a href="/busi/introWaterSafetyPage.do?s_mid=2173" target="_self"><span>수자원·환경 사업</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub01_01_03">
+						
+						
+						
+					
+					<a href="/busi/introWaterSupplyPage.do?s_mid=2174" target="_self"><span>수도 사업</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub01_01_04">
+						
+						
+						
+					
+					<a href="/busi/introWaterSpecialPage.do?s_mid=2175" target="_self"><span>에너지·도시 사업</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub01_01_05">
+						
+						
+						
+					
+					<a href="/busi/introWaterCoopPage.do?s_mid=2176" target="_self"><span>글로벌·기후테크 사업</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub01_01_06">
+						
+						
+						
+					
+					<a href="/water/sub01/sub06/tech01Page.do?s_mid=2219" target="_self"><span>3대 초격차 기술</span></a>
+							
+				
+				
+				
+				<ul>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub01_01_06_01">
+						
+						
+					
+					<a href="/water/sub01/sub06/tech01Page.do?s_mid=2219" target="_self"><span>초격차 기술</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub01_01_06_02">
+						
+						
+					
+					<a href="/water/sub01/sub06/tech02Page.do?s_mid=2220" target="_self"><span>디지털 트윈 물관리 플랫폼</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub01_01_06_03">
+						
+						
+					
+					<a href="/water/sub01/sub06/tech03Page.do?s_mid=2221" target="_self"><span>AI 정수장</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub01_01_06_04">
+						
+						
+					
+					<a href="/water/sub01/sub06/tech04Page.do?s_mid=2222" target="_self"><span>스마트 관망관리 솔루션 (SWNM)</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				</ul>
+				</li>
+				
+				</ul>
+				</li>
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+							 <!-- 3 -->
+							<li class="sub01_02">
+						
+						
+						
+						
+					
+					<a href="/water/sub01/sub02/purpPage.do?s_mid=237" target="_self"><span>일반현황</span></a>
+							
+				
+				
+				
+				<ul>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub01_02_01">
+						
+						
+						
+					
+					<a href="/water/sub01/sub02/purpPage.do?s_mid=237" target="_self"><span>기관개요</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub01_02_02">
+						
+						
+						
+					
+					<a href="/water/sub01/sub03/founPage.do?s_mid=1992" target="_self"><span>연혁</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				</ul>
+				</li>
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+							 <!-- 3 -->
+							<li class="sub01_03">
+						
+						
+						
+						
+					
+					<a href="/water/sub01/sub01/greePage.do?s_mid=234" target="_self"><span>CEO</span></a>
+							
+				
+				
+				
+				<ul>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub01_03_01">
+						
+						
+						
+					
+					<a href="/water/sub01/sub01/greePage.do?s_mid=234" target="_self"><span>CEO 인사말</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub01_03_02">
+						
+						
+						
+					
+					<a href="/water/sub01/sub01/profPage.do?s_mid=235" target="_self"><span>CEO 약력</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub01_03_03">
+						
+						
+						
+					
+					<a href="/water/sub01/sub01/movementList.do?brdId=KO79&s_mid=1707" target="_self"><span>CEO 활동</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub01_03_04">
+						
+						
+						
+					
+					<a href="/water/sub01/sub01/histPage.do?s_mid=236" target="_self"><span>역대CEO</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				</ul>
+				</li>
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+							 <!-- 3 -->
+							<li class="sub01_04">
+						
+						
+						
+						
+					
+					<a href="/water/sub01/sub05/contact.do?s_mid=247" target="_self"><span>조직 및 연락처</span></a>
+							
+				
+				
+				
+				<ul>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub01_04_01">
+						
+						
+						
+					
+					<a href="/water/sub01/sub05/contact.do?s_mid=247" target="_self"><span>조직도 및 직원검색</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub01_04_02">
+						
+						
+						
+					
+					<a href="/water/sub01/sub05/000/center.do?brdId=KO27&s_flag=1&s_mid=248&s_officecode=000" target="_self"><span>부서 안내</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				</ul>
+				</li>
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+							 <!-- 3 -->
+							<li class="sub01_05">
+						
+						
+						
+						
+					
+					<a href="/water/sub01/sub06/explPage.do?s_mid=129" target="_self"><span>CI</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+							 <!-- 3 -->
+							<li class="sub01_06">
+						
+						
+						
+						
+					
+					<a href="/cust/sub02/sub02/sub04/promotion1Page.do?s_mid=1055" target="_self"><span>문화관</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+							 <!-- 3 -->
+							<li class="sub01_07">
+						
+						
+						
+						
+					
+					<a href="/water/sub01/sub07/runn.do?s_mid=251&seq=1" target="_self"><span>선수단</span></a>
+							
+				
+				
+				
+				<ul>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub01_07_01">
+						
+						
+						
+					
+					<a href="/water/sub01/sub07/runn.do?s_mid=251&seq=1" target="_self"><span>선수단소개</span></a>
+							
+				
+				
+				
+				<ul>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub01_07_01_01">
+						
+						
+					
+					<a href="/water/sub01/sub07/runn.do?s_mid=251&seq=1" target="_self"><span>육상팀</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub01_07_01_02">
+						
+						
+					
+					<a href="/water/sub01/sub07/rowi.do?s_mid=1994&seq=3" target="_self"><span>조정팀</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub01_07_01_03">
+						
+						
+					
+					<a href="/water/sub01/sub07/tabletennis.do?seq=5&s_mid=1995" target="_self"><span>탁구팀</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub01_07_01_04">
+						
+						
+					
+					<a href="https://www.facebook.com/kwatersports?s_mid=1996" target="_blank" title="새창으로 이동" rel="noopener noreferrer"><span>페이스북</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				</ul>
+				</li>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub01_07_02">
+						
+						
+						
+					
+					<a href="/water/sub01/sub07/tnewList.do?brdId=KO31&s_mid=252" target="_self"><span>선수단소식</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				</ul>
+				</li>
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+							 <!-- 3 -->
+							<li class="sub01_08">
+						
+						
+						
+						
+					
+					<a href="/water/sub01/sub09/contact.do?s_mid=132" target="_self"><span>찾아오시는길</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				</ul>
+				</li>
+				
+				
+				
+				
+				
+					
+	            	
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+					
+					<li class="sub02">
+					<a href="/cust/sub01/charPage.do?s_mid=687"><span>국민소통</span></a>
+				
+				
+				
+				
+				
+				<ul>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+							 <!-- 3 -->
+							<li class="sub02_01">
+						
+						
+						
+						
+					
+					<a href="https://www.kwater.or.kr/danbitoktok/kor.do?s_mid=2038" target="_blank" title="새창으로 이동" rel="noopener noreferrer"><span>국민소통센터</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+							 <!-- 3 -->
+							<li class="sub02_02">
+						
+						
+						
+						
+					
+					<a href="/cust/sub01/charPage.do?s_mid=687" target="_self"><span>고객헌장</span></a>
+							
+				
+				
+				
+				<ul>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub02_02_01">
+						
+						
+						
+					
+					<a href="/cust/sub01/charPage.do?s_mid=687" target="_self"><span>고객헌장전문</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub02_02_02">
+						
+						
+						
+					
+					<a href="/cust/sub01/norm02Tab.do?s_mid=1151" target="_self"><span>서비스이행표준</span></a>
+							
+				
+				
+				
+				<ul>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub02_02_02_01">
+						
+						
+					
+					<a href="/cust/sub01/norm02Tab.do?s_mid=1151" target="_self"><span>물 공급 공통 서비스</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub02_02_02_02">
+						
+						
+					
+					<a href="/cust/sub01/norm03Tab.do?s_mid=1152" target="_self"><span>댐 용수 서비스</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub02_02_02_03">
+						
+						
+					
+					<a href="/cust/sub01/norm04Tab.do?s_mid=1153" target="_self"><span>광역상수도 서비스</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub02_02_02_04">
+						
+						
+					
+					<a href="/cust/sub01/norm05Tab.do?s_mid=1154" target="_self"><span>지방상수도 서비스</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub02_02_02_05">
+						
+						
+					
+					<a href="/cust/sub01/norm06Tab.do?s_mid=1155" target="_self"><span>토지공급 서비스</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub02_02_02_06">
+						
+						
+					
+					<a href="/cust/sub01/norm07Tab.do?s_mid=1156" target="_self"><span>고객응대 및 의견수렴</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub02_02_02_07">
+						
+						
+					
+					<a href="/cust/sub01/norm08Tab.do?s_mid=1157" target="_self"><span>고객 협조 요청사항</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub02_02_02_08">
+						
+						
+					
+					<a href="/cust/sub01/resuList.do?brdId=KO32&s_mid=689" target="_self"><span>서비스이행실적</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				</ul>
+				</li>
+				
+				</ul>
+				</li>
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+							 <!-- 3 -->
+							<li class="sub02_03">
+						
+						
+						
+						
+					
+					<a href="/cust/sub02/squarePage.do?s_mid=690" target="_self"><span>고객광장</span></a>
+							
+				
+				
+				
+				<ul>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub02_03_01">
+						
+						
+						
+					
+					<a href="/cust/sub02/sub01/infoPage.do?s_mid=699" target="_self"><span>민원</span></a>
+							
+				
+				
+				
+				<ul>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub02_03_01_01">
+						
+						
+					
+					<a href="/cust/sub02/sub01/infoPage.do?s_mid=699" target="_self"><span>민원이용안내</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub02_03_01_02">
+						
+						
+					
+					<a href="/cust/sub02/sub01/online/mypgWrite.do?s_mid=702" target="_self"><span>신청</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub02_03_01_03">
+						
+						
+					
+					<a href="/cust/sub02/sub01/faqList.do?s_mid=700&s_faqId=cust" target="_self"><span>민원FAQ</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				</ul>
+				</li>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub02_03_02">
+						
+						
+						
+					
+					<a href="/cust/sub02/sub02/sub02/compList.do?s_mid=1221" target="_self"><span>고객참여</span></a>
+							
+				
+				
+				
+				<ul>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub02_03_02_01">
+						
+						
+					
+					<a href="/cust/sub02/sub02/sub02/compList.do?s_mid=1221" target="_self"><span>직원칭찬</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub02_03_02_02">
+						
+						
+					
+					<a href="/cust/sub04/sub05/explPage.do?s_mid=1123" target="_self"><span>증명서신청</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub02_03_02_03">
+						
+						
+					
+					<a href="https://cts.kwater.or.kr?s_mid=2148" target="_blank" title="새창으로 이동" rel="noopener noreferrer"><span>기술경력확인서 신청</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub02_03_02_04">
+						
+						
+					
+					<a href="/cust/sub02/sub02/sub03/tour24Page.do?s_mid=1077" target="_self"><span>견학안내/시설개방정보</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				</ul>
+				</li>
+				
+				</ul>
+				</li>
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+							 <!-- 3 -->
+							<li class="sub02_04">
+						
+						
+						
+						
+					
+					<a href="/cust/sub04/supportIntroPage.do?s_mid=22" target="_self"><span>고객지원</span></a>
+							
+				
+				
+				
+				<ul>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub02_04_01">
+						
+						
+						
+					
+					<a href="/cust/sub04/sub04/wsupportPage.do?s_mid=1670" target="_self"><span>물산업지원센터</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub02_04_02">
+						
+						
+						
+					
+					<a href="/cust/sub04/sub02/procPage.do?s_mid=201" target="_self"><span>수질검사의뢰</span></a>
+							
+				
+				
+				
+				<ul>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub02_04_02_01">
+						
+						
+					
+					<a href="/cust/sub04/sub02/procPage.do?s_mid=201" target="_self"><span>수질검사절차 안내</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub02_04_02_02">
+						
+						
+					
+					<a href="/cust/sub04/sub02/inspPage.do?s_mid=200" target="_self"><span>검사기관 찾기</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub02_04_02_03">
+						
+						
+					
+					<a href="/cust/sub04/sub02/charPage.do?s_mid=202" target="_self"><span>수수료 안내</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub02_04_02_04">
+						
+						
+					
+					<a href="/cust/sub04/sub02/faqPage.do?s_mid=203" target="_self"><span>자주하는 질문과 답변(FAQ)</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				</ul>
+				</li>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub02_04_03">
+						
+						
+						
+					
+					<a href="/cust/sub04/sub04/procPage.do?s_mid=78" target="_self"><span>교정시험의뢰</span></a>
+							
+				
+				
+				
+				<ul>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub02_04_03_01">
+						
+						
+					
+					<a href="/cust/sub04/sub04/procPage.do?s_mid=78" target="_self"><span>국제공인교정기관 표준시험실</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub02_04_03_02">
+						
+						
+					
+					<a href="/cust/sub04/sub04/proc02Page.do?s_mid=2001" target="_self"><span>교정안내</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub02_04_03_03">
+						
+						
+					
+					<a href="/cust/sub04/sub04/proc03Page.do?s_mid=2002" target="_self"><span>신청절차</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				</ul>
+				</li>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub02_04_04">
+						
+						
+						
+					
+					<a href="/cust/sub04/sub03/blooPage.do?s_mid=205" target="_self"><span>수도설비 기술지원</span></a>
+							
+				
+				
+				
+				<ul>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub02_04_04_01">
+						
+						
+					
+					<a href="/cust/sub04/sub03/blooPage.do?s_mid=205" target="_self"><span>수도시설 기술진단</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub02_04_04_02">
+						
+						
+					
+					<a href="/cust/sub04/sub03/voltPage.do?s_mid=206" target="_self"><span>전력설비 정밀절연진단</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				</ul>
+				</li>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub02_04_05">
+						
+						
+						
+					
+					<a href="/busi/sub02/supplyoutlinePage.do?s_mid=2081" target="_self"><span>댐주변지역지원사업</span></a>
+							
+				
+				
+				
+				<ul>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub02_04_05_01">
+						
+						
+					
+					<a href="/busi/sub02/supplyoutlinePage.do?s_mid=2081" target="_self"><span>지원사업 안내</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub02_04_05_02">
+						
+						
+					
+					<a href="/busi/sub03/noti01List.do?brdId=KO90&s_mid=2084" target="_self"><span>공지사항</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub02_04_05_03">
+						
+						
+					
+					<a href="/busi/sub03/plan01List.do?brdId=KO86&s_mid=2313" target="_self"><span>사업계획</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub02_04_05_04">
+						
+						
+					
+					<a href="/busi/sub03/sett01List.do?brdId=KO87&s_mid=2314" target="_self"><span>사업결산</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub02_04_05_05">
+						
+						
+					
+					<a href="/busi/sub02/faqPage.do?s_mid=2315" target="_self"><span>자주묻는질문(FAQ)</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				</ul>
+				</li>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub02_04_06">
+						
+						
+						
+					
+					<a href="/cust/sub04/sub07/registPage.do?s_mid=2040" target="_self"><span>WASCO 등록 및 기술지원</span></a>
+							
+				
+				
+				
+				<ul>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub02_04_06_01">
+						
+						
+					
+					<a href="/cust/sub04/sub07/registPage.do?s_mid=2040" target="_self"><span>등록안내</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub02_04_06_02">
+						
+						
+					
+					<a href="/cust/sub04/sub07/techsuptPage.do?s_mid=2041" target="_self"><span>기술지원안내</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				</ul>
+				</li>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub02_04_07">
+						
+						
+						
+					
+					<a href="/globalOffice/globalOffice02Page.do?s_mid=2160" target="_self"><span>글로벌 오피스 지원</span></a>
+							
+				
+				
+				
+				<ul>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub02_04_07_01">
+						
+						
+					
+					<a href="/globalOffice/globalOffice02Page.do?s_mid=2160" target="_self"><span>해외지사 안내</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub02_04_07_02">
+						
+						
+					
+					<a href="/globalOffice/globalOfficeListPage.do?s_mid=2161" target="_self"><span>글로벌 오피스 지원 신청</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub02_04_07_03">
+						
+						
+					
+					<a href="/globalOffice/noti01List.do?brdId=KO89&s_mid=2162" target="_self"><span>공지·자료실</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				</ul>
+				</li>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub02_04_08">
+						
+						
+						
+					
+					<a href="/cust/sub04/sub09/visitApplyInfoPage.do?s_mid=2299" target="_self"><span>용역사업장 방문관리</span></a>
+							
+				
+				
+				
+				<ul>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub02_04_08_01">
+						
+						
+					
+					<a href="/cust/sub04/sub09/visitApplyInfoPage.do?s_mid=2299" target="_self"><span>방문예약 안내</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub02_04_08_02">
+						
+						
+					
+					<a href="/cust/sub04/sub09/visitApplyWrite.do?s_mid=2300" target="_self"><span>방문예약 신청</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				</ul>
+				</li>
+				
+				</ul>
+				</li>
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+							 <!-- 3 -->
+							<li class="sub02_05">
+						
+						
+						
+						
+					
+					<a href="/cust/sub04/serviceIntroPage.do?s_mid=1921" target="_self"><span>요금제도</span></a>
+							
+				
+				
+				
+				<ul>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub02_05_01">
+						
+						
+						
+					
+					<a href="/cust/sub04/serviceIntroPage.do?s_mid=1921" target="_self"><span>서비스안내</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub02_05_02">
+						
+						
+						
+					
+					<a href="/cust/sub04/sub01/char/char09Page.do?s_mid=1585" target="_self"><span>요금제도안내</span></a>
+							
+				
+				
+				
+				<ul>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub02_05_02_01">
+						
+						
+					
+					<a href="/cust/sub04/sub01/char/char09Page.do?s_mid=1585" target="_self"><span>개요</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub02_05_02_02">
+						
+						
+					
+					<a href="/cust/sub04/sub01/char/char04Page.do?s_mid=1966" target="_self"><span>요금단가</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub02_05_02_03">
+						
+						
+					
+					<a href="/cust/sub04/sub01/char/char03Page.do?s_mid=1981" target="_self"><span>요금의 결정절차</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub02_05_02_04">
+						
+						
+					
+					<a href="/cust/sub04/sub01/char/char05Page.do?s_mid=1892" target="_self"><span>요금계산방법</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub02_05_02_05">
+						
+						
+					
+					<a href="/cust/sub04/sub01/char/char06Page.do?s_mid=1982" target="_self"><span>광역상수도 원가정보</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub02_05_02_06">
+						
+						
+					
+					<a href="/cust/sub04/sub01/char/char07Page.do?s_mid=1983" target="_self"><span>공급규정</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				</ul>
+				</li>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub02_05_03">
+						
+						
+						
+					
+					<a href="/cust/sub04/rateconsumerPage.do?s_mid=1548" target="_self"><span>수도요금현황</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub02_05_04">
+						
+						
+						
+					
+					<a href="/cust/sub04/sub01/farePage.do?s_mid=198" target="_self"><span>고객요금조회</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub02_05_05">
+						
+						
+						
+					
+					<a href="/water/sub08/damInfoPage.do?s_mid=2021" target="_self"><span>댐·광역상수도 사용 및 변경신청</span></a>
+							
+				
+				
+				
+				<ul>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub02_05_05_01">
+						
+						
+					
+					<a href="/water/sub08/damInfoPage.do?s_mid=2021" target="_self"><span>댐용수 신청</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub02_05_05_02">
+						
+						
+					
+					<a href="/water/sub08/waterInfoPage.do?s_mid=2022" target="_self"><span>광역상수도 신청</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				</ul>
+				</li>
+				
+				</ul>
+				</li>
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+							 <!-- 3 -->
+							<li class="sub02_06">
+						
+						
+						
+						
+					
+					<a href="/gov3/sub03/sub01/guidPage.do?s_mid=53" target="_self"><span>정보공개</span></a>
+							
+				
+				
+				
+				<ul>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub02_06_01">
+						
+						
+						
+					
+					<a href="/gov3/sub03/sub01/guidPage.do?s_mid=53" target="_self"><span>제도안내</span></a>
+							
+				
+				
+				
+				<ul>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub02_06_01_01">
+						
+						
+					
+					<a href="/gov3/sub03/sub01/guidPage.do?s_mid=53" target="_self"><span>정보공개 제도안내</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub02_06_01_02">
+						
+						
+					
+					<a href="/gov3/sub03/sub01/publPage.do?s_mid=1987" target="_self"><span>정보공개 청구절차</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub02_06_01_03">
+						
+						
+					
+					<a href="/gov3/sub03/sub01/rqstPage.do?s_mid=1988" target="_self"><span>정보공개 청구</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub02_06_01_04">
+						
+						
+					
+					<a href="/gov3/sub03/sub01/wayPage.do?s_mid=1989" target="_self"><span>불복구제절차 및 방법</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub02_06_01_05">
+						
+						
+					
+					<a href="/gov3/sub03/sub01/feePage.do?s_mid=1990" target="_self"><span>수수료</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				</ul>
+				</li>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub02_06_02">
+						
+						
+						
+					
+					<a href="/gov3/sub03/askWrite.do?s_mid=56" target="_self"><span>정보공개 청구</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub02_06_03">
+						
+						
+						
+					
+					<a href="/gov3/sub03/claimList.do?s_mid=893" target="_self"><span>정보공개청구 이의신청</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub02_06_04">
+						
+						
+						
+					
+					<a href="/gov3/sub03/infoList.do?s_mid=55" target="_self"><span>정보목록</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub02_06_05">
+						
+						
+						
+					
+					<a href="/gov3/pubdataPage.do?s_mid=52" target="_self"><span>공공데이터개방</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub02_06_06">
+						
+						
+						
+					
+					<a href="/gov3/policy01Page.do?s_mid=1566" target="_self"><span>사업실명제</span></a>
+							
+				
+				
+				
+				<ul>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub02_06_06_01">
+						
+						
+					
+					<a href="/gov3/policy01Page.do?s_mid=1566" target="_self"><span>사업실명제 개요</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub02_06_06_02">
+						
+						
+					
+					<a href="/gov3/policyList.do?brdId=KO71&s_mid=1568&type=2025" target="_self"><span>대상사업</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub02_06_06_03">
+						
+						
+					
+					<a href="/gov3/epeopleList.do?brdId=KO94&s_mid=1779" target="_self"><span>국민신청</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				</ul>
+				</li>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub02_06_07">
+						
+						
+						
+					
+					<a href="https://www.kwater.or.kr/waterbook/kor.do?s_mid=2027" target="_blank" title="새창으로 이동" rel="noopener noreferrer"><span>워터북 플레이스</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				</ul>
+				</li>
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+							 <!-- 3 -->
+							<li class="sub02_07">
+						
+						
+						
+						
+					
+					<a href="/gov3/sub03/publicList.do?s_mid=1664" target="_self"><span>사전정보공표</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+							 <!-- 3 -->
+							<li class="sub02_08">
+						
+						
+						
+						
+					
+					<a href="/cust/sub04/sub06/comp/comp01Page.do?s_mid=80" target="_self"><span>보상정보</span></a>
+							
+				
+				
+				
+				<ul>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub02_08_01">
+						
+						
+						
+					
+					<a href="/cust/sub04/sub06/comp/comp01Page.do?s_mid=80" target="_self"><span>보상의 이해</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub02_08_02">
+						
+						
+						
+					
+					<a href="/cust/sub04/sub06/notice/notiList.do?s_mid=2007&brdId=KO27&s_text=C&s_type=type" target="_self"><span>보상공고</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub02_08_03">
+						
+						
+						
+					
+					<a href="/cust/sub04/sub06/mycomp/mycompPage.do?s_mid=2008" target="_self"><span>나의보상</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub02_08_04">
+						
+						
+						
+					
+					<a href="/cust/sub04/sub06/preseList.do?s_faqId=gov3&s_mid=2009" target="_self"><span>FAQ</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				</ul>
+				</li>
+				
+				</ul>
+				</li>
+				
+				
+				
+				
+				
+					
+	            	
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+					
+					<li class="sub03">
+					<a href="/news/sub01/noti01List.do?s_mid=105&brdId=KO27"><span>새소식</span></a>
+				
+				
+				
+				
+				
+				<ul>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+							 <!-- 3 -->
+							<li class="sub03_01">
+						
+						
+						
+						
+					
+					<a href="/news/sub01/noti01List.do?s_mid=105&brdId=KO27" target="_self"><span>게시판</span></a>
+							
+				
+				
+				
+				<ul>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub03_01_01">
+						
+						
+						
+					
+					<a href="/news/sub01/noti01List.do?s_mid=105&brdId=KO27" target="_self"><span>공지사항</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub03_01_02">
+						
+						
+						
+					
+					<a href="/news/event/eventList.do?type=C&notiYn=Y&s_mid=1678" target="_self"><span>이벤트안내</span></a>
+							
+				
+				
+				
+				<ul>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub03_01_02_01">
+						
+						
+					
+					<a href="/news/event/eventList.do?type=C&notiYn=Y&s_mid=1678" target="_self"><span>진행중인 이벤트</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub03_01_02_02">
+						
+						
+					
+					<a href="/news/event/eventList.do?type=C&notiYn=N&s_mid=2016" target="_self"><span>종료된 이벤트</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				</ul>
+				</li>
+				
+				</ul>
+				</li>
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+							 <!-- 3 -->
+							<li class="sub03_02">
+						
+						
+						
+						
+					
+					<a href="/recr/sub01/hrsys/hrs01TabPage.do?s_mid=119" target="_self"><span>채용정보</span></a>
+							
+				
+				
+				
+				<ul>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub03_02_01">
+						
+						
+						
+					
+					<a href="/recr/sub01/hrsys/hrs01TabPage.do?s_mid=119" target="_self"><span>정규채용</span></a>
+							
+				
+				
+				
+				<ul>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub03_02_01_01">
+						
+						
+					
+					<a href="/recr/sub01/hrsys/hrs01TabPage.do?s_mid=119" target="_self"><span>인사제도</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub03_02_01_02">
+						
+						
+					
+					<a href="/recr/sub01/system/sys01TabPage.do?s_mid=118" target="_self"><span>채용제도</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub03_02_01_03">
+						
+						
+					
+					<a href="/recr/sub01/recruitPage.do?s_mid=2317" target="_self"><span>채용공고</span></a>
+							
+				
+				
+				
+				<ul>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+						
+							 <!-- 6 -->
+							<li>
+						
+					
+					<a href="/recr/sub01/recruitPage.do?s_mid=2317" target="_self"><span>2026년 하반기(일반직, 운영직, 전문직) 채용</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+						
+							 <!-- 6 -->
+							<li>
+						
+					
+					<a href="/recr/sub01/recruitPage.do?s_mid=2120" target="_self"><span>2026년 전문직, 시설운영직(경력) 제한경쟁 채용</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				</ul>
+				</li>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub03_02_01_04">
+						
+						
+					
+					<a href="/recr/sub01/system/ncsdataList.do?brdId=KO75&s_mid=2117" target="_self"><span>채용 자료실</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				</ul>
+				</li>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub03_02_02">
+						
+						
+						
+					
+					<a href="/recr/sub02/notiList.do?s_mid=123" target="_self"><span>실무직 및 비정규직 채용공고</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub03_02_03">
+						
+						
+						
+					
+					<a href="/recr/sub04/sub01/certList.do?s_mid=2291" target="_self"><span>톡톡인턴</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				</ul>
+				</li>
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+							 <!-- 3 -->
+							<li class="sub03_03">
+						
+						
+						
+						
+					
+					<a href="/news/repoList.do?brdId=KO26&s_mid=36" target="_self"><span>뉴스룸</span></a>
+							
+				
+				
+				
+				<ul>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub03_03_01">
+						
+						
+						
+					
+					<a href="/news/repoList.do?brdId=KO26&s_mid=36" target="_self"><span>보도자료</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				</ul>
+				</li>
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+							 <!-- 3 -->
+							<li class="sub03_04">
+						
+						
+						
+						
+					
+					<a href="/news/sub03/sub01/webzList.do?s_mid=231" target="_self"><span>홍보광장</span></a>
+							
+				
+				
+				
+				<ul>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub03_04_01">
+						
+						
+						
+					
+					<a href="/news/sub03/sub01/webzList.do?s_mid=231" target="_self"><span>사보</span></a>
+							
+				
+				
+				
+				<ul>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub03_04_01_01">
+						
+						
+					
+					<a href="/news/sub03/sub01/webzList.do?s_mid=231" target="_self"><span>사보</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub03_04_01_02">
+						
+						
+					
+					<a href="/news/sub03/sub01/opinWritePage.do?s_mid=1665" target="_self"><span>독자의견코너</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				</ul>
+				</li>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub03_04_02">
+						
+						
+						
+					
+					<a href="/news/sub03/ytbList.do?s_mid=2282" target="_self"><span>영상자료</span></a>
+							
+				
+				
+				
+				<ul>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub03_04_02_01">
+						
+						
+					
+					<a href="/news/sub03/ytbList.do?s_mid=2282" target="_self"><span>홍보영상</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub03_04_02_02">
+						
+						
+					
+					<a href="/news/sub03/cfList.do?s_mid=2287" target="_self"><span>CF</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				</ul>
+				</li>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub03_04_03">
+						
+						
+						
+					
+					<a href="/news/sub03/sub01/landList.do?s_mid=113" target="_self"><span>인쇄자료</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				</ul>
+				</li>
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+							 <!-- 3 -->
+							<li class="sub03_05">
+						
+						
+						
+						
+					
+					<a href="/news/sub02/love/guidApp2025Page.do?s_mid=2284" target="_self"><span>물사랑공모전</span></a>
+							
+				
+				
+				
+				<ul>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub03_05_01">
+						
+						
+						
+					
+					<a href="/news/sub02/love/guidApp2025Page.do?s_mid=2284" target="_self"><span>2025년 수상작</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub03_05_02">
+						
+						
+						
+					
+					<a href="/news/sub02/love/guidApp2023Page.do?s_mid=2164" target="_self"><span>2023년 수상작</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub03_05_03">
+						
+						
+						
+					
+					<a href="/news/sub02/love/guidApp2021Page.do?s_mid=1960" target="_self"><span>2021년 수상작</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub03_05_04">
+						
+						
+						
+					
+					<a href="/news/sub02/love/guidAppPage.do?s_mid=2094" target="_self"><span>2019년 수상작</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				</ul>
+				</li>
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+							 <!-- 3 -->
+							<li class="sub03_06">
+						
+						
+						
+						
+					
+					<a href="/news/onmuseum/onlineWaterMusmPage.do?s_mid=2100" target="_self"><span>K-water 온라인수도박물관</span></a>
+							
+				
+				
+				
+				<ul>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub03_06_01">
+						
+						
+						
+					
+					<a href="/news/onmuseum/onMusmInfoPage.do?s_mid=2101" target="_self"><span>온라인 수도박물관 소개</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub03_06_02">
+						
+						
+						
+					
+					<a href="/news/onmuseum/history01Page.do?s_mid=2103" target="_self"><span>수도 역사관</span></a>
+							
+				
+				
+				
+				<ul>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub03_06_02_01">
+						
+						
+					
+					<a href="/news/onmuseum/history01Page.do?s_mid=2103" target="_self"><span>세계 수도의 역사</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub03_06_02_02">
+						
+						
+					
+					<a href="/news/onmuseum/history02Page.do?s_mid=2104" target="_self"><span>우리나라 수도의 역사</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub03_06_02_03">
+						
+						
+					
+					<a href="/news/onmuseum/historyMapPage.do?s_mid=2105" target="_self"><span>근대수도 문화재</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				</ul>
+				</li>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub03_06_03">
+						
+						
+						
+					
+					<a href="/news/onmuseum/tech01Page.do?s_mid=2107" target="_self"><span>수도 기술관</span></a>
+							
+				
+				
+				
+				<ul>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub03_06_03_01">
+						
+						
+					
+					<a href="/news/onmuseum/tech01Page.do?s_mid=2107" target="_self"><span>정수처리과정</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub03_06_03_02">
+						
+						
+					
+					<a href="/news/onmuseum/tech02Page.do?s_mid=2108" target="_self"><span>수도관리기술</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				</ul>
+				</li>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub03_06_04">
+						
+						
+						
+					
+					<a href="/news/onmuseum/futureWaterPage.do?s_mid=2109" target="_self"><span>미래수도관</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				</ul>
+				</li>
+				
+				</ul>
+				</li>
+				
+				
+				
+				
+				
+					
+	            	
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+					
+					<li class="sub04">
+					<a href="/busi/introNationServicePage.do?s_mid=9"><span>대국민 서비스</span></a>
+				
+				
+				
+				
+				
+				<ul>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+							 <!-- 3 -->
+							<li class="sub04_01">
+						
+						
+						
+						
+					
+					<a href="/busi/sub02/facilitiespresentAllPage.do?s_mid=1515" target="_self"><span> 물관리 시설</span></a>
+							
+				
+				
+				
+				<ul>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub04_01_01">
+						
+						
+						
+					
+					<a href="/busi/sub02/facilitiespresentAllPage.do?s_mid=1515" target="_self"><span>통합물관리 시설</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				</ul>
+				</li>
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+							 <!-- 3 -->
+							<li class="sub04_02">
+						
+						
+						
+						
+					
+					<a href="/busi/water01/serviceDirectionPage.do?s_mid=1814" target="_self"><span>수자원·환경</span></a>
+							
+				
+				
+				
+				<ul>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub04_02_01">
+						
+						
+						
+					
+					<a href="/busi/water01/serviceDirectionPage.do?s_mid=1814" target="_self"><span>서비스 방향</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub04_02_02">
+						
+						
+						
+					
+					<a href="/busi/water01/prevention01Page.do?s_mid=1817" target="_self"><span>물재해 예방</span></a>
+							
+				
+				
+				
+				<ul>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub04_02_02_01">
+						
+						
+					
+					<a href="/busi/water01/prevention01Page.do?s_mid=1817" target="_self"><span>물재해예방</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub04_02_02_02">
+						
+						
+					
+					<a href="/busi/water01/prevention02Page.do?s_mid=1818" target="_self"><span>홍수예방</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub04_02_02_03">
+						
+						
+					
+					<a href="/busi/water01/prevention03Page.do?s_mid=1819" target="_self"><span>가뭄예방</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub04_02_02_04">
+						
+						
+					
+					<a href="/busi/water01/prevention04Page.do?s_mid=1820" target="_self"><span>수질·수생태 개선</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				</ul>
+				</li>
+				
+				</ul>
+				</li>
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+							 <!-- 3 -->
+							<li class="sub04_03">
+						
+						
+						
+						
+					
+					<a href="/busi/water02/serviceDirectionPage.do?s_mid=1821" target="_self"><span>수도</span></a>
+							
+				
+				
+				
+				<ul>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub04_03_01">
+						
+						
+						
+					
+					<a href="/busi/water02/serviceDirectionPage.do?s_mid=1821" target="_self"><span>서비스 방향</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub04_03_02">
+						
+						
+						
+					
+					<a href="/busi/water02/smartWater02Page.do?s_mid=1953" target="_self"><span>안정적 물공급</span></a>
+							
+				
+				
+				
+				<ul>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub04_03_02_01">
+						
+						
+					
+					<a href="/busi/water02/smartWater02Page.do?s_mid=1953" target="_self"><span>지방상수도</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub04_03_02_02">
+						
+						
+					
+					<a href="/busi/water02/smartWater03Page.do?s_mid=1890" target="_self"><span>하수도</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				</ul>
+				</li>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub04_03_03">
+						
+						
+						
+					
+					<a href="/busi/water02/highQualityServicePage.do?s_mid=1863" target="_self"><span>고품질 수돗물 서비스</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				</ul>
+				</li>
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+							 <!-- 3 -->
+							<li class="sub04_04">
+						
+						
+						
+						
+					
+					<a href="/busi/water03/serviceDirectionPage.do?s_mid=1822" target="_self"><span>에너지·도시</span></a>
+							
+				
+				
+				
+				<ul>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub04_04_01">
+						
+						
+						
+					
+					<a href="/busi/water03/serviceDirectionPage.do?s_mid=1822" target="_self"><span>서비스 방향</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub04_04_02">
+						
+						
+						
+					
+					<a href="/busi/water03/cleanInfoPage.do?s_mid=28" target="_self"><span>물에너지</span></a>
+							
+				
+				
+				
+				<ul>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub04_04_02_01">
+						
+						
+					
+					<a href="/busi/water03/cleanInfoPage.do?s_mid=28" target="_self"><span>물에너지</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub04_04_02_02">
+						
+						
+					
+					<a href="/busi/water03/cleanConditionPage.do?s_mid=1999" target="_self"><span>물에너지 현황</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub04_04_02_03">
+						
+						
+					
+					<a href="/busi/water03/cleanEnviPage.do?s_mid=2000" target="_self"><span>물에너지 환경기여도</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				</ul>
+				</li>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub04_04_03">
+						
+						
+						
+					
+					<a href="/busi/water03/waterfrontCityPage.do?s_mid=1520" target="_self"><span>수변도시</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				</ul>
+				</li>
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+							 <!-- 3 -->
+							<li class="sub04_05">
+						
+						
+						
+						
+					
+					<a href="/busi/water04/serviceDirectionPage.do?s_mid=2199" target="_self"><span>글로벌·기후테크</span></a>
+							
+				
+				
+				
+				<ul>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub04_05_01">
+						
+						
+						
+					
+					<a href="/busi/water04/serviceDirectionPage.do?s_mid=2199" target="_self"><span>서비스방향</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub04_05_02">
+						
+						
+						
+					
+					<a href="/busi/water03/industry02Page.do?s_mid=1825" target="_self"><span>글로벌</span></a>
+							
+				
+				
+				
+				<ul>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub04_05_02_01">
+						
+						
+					
+					<a href="/busi/water03/industry02Page.do?s_mid=1825" target="_self"><span>국제협력</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub04_05_02_02">
+						
+						
+					
+					<a href="/busi/glob02Page.do?s_mid=1525" target="_self"><span>해외사업</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				</ul>
+				</li>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub04_05_03">
+						
+						
+						
+					
+					<a href="/busi/water03/industry01Page.do?s_mid=1824" target="_self"><span> 물산업육성</span></a>
+							
+				
+				
+				
+				<ul>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub04_05_03_01">
+						
+						
+					
+					<a href="/busi/water03/industry01Page.do?s_mid=1824" target="_self"><span>혁신기업 발굴·육성</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				</ul>
+				</li>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub04_05_04">
+						
+						
+						
+					
+					<a href="/busi/water03/waterSavingPage.do?s_mid=2042" target="_self"><span>물절약전문업</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				</ul>
+				</li>
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+							 <!-- 3 -->
+							<li class="sub04_06">
+						
+						
+						
+						
+					
+					<a href="/water/sub09/esgPropPage.do?s_mid=2126" target="_self"><span>ESG경영</span></a>
+							
+				
+				
+				
+				<ul>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub04_06_01">
+						
+						
+						
+					
+					<a href="/water/sub09/esgPropPage.do?s_mid=2126" target="_self"><span>ESG경영</span></a>
+							
+				
+				
+				
+				<ul>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub04_06_01_01">
+						
+						
+					
+					<a href="/water/sub09/esgPropPage.do?s_mid=2126" target="_self"><span>추진체계</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub04_06_01_02">
+						
+						
+					
+					<a href="/water/sub09/esgCertPage.do?s_mid=2127" target="_self"><span>ESG종합성과</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				</ul>
+				</li>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub04_06_02">
+						
+						
+						
+					
+					<a href="/water/sub04/sub00/courPage.do?s_mid=1293" target="_self"><span>(E)환경경영</span></a>
+							
+				
+				
+				
+				<ul>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub04_06_02_01">
+						
+						
+					
+					<a href="/water/sub04/sub00/courPage.do?s_mid=1293" target="_self"><span>추진체계</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub04_06_02_02">
+						
+						
+					
+					<a href="/water/sub04/sub02/gnetPage.do?s_mid=152" target="_self"><span>환경경영성과</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				</ul>
+				</li>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub04_06_03">
+						
+						
+						
+					
+					<a href="/water/sub09/carb01Page.do?s_mid=2131" target="_self"><span>(E)탄소중립경영</span></a>
+							
+				
+				
+				
+				<ul>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub04_06_03_01">
+						
+						
+					
+					<a href="/water/sub09/carb01Page.do?s_mid=2131" target="_self"><span>발전원별 발전현황</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub04_06_03_02">
+						
+						
+					
+					<a href="/water/sub09/carb02Page.do?s_mid=2132" target="_self"><span>RE100</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub04_06_03_03">
+						
+						
+					
+					<a href="/water/sub09/carb03Page.do?s_mid=2133" target="_self"><span>온실가스 정보</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				</ul>
+				</li>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub04_06_04">
+						
+						
+						
+					
+					<a href="/water/sub09/enviInforPage.do?s_mid=2134" target="_self"><span>(E)환경경영정보공개</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub04_06_05">
+						
+						
+						
+					
+					<a href="/safety/sub01/charterPage.do?s_mid=1923" target="_self"><span>(S)안전경영</span></a>
+							
+				
+				
+				
+				<ul>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub04_06_05_01">
+						
+						
+					
+					<a href="/safety/sub01/charterPage.do?s_mid=1923" target="_self"><span>K-water 안전경영헌장</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub04_06_05_02">
+						
+						
+					
+					<a href="/safety/sub02/safetyorganPage.do?s_mid=2297" target="_self"><span>안전경영 조직</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub04_06_05_03">
+						
+						
+					
+					<a href="/safety/sub04/law01Page.do?s_mid=1950" target="_self"><span>안전관련 법령</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub04_06_05_04">
+						
+						
+					
+					<a href="/safety/sub04/cust01Page.do?s_mid=1951" target="_self"><span>안전신문고</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub04_06_05_05">
+						
+						
+					
+					<a href="/safety/sub02/safetyculturePage.do?s_mid=2296" target="_self"><span>안전문화 확산</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub04_06_05_06">
+						
+						
+					
+					<a href="/safety/sub02/indus01Page.do?s_mid=1926" target="_self"><span>산업 안전</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub04_06_05_07">
+						
+						
+					
+					<a href="/safety/sub02/build01Page.do?s_mid=1932" target="_self"><span>건설 안전</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub04_06_05_08">
+						
+						
+					
+					<a href="/safety/sub02/facil01Page.do?s_mid=1935" target="_self"><span>시설 안전</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub04_06_05_09">
+						
+						
+					
+					<a href="/safety/sub02/disaInfo01Page.do?s_mid=1937" target="_self"><span>재난 안전</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub04_06_05_10">
+						
+						
+					
+					<a href="/safety/sub03/soci01Page.do?s_mid=1942" target="_self"><span>재난시 국민행동요령</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				</ul>
+				</li>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub04_06_06">
+						
+						
+						
+					
+					<a href="/water/sub05/sub01/systPage.do?s_mid=378" target="_self"><span>(S)사회공헌</span></a>
+							
+				
+				
+				
+				<ul>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub04_06_06_01">
+						
+						
+					
+					<a href="/water/sub05/sub01/systPage.do?s_mid=378" target="_self"><span>개요</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub04_06_06_02">
+						
+						
+					
+					<a href="/water/sub05/sub02/sharePage.do?s_mid=1614" target="_self"><span>주요활동</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub04_06_06_03">
+						
+						
+					
+					<a href="/water/sub05/sub05/intrPage.do?s_mid=390" target="_self"><span>물사랑나눔단</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				</ul>
+				</li>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub04_06_07">
+						
+						
+						
+					
+					<a href="/water/sub09/esgGrowPage.do?s_mid=2141" target="_self"><span>(S)동반성장</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub04_06_08">
+						
+						
+						
+					
+					<a href="/water/sub09/esgSocial1Page.do?s_mid=2136" target="_self"><span>(S)정보보호</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub04_06_09">
+						
+						
+						
+					
+					<a href="/water/sub09/esgGovPage.do?s_mid=2139" target="_self"><span>(G)이사회</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub04_06_10">
+						
+						
+						
+					
+					<a href="/water/sub03/sub02/creeInfoPage.do?s_mid=1912" target="_self"><span>(G)윤리경영·인권경영</span></a>
+							
+				
+				
+				
+				<ul>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub04_06_10_01">
+						
+						
+					
+					<a href="/water/sub03/sub02/creeInfoPage.do?s_mid=1912" target="_self"><span>윤리경영 소개</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub04_06_10_02">
+						
+						
+					
+					<a href="/water/sub03/sub02/creePage.do?s_mid=1974" target="_self"><span>윤리경영 관련규정</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub04_06_10_03">
+						
+						
+					
+					<a href="/water/sub03/sub02/creeCleanPage.do?s_mid=1914" target="_self"><span>청렴시민감사관</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub04_06_10_04">
+						
+						
+					
+					<a href="/water/sub03/newsList.do?brdId=KO33&s_mid=1915" target="_self"><span>윤리경영 활동실적</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub04_06_10_05">
+						
+						
+					
+					<a href="/water/sub03/sub02/cree7Page.do?s_mid=2234" target="_self"><span>인권경영지침</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				</ul>
+				</li>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub04_06_11">
+						
+						
+						
+					
+					<a href="/cust/sub02/sub03/corr/intrPage.do?s_mid=1751" target="_self"><span>(G)부패신고</span></a>
+							
+				
+				
+				
+				<ul>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub04_06_11_01">
+						
+						
+					
+					<a href="/cust/sub02/sub03/corr/intrPage.do?s_mid=1751" target="_self"><span>신고안내</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub04_06_11_02">
+						
+						
+					
+					<a href="/cust/sub02/sub03/corr/nonameWrite.do?s_mid=1752" target="_self"><span>신고</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub04_06_11_03">
+						
+						
+					
+					<a href="/cust/sub02/sub03/corr/ansimPage.do?s_mid=1872" target="_self"><span>안심제보변호사제</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub04_06_11_04">
+						
+						
+					
+					<a href="/cust/sub02/sub03/corr/resu.do?s_mid=1753" target="_self"><span>신고사항 확인</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				</ul>
+				</li>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+							 <!-- 4 -->
+							<li class="sub04_06_12">
+						
+						
+						
+					
+					<a href="/water/sub02/total01Page.do?s_mid=45" target="_self"><span>경영공시·SR</span></a>
+							
+				
+				
+				
+				<ul>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub04_06_12_01">
+						
+						
+					
+					<a href="/water/sub02/total01Page.do?s_mid=2128" target="_self"><span>ALIO공시</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+						
+						
+							 <!-- 5 -->
+							<li class="sub04_06_12_02">
+						
+						
+					
+					<a href="/water/sub04/sub03/repoPage.do?s_mid=1969" target="_self"><span>지속가능경영보고서 (SR)</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				</ul>
+				</li>
+				
+				</ul>
+				</li>
+				
+				</ul>
+				</li>
+				
+				
+				
+				
+				
+					
+	            	
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+					
+					<li class="sub05">
+					<a href="/guid/sitemapPage.do?s_mid=1710"><span>사이트안내</span></a>
+				
+				
+				
+				
+				
+				<ul>
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+							 <!-- 3 -->
+							<li class="sub05_01">
+						
+						
+						
+						
+					
+					<a href="/guid/sitemapPage.do?s_mid=1710" target="_self"><span>사이트맵</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+							 <!-- 3 -->
+							<li class="sub05_02">
+						
+						
+						
+						
+					
+					<a href="/guid/infoPage.do?s_mid=1560" target="_self"><span>개인정보 처리방침</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+	            	
+	            	
+	            	
+				
+				
+				
+				
+				
+				
+				
+				
+				
+
+
+
+				
+				
+				
+				
+					
+						
+						
+							 <!-- 3 -->
+							<li class="sub05_03">
+						
+						
+						
+						
+					
+					<a href="/guid/sub03/licensePage.do?s_mid=2024" target="_self"><span>저작권 정책</span></a>
+					
+					</li>
+							
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				</ul>
+				</li>
+				
+				
+				
+			</ul>
+			<script>		
+// 			Tmenu_setting("00000000");
+			</script>
+		</div>
+		<div class="toputil_control">
+            <div class="lang_btn">
+<!--                 <a href="#" class="kor">한국어</a> -->
+                <a href="/eng/main.do" target="_blank" rel="noopener noreferrer" title="새창이동, 영문 홈페이지" class="eng">ENGLISH</a>
+            </div>
+			<a href="#" class="search_btn_open">통합검색<span>열기</span></a>
+			<a href="/guid/sitemapPage.do?s_mid=1710" class="allmenu_btn_open">전체메뉴<span>열기</span></a>
+		</div>
+		<div class="search_form" tabindex="0">
+			<strong class="hidden">통합검색</strong>
+			<div class="layout">
+				<div class="form">
+					<form name="topSearchForm" action="/search/TotalSearchKor.do" method="post" onsubmit="return false;" >
+					<label for="searchTerm" class="hidden">검색어</label>
+					<input type="text" name="searchTerm" id="searchTerm" title="검색어를 입력하세요" placeholder="검색어를 입력하세요." />
+					<input type="submit" value="검색" onclick="fn_TopSearch();" title="통합검색, 새창" />
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<script>
+		function fn_TopSearch() {
+			var f = document.topSearchForm;
+			if (f) {
+				f.searchTerm.value = f.searchTerm.value.replace(/^\s+|\s+$/g,"");
+				if (f.searchTerm.value == "") { // 검색어 체크
+					alert("검색어를 입력 해주세요.");
+					f.searchTerm.focus();
+					return;
+				}
+				// 예외처리.
+				if(
+						f.searchTerm.value.indexOf('설계지침') > -1 || 
+						f.searchTerm.value.indexOf('전문시방서') > -1 || 
+						f.searchTerm.value.indexOf('설계도서 작성지침') > -1 || 
+						f.searchTerm.value.indexOf('적산지침') > -1
+						){
+					window.open('https://cts.kwater.or.kr/wq/popup.html?w2xPath=/ui/indexTchnlgyStdr.xml');
+				}
+				// 예외처리 끝.
+				
+				
+				var wWidth = $(window).width();
+				var wHeight = $(window).height();
+				var shape = "width=" + wWidth + ", height=" + wHeight;
+				shape = shape + ",scrollbars=yes,toolbar=yes,location=yes,resizable=yes,status=yes,menubar=yes,resizable=yes";
+				/* var srchWin = window.open("","homesrchkor",shape); */
+				f.target = "homesrchkor";
+				f.submit();
+			}
+		}
+		/*
+		 * 엔터 기능
+		 */
+		function fn_TopEnter() {
+			var key = event.keyCode;
+			if (key == 13) {
+				fn_TopSearch();
+			}
+		}
+	</script>
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<!-- header :E -->
+	
+
+
+	<!-- visual :S -->
+	<div id="sVisual_2017">
+	    <p><strong>기관소개</strong><span>최상의 물종합서비스 기업, K-water 소개입니다.</span></p>	
+	</div>
+	<!-- visual :E -->
+
+
+
+	
+
+
+
+
+
+
+
+<div id="container_2017">
+		<div class="inner group">
+			<!-- lnb :S -->
+			
+			<div id="lnb_2017">
+				<h2 class="h2">기관소개</h2>
+				<ul class="lnb group">
+				
+					
+					
+					
+						
+					
+					<li><a href="/water/sub01/sub04/outlPage.do?s_mid=1889" target="_self">경영전략<b></b></a>
+					
+					
+					
+					
+					
+					
+						<ul class="group">
+					
+					
+					
+					
+						
+						
+							
+						
+					
+					
+				
+					
+					
+					
+						
+					
+					<li><a href="/water/sub01/sub04/outlPage.do?s_mid=1889" target="_self">가치체계</a>
+					
+					
+					
+					</li>
+					
+					
+					
+					
+					
+					
+					
+						
+						
+							
+						
+					
+					
+				
+					
+					
+					
+						
+					
+					<li><a href="/busi/introWaterSafetyPage.do?s_mid=2173" target="_self">수자원·환경 사업</a>
+					
+					
+					
+					</li>
+					
+					
+					
+					
+					
+					
+					
+						
+						
+							
+						
+					
+					
+				
+					
+					
+					
+						
+					
+					<li><a href="/busi/introWaterSupplyPage.do?s_mid=2174" target="_self">수도 사업</a>
+					
+					
+					
+					</li>
+					
+					
+					
+					
+					
+					
+					
+						
+						
+							
+						
+					
+					
+				
+					
+					
+					
+						
+					
+					<li><a href="/busi/introWaterSpecialPage.do?s_mid=2175" target="_self">에너지·도시 사업</a>
+					
+					
+					
+					</li>
+					
+					
+					
+					
+					
+					
+					
+						
+						
+							
+						
+					
+					
+				
+					
+					
+					
+						
+					
+					<li><a href="/busi/introWaterCoopPage.do?s_mid=2176" target="_self">글로벌·기후테크 사업</a>
+					
+					
+					
+					</li>
+					
+					
+					
+					
+					
+					
+					
+						
+						
+							
+						
+					
+					
+				
+					
+					
+					
+						
+					
+					<li><a href="/water/sub01/sub06/tech01Page.do?s_mid=2219" target="_self">3대 초격차 기술<b></b></a>
+					
+					
+					
+					
+					
+					
+						<ul class="group">
+					
+					
+					
+					
+						
+						
+							
+						
+					
+					
+				
+					
+					
+					
+						
+					
+					<li><a href="/water/sub01/sub06/tech01Page.do?s_mid=2219" target="_self">초격차 기술</a>
+					
+					
+					
+					</li>
+					
+					
+					
+					
+					
+					
+					
+						
+						
+							
+						
+					
+					
+				
+					
+					
+					
+						
+					
+					<li><a href="/water/sub01/sub06/tech02Page.do?s_mid=2220" target="_self">디지털 트윈 물관리 플랫폼</a>
+					
+					
+					
+					</li>
+					
+					
+					
+					
+					
+					
+					
+						
+						
+							
+						
+					
+					
+				
+					
+					
+					
+						
+					
+					<li><a href="/water/sub01/sub06/tech03Page.do?s_mid=2221" target="_self">AI 정수장</a>
+					
+					
+					
+					</li>
+					
+					
+					
+					
+					
+					
+					
+						
+						
+							
+						
+					
+					
+				
+					
+					
+					
+						
+					
+					<li><a href="/water/sub01/sub06/tech04Page.do?s_mid=2222" target="_self">스마트 관망관리 솔루션 (SWNM)</a>
+					
+					
+					
+					</li>
+					
+					
+					
+					
+					
+					
+					
+						
+						
+							
+						
+					
+					
+					
+						</ul>
+					</li>
+					
+						</ul>
+					</li>
+					
+					
+				
+					
+					
+					
+						
+					
+					<li><a href="/water/sub01/sub02/purpPage.do?s_mid=237" target="_self">일반현황<b></b></a>
+					
+					
+					
+					
+					
+					
+						<ul class="group">
+					
+					
+					
+					
+						
+						
+							
+						
+					
+					
+				
+					
+					
+					
+						
+					
+					<li><a href="/water/sub01/sub02/purpPage.do?s_mid=237" target="_self">기관개요</a>
+					
+					
+					
+					</li>
+					
+					
+					
+					
+					
+					
+					
+						
+						
+							
+						
+					
+					
+				
+					
+					
+					
+						
+					
+					<li><a href="/water/sub01/sub03/founPage.do?s_mid=1992" target="_self">연혁</a>
+					
+					
+					
+					</li>
+					
+					
+					
+					
+					
+					
+					
+						
+						
+							
+						
+					
+					
+					
+						</ul>
+					</li>
+					
+					
+				
+					
+					
+					
+						
+					
+					<li><a href="/water/sub01/sub01/greePage.do?s_mid=234" target="_self">CEO<b></b></a>
+					
+					
+					
+					
+					
+					
+						<ul class="group">
+					
+					
+					
+					
+						
+						
+							
+						
+					
+					
+				
+					
+					
+					
+						
+					
+					<li><a href="/water/sub01/sub01/greePage.do?s_mid=234" target="_self">CEO 인사말</a>
+					
+					
+					
+					</li>
+					
+					
+					
+					
+					
+					
+					
+						
+						
+							
+						
+					
+					
+				
+					
+					
+					
+						
+					
+					<li><a href="/water/sub01/sub01/profPage.do?s_mid=235" target="_self">CEO 약력</a>
+					
+					
+					
+					</li>
+					
+					
+					
+					
+					
+					
+					
+						
+						
+							
+						
+					
+					
+				
+					
+					
+					
+						
+					
+					<li><a href="/water/sub01/sub01/movementList.do?brdId=KO79&s_mid=1707" target="_self">CEO 활동</a>
+					
+					
+					
+					</li>
+					
+					
+					
+					
+					
+					
+					
+						
+						
+							
+						
+					
+					
+				
+					
+					
+					
+						
+					
+					<li><a href="/water/sub01/sub01/histPage.do?s_mid=236" target="_self">역대CEO</a>
+					
+					
+					
+					</li>
+					
+					
+					
+					
+					
+					
+					
+						
+						
+							
+						
+					
+					
+					
+						</ul>
+					</li>
+					
+					
+				
+					
+					
+					
+						
+					
+					<li><a href="/water/sub01/sub05/contact.do?s_mid=247" target="_self">조직 및 연락처<b></b></a>
+					
+					
+					
+					
+					
+					
+						<ul class="group">
+					
+					
+					
+					
+						
+						
+							
+						
+					
+					
+				
+					
+					
+					
+						
+					
+					<li><a href="/water/sub01/sub05/contact.do?s_mid=247" target="_self">조직도 및 직원검색</a>
+					
+					
+					
+					</li>
+					
+					
+					
+					
+					
+					
+					
+						
+						
+							
+						
+					
+					
+				
+					
+					
+					
+						
+					
+					<li><a href="/water/sub01/sub05/000/center.do?brdId=KO27&s_flag=1&s_mid=248&s_officecode=000" target="_self">부서 안내</a>
+					
+					
+					
+					</li>
+					
+					
+					
+					
+					
+					
+					
+						
+						
+							
+						
+					
+					
+					
+						</ul>
+					</li>
+					
+					
+				
+					
+					
+					
+						
+					
+					<li><a href="/water/sub01/sub06/explPage.do?s_mid=129" target="_self">CI</a>
+					
+					
+					
+					</li>
+					
+					
+					
+					
+					
+					
+					
+						
+						
+							
+						
+					
+					
+				
+					
+					
+					
+						
+					
+					<li><a href="/cust/sub02/sub02/sub04/promotion1Page.do?s_mid=1055" target="_self">문화관</a>
+					
+					
+					
+					</li>
+					
+					
+					
+					
+					
+					
+					
+						
+						
+							
+						
+					
+					
+				
+					
+					
+					
+						
+					
+					<li><a href="/water/sub01/sub07/runn.do?s_mid=251&seq=1" target="_self">선수단<b></b></a>
+					
+					
+					
+					
+					
+					
+						<ul class="group">
+					
+					
+					
+					
+						
+						
+							
+						
+					
+					
+				
+					
+					
+					
+						
+					
+					<li><a href="/water/sub01/sub07/runn.do?s_mid=251&seq=1" target="_self">선수단소개<b></b></a>
+					
+					
+					
+					
+					
+					
+						<ul class="group">
+					
+					
+					
+					
+						
+						
+							
+						
+					
+					
+				
+					
+					
+					
+						
+					
+					<li><a href="/water/sub01/sub07/runn.do?s_mid=251&seq=1" target="_self">육상팀</a>
+					
+					
+					
+					</li>
+					
+					
+					
+					
+					
+					
+					
+						
+						
+							
+						
+					
+					
+				
+					
+					
+					
+						
+					
+					<li><a href="/water/sub01/sub07/rowi.do?s_mid=1994&seq=3" target="_self">조정팀</a>
+					
+					
+					
+					</li>
+					
+					
+					
+					
+					
+					
+					
+						
+						
+							
+						
+					
+					
+				
+					
+					
+					
+						
+					
+					<li><a href="/water/sub01/sub07/tabletennis.do?seq=5&s_mid=1995" target="_self">탁구팀</a>
+					
+					
+					
+					</li>
+					
+					
+					
+					
+					
+					
+					
+						
+						
+							
+						
+					
+					
+				
+					
+					
+					
+						
+					
+					<li><a href="https://www.facebook.com/kwatersports?s_mid=1996" target="_blank" title="새창으로 이동">페이스북</a>
+					
+					
+					
+					</li>
+					
+					
+					
+					
+					
+					
+					
+						
+						
+							
+						
+					
+					
+					
+						</ul>
+					</li>
+					
+					
+				
+					
+					
+					
+						
+					
+					<li><a href="/water/sub01/sub07/tnewList.do?brdId=KO31&s_mid=252" target="_self">선수단소식</a>
+					
+					
+					
+					</li>
+					
+					
+					
+					
+					
+					
+					
+						
+						
+							
+						
+					
+					
+					
+						</ul>
+					</li>
+					
+					
+				
+					
+					
+					
+						
+					
+					<li><a href="/water/sub01/sub09/contact.do?s_mid=132" target="_self">찾아오시는길</a>
+					
+					
+					
+					</li>
+					
+					
+					
+					
+					
+					
+					
+						
+							
+						
+						
+					
+					
+				
+				</ul>
+			</div>
+			<!-- lnb :E -->
+
+		
+	<div id="contents" class="admiWrap">
+		<div class="path">
+			<span class='home'>HOME</span><b></b><span class="depth01">기관소개</span><b></b><span class="depth02">조직 및 연락처</span><b></b><strong>부서 안내</strong>
+		</div>
+		<h1 class="h1">부서 안내</h1>
+		
+				<script>
+				
+<!--
+function share_tw(url){
+					  var content = '부서 안내';
+					  var link = url;
+					  var popOption = "width=370, height=290, resizable=no, scrollbars=no, status=no;";
+					  var wp = window.open("http://twitter.com/share?url=" + encodeURIComponent(link) + "&text=" + encodeURIComponent(content), 'twitter', popOption); 
+					  if ( wp ) {
+						wp.focus();
+					  }
+				}
+				function share_facebook(url)
+				{
+					var fullUrl;
+					var link = url;
+				 
+					var pWidth = 640;
+					var pHeight = 380;
+					var pLeft = (screen.width - pWidth) / 2;
+					var pTop = (screen.height - pHeight) / 2;
+				 
+// 					link = encodeURIComponent(link);
+					fullUrl = "http://www.facebook.com/share.php?u="+ link;
+					
+					window.open(fullUrl,"","width="+ pWidth +",height="+ pHeight +",left="+ pLeft +",top="+ pTop +
+							",location=no,menubar=no,status=no,scrollbars=no,resizable=no,titlebar=no,toolbar=no");
+				}
+//-->
+				 
+				
+				
+				function printSudoData(){
+					var printHTML = $('#printArea').html();
+					
+					var option = "width=770,height=550,top=100,left=100,fullscreen=no,menubar=no,status=no,toolbar=no,titlebar=yes,location=no,scrollbar=no";
+					
+					var winObj = window.open('', 'printPop', option);
+					self.focus();
+					
+					winObj.document.open();
+					winObj.document.write('<html lang="ko" class="no-js modern">');
+					winObj.document.write('<head>');
+					winObj.document.write('<meta charset="utf-8" />');
+					winObj.document.write('<meta http-equiv="X-UA-Compatible" content="IE=edge" />');
+					winObj.document.write('<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scaleable=no" />');
+					winObj.document.write('<link rel="shortcut icon" href="/web/images/comm/favicon.ico" type="image/xicon" />');
+					winObj.document.write('<link rel="shortcut icon" href="/web/images/comm/android_favicon.ico" type="image/x-icon" />');
+					winObj.document.write('<link rel="apple-touch-icon" href="/web/images/comm/iphone_favicon.png" type="image/x-icon" />');
+					
+					winObj.document.write('<link rel="stylesheet" href="/web/css/font.css" media="all" />');
+					winObj.document.write('<link rel="stylesheet" href="/web/css/style.css" media="all" />');
+					winObj.document.write('<link rel="stylesheet" href="/web/css/common.css" media="all" />');
+					winObj.document.write('<link rel="stylesheet" href="/web/css/layout_2017.css" media="all" />');
+					winObj.document.write('<link rel="stylesheet" href="/web/css/cardinfo.css" media="all" />');
+					winObj.document.write('<link rel="stylesheet" href="/web/css/jquery.bxslider.css" media="all" />');
+					winObj.document.write('<body class="sub">');
+					winObj.document.write('<div id="wrap">');
+					winObj.document.write('<div id="contents" class="nonameWrap"  style="width: 100%;">');
+					
+					winObj.document.write(printHTML);
+					
+					winObj.document.write('</div>');
+					winObj.document.write('</div>');
+					winObj.document.write('</body>');
+					winObj.document.write('</head>');
+					winObj.document.write('</html>');
+					winObj.document.close();
+					
+					winObj.print();
+					winObj.close();
+					
+				}
+				 
+				</script>
+				<div class="nsnBtn">
+					
+					<a href="#this" onclick="share_tw(this);" title="새창으로 이동"><img src="/web/images/2017_renew/common/sns_share_tw.png" alt="트위터"/></a>
+					<a href="#this" onclick="share_facebook(this)" title="새창으로 이동"><img src="/web/images/2017_renew/common/sns_share_fb.png" alt="페이스북"/></a>
+				</div>
+		<div class="conInner">
+			
+			
+
+				<div class="bonbuWrap">
+					<div class="custMap mobileOff">
+						<div class="imgBox">
+							
+								
+								<img src="/web/images/cust/map02_2023.png" name="imap" usemap="#Map" alt="금강유역본부">
+								
+								
+ 								
+								
+							
+								<map name="Map" id="Map">
+								<area shape="poly" coords="40,47,33,44,29,46,27,50,22,54,20,59,22,63,27,66,28,69,29,72,31,74,33,76,37,78,38,78,41,75,45,76,47,78,49,80,49,84,46,88,45,93,45,95,47,98,49,102,51,104,52,107,54,111,59,114,61,116,68,115,71,115,78,114,79,115,83,116,85,117,89,118,91,120,96,122,99,123,102,123,107,124,109,128,116,129,119,135,122,131,125,129,129,126,133,123,136,120,139,116,146,117,149,118,152,119,153,113,156,109,160,106,162,105,169,104,176,102,181,103,186,103,190,102,194,102,199,102,201,99,205,97,208,93,210,85,206,81,204,78,200,75,198,73,193,68,192,64,190,59,187,55,181,49,179,42,175,37,170,30,167,28,167,22,165,19,162,16,160,13,158,6,156,3,151,2,146,5,145,7,141,8,138,7,134,7,131,14,128,15,120,15,112,13,108,14,103,13,98,13,93,16,85,15,80,15,78,17,74,17,68,19,66,20,62,23,59,29,60,30,61,32,59,34,57,36,54,36,53,35,50,41,51,44,48,46,45,46,38,44" href="/water/sub01/sub05/10990028/intro.do?brdId=KO27&s_flag=1&s_mid=1409&s_officecode=10990028" alt="한강유역본부">
+								<area shape="poly" coords="70,114,64,116,57,113,52,109,48,109,39,106,29,109,23,117,21,124,19,128,19,133,22,136,28,135,28,141,29,143,29,147,28,151,35,154,41,160,41,165,39,169,42,174,44,176,45,179,43,183,41,186,44,189,46,192,46,196,43,200,42,204,42,209,48,212,54,215,61,214,61,208,69,205,73,205,78,203,81,199,81,196,86,197,90,197,92,194,96,200,101,197,101,194,105,192,110,191,113,193,118,189,122,189,121,184,115,183,110,182,107,179,102,184,98,186,90,185,90,177,90,170,91,167,96,164,98,161,100,156,103,152,111,152,114,152,118,154,120,156,119,156,122,150,122,144,119,139,120,133,114,130,107,125,102,124,97,122,93,120,88,117,82,115,78,114,73,114,70,114" href="/water/sub01/sub05/20060557/intro.do?brdId=KO27&s_flag=1&s_mid=1457&s_officecode=20060557" alt="금강유역본부">
+								<area shape="poly" coords="116,192,111,190,107,191,103,193,99,194,98,198,99,202,94,199,92,196,89,194,87,197,87,200,82,196,80,198,80,201,78,203,76,205,73,205,68,206,64,207,61,209,58,213,56,215,51,214,47,212,42,210,39,208,36,213,36,217,36,220,35,226,34,228,34,231,32,233,28,239,27,240,28,246,25,246,21,245,19,245,16,245,11,247,8,247,12,251,14,254,15,256,15,258,15,261,12,262,9,264,7,266,7,271,4,272,3,274,5,277,6,279,5,280,4,285,6,286,10,287,12,290,10,292,6,297,5,304,3,306,4,312,4,318,6,319,12,318,19,315,17,313,18,342,17,348,17,350,20,355,24,355,31,356,37,356,40,357,47,357,53,352,60,350,62,347,67,342,68,337,65,332,60,331,53,332,48,332,42,333,34,334,30,334,28,338,25,340,21,340,19,308,21,306,26,307,34,304,35,304,41,308,45,310,48,310,54,311,58,311,63,310,68,310,71,310,73,311,79,306,83,302,88,301,90,298,93,297,98,299,99,302,101,298,102,295,99,288,101,286,104,287,110,286,113,287,117,284,120,279,121,276,119,271,117,263,116,259,113,253,112,250,107,246,107,240,107,237,104,233,105,228,108,223,107,215,104,212,105,207,109,201,110,196,115,194" href="/water/sub01/sub05/50043037/intro.do?brdId=KO27&s_flag=1&s_mid=1458&s_officecode=50043037" alt="영&middot;섬유역본부">
+								<area shape="circle" coords="67,97,6" href="/water/sub01/sub05/50029610/intro.do?brdId=KO27&s_flag=1&s_mid=1461&s_officecode=50029610" alt="도시본부">
+								<area shape="poly" coords="207,94,203,98,199,103,192,102,186,104,181,105,178,103,172,103,166,103,159,105,157,107,154,113,153,120,145,119,141,118,136,121,132,124,127,129,123,132,120,136,120,142,122,147,122,153,121,156,122,159,125,162,128,164,130,167,129,169,126,172,126,177,124,180,122,182,124,187,124,190,121,190,115,192,112,194,111,196,109,201,108,206,105,211,107,216,107,220,107,227,105,231,108,235,109,241,110,247,114,251,116,253,118,256,119,264,121,272,122,277,125,278,128,280,130,280,135,276,139,271,141,271,146,269,150,269,156,274,162,278,168,279,171,278,175,272,176,268,176,263,178,258,182,257,183,254,184,254,189,255,192,250,198,247,203,247,206,247,206,235,208,229,213,226,215,220,216,218,218,209,220,204,219,196,221,191,224,185,222,178,218,178,215,178,215,174,214,171,212,167,211,161,212,158,213,155,215,151,217,146,217,139,216,135,217,130,219,127,216,117,213,113,216,105,214,100,209,94" href="/water/sub01/sub05/20060674/intro.do?brdId=KO27&s_flag=1&s_mid=1459&s_officecode=20060674" alt="낙동강유역본부">
+								<area shape="poly" coords="115,152,104,152,98,158,97,161,93,166,87,171,88,178,96,184,103,185,106,182,109,181,118,186,122,186,123,179,126,175,126,172,129,166,126,162,120,159,119,156,116,153" href="/water/sub01/sub05/000/center.do?brdId=KO27&amp;s_flag=1&amp;s_mid=1728&amp;s_officecode=000" alt="본사">
+								<area shape="rect" coords="5,6,59,37" href="/water/sub01/sub05/50029610/intro.do?brdId=KO27&amp;s_flag=1&amp;s_mid=1461&amp;s_officecode=50029610" alt="도시본부" />
+							</map>
+						</div>
+						<div class="listBox group">
+						
+							
+							
+							
+							
+							<div class="tabplateBox">
+								<ul>
+									<li ><b></b><a href="/water/sub01/sub05/20060557/intro.do?s_mid=1361&s_officecode=20060557&s_flag=1&brdId=KO27">금강유역본부</a></li>
+									<li ><b></b><a href="/water/sub01/sub05/20060557/intro.do?s_mid=1959&s_officecode=50044952&s_flag=1&brdId=KO27">금강유역협력단</a></li>
+									
+								</ul>
+							</div>
+							<div class="tabplateBox">
+								<ul>
+									<li ><b></b><a href="/water/sub01/sub05/20060557/intro.do?s_mid=1361&s_officecode=50039728&s_flag=1&brdId=KO27">아산권지사</a></li>
+									<li ><b></b><a href="/water/sub01/sub05/20060557/intro.do?s_mid=1360&s_officecode=50040191&s_flag=1&brdId=KO27">서산수도지사</a></li>
+									<li ><b></b><a href="/water/sub01/sub05/20060557/intro.do?s_mid=1362&s_officecode=20060476&s_flag=1&brdId=KO27">천안권지사</a></li>
+									<li ><b></b><a href="/water/sub01/sub05/20060557/intro.do?s_mid=1363&s_officecode=50040654&s_flag=1&brdId=KO27">청주권지사</a></li>
+									<li ><b></b><a href="/water/sub01/sub05/20060557/intro.do?s_mid=1357&s_officecode=10750012&s_flag=1&brdId=KO27">대청댐지사</a></li>
+									<li ><b></b><a href="/water/sub01/sub05/20060557/intro.do?s_mid=1359&s_officecode=10940017&s_flag=1&brdId=KO27">보령권지사</a></li>
+									<li ><b></b><a href="/water/sub01/sub05/20060557/intro.do?s_mid=1364&s_officecode=20040051&s_flag=1&brdId=KO27">충남중부권지사</a></li>
+									<li ><b></b><a href="/water/sub01/sub05/20060557/intro.do?s_mid=1355&s_officecode=50024479&s_flag=1&brdId=KO27">금산권지사</a></li>
+								</ul>
+							</div>
+							<div class="tabplateBox">
+								<ul>
+									<li ><b></b><a href="/water/sub01/sub05/20060557/intro.do?s_mid=2151&s_officecode=50045307&s_flag=1&brdId=KO27">대산산업용수관리단</a></li>
+									<li ><b></b><a href="/water/sub01/sub05/20060557/intro.do?s_mid=1358&s_officecode=50040477&s_flag=1&brdId=KO27">금강북부사업단</a></li>
+									<li class="active"><b></b><a href="/water/sub01/sub05/20060557/intro.do?s_mid=1354&s_officecode=50039531&s_flag=1&brdId=KO27">금강보관리단</a></li>
+									<li ><b></b><a href="/water/sub01/sub05/20060557/intro.do?s_mid=1698&s_officecode=50040665&s_flag=1&brdId=KO27">전주권지사</a></li>
+									<li ><b></b><a href="/water/sub01/sub05/20060557/intro.do?s_mid=1383&s_officecode=10940029&s_flag=1&brdId=KO27">용담댐지사</a></li>
+									<li ><b></b><a href="/water/sub01/sub05/20060557/intro.do?s_mid=1381&s_officecode=10940033&s_flag=1&brdId=KO27">부안권지사</a></li>
+									<li ><b></b><a href="/water/sub01/sub05/20060557/intro.do?s_mid=1384&s_officecode=10990037&s_flag=1&brdId=KO27">정읍권지사</a></li>
+									<li ><b></b><a href="/water/sub01/sub05/20060557/intro.do?s_mid=2305&s_officecode=50045169&s_flag=1&brdId=KO27">SKH초순수관리단</a></li>
+								</ul>
+							</div>
+                            <div class="tabplateBox">
+								<ul>
+									<li ><b></b><a href="/water/sub01/sub05/20060557/intro.do?s_mid=2312&s_officecode=50045361&s_flag=1&brdId=KO27">금강남부사업단</a></li>
+									
+								</ul>
+							</div>
+							
+							
+							
+							
+							
+							
+						
+						</div>
+					</div>
+					
+					
+					<!-- 모바일 -->
+					<div class="custSelect mobileOn">
+						<form name="form1" method="post">
+							<ul>
+								<li>지역선택</li>
+								<li>
+									<select name="ex1" onChange="window.open(value, '_self');" title="지역선택">
+										<option  value="/water/sub01/sub05/000/center.do?brdId=KO27&amp;s_flag=1&amp;s_mid=1728&amp;s_officecode=000">본사</option>
+										<option  value="/water/sub01/sub05/50029610/intro.do?brdId=KO27&s_flag=1&s_mid=913&s_officecode=50029610">도시본부</option>
+										<option  value="/water/sub01/sub05/10990028/intro.do?brdId=KO27&s_flag=1&s_mid=1409&s_officecode=10990028">한강유역본부</option>
+										<option selected="selected" value="/water/sub01/sub05/20060557/intro.do?brdId=KO27&s_flag=1&s_mid=1457&s_officecode=20060557">금강유역본부</option>
+										<option  value="/water/sub01/sub05/50043037/intro.do?brdId=KO27&s_flag=1&s_mid=1457&s_officecode=20040038">영&middot;섬유역본부</option>
+										<option  value="/water/sub01/sub05/20060674/intro.do?brdId=KO27&s_flag=1&s_mid=1459&s_officecode=20060674">낙동강유역본부</option>
+									</select>
+								</li>
+							</ul>
+							<ul>
+								<li>시설선택</li>
+								<li>
+									<select name="ex2" onChange="fn_sisulSelect(value); return false;" title="시설선택">
+											<option value="#this" selected="selected">- 선택 -</option>
+								
+									
+									
+									
+									
+										<option  value="/water/sub01/sub05/20060557/intro.do?s_mid=1959&s_officecode=50042464&s_flag=1&brdId=KO27">충북지역협력단</option>  
+										<option  value="/water/sub01/sub05/20060557/intro.do?s_mid=2072&s_officecode=20060433&s_flag=1&brdId=KO27">충남지역협력단</option>  
+										<option  value="/water/sub01/sub05/20060557/intro.do?s_mid=1361&s_officecode=50039728&s_flag=1&brdId=KO27">아산권지사</option>   
+										<option  value="/water/sub01/sub05/20060557/intro.do?s_mid=1360&s_officecode=50040191&s_flag=1&brdId=KO27">서산수도지사</option>   
+										<option  value="/water/sub01/sub05/20060557/intro.do?s_mid=2151&s_officecode=50045307&s_flag=1&brdId=KO27">대산산업용수관리단</option> 
+										<option  value="/water/sub01/sub05/20060557/intro.do?s_mid=1362&s_officecode=20060476&s_flag=1&brdId=KO27">천안권지사</option>   
+										<option  value="/water/sub01/sub05/20060557/intro.do?s_mid=1363&s_officecode=50040654&s_flag=1&brdId=KO27">청주권지사</option>   
+										<option  value="/water/sub01/sub05/20060557/intro.do?s_mid=1357&s_officecode=10750012&s_flag=1&brdId=KO27">대청댐지사</option>   
+										<option  value="/water/sub01/sub05/20060557/intro.do?s_mid=1364&s_officecode=20040051&s_flag=1&brdId=KO27">충남중부권지사</option>  
+										<option  value="/water/sub01/sub05/20060557/intro.do?s_mid=1359&s_officecode=10940017&s_flag=1&brdId=KO27">보령권지사</option>      
+										<option  value="/water/sub01/sub05/20060557/intro.do?s_mid=1355&s_officecode=50024479&s_flag=1&brdId=KO27">금산권지사</option>     
+										<option  value="/water/sub01/sub05/20060557/intro.do?s_mid=1358&s_officecode=50040477&s_flag=1&brdId=KO27">금강북부사업단</option>
+										<option selected="selected" value="/water/sub01/sub05/20060557/intro.do?s_mid=1354&s_officecode=50039531&s_flag=1&brdId=KO27">금강보관리단</option>  
+										<option  value="/water/sub01/sub05/20060557/intro.do?s_mid=1698&s_officecode=50040665&s_flag=1&brdId=KO27">전주권지사</option>   
+										<option  value="/water/sub01/sub05/20060557/intro.do?s_mid=1383&s_officecode=10940029&s_flag=1&brdId=KO27">용담댐지사</option>    
+										<option  value="/water/sub01/sub05/20060557/intro.do?s_mid=1381&s_officecode=10940033&s_flag=1&brdId=KO27">부안권지사</option>   
+										<option  value="/water/sub01/sub05/20060557/intro.do?s_mid=1384&s_officecode=10990037&s_flag=1&brdId=KO27">정읍권지사</option>  
+										<option  value="/water/sub01/sub05/20060557/intro.do?s_mid=2305&s_officecode=50045169&s_flag=1&brdId=KO27">SKH초순수관리단</option> 	
+                                        <option  value="/water/sub01/sub05/20060557/intro.do?s_mid=2312&s_officecode=50045361&s_flag=1&brdId=KO27">금강남부사업단</option>							
+									
+									
+									
+								
+									</select>
+								</li>
+							</ul>
+						</form>
+					</div>
+					<!-- //모바일 -->
+				</div>
+
+<script type="text/javascript" defer>
+function fn_sisulSelect(val){
+	if(
+		val.indexOf('000000000000000') > -1 // 충북지역협력단
+		){
+		// 컨텐츠 미수급으로 준비중입니다. 알림창.
+		alert('준비중입니다.');
+	}else{
+		location.href=val;
+	}
+}
+function toKoreanHeader() {
+	$("select").each(function() {
+		var $opt=$("option:first", this);
+		if ($opt.size()) {
+			var val=$opt.text();
+			if ("all"==val) {
+				$opt.text("전체");
+			}
+		} else {
+			$(this).prepend("<option value='all'>전체</option>");
+		}
+	});
+}
+$(function() {
+	(function() {
+		var onCls=".x"+("20060557"||"000");
+		$(onCls).addClass("on");
+
+		var curTab=location.href.replace(/^.*\/([a-zA-Z0-9]+)\.do\?.*$/,'$1');
+		// 5depth param.s_mid 가 없어도 상위메뉴를 이용하여 네비게이션을 찍을 수 있도록 보정
+		var $src=$("#subTab a."+curTab);
+		var depth=parseInt("2"||"1");
+		if ($src.size()) {
+			$src.addClass("on");
+			var txt=$src.text();
+			var $path=$("div.path");
+			var html=$path.html();
+			if (depth==2) {
+				var navi=[];
+				$("span", $path).each(function(i, o) {
+					navi.push(o.outerHTML);
+				});
+				var strong=$("strong:first", $path).text();
+				var addNavi=function(txt) {
+					if (navi.indexOf(txt)==-1) {
+						if ("관리단 안내"==txt) {
+							txt=$("a.x20060557").text()+" "+txt;
+						}
+						navi.push("<span class='depth0"+navi.length+"'>"+txt+"</span>");
+					}
+				}
+				addNavi(strong);
+				addNavi($("h2.subTabText").text());
+
+				var deli="<b></b>";
+				var newNavi=navi.join(deli);
+				newNavi+=deli+"<strong>"+txt+"</strong>";
+				$path.html(newNavi);
+			}
+			$path.trigger("redraw");
+		}
+
+		toKoreanHeader();
+	})();
+});
+</script>
+
+
+
+					<!-- 전남서남권지사(장흥수도지사) -->
+					
+					
+
+				<div class="bodyFrame" value="ddd">
+					<div class="topBox group">
+						<!-- 2018.0226 부서 수정 관리단 예외처리 -->
+
+						
+						<!-- 2018.0226 부서 수정:end -->
+							<div class="imgBox">
+								<img src="/web/images/water/admin/50039531.jpg" alt="금강보관리단" />
+							</div>
+							<div class="txBox">
+							
+								<h2 class="h2 subTabText">금강보관리단</h2>
+								<ul class="blit">
+									<li><span class="dt">주소</span>: (33127) 충남 부여군 부여읍 북포로 451</li>
+									<li><span class="dt">TEL</span>: 041-830-0601</li>
+									<li><span class="dt">FAX</span>: 041-830-0671</li>
+								</ul>
+							
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						</div>
+					</div>
+
+					<!-- 웹 탭 -->
+					<div class="tabBtn01 group" id="subTab">
+							<a href="intro.do?brdId=KO27&amp;s_officecode=50039531&amp;s_flag=1&amp;s_mid=1354" data-role="" class="intro">연혁</a>
+							
+							
+							
+								<a href="works.do?brdId=KO27&amp;s_officecode=50039531&amp;s_flag=1&amp;s_mid=1354" data-role="" class="works">하는일</a>
+							
+							
+							
+							<a href="contactList.do?brdId=KO27&amp;s_officecode=50039531&amp;s_flag=1&amp;s_mid=1354" data-role="" class="contactList">연락처</a>
+							
+							<a href="map.do?brdId=KO27&amp;s_officecode=50039531&amp;s_flag=1&amp;s_mid=1354" data-role="" class="map">오시는길</a>
+							<a href="notiList.do?brdId=KO27&amp;s_officecode=50039531&amp;s_flag=1&amp;s_mid=1354" data-role="" class="notiList notiView">공지사항</a>
+					</div>
+					<!-- //웹 탭 -->
+
+			
+			
+<div class="water worksWrap">
+	<h3 class="mobileOff">하는일</h3>
+	<ul class="imgTextBox01">
+		<li class="group">
+			<h4>경남권역 댐 시설 운영관리</h4>
+			<ul class="blit01 bdNone">
+				<li>금강 수계 댐-보 연계 운영을 통한 통합물관리로 홍수피해 저감 및 가뭄해소, 보 시설물 운영유지 및 하천 수질관리 등</li>
+			</ul>
+		</li>
+		<li class="group">
+			<div class="groupBox">
+				<div class="textBox">
+					<h4>세종보</h4>
+					<ul class="blit01 bdNone">
+						<li><strong>공사기간 :</strong> 2009.05.27. ~ 2012..6.20.(856일간)</li>
+						<li><strong>시공사 :</strong> 대우건설 외 3개사 (설계사 : 삼안 외 3개) ※ 유지관리
+							범위 : 상류 200m, 하류 250m</li>
+						<li><strong>공사구간</strong>
+							<ul class="bgNone">
+								<li>- 좌안 : 연기군 금남면 반곡리 - 연기군 금남면 영곡리</li>
+								<li>- 우안 : 연기군 남면 양화리 - 연기군 남면 송원리</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<div class="imgBox">
+					<img src="/web/images/water/img_50039531_01.jpg" alt="세종보" />
+				</div>
+			</div>
+		</li>
+	</ul>
+	<h3>시설개요</h3>
+	<div class="scrollTable">
+	<table class="newworksTable">
+		<caption>세종보 시설개용의 사업내용, 사업량의 정보</caption>
+		<colgroup>
+			<col width="12.07%" />
+			<col width="12.07%" />
+			<col width="12.07%" />
+			<col width="23.07%" />
+			<col width="23.07%" />
+			<col width="auto" />
+		</colgroup>
+		<thead>
+			<tr>
+				<th colspan="2" scope="col" class="bL0">사업내용</th>
+				<th colspan="2" scope="col">사 업 량</th>
+				<th scope="col">사업내용</th>
+				<th scope="col" class="bR0">사 업 량</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td rowspan="8" class="bL0">
+					세종1지구
+					<br />
+					다기능보
+					<br />
+					(348m)
+				</td>
+				<td rowspan="3">가동보</td>
+				<td>연 장</td>
+				<td>223m</td>
+				<td>하도정비</td>
+				<td class="bR0">7.8km(3.0백만)</td>
+			</tr>
+			<tr>
+				<td>수 문</td>
+				<td>플랩게이트</td>
+				<td>생태하천조성</td>
+				<td class="bR0">15.6km</td>
+			</tr>
+			<tr>
+				<td>제 원</td>
+				<td>
+					B80m×H2.8m×2련
+					<br />
+					B60m×H4.0m×1련
+				</td>
+				<td>자전거도로</td>
+				<td class="bR0">14.9km</td>
+			</tr>
+			<tr>
+				<td rowspan="3">고정보</td>
+				<td>연 장</td>
+				<td>125m</td>
+				<td>소수력 발전소</td>
+				<td class="bR0">2,310kW(770×3기)</td>
+			</tr>
+			<tr>
+				<td rowspan="2">상단고</td>
+				<td rowspan="2">EL.11.8m</td>
+				<td>하상보호공</td>
+				<td class="bR0">2개소</td>
+			</tr>
+			<tr>
+				<td>교량보호공</td>
+				<td class="bR0">-</td>
+			</tr>
+			<tr>
+				<td>어 도</td>
+				<td colspan="2">(좌)자연형, L=355m</td>
+				<td>양배수장</td>
+				<td class="bR0">-</td>
+			</tr>
+			<tr>
+				<td>공도교</td>
+				<td colspan="2">-</td>
+				<td>관리동</td>
+				<td class="bR0">관리동 외 1동</td>
+			</tr>
+		</tbody>
+	</table>
+	</div>
+	<br />
+	<br />
+	<ul class="imgTextBox01">
+		<li class="group">
+			<div class="groupBox">
+				<div class="textBox">
+					<h4>공주보</h4>
+					<ul class="blit01 bdNone">
+						<li><strong>공사기간 :</strong> ‘09.10.23~’12.07.31(797일간)</li>
+						<li><strong>시공사 :</strong> SK건설 외 8개사 (설계사 : 동호 외 1개) ※ 유지관리
+							범위 : 상류 200m, 하류 280m</li>
+						<li><strong>공사구간</strong>
+							<ul class="bgNone">
+								<li>- 좌안 : 공주시 이인면 운암리 - 공주시 반포면 원봉리</li>
+								<li>- 우안 : 공주시 우성면 어천리 - 연기군 남면 송원리</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<div class="imgBox">
+					<img src="/web/images/water/img_50039531_02.jpg" alt="공주보" />
+				</div>
+			</div>
+		</li>
+	</ul>
+	<h3>시설개요</h3>
+	<div class="scrollTable">
+	<table class="newworksTable">
+		<caption>공주보 시설개요의 사업내용, 사업량의 정보</caption>
+		<colgroup>
+			<col width="9.07%" />
+			<col width="8.07%" />
+			<col width="12.07%" />
+			<col width="12.07%" />
+			<col width="23.07%" />
+			<col width="15.07%" />
+			<col width="auto" />
+		</colgroup>
+		<thead>
+			<tr>
+				<th colspan="2" scope="col" class="bL0">사업내용</th>
+				<th colspan="3" scope="col">사 업 량</th>
+				<th scope="col">사업내용</th>
+				<th scope="col" class="bR0">사 업 량</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td rowspan="11" class="bL0">
+					금강7
+					<br />
+					다기능보
+					<br />
+					(280m)
+				</td>
+				<td rowspan="6">가동보</td>
+				<td rowspan="3">승 강 식</td>
+				<td>연장</td>
+				<td>109m(교각 포함)</td>
+				<td rowspan="2">하도정비</td>
+				<td rowspan="2" class="bR0">
+					26.3km
+					<br />
+					(9.8백만)
+				</td>
+			</tr>
+			<tr>
+				<td>수문</td>
+				<td>트러스롤러게이트</td>
+			</tr>
+			<tr>
+				<td>제원</td>
+				<td>
+					B40m×H7.0m×2련
+					<br />
+					B20m×H7.0m×1련
+				</td>
+				<td rowspan="2">생태하천조성</td>
+				<td rowspan="2" class="bR0">
+					6.50㎢
+					<br />
+					(신관,쌍신,웅진)
+				</td>
+			</tr>
+			<tr>
+				<td rowspan="3">전 도 식</td>
+				<td>연장</td>
+				<td>129m(교각 포함)</td>
+			</tr>
+			<tr>
+				<td>수문</td>
+				<td>플랩게이트</td>
+				<td rowspan="2">자전거도로</td>
+				<td rowspan="2" class="bR0">
+					26.5km
+					<br />
+					(신설 19.7㎞, 기존 6.8㎞)
+				</td>
+			</tr>
+			<tr>
+				<td>제원</td>
+				<td>B40m×H1.0m×3련</td>
+			</tr>
+			<tr>
+				<td rowspan="3">고정보</td>
+				<td rowspan="2" colspan="2">연 장</td>
+				<td rowspan="2">42m</td>
+				<td>소수력 발전소</td>
+				<td class="bR0">3,000kW(1,500×2기)</td>
+			</tr>
+			<tr>
+				<td>하상보호공</td>
+				<td class="bR0">16개소</td>
+			</tr>
+			<tr>
+				<td colspan="2">상단고</td>
+				<td>EL.8.75m</td>
+				<td>교량보호공</td>
+				<td class="bR0">
+					4개소
+					<br />
+					(금강,신공주,불티,청벽)
+				</td>
+			</tr>
+			<tr>
+				<td>어 도</td>
+				<td colspan="3">
+					(좌)복합형 L=260m
+					<br />
+					(우)아이스하버식, L=140m
+				</td>
+				<td>양배수장</td>
+				<td class="bR0">4개소</td>
+			</tr>
+			<tr>
+				<td>공도교</td>
+				<td colspan="3">
+					강박스교 + IPC 거더교
+					<br />
+					L=465m, B=11.5m
+				</td>
+				<td>관리동</td>
+				<td class="bR0">관리동 1동</td>
+			</tr>
+		</tbody>
+	</table>
+	</div>
+	<br />
+	<br />
+	<ul class="imgTextBox01">
+		<li class="group">
+			<div class="groupBox">
+				<div class="textBox">
+					<h4>백제보</h4>
+					<ul class="blit01 bdNone">
+						<li><strong>공사기간 :</strong> ‘09.10.23~’12.06.29(978일간)</li>
+						<li><strong>시공사 :</strong> GS건설 외 8개사 (설계사 : 도화 외 7개) ※ 유지관리
+							범위 : 상류 380m, 하류 440m</li>
+						<li><strong>공사구간</strong>
+							<ul class="bgNone">
+								<li>- 좌안 : 부여군 부여읍 구교리 - 공주시 이인면 운암리</li>
+								<li>- 우안 : 부여군 규암면 신리 - 청양군 목면 신흥리</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<div class="imgBox">
+					<img src="/web/images/water/img_50039531_03.jpg" alt="백제보" />
+				</div>
+			</div>
+		</li>
+	</ul>
+	<h3>시설개요</h3>
+	<div class="scrollTable">
+	<table class="newworksTable">
+		<caption>백제보 시설개요의 사업내용, 사업량의 정보</caption>
+		<colgroup>
+			<col width="9.07%" />
+			<col width="12.07%" />
+			<col width="12.07%" />
+			<col width="23.07%" />
+			<col width="15.07%" />
+			<col width="auto" />
+		</colgroup>
+		<thead>
+			<tr>
+				<th  colspan="2" scope="col" class="bL0">사업내용</th>
+				<th  colspan="2" scope="col">사 업 량</th>
+				<th  scope="col">사업내용</th>
+				<th  scope="col" class="bR0">사 업 량</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td rowspan="8" class="bL0">
+					금강6공구
+					<br />
+					다기능보
+					<br />
+					(311m)
+				</td>
+				<td rowspan="3">가동보</td>
+				<td>연 장</td>
+				<td>120m(교각 포함)</td>
+				<td>하도정비</td>
+				<td class="bR0">17.3km(9.9백만)</td>
+			</tr>
+			<tr>
+				<td>수 문</td>
+				<td>2단 쉘타입롤러게이트</td>
+				<td>생태하천조성</td>
+				<td class="bR0">2.34㎢ (총 5개소)</td>
+			</tr>
+			<tr>
+				<td>제 원</td>
+				<td>B36m×H5.3m×3련</td>
+				<td>자전거도로</td>
+				<td class="bR0">21.7km</td>
+			</tr>
+			<tr>
+				<td rowspan="3">고정보</td>
+				<td rowspan="2">연 장</td>
+				<td rowspan="2">191m</td>
+				<td>소수력 발전소</td>
+				<td class="bR0">2,640kW(660×4기)</td>
+			</tr>
+			<tr>
+				<td>하상보호공</td>
+				<td class="bR0">6개소</td>
+			</tr>
+			<tr>
+				<td>상단고</td>
+				<td>EL.4.2m</td>
+				<td>교량보호공</td>
+				<td class="bR0">2개소<br />(백마강교, 왕진교)</td>
+			</tr>
+			<tr>
+				<td>어 도</td>
+				<td colspan="2">(우)자연형, L=820m</td>
+				<td>양배수장</td>
+				<td class="bR0">10개소</td>
+			</tr>
+			<tr>
+				<td>공도교</td>
+				<td colspan="2">
+					소수주형 판형교
+					<br />
+					L=680m, B=7.0m
+				</td>
+				<td>관리동</td>
+				<td class="bR0">통합물관리센터 외<br />1동</td>
+			</tr>
+		</tbody>
+	</table>
+</div></div>
+			
+			
+			
+			
+		</div>
+	</div>
+	<!-- //contents --> 
+</div>
+</div>
+<!-- //container -->
+
+
+	
+	
+	
+	
+<script>
+<!--
+	$(function() {
+		$('#mobile_btn, #web_btn').bind(
+				'click',
+				function(event) {
+					if (event.originalEvent instanceof KeyboardEvent
+							&& event.keyCode != 13) {
+						return false;
+					}
+
+					var star = $('input[name=star]:checked').val();
+					var coments = $('#coments').val();
+					var s_mid_reserch = $('#s_mid_reserch').val();
+					var path = '';
+					try {
+						path = $('.path').html().replace(/<b><\/b>/g, ' > ')
+								.replace(/<[^>]+>([^<]+?)<\/[^>]+>/g, '$1')
+								.replace('HOME', '수자원공사 홈페이지');
+					} catch (e) {
+					}
+					
+					if ($('input[name=star]:checked').length == 0) {
+						alert('만족도를 선택해주세요.');
+						return false;
+					}else if ($('#coments').val().length < 5 && $('#coments').val().length > 0) {
+						alert('5자 이상 입력해주세요.');
+						return false;
+					}else if ($('#coments').val().length > 400) {
+						alert('400자 이내로 적어주세요.');
+						return false;
+					}
+
+					$.ajax({
+						url : "Research.do",
+						type : 'GET',
+						data : {
+							'path' : path,
+							'star' : star,
+							'coments' : coments,
+							's_mid' : s_mid_reserch
+						}
+					}).done(function(data) {
+						if(data.length > 0){
+							var tmp = new Map(Object.entries(data[0]));
+							if(tmp.has('e_msg')){
+								alert(tmp.get('e_msg'));
+								return;
+							}
+						}
+						alert('의견을 주시어 고맙습니다. 공시 품질향상에 반영하겠습니다.');
+						$('input[name=star]').attr('disabled', 'disabled');
+						$('#coments').attr('disabled', 'disabled');
+						$('#mobile_btn').attr('disabled', 'disabled');
+						$('#web_btn').attr('disabled', 'disabled');
+					}).fail(function(error) {
+						alert("요청이 실패했습니다. 잠시 후 다시 시도해 주시기 바랍니다.");
+	});
+				});
+
+		$("#contents").append($("#satis, #satis_wrap"));
+	});
+//-->
+</script>
+<div id="satis">
+	<!-- 만족도조사 -->
+	<div class="satisBox research">
+		<div class="inBox">
+			<div class="topBox">
+				<div class="textBox">
+					<p class="strong">홈페이지 만족도</p>
+					<p>콘텐츠 내용에 만족하십니까? 현재 페이지의 만족도를 평가해 주십시오. 의견을 수렴하여 빠른 시일 내에 반영하겠습니다.</p>
+				</div>
+				<form id="researchForm" name="researchForm" method="POST">
+					<input type="hidden" id="s_mid_reserch" name="s_mid" value="1354" />
+					<fieldset>
+						<legend>홈페이지 만족도 조사</legend>
+						<div class="starBox group">
+							<div class="radio">
+								<span><input type="radio" name="star" id="radio01"
+									value="1" /><label for="radio01"><img
+										src="/web/images/main/img_star05.gif" alt="매우만족" />(매우 만족)</label></span> <span><input
+									type="radio" name="star" id="radio02" value="2" /><label
+									for="radio02"><img
+										src="/web/images/main/img_star04.gif" alt="만족" />(만족)</label></span> <span><input
+									type="radio" name="star" id="radio03" value="3" /><label
+									for="radio03"><img
+										src="/web/images/main/img_star03.gif" alt="보통" />(보통)</label></span> <span><input
+									type="radio" name="star" id="radio04" value="4" /><label
+									for="radio04"><img
+										src="/web/images/main/img_star02.gif" alt="불만족" />(불만족)</label></span> <span><input
+									type="radio" name="star" id="radio05" value="5" /><label
+									for="radio05"><img
+										src="/web/images/main/img_star01.gif" alt="매우 불만족" />(매우 불만족)</label></span>
+							</div>
+							<div class="inBox group">
+
+								<div class="subj group">
+									<div class="text">
+										<label for="coments">개선의견</label>
+									</div>
+									<div class="txar">
+										<textarea name="coments" id="coments" maxlength="400" cols="55" rows="5" placeholder="개선에 대한 자세한 내용을 입력해주세요.(최대 400자) 
+관련 업무, 건의, 불편신고 등에 관련된 사항은 국민소통-고객광장-민원을 통해 신청해주세요."></textarea>
+									</div>
+								</div>
+							</div>
+							<div class="btn">
+								<span class="mobileOn"><input type="image"
+									id="mobile_btn" src="/web/images/main/btn_com.gif" alt="평가하기"
+									onclick="return false;" /></span> <span class="mobileOff"><input
+									type="image" id="web_btn" src="/web/images/main/btn_com01.gif"
+									alt="평가하기" onclick="return false;" /></span>
+							</div>
+						</div>
+					</fieldset>
+				</form>
+			</div>
+		</div>
+	</div>
+	<!-- //만족도조사 -->
+</div>
+
+	
+	
+
+
+
+
+	<div id="satis_wrap">
+		<div class="satisBox">
+			<div class="inBox">
+				<div class="infoBox">
+					
+					
+					<ul>
+						<li><strong>담당부서 : </strong><span>금강보관리단</span></li>
+						
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+							
+						
+						
+							
+							
+						<li><strong>전화번호 : </strong><span>041-830-0614</span></li>
+							
+						
+
+
+					</ul>
+					
+				</div>
+			</div>
+			
+		</div>
+	</div>
+	
+	
+	
+	<!-- footer :S -->
+	<div class="section fp-auto-height" id="section6">
+		<div id="footer">
+			<div class="layout">
+				<ul class="menu_link">
+                    <li><a href="/guid/easyPrivatePage.do?s_mid=1560">개인정보 처리방침</a></li>
+                    <li><a href="/guid/sub03/licensePage.do?s_mid=2024">저작권정책</a></li>
+                    <li><a href="/water/sub01/sub08/marrList.do?s_mid=1017">직원광장</a></li>
+                    <li><a href="/water/sub01/sub09/contact.do?s_mid=132">찾아오시는길</a></li>
+                </ul>
+                <ul class="sns_link">
+                   <li class="yt"><a href="https://www.youtube.com/kwatertv" target="_blank" rel="noopener noreferrer" title="새창이동, 유튜브">유튜브</a></li>
+                   <li class="fb"><a href="https://www.facebook.com/kwaterworld" target="_blank" rel="noopener noreferrer" title="새창이동, 페이스북">페이스북</a></li>
+                   <li class="in"><a href="https://www.instagram.com/kwater__official/" target="_blank" rel="noopener noreferrer" title="새창이동, 인스타그램">인스타그램</a></li>
+                   <li class="bl"><a href="https://blog.naver.com/ilovekwater" target="_blank" rel="noopener noreferrer" title="새창이동, 네이버 블로그">네이버 블로그</a></li>
+                   
+                   <li class="tw"><a href="https://x.com/kwater_twitt" target="_blank" rel="noopener noreferrer" title="새창이동, x(구 트위터)">X</a></li>
+                   <li class="kt"><a href="https://pf.kakao.com/_jUxeVxl" target="_blank" rel="noopener noreferrer" title="새창이동, 카카오톡 채널">카카오톡 채널</a></li>
+                    
+                </ul>
+                
+                <div class="relate_site">
+                    <a href="#">관련사이트</a>
+                    <ul>
+						<li><a href="https://www.water.or.kr" target="_blank" rel="noopener noreferrer" title="새창이동, My Water(물정보포털)홈페이지">My Water (물정보포털)</a></li>
+						<li><a href="https://www.kwater.or.kr/danbitoktok/kor.do" target="_blank" rel="noopener noreferrer" title="새창이동, K-water 국민소통센터  홈페이지">K-water 국민소통센터</a></li>
+
+                    	
+	                        <li><a href="https://www.kwater.or.kr/kiwe/main.do" target="_blank" rel="noopener noreferrer" title="새창이동, K-water연구원 홈페이지">K-water연구원</a></li>
+						
+						
+						<li><a href="https://www.kwater.or.kr/edu" target="_blank" rel="noopener noreferrer" title="새창이동, K-water 인재개발원 홈페이지">K-water 인재개발원</a></li>
+						<li><a href="http://water-pos.kwater.or.kr/index.jsp" target="_blank" rel="noopener noreferrer" title="새창이동, 지방상수도포털(Water-pos) 홈페이지">지방상수도포털(Water-pos)</a></li>
+						
+						<li><a href="http://opendata.kwater.or.kr" target="_blank" rel="noopener noreferrer" title="새창이동, K-water 공공데이터개방포털 홈페이지">K-water 공공데이터개방포털</a></li>
+						<li><a href="https://www.kwater.or.kr/wis/wq/index.do?w2xPath=/wis/ui/index.xml" target="_blank" rel="noopener noreferrer" title="새창이동, K-물산업지원포털 홈페이지">K-물산업지원포털</a></li>
+						<li><a href="http://www.ktestbed.net" target="_blank" rel="noopener noreferrer" title="새창이동, 국가 K-테스트베드 플랫폼 홈페이지">국가 K-테스트베드 플랫폼</a></li>
+						<li><a href="https://www.kwater.or.kr/land/" target="_blank" rel="noopener noreferrer" title="새창이동, K-water 온라인청약시스템 홈페이지">K-water 온라인청약시스템</a></li>
+						<li><a href="https://ebid.kwater.or.kr" target="_blank" rel="noopener noreferrer" title="새창이동, K-water 전자조달시스템 홈페이지">K-water 전자조달시스템</a></li>
+						<li><a href="https://www.drought.go.kr" target="_blank" rel="noopener noreferrer" title="새창이동, 국가가뭄정보포털 홈페이지">국가가뭄정보포털</a></li>
+						<li><a href="https://cts.kwater.or.kr" target="_blank" rel="noopener noreferrer" title="새창이동, 건설사업관리시스템 홈페이지">건설사업관리시스템</a></li>
+						<li><a href="https://www.kwater.or.kr/giwaterway/ara.do" target="_blank" rel="noopener noreferrer" title="새창이동, 경인아라뱃길 홈페이지">경인아라뱃길</a></li>
+						<li><a href="https://www.gims.go.kr" target="_blank" rel="noopener noreferrer" title="새창이동, 국가지하수정보센터(GIMS) 홈페이지">국가지하수정보센터(GIMS)</a></li>
+						<li><a href="https://www.dprc.or.kr:448/index.do" target="_blank" rel="noopener noreferrer" title="새창이동, 댐사전검토협의회 홈페이지">댐사전검토협의회</a></li>
+						<li><a href="https://www.kwater.or.kr/website/ecodeltacity.do" target="_blank" rel="noopener noreferrer" title="새창이동, 부산에코델타시티 홈페이지">부산에코델타시티</a></li>
+						<li><a href="https://www.kwater.or.kr/website/songsan.do" target="_blank" rel="noopener noreferrer" title="새창이동, 송산그린시티 홈페이지">송산그린시티</a></li>
+						<li><a href="http://soowoo.or.kr" target="_blank" rel="noopener noreferrer" title="새창이동, 수우회 홈페이지">수우회</a></li>
+						
+						<li><a href="https://www.kwater.or.kr/website/sihwanet.do" target="_blank" rel="noopener noreferrer" title="새창이동, 시화지구지속가능발전협의회 홈페이지">시화지구지속가능발전협의회</a></li>
+						<li><a href="https://www.kwater.or.kr/website/tlight.do" target="_blank" rel="noopener noreferrer" title="새창이동, 시화호조력발전소 홈페이지">시화호조력발전소</a></li>
+						<li><a href="http://www.riverguide.go.kr" target="_blank" rel="noopener noreferrer" title="새창이동, 우리강이용도우미포털 홈페이지">우리강이용도우미포털</a></li>
+						
+						<li><a href="https://www.bigdata-environment.kr" target="_blank" rel="noopener noreferrer" title="새창이동, 환경 빅데이터 플랫폼  홈페이지">환경 빅데이터 플랫폼</a></li>
+						<li><a href="http://cts.kwater.or.kr/wq/popup.html?w2xPath=/ui/indexTchnlgyStdr.xml" target="_blank" rel="noopener noreferrer" title="새창이동, 기술기준통합정보시스템  홈페이지">기술기준통합정보시스템</a></li>
+						<li><a href="http://waternow.go.kr/" target="_blank" rel="noopener noreferrer" title="새창이동, 국가상수도정보시스템  홈페이지">국가상수도정보시스템</a></li>
+						<li><a href="http://www.kwater.or.kr/rec" target="_blank" rel="noopener noreferrer" title="새창이동, REC 통합관리시스템  홈페이지">REC 통합관리시스템</a></li>
+                    </ul>
+                </div>
+                
+				<div class="info">
+				    <span>주소 : 34350 대전광역시 대덕구 신탄진로 200</span>
+				    <span class="tel">대표전화 : <a href="tel:042-629-3114">042-629-3114</a> / 고객센터 : <a href="tel:1577-0600">1577-0600</a></span>
+				    <span>Copyright K-water All Rights Reserved.</span>
+				 </div>	
+				<div class="certifi_mark">
+                   <img src="/web/images/layout/main_ftlogo_kwater.png" alt="K-water">
+                    <a href="http://www.webwatch.or.kr/Situation/WA_Situation.html?MenuCD=110" target="_blank" rel="noopener noreferrer" title="새창이동">
+                    	<img src="/web/images/layout/main_ftlogo_webacc.png" alt="과학기술정보통신부 WA(WEB 접근성) 품질인증 마크, 웹와치(WebWatch) 2026.09.18~2027.09.17">
+                    </a>
+                    <img src="/web/images/layout/main_ftlogo_make.png" alt="Most Admired MAKE">
+                    <img src="/web/images/layout/main_ftlogo_icsi.png" alt="ICSI">
+                    <img src="/web/images/layout/main_ftlogo_kgw.png" alt="K-GWPI">
+                    <img src="/web/images/layout/main_ftlogo_cem.png" alt="Most Admired Cempanica">
+                    <a href="http://www.there100.org" target="_blank" rel="noopener noreferrer" title="새창이동">
+                    	<img src="/web/images/layout/main_ftlogo_re100.png" alt="RE100">
+                    </a>
+                </div>
+			</div>
+		</div>
+	</div>
+	<!-- footer :E -->
+	
+	
+	
+	
+	<iframe id="ssoIFrm" style="width:0; height:0; border:0; display: block;" title="빈프레임"></iframe>
+	
+	<script src="/web/js/action.js?v=20200613"></script>
+	<script src="/web/js/action02.js?v=20220628"></script>
+	<script src="/web/js/action03.js?v=20200613"></script>
+	<script src="/web/js/cust.js?ver=20201106"></script>
+	
+	
+		<script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		  ga('create', 'UA-57089475-4', 'auto');
+		  ga('send', 'pageview');
+		</script>
+
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-8QDK70588W"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', 'G-8QDK70588W');
+		</script>
+
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-BE3JZCXPZY"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+
+			gtag('config', 'G-BE3JZCXPZY');
+		</script>		
+	
+	
+	
+	<!--  웹필터 수정 -->
+
+	<!--  웹필터 수정 -->
+</div>
+<!-- //wrap -->
+</body>
+</html>
