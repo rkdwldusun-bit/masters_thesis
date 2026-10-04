@@ -1,0 +1,42 @@
+
+Call:
+did::att_gt(yname = "log_area", tname = "year", idname = "uid", 
+    gname = "g_software", xformla = ~1, data = d, panel = TRUE, 
+    allow_unbalanced_panel = FALSE, control_group = "notyettreated", 
+    anticipation = 0, bstrap = TRUE, cband = TRUE, biters = 9999, 
+    clustervars = "uid", est_method = "reg", base_period = "universal")
+
+Reference: Callaway, Brantly and Pedro H.C. Sant'Anna.  "Difference-in-Differences with Multiple Time Periods." Journal of Econometrics, Vol. 225, No. 2, pp. 200-230, 2021. <https://doi.org/10.1016/j.jeconom.2020.12.001>, <https://arxiv.org/abs/1803.09015> 
+
+Group-Time Average Treatment Effects:
+ Group Time ATT(g,t) Std. Error [95% Simult.  Conf. Band]  
+  2009 2000  -0.1353     0.0415       -0.2450     -0.0256 *
+  2009 2001  -0.1560     0.0277       -0.2292     -0.0829 *
+  2009 2002  -0.1384     0.0249       -0.2044     -0.0725 *
+  2009 2003  -0.1147     0.0222       -0.1733     -0.0561 *
+  2009 2004  -0.0945     0.0208       -0.1495     -0.0394 *
+  2009 2005  -0.0661     0.0175       -0.1123     -0.0199 *
+  2009 2006  -0.0210     0.0090       -0.0448      0.0028  
+  2009 2007  -0.0176     0.0080       -0.0389      0.0036  
+  2009 2008   0.0000         NA            NA          NA  
+  2009 2009   0.0096     0.0068       -0.0084      0.0276  
+  2009 2010   0.0313     0.0246       -0.0338      0.0964  
+  2009 2011   0.0647     0.0254       -0.0024      0.1319  
+  2011 2000  -0.2173     0.0513       -0.3530     -0.0815 *
+  2011 2001  -0.2406     0.0380       -0.3411     -0.1402 *
+  2011 2002  -0.2232     0.0354       -0.3167     -0.1297 *
+  2011 2003  -0.1953     0.0338       -0.2846     -0.1059 *
+  2011 2004  -0.1687     0.0308       -0.2502     -0.0871 *
+  2011 2005  -0.1442     0.0287       -0.2200     -0.0684 *
+  2011 2006  -0.1014     0.0202       -0.1548     -0.0481 *
+  2011 2007  -0.0905     0.0176       -0.1370     -0.0440 *
+  2011 2008  -0.0680     0.0166       -0.1119     -0.0242 *
+  2011 2009  -0.0552     0.0159       -0.0973     -0.0131 *
+  2011 2010   0.0000         NA            NA          NA  
+  2011 2011   0.0450     0.0092        0.0207      0.0693 *
+---
+Signif. codes: `*' confidence band does not cover 0
+
+P-value for pre-test of parallel trends assumption:  0
+Control Group:  Not Yet Treated,  Anticipation Periods:  0
+Estimation Method:  Outcome Regression
