@@ -1,0 +1,47 @@
+{
+  "primary": {
+    "analysis": "PRIMARY: estimator A (TWFE 2000-2010)",
+    "outcome": "y_rice",
+    "treated": 17,
+    "controls": 9,
+    "n": 286,
+    "beta": -0.02094070535164304,
+    "se_cr1": 0.0215547490529455,
+    "p_cr1_t": 0.34059969403082413,
+    "ci95_cr1_low": -0.06533354202110692,
+    "ci95_cr1_high": 0.023452131317820837,
+    "p_wcr_bootstrap": 0.32693269326932695,
+    "ci95_wcr_low": -0.06394703430343937,
+    "ci95_wcr_high": 0.02175540571521649,
+    "wcr_set_contiguous": true,
+    "wcr_B": 9999,
+    "wcr_weights": "Webb 6-point",
+    "wcr_seed": 20261004,
+    "wcr_null": "imposed",
+    "wcr_stat": "CR1-studentized t, symmetric two-sided",
+    "mde80_cr1": 0.06284879217823845,
+    "pct": -2.0722971264941674,
+    "pct_wcr_low": -6.194531706534658,
+    "pct_wcr_high": 2.1993780059172785
+  },
+  "pretrend_joint": {
+    "F": 0.9141918846471377,
+    "df1": 8,
+    "df2": 25,
+    "p": 0.5210027106585018
+  },
+  "overlap_sample": {
+    "late_range": [
+      11199.111111111111,
+      16998.0
+    ],
+    "early_units": [
+      "CB_청원군",
+      "GB_상주시",
+      "GG_평택시",
+      "JB_부안군",
+      "JN_나주시",
+      "JN_영암군"
+    ]
+  }
+}
