@@ -1,0 +1,30 @@
+{
+  "analysis": "S-E1: v3 sample without weir-host municipalities (Sangju, Gumi, Naju; Uiseong)",
+  "treated": 14,
+  "controls": 8,
+  "n": 242,
+  "beta": -0.0015378949938154329,
+  "se_cr1": 0.02082699851924158,
+  "p_cr1_t": 0.9418354246657892,
+  "ci95_cr1": [
+    -0.0448500094585531,
+    0.04177421947092224
+  ],
+  "p_wcr_bootstrap": 0.9400940094009401,
+  "ci95_wcr": [
+    -0.045172261965963724,
+    0.03915999738974007
+  ],
+  "wcr_set_contiguous": true,
+  "wcr": "null-imposed Webb bootstrap-t, B=9999, seed 20261004",
+  "pretrend_joint": {
+    "F": 0.5643591262970545,
+    "df": [
+      8,
+      21
+    ],
+    "p": 0.7948720344694571
+  },
+  "event_2009": -0.0013506777500829849,
+  "event_2010": -0.010211083679472818
+}
