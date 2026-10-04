@@ -1,0 +1,22 @@
+{
+  "rice_sha256": "b2a66f8c162d0a92e3110ae933ab0300ef92a5233605f6f67d173cb8d3031384",
+  "farmland_sha256": "c10e8d53d3da75e1ff83409f0c4745ac670c77a4857a869d5bbdc011475b2c35",
+  "duplicate_labels_combined": {
+    "rice": [],
+    "farmland_total": [
+      "GN_창원시"
+    ],
+    "paddy": [
+      "GN_창원시"
+    ]
+  },
+  "complete_units": {
+    "2009": 18,
+    "2011": 9,
+    "2012": 121
+  },
+  "incomplete_units": {
+    "2012": 3
+  },
+  "rice_exceeds_paddy_rows": 15
+}

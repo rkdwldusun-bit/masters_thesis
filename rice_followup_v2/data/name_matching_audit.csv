@@ -1,0 +1,6 @@
+province,rice_name,farmland_name,rule
+GG,광주시,광주시+광주군,joined 시/군 rows
+GG,양주시,양주시+양주군,joined 시/군 rows
+GG,여주시,여주군,suffix swap
+GG,포천시,포천시+포천군,joined 시/군 rows
+GG,화성시,화성시+화성군,joined 시/군 rows
