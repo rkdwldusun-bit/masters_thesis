@@ -30,7 +30,9 @@ fit_all <- function(label, outcome, est_fun = synthdid_estimate, est_name = "SDI
   s <- mat(pool, outcome)
   N1 <- nrow(s$Y) - s$N0
   est <- est_fun(s$Y, s$N0, s$T0)
-  out <- summ(label, outcome, est_name, est, sqrt(vcov(est, method = "jackknife"))[1], "jackknife", N1)
+  # The package documentation does not recommend the jackknife for SC (addendum 1, item 5).
+  out <- if (est_name == "SC") NULL else
+    summ(label, outcome, est_name, est, sqrt(vcov(est, method = "jackknife"))[1], "jackknife", N1)
   if (resampling) {
     set.seed(SEED); se_p <- sqrt(vcov(est, method = "placebo", replications = 500))[1]
     set.seed(SEED); se_b <- sqrt(vcov(est, method = "bootstrap", replications = 500))[1]
