@@ -20,6 +20,11 @@
 \usepackage[utf8]{inputenc}
 \usepackage{lmodern}
 \usepackage{textcomp}
+% main_times.tex defines \ThesisUseTimes: body text in Times Roman,
+% mathematics stays in the LaTeX (Latin Modern) math font.
+\ifdefined\ThesisUseTimes
+  \renewcommand{\rmdefault}{ptm}
+\fi
 
 % ---------- Page layout ----------
 \usepackage[a4paper,hmargin=3.15cm,top=3.6cm,bottom=3.6cm,headsep=1.2cm]{geometry}
