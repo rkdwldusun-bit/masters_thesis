@@ -1,0 +1,40 @@
+\chapter{National Inference and Crop Influence}\label{app:inference}
+
+% Appendix numbering: equations (A1), (A2); Table A1
+\setcounter{equation}{0}
+\setcounter{table}{0}
+\setcounter{figure}{0}
+\renewcommand{\theequation}{A\arabic{equation}}
+\renewcommand{\thetable}{A\arabic{table}}
+\renewcommand{\thefigure}{A\arabic{figure}}
+
+The contrast is linear in the log outcomes and can be written as $\widehat{\theta} = \sum_{c,t}a_{ct}\, y_{ct}$. Crop and year fixed effects fitted on unexposed observations provide residuals $\widehat{u}_{ct}$, and treated post-period residuals are centered by their event-year contrast. The crop-level score and analytic standard error are
+\begin{equation}\label{eq:score}
+\psi_{c} = \sum_{t}a_{ct}\,\widehat{u}_{ct},\qquad SE_{score} = \sqrt{\frac{G}{G - 1}\sum_{c}\psi_{c}^{2}},
+\end{equation}
+where $G$ is the number of contributing crop series. In each of 9,999 draws, one multiplier per crop is drawn with equal probability from Webb's \citeyearpar{webb2023} six-point distribution,
+\begin{equation}\label{eq:webb}
+v_{c} \in \left\{ -\sqrt{3/2},\, -1,\, -\sqrt{1/2},\,\sqrt{1/2},\, 1,\,\sqrt{3/2} \right\}.
+\end{equation}
+
+The multiplier statistic sums crop scores multiplied by their draws. The interval adds and subtracts the 95th percentile of its absolute value from the estimated contrast. The p-value is the share of draws whose absolute value is at least as large as the estimate, with a plus-one adjustment. Area-weighted and event-time statistics replace cell weights with those implied by equation~\eqref{eq:areaweights} and the event-time comparisons, using the same residuals and draws. The joint pre-pilot test compares the sum of squared standardized contrasts with its distribution across these draws. Independent multipliers preserve within-crop dependence but not residual dependence across crops. This score procedure differs from the null-imposed, studentized regression bootstrap used for rice; the use of Webb weights does not establish its finite-sample validity.
+
+\begin{table}[htbp]
+\centering
+\caption{Leave-One-Crop-Out Contrasts}\label{tab:leaveoneout}
+\begin{tabular*}{0.8\textwidth}{@{\extracolsep{\fill}}lccc}
+\toprule
+Omitted crop & (1) & (2) & (3) \\
+             & Area & Yield & Production \\
+\midrule
+Soybean       & 0.078    & $-0.061$ & 0.017 \\
+Onion         & $-0.007$ & $-0.037$ & $-0.044$ \\
+Sweet potato  & 0.020    & $-0.019$ & 0.000 \\
+Corn          & 0.066    & $-0.044$ & 0.022 \\
+Garlic        & 0.050    & $-0.028$ & 0.022 \\
+Spring potato & 0.003    & $-0.012$ & $-0.009$ \\
+Red pepper    & 0.129    & 0.003    & 0.132 \\
+\bottomrule
+\end{tabular*}
+\notes{Log-point contrasts with six treated crops, the full comparison pool, the last pre-pilot reference year, and event years 0-9. Omitted crops are not added to the comparison pool.}
+\end{table}

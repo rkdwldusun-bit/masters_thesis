@@ -1,0 +1,170 @@
+% =====================================================================
+%  Government Intervention in South Korea's Crop Disaster Insurance:
+%  An Empirical Analysis of Cultivated Area, Yield, and Production
+%  KANG, Jiyeon -- Master of Public Policy thesis, KDI School (2026)
+%
+%  Compile with pdfLaTeX (run twice so the contents, lists and
+%  cross-references are complete), e.g.  latexmk -pdf main.tex
+%
+%  Figure 1 and Figure 4 are drawn from TikZ source files that must sit
+%  in the same folder as this main.tex:
+%     organization.tex       -> Figure 1
+%     insurance graph.tex    -> Figure 4
+%  If either file is missing, the PNG exported from the Word version
+%  (figures/*_fallback.png) is used instead so the document still builds.
+% =====================================================================
+\documentclass[12pt,a4paper,oneside]{report}
+
+% ---------- Encoding and fonts ----------
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{textcomp}
+
+% ---------- Page layout ----------
+\usepackage[a4paper,hmargin=3.15cm,top=3.6cm,bottom=3.6cm,headsep=1.2cm]{geometry}
+\usepackage{setspace}
+\setstretch{1.9}                 % double-spaced body text as in the sample thesis
+\setlength{\parindent}{1.5em}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{\thepage}          % page number at the top centre
+\renewcommand{\headrulewidth}{0pt}
+\fancypagestyle{plain}{\fancyhf{}\renewcommand{\headrulewidth}{0pt}} % chapter opening pages: no number
+
+% ---------- Mathematics ----------
+\usepackage{amsmath,amssymb}
+
+% ---------- Figures and tables ----------
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{adjustbox}
+\usepackage[labelsep=colon,justification=centering,skip=8pt]{caption}
+\captionsetup[table]{position=top}
+\usepackage{etoolbox}
+\AtBeginEnvironment{tabular*}{\small}   % table bodies in small type
+\setlength{\tabcolsep}{4pt}
+\setlength{\emergencystretch}{2em}
+
+% TikZ / pgfplots for organization.tex and insurance graph.tex
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,shapes.geometric,shapes.multipart,
+  calc,fit,backgrounds,patterns,decorations.pathreplacing,intersections}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{standalone}          % lets \input skip the preamble of a standalone .tex file
+
+% Figures 1-8, Tables 1-9 and equations (1)-(7) are numbered
+% continuously through the thesis, as in the original document.
+\counterwithout{figure}{chapter}
+\counterwithout{table}{chapter}
+\counterwithout{equation}{chapter}
+
+% Notes printed below a figure or table (sample-thesis style)
+\newcommand{\notes}[1]{%
+  \par\vspace{6pt}%
+  {\footnotesize\setlength{\parindent}{0pt}\raggedright\textbf{Notes:} #1\par}}
+
+% ---------- Headings ----------
+\usepackage{titlesec}
+\titleformat{\chapter}[display]
+  {\normalfont\Large\bfseries}{\chaptertitlename\ \thechapter}{1.4em}{}
+\titlespacing*{\chapter}{0pt}{70pt}{45pt}
+\titleformat{name=\chapter,numberless}[block]
+  {\normalfont\Large\bfseries\filcenter}{}{0pt}{}
+\titlespacing*{name=\chapter,numberless}{0pt}{40pt}{45pt}
+\titleformat{\section}
+  {\normalfont\large\bfseries}{\thesection}{1em}{}
+\titlespacing*{\section}{0pt}{18pt}{10pt}
+\titleformat{\subsection}
+  {\normalfont\normalsize\bfseries}{\thesubsection}{1em}{}
+
+% ---------- Contents and lists ----------
+\usepackage{tocloft}
+\renewcommand{\contentsname}{TABLE OF CONTENTS}
+\renewcommand{\listfigurename}{LIST OF FIGURES}
+\renewcommand{\listtablename}{LIST OF TABLES}
+\renewcommand{\cfttoctitlefont}{\hfill\Large\bfseries}
+\renewcommand{\cftaftertoctitle}{\hfill}
+\renewcommand{\cftlottitlefont}{\hfill\Large\bfseries}
+\renewcommand{\cftafterlottitle}{\hfill}
+\renewcommand{\cftloftitlefont}{\hfill\Large\bfseries}
+\renewcommand{\cftafterloftitle}{\hfill}
+\setlength{\cftbeforetoctitleskip}{40pt}
+\setlength{\cftbeforelottitleskip}{40pt}
+\setlength{\cftbeforeloftitleskip}{40pt}
+\setlength{\cftaftertoctitleskip}{45pt}
+\setlength{\cftafterlottitleskip}{45pt}
+\setlength{\cftafterloftitleskip}{45pt}
+\setlength{\cftfignumwidth}{2.5em}
+\setlength{\cfttabnumwidth}{2.5em}
+\renewcommand{\cftchapaftersnum}{}
+
+% ---------- Citations (author-year, APA-like) ----------
+\usepackage[round]{natbib}
+\setlength{\bibhang}{0.5in}
+\setlength{\bibsep}{8pt}
+\renewcommand{\bibname}{REFERENCES}
+
+\usepackage{url}
+\usepackage[hidelinks]{hyperref}
+\urlstyle{same}
+
+% ---------- Title information ----------
+\newcommand{\thesistitleA}{Government Intervention in South Korea's Crop Disaster Insurance:}
+\newcommand{\thesistitleB}{An Empirical Analysis of Cultivated Area, Yield, and Production}
+
+\begin{document}
+
+% ---------- Title pages (no page numbers) ----------
+\pagenumbering{gobble}
+\input{frontmatter/titlepages}
+
+% ---------- Front matter (roman page numbers) ----------
+\pagenumbering{roman}
+\setcounter{page}{1}
+\input{frontmatter/abstract}
+
+\clearpage
+\phantomsection
+\addcontentsline{toc}{chapter}{Abstract}
+\tableofcontents
+
+\clearpage
+\phantomsection
+\addcontentsline{toc}{chapter}{List of Tables}
+\listoftables
+
+\clearpage
+\phantomsection
+\addcontentsline{toc}{chapter}{List of Figures}
+\listoffigures
+
+% ---------- Main text (arabic page numbers) ----------
+\clearpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\input{chapters/ch1_introduction}
+\input{chapters/ch2_background}
+\input{chapters/ch3_assessment}
+\input{chapters/ch4_data_strategy}
+\input{chapters/ch5_results}
+\input{chapters/ch6_discussion}
+\input{chapters/ch7_conclusion}
+
+% ---------- References ----------
+\clearpage
+\phantomsection
+\addcontentsline{toc}{chapter}{References}
+\input{references}
+
+% ---------- Appendix ----------
+\appendix
+\input{chapters/appendixA}
+
+\end{document}
