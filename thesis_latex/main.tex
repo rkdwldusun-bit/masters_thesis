@@ -114,15 +114,16 @@
 
 % ---------- Headings ----------
 \usepackage{titlesec}
+\usepackage{indentfirst}     % indent the first paragraph after every heading
 \titleformat{\chapter}[display]
   {\normalfont\Large\bfseries\setstretch{1.0}}{\chaptertitlename\ \thechapter}{14pt}{}
-\titlespacing*{\chapter}{0pt}{10pt}{28pt}
+\titlespacing{\chapter}{0pt}{10pt}{28pt}
 \titleformat{name=\chapter,numberless}[block]
   {\normalfont\Large\bfseries\setstretch{1.0}\filcenter}{}{0pt}{}
-\titlespacing{name=\chapter,numberless}{0pt}{20pt}{30pt} % unstarred: indent the first paragraph (Acknowledgements)
+\titlespacing{name=\chapter,numberless}{0pt}{20pt}{30pt}
 \titleformat{\section}
   {\normalfont\large\bfseries\setstretch{1.0}}{\thesection}{1em}{}
-\titlespacing*{\section}{0pt}{18pt}{10pt}
+\titlespacing{\section}{0pt}{18pt}{10pt}
 \titleformat{\subsection}
   {\normalfont\normalsize\bfseries}{\thesubsection}{1em}{}
 
