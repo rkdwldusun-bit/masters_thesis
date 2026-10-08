@@ -77,7 +77,7 @@ The first term in equation~\eqref{eq:contrast} is the log growth of the treated 
 
 As an alternative aggregation, crops are weighted by their mean cultivated area in 2003-2007, before the earliest pilot:
 \begin{equation}\label{eq:areaweights}
-\widehat{\theta}^{A} = \frac{1}{10}\sum_{e = 0}^{9}\sum_{i = 1}^{7}w_{i}^{A}\,\widehat{\delta}_{i,e},\qquad w_{i}^{A} = \frac{\bar{A}_{i}^{pre}}{\sum_{k = 1}^{7}\bar{A}_{k}^{pre}}.
+\widehat{\theta}^{A} = \frac{1}{10}\sum_{e = 0}^{9}\sum_{i = 1}^{7}w_{i}^{A}\,\widehat{\delta}_{i,e},\qquad w_{i}^{A} = \frac{\bar{A}_{i}^{pre}}{\sum_{k = 1}^{7}\bar{A}_{k}^{pre}}
 \end{equation}
 
 Event-time contrasts use the pilot year to locate observations on the horizontal axis while retaining the last pre-pilot year as the reference observation. For each event year, equation~\eqref{eq:contrast} compares the treated crop's change with that of eligible comparison crops, and the seven contrasts are averaged equally. The last pre-pilot contrast is zero by construction. Earlier contrasts describe observed pre-pilot differences; their joint test assesses whether nine contrasts are zero. Neither a small contrast nor a non-rejection establishes parallel untreated trends. Post-pilot contrasts include the transition before coded expansion.
@@ -88,7 +88,7 @@ Rice insurance was first offered in 20 municipalities in 2009, with ten further 
 
 The outcome is log paddy-rice planted area for 2000-2010 from the Crop Production Survey. Restricting the sample to mainland municipalities with complete, boundary-consistent series leaves 17 early and nine later entrants, or 286 municipality-years. The estimating equation is
 \begin{equation}\label{eq:rice}
-\ln A_{mt} = \alpha_{m} + \lambda_{t} + \beta D_{mt} + \varepsilon_{mt},
+\ln A_{mt} = \alpha_{m} + \lambda_{t} + \beta D_{mt} + \varepsilon_{mt}
 \end{equation}
 where $A_{mt}$ is planted area in municipality $m$ and year $t$, $\alpha_{m}$ and $\lambda_{t}$ are municipality and year fixed effects, and $D_{mt}$ equals one for early entrants in 2009-2010. Municipality fixed effects absorb time-invariant differences such as soil quality, irrigation infrastructure, and proximity to markets; year fixed effects absorb national shocks such as rice prices and weather common to all municipalities.
 
