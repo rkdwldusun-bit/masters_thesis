@@ -13,24 +13,44 @@
 %  If either file is missing, the PNG exported from the Word version
 %  (figures/*_fallback.png) is used instead so the document still builds.
 % =====================================================================
-\documentclass[12pt,a4paper,oneside]{report}
+% Body text: Latin Modern 11pt, which matches the width of Times Roman
+% 12pt, with double spacing (about 27pt between lines, as in Word).
+% Front matter (title pages to List of Figures): Times Roman 12pt,
+% without page numbers. Page numbering starts at 1 with Chapter 1.
+\documentclass[11pt,a4paper,oneside]{report}
 
 % ---------- Encoding and fonts ----------
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{lmodern}
 \usepackage{textcomp}
-% main_times.tex defines \ThesisUseTimes: body text in Times Roman,
-% mathematics stays in the LaTeX (Latin Modern) math font.
-\ifdefined\ThesisUseTimes
-  \renewcommand{\rmdefault}{ptm}
-\fi
+
+% Font switches. Mathematics always keeps the Latin Modern math font.
+\makeatletter
+\let\LMnormalsize\normalsize
+\newcommand{\TimesFrontMatter}{%   Times Roman 12pt, Word "double" line pitch
+  \renewcommand{\rmdefault}{ptm}%
+  \renewcommand{\normalsize}{\@setfontsize\normalsize{12}{13.8}}%
+  \normalfont\normalsize}
+\newcommand{\LatinModernMainMatter}{% Latin Modern 11pt
+  \renewcommand{\rmdefault}{lmr}%
+  \let\normalsize\LMnormalsize
+  \normalfont\normalsize}
+\makeatother
 
 % ---------- Page layout ----------
-\usepackage[a4paper,hmargin=3.15cm,top=3.6cm,bottom=3.6cm,headsep=1.2cm]{geometry}
+\usepackage[a4paper,margin=1in,headheight=14pt,headsep=0.3in]{geometry} % 1-inch margins as in the Word file
 \usepackage{setspace}
-\setstretch{1.9}                 % double-spaced body text as in the sample thesis
+\setstretch{2.0}                 % double spacing
 \setlength{\parindent}{1.5em}
+
+% Page breaking: no single line of a paragraph left at the bottom or top
+% of a page, and pages end at their natural length instead of stretching
+% the space between paragraphs.
+\widowpenalty=10000
+\clubpenalty=10000
+\displaywidowpenalty=10000
+\raggedbottom
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \fancyhf{}
@@ -53,7 +73,25 @@
 \usepackage{etoolbox}
 \AtBeginEnvironment{tabular*}{\small}   % table bodies in small type
 \setlength{\tabcolsep}{4pt}
+\AtBeginEnvironment{table}{\renewcommand{\arraystretch}{1.15}}
 \setlength{\emergencystretch}{2em}
+
+% Float placement and the space between floats and the text
+\setcounter{topnumber}{3}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{4}
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\bottomfraction}{0.7}
+\renewcommand{\textfraction}{0.1}
+\renewcommand{\floatpagefraction}{0.75}
+\setlength{\textfloatsep}{24pt plus 6pt minus 4pt}
+\setlength{\floatsep}{20pt plus 4pt minus 4pt}
+\setlength{\intextsep}{20pt plus 4pt minus 4pt}
+\makeatletter               % pages holding only floats: stack them from the top
+\setlength{\@fptop}{0pt}
+\setlength{\@fpsep}{24pt}
+\setlength{\@fpbot}{0pt plus 1fil}
+\makeatother
 
 % TikZ / pgfplots for organization.tex and insurance graph.tex
 \usepackage{tikz}
@@ -71,19 +109,19 @@
 
 % Notes printed below a figure or table (sample-thesis style)
 \newcommand{\notes}[1]{%
-  \par\vspace{6pt}%
+  \par\vspace{5pt}%
   {\footnotesize\setlength{\parindent}{0pt}\raggedright\textbf{Notes:} #1\par}}
 
 % ---------- Headings ----------
 \usepackage{titlesec}
 \titleformat{\chapter}[display]
-  {\normalfont\Large\bfseries}{\chaptertitlename\ \thechapter}{1.4em}{}
-\titlespacing*{\chapter}{0pt}{70pt}{45pt}
+  {\normalfont\Large\bfseries\setstretch{1.0}}{\chaptertitlename\ \thechapter}{14pt}{}
+\titlespacing*{\chapter}{0pt}{10pt}{28pt}
 \titleformat{name=\chapter,numberless}[block]
-  {\normalfont\Large\bfseries\filcenter}{}{0pt}{}
-\titlespacing*{name=\chapter,numberless}{0pt}{40pt}{45pt}
+  {\normalfont\Large\bfseries\setstretch{1.0}\filcenter}{}{0pt}{}
+\titlespacing*{name=\chapter,numberless}{0pt}{20pt}{30pt}
 \titleformat{\section}
-  {\normalfont\large\bfseries}{\thesection}{1em}{}
+  {\normalfont\large\bfseries\setstretch{1.0}}{\thesection}{1em}{}
 \titlespacing*{\section}{0pt}{18pt}{10pt}
 \titleformat{\subsection}
   {\normalfont\normalsize\bfseries}{\thesubsection}{1em}{}
@@ -93,18 +131,19 @@
 \renewcommand{\contentsname}{TABLE OF CONTENTS}
 \renewcommand{\listfigurename}{LIST OF FIGURES}
 \renewcommand{\listtablename}{LIST OF TABLES}
-\renewcommand{\cfttoctitlefont}{\hfill\Large\bfseries}
-\renewcommand{\cftaftertoctitle}{\hfill}
-\renewcommand{\cftlottitlefont}{\hfill\Large\bfseries}
-\renewcommand{\cftafterlottitle}{\hfill}
-\renewcommand{\cftloftitlefont}{\hfill\Large\bfseries}
-\renewcommand{\cftafterloftitle}{\hfill}
-\setlength{\cftbeforetoctitleskip}{40pt}
-\setlength{\cftbeforelottitleskip}{40pt}
-\setlength{\cftbeforeloftitleskip}{40pt}
-\setlength{\cftaftertoctitleskip}{45pt}
-\setlength{\cftafterlottitleskip}{45pt}
-\setlength{\cftafterloftitleskip}{45pt}
+\renewcommand{\cfttoctitlefont}{\hspace*{\fill}\Large\bfseries}
+\renewcommand{\cftaftertoctitle}{\hspace*{\fill}}
+\renewcommand{\cftlottitlefont}{\hspace*{\fill}\Large\bfseries}
+\renewcommand{\cftafterlottitle}{\hspace*{\fill}}
+\renewcommand{\cftloftitlefont}{\hspace*{\fill}\Large\bfseries}
+\renewcommand{\cftafterloftitle}{\hspace*{\fill}}
+\setlength{\cftbeforetoctitleskip}{20pt}
+\setlength{\cftbeforelottitleskip}{20pt}
+\setlength{\cftbeforeloftitleskip}{20pt}
+\setlength{\cftaftertoctitleskip}{30pt}
+\setlength{\cftafterlottitleskip}{30pt}
+\setlength{\cftafterloftitleskip}{30pt}
+\setlength{\cftbeforechapskip}{8pt}
 \setlength{\cftfignumwidth}{2.5em}
 \setlength{\cfttabnumwidth}{2.5em}
 \renewcommand{\cftchapaftersnum}{}
@@ -125,32 +164,25 @@
 
 \begin{document}
 
-% ---------- Title pages (no page numbers) ----------
-\pagenumbering{gobble}
+% ---------- Front matter: Times Roman 12pt, no page numbers ----------
+\TimesFrontMatter
+\pagestyle{empty}
+\pagenumbering{roman}            % internal only; nothing is printed
 \input{frontmatter/titlepages}
-
-% ---------- Front matter (roman page numbers) ----------
-\pagenumbering{roman}
-\setcounter{page}{1}
 \input{frontmatter/abstract}
+\input{frontmatter/acknowledgements}
 
 \clearpage
-\phantomsection
-\addcontentsline{toc}{chapter}{Abstract}
-\tableofcontents
-
+{\setstretch{1.25}\tableofcontents}
 \clearpage
-\phantomsection
-\addcontentsline{toc}{chapter}{List of Tables}
-\listoftables
-
+{\setstretch{1.4}\listoftables}
 \clearpage
-\phantomsection
-\addcontentsline{toc}{chapter}{List of Figures}
-\listoffigures
+{\setstretch{1.4}\listoffigures}
 
-% ---------- Main text (arabic page numbers) ----------
+% ---------- Main text: Latin Modern 11pt, numbered from 1 ----------
 \clearpage
+\LatinModernMainMatter
+\pagestyle{fancy}
 \pagenumbering{arabic}
 \setcounter{page}{1}
 
@@ -170,6 +202,9 @@
 
 % ---------- Appendix ----------
 \appendix
+\addtocontents{toc}{\protect\renewcommand{\protect\cftchappresnum}{Appendix }%
+  \protect\renewcommand{\protect\cftchapaftersnum}{.}%
+  \protect\setlength{\protect\cftchapnumwidth}{6.2em}}
 \input{chapters/appendixA}
 
 \end{document}

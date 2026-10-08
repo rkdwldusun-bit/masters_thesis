@@ -1,12 +1,18 @@
-\newgeometry{a4paper,hmargin=3.15cm,vmargin=2.5cm}
-% Three title pages, laid out as in the KDI School sample thesis.
-% The sample sets these pages in a Times-style font.
+% Three title pages, laid out as in the KDI School sample thesis,
+% in Times Roman.
+
+% Signature line with the signature image (if present) sitting on the
+% line. The signature files are kept out of the public repository; when a
+% file is missing, only the line is printed.
+\newcommand{\signatureline}[2]{%
+  \IfFileExists{#1}{%
+    \rlap{\hspace{0.6cm}\raisebox{1pt}[0pt][0pt]{\includegraphics[width=#2]{#1}}}}{}%
+  \rule{0.34\textwidth}{0.4pt}}
 
 % ---------------------------------------------------------------------
 % Title page 1
 % ---------------------------------------------------------------------
 \begin{titlepage}
-\fontfamily{ptm}\selectfont
 \singlespacing
 \begin{center}
 \vspace*{2.2cm}
@@ -36,7 +42,6 @@ For the Degree of\\
 % Title page 2
 % ---------------------------------------------------------------------
 \begin{titlepage}
-\fontfamily{ptm}\selectfont
 \singlespacing
 \begin{center}
 \vspace*{2.2cm}
@@ -68,7 +73,6 @@ Professor Lee, Jongyearn\par
 % Title page 3 (committee approval)
 % ---------------------------------------------------------------------
 \begin{titlepage}
-\fontfamily{ptm}\selectfont
 \singlespacing
 \begin{center}
 \vspace*{2.2cm}
@@ -91,14 +95,13 @@ For the Degree of\\
 Committee in charge:
 \end{spacing}
 \vspace{0.6cm}
-\begin{tabular}{@{}p{0.52\textwidth}p{0.36\textwidth}@{}}
-Professor Lee, Jongyearn, Supervisor & \rule{0.34\textwidth}{0.4pt} \\[1.2cm]
-Professor Merfeld, Joshua D.         & \rule{0.34\textwidth}{0.4pt} \\
-\end{tabular}
+\vspace{0.6cm}
+\makebox[0.86\textwidth][l]{\makebox[0.52\textwidth][l]{Professor Lee, Jongyearn, Supervisor}\signatureline{signatures/sig_lee_t.png}{1.24in}}\par
+\vspace{1.5cm}
+\makebox[0.86\textwidth][l]{\makebox[0.52\textwidth][l]{Professor Merfeld, Joshua D.}\signatureline{signatures/sig_merfeld_t.png}{0.96in}}\par
 \vspace{1.4cm}
 
 {\bfseries Approval as of October, 2026\par}
 \end{center}
 \end{titlepage}
 
-\restoregeometry
