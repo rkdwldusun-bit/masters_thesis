@@ -1,0 +1,5 @@
+id: fig7
+title: 
+x: Mean log contrast, event years 0–9
+y: 
+caption: 

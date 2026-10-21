@@ -20,6 +20,9 @@ steps <- c(
   "audit/10_final_manifest.py",         # docs/SOURCE_MANIFEST_FINAL.csv + PROVENANCE.md table (validated)
   sprintf("R/%02d_figure%s.R", 1:11, c(1:10, "A1")),
   "R/12_figure_qc.R",
+  "analysis/01_national_confirmed_dates.R", # main national analysis with confirmed dates
+  "analysis/02_figures_confirmed_dates.R",  # thesis Figures 6-7 (confirmed dates)
+  "analysis/03_results_memo.R",             # analysis/RESULTS_CONFIRMED_DATES.md
   "audit/11_final_consistency.py")       # final consistency checks (fails the run on any inconsistency)
 
 for (s in steps) {

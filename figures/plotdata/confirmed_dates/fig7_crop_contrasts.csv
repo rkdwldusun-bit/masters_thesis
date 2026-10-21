@@ -1,0 +1,37 @@
+crop_id,est,n_events,outcome,pool,crop
+soybean,-0.120085401741484,10,Area,Full comparison pool,Soybean
+onion,0.382313672176175,10,Area,Full comparison pool,Onion
+sweet_potato,0.227447075610441,10,Area,Full comparison pool,Sweet potato
+corn,-0.0474746656719795,10,Area,Full comparison pool,Corn
+garlic,0.0394571085439711,10,Area,Full comparison pool,Garlic
+red_pepper,-0.416231239842593,10,Area,Full comparison pool,Red pepper
+soybean,0.16222703488598,10,Yield,Full comparison pool,Soybean
+onion,0.0232353410486614,10,Yield,Full comparison pool,Onion
+sweet_potato,-0.0731583685602413,10,Yield,Full comparison pool,Sweet potato
+corn,0.0619317579974273,10,Yield,Full comparison pool,Corn
+garlic,-0.0314905611108278,10,Yield,Full comparison pool,Garlic
+red_pepper,-0.217556927480402,10,Yield,Full comparison pool,Red pepper
+soybean,0.0424989904943731,10,Production,Full comparison pool,Soybean
+onion,0.405551416014978,10,Production,Full comparison pool,Onion
+sweet_potato,0.154110419339479,10,Production,Full comparison pool,Sweet potato
+corn,0.0136441575747962,10,Production,Full comparison pool,Corn
+garlic,0.00728378064951903,10,Production,Full comparison pool,Garlic
+red_pepper,-0.633685594218991,10,Production,Full comparison pool,Red pepper
+soybean,-0.180054433450942,10,Area,Excluding two spring series,Soybean
+onion,0.301758696621016,10,Area,Excluding two spring series,Onion
+sweet_potato,0.146892100055283,10,Area,Excluding two spring series,Sweet potato
+corn,-0.128029641227138,10,Area,Excluding two spring series,Corn
+garlic,-0.0362176246508062,10,Area,Excluding two spring series,Garlic
+red_pepper,-0.520508800739889,10,Area,Excluding two spring series,Red pepper
+soybean,0.162362751614296,10,Yield,Excluding two spring series,Soybean
+onion,0.0247657101867127,10,Yield,Excluding two spring series,Onion
+sweet_potato,-0.0716279994221901,10,Yield,Excluding two spring series,Sweet potato
+corn,0.0634621271354785,10,Yield,Excluding two spring series,Corn
+garlic,-0.0389628743631649,10,Yield,Excluding two spring series,Garlic
+red_pepper,-0.22628652341186,10,Yield,Excluding two spring series,Red pepper
+soybean,-0.0173189562931028,10,Production,Excluding two spring series,Soybean
+onion,0.326537685699194,10,Production,Excluding two spring series,Onion
+sweet_potato,0.0750966890236949,10,Production,Excluding two spring series,Sweet potato
+corn,-0.0653695727409879,10,Production,Excluding two spring series,Corn
+garlic,-0.0759535762636845,10,Production,Excluding two spring series,Garlic
+red_pepper,-0.74667120470446,10,Production,Excluding two spring series,Red pepper

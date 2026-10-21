@@ -1,0 +1,8 @@
+crop_id,crop,expansion_sale_year_documented,expansion_sale_status,pilot_sale_status,product_table_year,pilot_year,previous_expansion_year,reference_year,expansion_year_main,transition_years_main,in_main
+soybean,Soybean,2011,confirmed,confirmed,2011,2008,2012,2007,2011,3,TRUE
+onion,Onion,2012,partial,confirmed,2011,2009,2012,2008,2012,3,TRUE
+sweet_potato,Sweet potato,2012,confirmed,partial,2012,2009,2013,2008,2012,3,TRUE
+corn,Corn,2012,confirmed,partial,2012,2009,2013,2008,2012,3,TRUE
+garlic,Garlic,2013,confirmed,confirmed,2012,2010,2013,2009,2013,3,TRUE
+spring_potato,Spring potato,,not verified,contradicted,2011,2008,2013,2007,,,FALSE
+red_pepper,Red pepper,2014,confirmed,confirmed,2014,2008,2015,2007,2014,6,TRUE

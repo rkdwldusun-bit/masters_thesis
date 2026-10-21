@@ -1,0 +1,40 @@
+crop_id,est,n_events,outcome,pool
+soybean,-0.120085401741484,10,ln_area,Full comparison pool
+onion,0.382313672176175,10,ln_area,Full comparison pool
+sweet_potato,0.227447075610441,10,ln_area,Full comparison pool
+corn,-0.0474746656719795,10,ln_area,Full comparison pool
+garlic,0.0394571085439711,10,ln_area,Full comparison pool
+red_pepper,-0.416231239842593,10,ln_area,Full comparison pool
+soybean,0.16222703488598,10,ln_yield,Full comparison pool
+onion,0.0232353410486614,10,ln_yield,Full comparison pool
+sweet_potato,-0.0731583685602413,10,ln_yield,Full comparison pool
+corn,0.0619317579974273,10,ln_yield,Full comparison pool
+garlic,-0.0314905611108278,10,ln_yield,Full comparison pool
+red_pepper,-0.217556927480402,10,ln_yield,Full comparison pool
+soybean,0.0424989904943731,10,ln_production,Full comparison pool
+onion,0.405551416014978,10,ln_production,Full comparison pool
+sweet_potato,0.154110419339479,10,ln_production,Full comparison pool
+corn,0.0136441575747962,10,ln_production,Full comparison pool
+garlic,0.00728378064951903,10,ln_production,Full comparison pool
+red_pepper,-0.633685594218991,10,ln_production,Full comparison pool
+soybean,-0.180054433450942,10,ln_area,Excluding two spring series
+onion,0.301758696621016,10,ln_area,Excluding two spring series
+sweet_potato,0.146892100055283,10,ln_area,Excluding two spring series
+corn,-0.128029641227138,10,ln_area,Excluding two spring series
+garlic,-0.0362176246508062,10,ln_area,Excluding two spring series
+red_pepper,-0.520508800739889,10,ln_area,Excluding two spring series
+soybean,0.162362751614296,10,ln_yield,Excluding two spring series
+onion,0.0247657101867127,10,ln_yield,Excluding two spring series
+sweet_potato,-0.0716279994221901,10,ln_yield,Excluding two spring series
+corn,0.0634621271354785,10,ln_yield,Excluding two spring series
+garlic,-0.0389628743631649,10,ln_yield,Excluding two spring series
+red_pepper,-0.22628652341186,10,ln_yield,Excluding two spring series
+soybean,-0.0173189562931028,10,ln_production,Excluding two spring series
+onion,0.326537685699194,10,ln_production,Excluding two spring series
+sweet_potato,0.0750966890236949,10,ln_production,Excluding two spring series
+corn,-0.0653695727409879,10,ln_production,Excluding two spring series
+garlic,-0.0759535762636845,10,ln_production,Excluding two spring series
+red_pepper,-0.74667120470446,10,ln_production,Excluding two spring series
+spring_potato,0.319784656256529,10,ln_area,Supplementary (S1)
+spring_potato,-0.12652575456375,10,ln_yield,Supplementary (S1)
+spring_potato,0.193444659492172,10,ln_production,Supplementary (S1)

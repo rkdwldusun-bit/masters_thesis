@@ -60,7 +60,7 @@ base_years <- function(d, i, norm = "A", b5 = FALSE) {
 # 2. Direct point estimate from the formula (no weights)
 # ---------------------------------------------------------------------
 att_direct <- function(d, treated, norm = "A", b5 = FALSE,
-                       e_post = 0:9, e_pre_min = -12) {
+                       e_post = 0:9, e_pre_min = -12, donors = NULL) {
   Y      <- setNames(d$y, d$cell)
   clean  <- setNames(d$clean, d$cell)
   crops  <- unique(d$crop_id)
@@ -76,7 +76,7 @@ att_direct <- function(d, treated, norm = "A", b5 = FALSE,
     tgt_pre  <- pre[(pre - g) >= e_pre_min]
     if (norm == "A") tgt_pre <- tgt_pre[tgt_pre != max(pre)]
     for (t in c(tgt_post, tgt_pre)) {
-      J <- setdiff(crops, i)
+      J <- setdiff(if (is.null(donors)) crops else intersect(crops, donors), i)
       J <- J[vapply(J, function(j) is_clean(j, t) && all(is_clean(j, B)), logical(1))]
       if (!length(J)) next
       dy_i <- Y[paste(i, t, sep = "|")] - mean(Y[paste(i, B, sep = "|")])
