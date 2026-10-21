@@ -39,7 +39,7 @@ figs <- list(
        need_title = c("insured-to-normal"), need_note = c("descriptive", "not part of the verified bundle", "non-positive insured or normal yield")),
   list(id = "fig8", script = "R/08_figure8.R", file = "fig8_record_composition", src = "verified_apfs_fruit_2024_by_crop.csv; verified_apfs_fruit_2024_audit.csv",
        need_title = c("administrative contract-detail records"), need_note = c("not necessarily unique contracts")),
-  list(id = "fig9", script = "R/09_figure9.R", file = "fig9_apfs_national_trends", src = "verified_apfs_national.csv",
+  list(id = "fig9", script = "R/09_figure9.R", file = "fig9_apfs_national_trends", src = "verified_apfs_national.csv; input/supplementary/mafra_2026-02-02_crop_insurance_2024_2025.csv",
        need_title = c("enrollment", "loss"), need_note = c("risk premium", "not comparable across years")),
   list(id = "fig10", script = "R/10_figure10.R", file = "fig10_apfs_financing_shares", src = "verified_apfs_national.csv",
        need_title = c("financing"), need_note = c("does not explain the residual", "not attributed to any payer")),
@@ -73,9 +73,15 @@ numeric_check <- function(id, pd) {
     },
     fig8 = merge(pd, FC[, .(crop, r2 = records)], by = "crop")[, max(abs(records - r2))],
     fig9 = {
-      a <- merge(pd[grepl("^A", panel)], N[, .(year, v2 = area_enrollment_rate_pct)], by = "year")[, max(abs(value - v2))]
-      b <- merge(pd[grepl("^B", panel)], N[, .(year, v2 = loss_ratio_pct)], by = "year")[, max(abs(value - v2))]
-      max(a, b)
+      # APFS values where APFS reports them, otherwise the MAFRA 2026 release (input/supplementary/)
+      M <- fread("input/supplementary/mafra_2026-02-02_crop_insurance_2024_2025.csv", encoding = "UTF-8")
+      ra <- rbind(N[, .(year, v2 = area_enrollment_rate_pct)], M[!year %in% N$year, .(year, v2 = area_enrollment_rate_pct)])
+      rb <- rbind(N[!is.na(loss_ratio_pct), .(year, v2 = loss_ratio_pct)],
+                  M[!year %in% N[!is.na(loss_ratio_pct), year], .(year, v2 = loss_ratio_pct)])
+      a <- merge(pd[grepl("^A", panel)], ra, by = "year")
+      b <- merge(pd[grepl("^B", panel)], rb, by = "year")
+      if (nrow(a) != nrow(pd[grepl("^A", panel)]) || nrow(b) != nrow(pd[grepl("^B", panel)])) return(Inf)
+      max(abs(c(a$value - a$v2, b$value - b$v2)))
     },
     fig10 = {
       x <- merge(pd[payer == "Central government"], N[, .(year, s2 = central_gov_mkrw / net_premium_mkrw)], by = "year")
@@ -120,7 +126,7 @@ for (f in figs) {
   files_ok <- all(file.exists(file.path("figures", paste0(f$file, c(".png", ".pdf")))))
   rows[[length(rows) + 1]] <- data.table(
     figure = FIG_NO[[f$id]], output_files = paste0("figures/", f$file, ".{png,pdf}"),
-    underlying_data_file = paste0("verified_results/", gsub("; ", "; verified_results/", f$src)),
+    underlying_data_file = paste(ifelse(grepl("/", src <- strsplit(f$src, "; ")[[1]]), src, paste0("verified_results/", src)), collapse = "; "),
     number_of_plotted_observations = nrow(pd),
     numeric_match_to_verified_results = sprintf("%s (max |diff| = %.1e)", if (dev < 1e-9) "MATCH" else "MISMATCH", dev),
     label_match = if (tl) "MATCH" else paste("CHECK", paste(banned, collapse = ",")),

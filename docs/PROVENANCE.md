@@ -78,6 +78,7 @@ Relative-price and nominal-index estimates are numerically almost identical: −
 |---|---|---|
 | `농업정책보험금융원_농작물재해보험 연도별 가입 현황_20241231.csv` | yes (APFS_ENROLL_RAW) | national enrollment, financing (Figures 9, 10) |
 | `농업정책보험금융원_농작물재해보험 연도별 지급현황_20231231.csv` | yes (APFS_PAY_RAW) | indemnities; loss ratio = indemnities / risk premium × 100 (Figure 9) |
+| MAFRA press release, 2 Feb 2026, "2026년 농작물보험, 이렇게 바뀝니다!" (attachment table, 농작물재해보험) | no (typed into `input/supplementary/mafra_2026-02-02_crop_insurance_2024_2025.csv`) | 2025 enrollment rate; 2024–2025 loss ratio (Figure 9). The 2024 row reproduces the APFS values and loss-ratio definition; `R/09_figure9.R` checks this |
 | `농업정책보험금융원_농작물재해보험 품목별 가입 및 지급현황_20231231.csv` | yes (APFS_CROPJOIN23) | 2023 crop cross-section |
 | `농업정책보험금융원_농작물재해보험 계약된 과수작물 세부현황_20241231.csv` | **no** | 2024 fruit summaries (Figures 7, 8, A1): consistent with the supplied summary, not recomputed from raw records |
 | province 2023/2024 source file | not listed | `apfs_province_2023_2024.csv` (derived table only) |
