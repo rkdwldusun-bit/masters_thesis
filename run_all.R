@@ -7,6 +7,7 @@ steps <- c(
   "audit/00_extract_bundles.R",          # bundle sheets -> audit/extracted/*.csv
   "audit/01_panel_treatment_audit.R",    # panel, treatment identities, production identity
   "audit/12_treatment_timing_rule.R",    # Table 3: announcement dates + sales windows -> crop years
+  "audit/13_expansion_date_sensitivity.R", # annual estimates with documented first nationwide sales years
   "audit/02_replicate_main.R",           # independent R replication: headline + event study
   "audit/03_replicate_all_specs.R",      # all 102 specifications + rice (about 3 minutes)
   "audit/04_pretrend_fruit_redpepper.R", # pre-trend, Red pepper, fruit control composition

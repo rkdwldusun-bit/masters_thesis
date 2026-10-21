@@ -33,14 +33,16 @@ S[, `:=`(pilot_margin_months     = window_end_month - as.integer(substr(pilot_an
          expansion_margin_months = window_end_month - as.integer(substr(expansion_announce, 6, 7)))]
 S[, `:=`(reference_year   = pilot_year - 1L,
          transition_years = expansion_year - pilot_year,
-         product_table_minus_expansion = product_table_year - expansion_year)]
+         product_table_minus_expansion = product_table_year - expansion_year,
+         documented_minus_expansion = expansion_sale_year_documented - expansion_year)]
 
 chk <- merge(S, V[, .(crop_id, v_pilot = pilot_year, v_nat = national_year)], by = "crop_id")
 chk[, match := pilot_year == v_pilot & expansion_year == v_nat]
 print(chk[, .(crop, pilot_announce, expansion_announce, window = paste0(window_start_month, "-", window_end_month),
               harvest_offset, pilot_year, pilot_margin_months, expansion_year, expansion_margin_months,
               product_table_year, reference_year, transition_years, match)])
-print(S[, .(crop, pilot_sale_status, expansion_sale_status)])
+print(S[, .(crop, pilot_sale_status, expansion_sale_status, expansion_year,
+            expansion_sale_year_documented, documented_minus_expansion)])
 stopifnot(nrow(chk) == 7, all(chk$match))
 
 dir.create("audit/output", showWarnings = FALSE)
@@ -49,5 +51,6 @@ fwrite(S[, .(crop, pilot_announce, pilot_source, expansion_announce, expansion_s
              pilot_year, pilot_margin_months, expansion_year, expansion_margin_months, product_table_year, product_table_source,
              product_table_minus_expansion, reference_year, transition_years,
              pilot_sale_status, pilot_sale_evidence, expansion_sale_status, expansion_sale_evidence,
+             expansion_sale_year_documented, documented_minus_expansion,
              sales_regions_pilot, sales_regions_expansion, note)],
        "audit/output/12_treatment_timing_rule.csv")
