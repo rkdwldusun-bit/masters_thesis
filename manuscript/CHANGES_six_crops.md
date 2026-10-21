@@ -26,3 +26,13 @@ Base: `261021_KANG_Jiyeon_Fact_Checked.docx` (fact-checked version, 21 Oct 2026)
 
 Not changed: rice analysis (Tables 7-8, Figure 8) and all other chapters. Images cannot be tracked in Word.
 LibreOffice drops Word equations when accepting changes, so the clean copy is built by `tools/accept_xml.py`.
+
+## Submission_Revised (22 Oct): framing as a six-crop design
+
+Base: `261021_KANG_Jiyeon_Submission_Revised.docx` (author's revision). Two tracked edits:
+- 4.2: the potato sentences now state, as part of the selection criteria, why each potato series
+  is not used (highland: limited to Gangwon; autumn: nationwide season not reported separately;
+  lowland spring: start of coverage undocumented, so neither treated nor comparison).
+- Table 4 notes: "coded expansion year" -> "expansion year".
+No claim of pre-specification was added; the existing statement that the sensitivity
+alternatives were examined after the main results were known is kept.
