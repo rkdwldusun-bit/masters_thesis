@@ -25,14 +25,10 @@ ref <- data.table(panel = factor("B. Loss ratio (%)", levels = levels(d$panel)),
 yrs <- range(d$year)
 
 p <- ggplot(d, aes(year, value)) +
-  geom_col(data = d[panel == "B. Loss ratio (%)" & src == "APFS"], width = 0.55, fill = COL[["bar"]], colour = NA) +
-  geom_col(data = d[panel == "B. Loss ratio (%)" & src == "MAFRA"], width = 0.55, fill = "white",
-           colour = COL[["bar"]], linewidth = LWD$ci) +
+  geom_col(data = d[panel == "B. Loss ratio (%)"], width = 0.55, fill = COL[["bar"]], colour = NA) +
   geom_hline(data = ref, aes(yintercept = y), colour = COL[["ref"]], linewidth = LWD$ref, linetype = "dashed") +
   geom_line(data = d[panel == "A. Area enrollment rate (%)"], colour = COL[["main"]], linewidth = LWD$series) +
-  geom_point(data = d[panel == "A. Area enrollment rate (%)" & src == "APFS"], colour = COL[["main"]], size = PT$size) +
-  geom_point(data = d[panel == "A. Area enrollment rate (%)" & src == "MAFRA"], colour = COL[["main"]], fill = "white",
-             shape = 21, stroke = 1, size = PT$size) +
+  geom_point(data = d[panel == "A. Area enrollment rate (%)"], colour = COL[["main"]], size = PT$size) +
   facet_wrap(~ panel, ncol = 1, scales = "free_y") +
   scale_x_continuous(breaks = seq(yrs[1], yrs[2], by = 2)) +
   scale_y_continuous(labels = comma, limits = c(0, NA), expand = expansion(mult = c(0, 0.05))) +
@@ -41,7 +37,7 @@ p <- ggplot(d, aes(year, value)) +
        caption = wrap(paste(
          sprintf("Note: APFS public national series: area enrollment rate %d–%d; loss ratio %d–%d (indemnities paid / risk premium × 100,",
                  min(N$year), max(N$year), min(N[!is.na(loss_ratio_pct), year]), max(N[!is.na(loss_ratio_pct), year])),
-         sprintf("recomputed from the same file). Open markers and bars: MAFRA (2026), enrollment rate %s and loss ratio %s, same definitions",
+         sprintf("recomputed from the same file). Enrollment rate %s and loss ratio %s: MAFRA (2026), same definitions",
                  paste(A[src == "MAFRA", year], collapse = ", "), paste(L[src == "MAFRA", year], collapse = "–")),
          "(the release reproduces the APFS 2024 values). The eligible-area denominator of the enrollment rate expands as crops are added, so the",
          "rate is not comparable across years without adjustment. Dashed line: loss ratio of 100%. Descriptive only.",
