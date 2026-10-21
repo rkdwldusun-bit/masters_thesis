@@ -15,9 +15,14 @@ Webb multiplier intervals with 9,999 draws (Appendix A). What changes is the dat
 - Main analysis: six crops. Expansion year = harvest year of the first nationwide sales season
   documented in MAFRA releases (`input/treatment_timing_sources.csv`): soybean 2011, onion 2012,
   sweet potato 2012, corn 2012, garlic 2013, red pepper 2014. Pilot years are unchanged.
-- Spring potato is excluded from the main analysis: the 2008 potato pilot covered highland and
-  autumn potato, and the first sales year of lowland spring potato is undocumented. Design S1
-  keeps it with its previous coding; design S2 is the previous thesis coding.
+- Spring potato is excluded from the main analysis. The panel series is KOSIS 일반봄감자 (lowland
+  spring potato), reported separately from 고랭지감자. The insurance product called '봄감자' in
+  2009-2013 was sold only in Pyeongchang as a highland summer crop (Kangwon Ilbo, 19 May 2009;
+  KREI C2013-29 Table 2-1), i.e. it corresponds to KOSIS 고랭지감자, which the panel already codes
+  with a 2009 pilot. Lowland spring potato appears as a separate insured form only by 2020
+  (KREI C2021-19 p.33); its first sales year is not documented. Design S1 keeps spring potato
+  with its previous coding (pilot 2008, expansion 2013), which these sources do not support;
+  design S2 is the previous thesis coding.
 - Figure 6 aligns time on the pilot and compares treated crops with comparison-pool crops only.
   The joint pre-pilot test is the sum of squared standardized contrasts for e = -10..-2 against
   its distribution across the multiplier draws (Appendix A). Under S2 it gives p = 0.05 (area),
