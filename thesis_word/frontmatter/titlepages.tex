@@ -1,0 +1,74 @@
+% Three title pages, following the Word paragraph settings:
+% 1.5 lines = 20.7pt, double = 27.6pt (Times New Roman 12pt), 14pt title.
+% \tp{line height}{space after}{content}
+\newcommand{\tp}[3]{{\fontsize{12}{#1}\selectfont #3\par}\vspace{#2}}
+\newcommand{\tptitle}{%
+  {\fontsize{14}{24.15}\selectfont\bfseries \thesistitleA\par}
+  {\fontsize{14}{24.15}\selectfont\bfseries \thesistitleB\par}\vspace{30pt}}
+
+% Signature line; the signature image (if present) sits on the line.
+% The signature files are kept out of the public repository.
+\newcommand{\signatureline}[2]{%
+  \IfFileExists{#1}{%
+    \rlap{\hspace{0.5cm}\raisebox{1pt}[0pt][0pt]{\includegraphics[width=#2]{#1}}}}{}%
+  \rule{1.75in}{0.4pt}}
+
+% ---------------------------------------------------------------- page 1
+\begin{center}
+\vspace*{100pt}
+\tptitle
+\tp{20.7pt}{6pt}{By}
+\tp{20.7pt}{70pt}{\textbf{KANG, Jiyeon}}
+\tp{20.7pt}{18pt}{\mbox{}}
+\tp{20.7pt}{18pt}{\textbf{THESIS}}
+\tp{27.6pt}{0pt}{Submitted to}
+\tp{27.6pt}{0pt}{KDI School of Public Policy and Management}
+\tp{27.6pt}{0pt}{In Partial Fulfillment of the Requirements}
+\tp{27.6pt}{0pt}{For the Degree of}
+\tp{27.6pt}{45pt}{\textbf{MASTER OF PUBLIC POLICY}}
+\tp{20.7pt}{30pt}{\textbf{2026}}
+\end{center}
+\clearpage
+
+% ---------------------------------------------------------------- page 2
+\begin{center}
+\vspace*{100pt}
+\tptitle
+\tp{20.7pt}{6pt}{By}
+\tp{20.7pt}{70pt}{\textbf{KANG, Jiyeon}}
+\tp{20.7pt}{18pt}{\mbox{}}
+\tp{20.7pt}{18pt}{\textbf{THESIS}}
+\tp{27.6pt}{0pt}{Submitted to}
+\tp{27.6pt}{0pt}{KDI School of Public Policy and Management}
+\tp{27.6pt}{0pt}{In Partial Fulfillment of the Requirements}
+\tp{27.6pt}{0pt}{For the Degree of}
+\tp{27.6pt}{45pt}{\textbf{MASTER OF PUBLIC POLICY}}
+\tp{27.6pt}{30pt}{\textbf{2026}\\Professor Lee, Jongyearn}
+\end{center}
+\clearpage
+
+% ---------------------------------------------------------------- page 3
+\begin{center}
+\vspace*{100pt}
+\tptitle
+\tp{20.7pt}{6pt}{By}
+\tp{20.7pt}{70pt}{\textbf{KANG, Jiyeon}}
+\tp{20.7pt}{18pt}{\textbf{THESIS}}
+\tp{27.6pt}{0pt}{Submitted to}
+\tp{27.6pt}{0pt}{KDI School of Public Policy and Management}
+\tp{27.6pt}{0pt}{In Partial Fulfillment of the Requirements}
+\tp{27.6pt}{0pt}{For the Degree of}
+\tp{27.6pt}{0pt}{\textbf{MASTER OF PUBLIC POLICY}}
+\tp{27.6pt}{18pt}{Committee in charge:}
+\end{center}
+\vspace{0pt}
+{\fontsize{12}{27.6}\selectfont\noindent\hspace*{1cm}%
+ \makebox[3.55in][l]{Professor Lee, Jongyearn, Supervisor}\signatureline{signatures/sig_lee_t.png}{1.24in}\par}
+\vspace{12pt}
+{\fontsize{12}{27.6}\selectfont\noindent\hspace*{1cm}%
+ \makebox[3.55in][l]{Professor Merfeld, Joshua D.}\signatureline{signatures/sig_merfeld_t.png}{0.96in}\par}
+\vspace{30pt}
+\begin{center}
+\tp{20.7pt}{0pt}{\textbf{Approval as of October, 2026}}
+\end{center}
+\clearpage

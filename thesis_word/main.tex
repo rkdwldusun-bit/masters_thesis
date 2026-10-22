@@ -1,0 +1,226 @@
+% =====================================================================
+%  Government Intervention in South Korea's Crop Disaster Insurance:
+%  An Empirical Analysis of Cultivated Area, Yield, and Production
+%  KANG, Jiyeon -- Master of Public Policy thesis, KDI School (2026)
+%
+%  LaTeX transcription of For_Submission_KANG_Jiyeon_Thesis_202431023.docx.
+%  The layout follows the Word file: Times Roman 12pt, Word double
+%  spacing (27.6pt between lines), 1-inch margins, APA-style captions,
+%  no page numbers before the Introduction and centred page numbers in
+%  the footer afterwards. Only mathematics is set in the LaTeX (Latin
+%  Modern) math font.
+%
+%  Compile with pdfLaTeX, twice:  latexmk -pdf main.tex
+%
+%  Figures 1 and 4: if organization.tex / "insurance graph.tex" sit next
+%  to this file they are used; otherwise the images from the Word file.
+% =====================================================================
+\documentclass[12pt,a4paper,oneside]{article}
+
+% ---------- Fonts: Times Roman for text, Latin Modern for mathematics ----------
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}                 % math (and fallback) fonts
+\usepackage{textcomp}
+\renewcommand{\rmdefault}{ptm}       % Times Roman for all text
+\usepackage{amsmath,amssymb}
+\DeclareUnicodeCharacter{2212}{\textminus}
+\DeclareUnicodeCharacter{00D7}{\texttimes}
+\DeclareUnicodeCharacter{2248}{\ensuremath{\approx}}
+\DeclareUnicodeCharacter{2080}{\textsubscript{0}}
+\DeclareUnicodeCharacter{2081}{\textsubscript{1}}
+\DeclareUnicodeCharacter{2003}{\hspace{1em}}
+
+% ---------- Page: A4, 1-inch margins, footer page numbers ----------
+\usepackage[a4paper,margin=1in,footskip=0.5in]{geometry}
+\usepackage{fancyhdr}
+\fancypagestyle{wordmain}{\fancyhf{}\fancyfoot[C]{\thepage}%
+  \renewcommand{\headrulewidth}{0pt}\renewcommand{\footrulewidth}{0pt}}
+\fancypagestyle{plain}{\fancyhf{}\renewcommand{\headrulewidth}{0pt}}% front-matter lists: no number
+
+% ---------- Word line spacing (Times New Roman: single = 13.8pt) ----------
+\makeatletter
+\renewcommand{\normalsize}{\@setfontsize\normalsize{12}{27.6}% Word "double"
+  \abovedisplayskip 12pt \belowdisplayskip 12pt
+  \abovedisplayshortskip 12pt \belowdisplayshortskip 12pt}
+\renewcommand{\footnotesize}{\@setfontsize\footnotesize{10}{11.5}}% footnotes
+\makeatother
+\newcommand{\wordsingle}{\fontsize{12}{13.8}\selectfont}        % Word "single"
+\newcommand{\wordonehalf}{\fontsize{12}{20.7}\selectfont}       % Word "1.5 lines"
+\newcommand{\wordnotesize}{\fontsize{10}{11.5}\selectfont}      % Notes style
+\newcommand{\wordtablesize}{\fontsize{11}{12.65}\selectfont}    % table text
+
+\setlength{\parindent}{0.5in}
+\setlength{\parskip}{0pt}
+\usepackage{indentfirst}
+% Word does not hyphenate and justifies by stretching spaces
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+\setlength{\emergencystretch}{3em}
+\widowpenalty=10000
+\clubpenalty=10000
+\raggedbottom
+
+% ---------- Footnotes ----------
+\makeatletter
+\renewcommand{\@makefntext}[1]{\noindent\makebox[1.2em][l]{\@thefnmark}#1}
+\makeatother
+
+% ---------- Figures and tables ----------
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{needspace}
+\usepackage{adjustbox}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,shapes.geometric,shapes.multipart,
+  calc,fit,backgrounds,patterns,decorations.pathreplacing,intersections}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepackage{standalone}
+\setcounter{topnumber}{3}
+\setcounter{bottomnumber}{2}
+\setcounter{totalnumber}{4}
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\bottomfraction}{0.8}
+\renewcommand{\textfraction}{0.07}
+\renewcommand{\floatpagefraction}{0.8}
+\setlength{\textfloatsep}{14pt plus 4pt minus 2pt}
+\setlength{\floatsep}{14pt plus 4pt minus 2pt}
+\setlength{\intextsep}{14pt plus 4pt minus 2pt}
+\makeatletter
+\setlength{\@fptop}{0pt}
+\setlength{\@fpsep}{14pt}
+\setlength{\@fpbot}{0pt plus 1fil}
+\makeatother
+
+% APA-style label ("Figure 1", bold) and title (italic) above the object
+\newcommand{\wordcaption}[3]{% #1 Figure/Table, #2 number, #3 title
+  {\wordsingle\noindent\textbf{#1 #2}\par
+   \noindent\textit{#3}\par}}
+% Notes below a figure or table: 10pt, single spaced, justified
+\newcommand{\wordnotes}[1]{\par\vspace{3pt}%
+  {\wordnotesize\noindent #1\par}}
+\newenvironment{wordfigure}[2]{% #1 number, #2 title
+  \begin{figure}[!htbp]\wordsingle
+  \addcontentsline{lof}{figure}{\protect\numberline{#1}#2}%
+  \wordcaption{Figure}{#1}{#2}\vspace{3pt}}{\end{figure}}
+\newenvironment{wordtable}[2]{%
+  \begin{table}[!htbp]\wordsingle
+  \addcontentsline{lot}{table}{\protect\numberline{#1}#2}%
+  \wordcaption{Table}{#1}{#2}}{\end{table}}
+\newcommand{\wordimage}[2]{{\centering\includegraphics[width=#1]{#2}\par}}
+
+% Table rules as in the Word table style: 1pt outer, 0.5pt under the header
+\newcommand{\wtop}{\noalign{\hrule height 1pt\vskip 2pt}}
+\newcommand{\whead}{\noalign{\vskip 2pt\hrule height 0.5pt\vskip 2pt}}
+\newcommand{\wbottom}{\noalign{\vskip 2pt\hrule height 1pt}}
+\setlength{\tabcolsep}{5.4pt}                % Word cell margins (108 twips)
+% column widths are Word grid widths (fractions of the text width), cell margins included
+\newcommand{\cw}[1]{\dimexpr#1\linewidth-2\tabcolsep\relax}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{\cw{#1}}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{\cw{#1}}}
+\newcommand{\hd}[2]{\multicolumn{1}{>{\centering\arraybackslash}m{\cw{#1}}}{#2}}
+\newcommand{\hdl}[2]{\multicolumn{1}{>{\raggedright\arraybackslash}m{\cw{#1}}}{#2}}
+\newcommand{\panelgap}{\noalign{\vskip 5pt}}
+% optional argument: row spacing, for tables whose Word rows have a minimum height
+\newenvironment{wordtabular}[2][1.16]{\wordtablesize\renewcommand{\arraystretch}{#1}%
+  \noindent\begin{tabular}{#2}}{\end{tabular}\par}
+
+% ---------- Equations: centred paragraph "equation  (n)" as in Word ----------
+\newcommand{\wordeq}[3]{% #1 space before/after, #2 math, #3 number
+  \par\vspace{#1}{\centering$\displaystyle #2\quad\quad$\hspace{2em}(#3)\par}\vspace{#1}}
+
+% ---------- Headings (numbers are part of the Word heading text) ----------
+\newcommand{\wordchapter}[2]{% #1 number, #2 title; new page as in Word
+  \clearpage\noindent\textbf{#1. #2}\par\vspace{8pt}%
+  \addcontentsline{toc}{section}{\protect\numberline{#1}#2}}
+\newcommand{\wordchapterplain}[1]{% unnumbered heading (Appendix)
+  \clearpage\noindent\textbf{#1}\par\vspace{8pt}%
+  \addcontentsline{toc}{section}{#1}}
+\newcommand{\wordsection}[2]{%
+  \par\Needspace{4\baselineskip}\vspace{14pt}\noindent\textbf{#1 #2}\par\vspace{8pt}%
+  \addcontentsline{toc}{subsection}{\protect\numberline{#1}#2}}
+
+% ---------- Contents and lists, laid out like the Word tab stops ----------
+\usepackage{tocloft}
+\renewcommand{\cfttoctitlefont}{\hspace*{\fill}\bfseries\normalsize}
+\renewcommand{\cftaftertoctitle}{\hspace*{\fill}}
+\renewcommand{\cftlottitlefont}{\hspace*{\fill}\bfseries\normalsize}
+\renewcommand{\cftafterlottitle}{\hspace*{\fill}}
+\renewcommand{\cftloftitlefont}{\hspace*{\fill}\bfseries\normalsize}
+\renewcommand{\cftafterloftitle}{\hspace*{\fill}}
+\setlength{\cftbeforetoctitleskip}{0pt}
+\setlength{\cftbeforelottitleskip}{0pt}
+\setlength{\cftbeforeloftitleskip}{0pt}
+\setlength{\cftaftertoctitleskip}{2pt}
+\setlength{\cftafterlottitleskip}{2pt}
+\setlength{\cftafterloftitleskip}{2pt}
+% chapter lines: bold, number at 0, title at 1 cm, page number flush right
+\setlength{\cftsecindent}{0pt}
+\setlength{\cftsecnumwidth}{1cm}
+\renewcommand{\cftsecfont}{\bfseries}
+\renewcommand{\cftsecpagefont}{\bfseries}
+\renewcommand{\cftsecleader}{\hfill}
+\setlength{\cftbeforesecskip}{13.5pt}
+% section lines: indented 1 cm, title at 2.2 cm, dot leaders
+\setlength{\cftsubsecindent}{1cm}
+\setlength{\cftsubsecnumwidth}{1.2cm}
+\renewcommand{\cftsubsecfont}{\normalfont}
+\renewcommand{\cftsubsecpagefont}{\normalfont}
+\renewcommand{\cftsubsecleader}{\cftdotfill{0.6}}
+\setlength{\cftbeforesubsecskip}{7.5pt}
+% list entries: number at 0, title at 1 cm, dot leaders
+\setlength{\cfttabindent}{0pt}
+\setlength{\cfttabnumwidth}{1cm}
+\setlength{\cftfigindent}{0pt}
+\setlength{\cftfignumwidth}{1cm}
+\renewcommand{\cfttableader}{\cftdotfill{0.6}}
+\renewcommand{\cftfigleader}{\cftdotfill{0.6}}
+\setlength{\cftbeforetabskip}{7.5pt}
+\setlength{\cftbeforefigskip}{7.5pt}
+\makeatletter
+\renewcommand{\@pnumwidth}{1.6em}
+\renewcommand{\@tocrmarg}{2.4em}
+\makeatother
+\renewcommand{\contentsname}{TABLE OF CONTENTS}
+\renewcommand{\listtablename}{LIST OF TABLES}
+\renewcommand{\listfigurename}{LIST OF FIGURES}
+
+% ---------- References: hanging indent 0.5 in, 1.5 lines, ragged right ----------
+\newenvironment{wordreferences}{\par\wordonehalf\raggedright
+  \setlength{\parindent}{-0.5in}\setlength{\leftskip}{0.5in}}{\par}
+
+\usepackage{url}
+\urlstyle{same}
+\usepackage[hidelinks]{hyperref}
+
+\newcommand{\thesistitleA}{Government Intervention in South Korea's Crop Disaster Insurance:}
+\newcommand{\thesistitleB}{An Empirical Analysis of Cultivated Area, Yield, and Production}
+
+\begin{document}
+
+% ---------- Front matter: no page numbers ----------
+\pagestyle{empty}
+\pagenumbering{roman}
+\input{frontmatter/titlepages}
+\input{frontmatter/abstract}
+\input{frontmatter/acknowledgements}
+\input{frontmatter/lists}
+
+% ---------- Main text: page numbers from 1, centred in the footer ----------
+\clearpage
+\pagestyle{wordmain}
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\input{chapters/ch1_introduction}
+\input{chapters/ch2_background}
+\input{chapters/ch3_assessment}
+\input{chapters/ch4_data_strategy}
+\input{chapters/ch5_results}
+\input{chapters/ch6_discussion}
+\input{chapters/ch7_conclusion}
+\input{chapters/references}
+\input{chapters/appendixA}
+
+\end{document}

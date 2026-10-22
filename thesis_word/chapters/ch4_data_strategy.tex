@@ -1,0 +1,65 @@
+\wordchapter{4}{Data and Empirical Strategy}
+
+\wordsection{4.1}{Data and Summary Statistics}
+
+I use a national crop-year panel from the Crop Production Survey (Statistics Korea, n.d.), containing 43 crop or crop-form series over 1991--2024. Area is measured in hectares, yield in kilograms per 10 ares, and production in metric tonnes. In these units, production equals area × yield / 100, apart from reporting and rounding differences. When calculated using the same observations and weights, the log production contrast therefore approximately equals the sum of the log area and yield contrasts. This accounting relationship separates changes in cultivated area from changes in average yield. Changes in average yield can reflect weather, input use, technology, or shifts in the composition of cultivated land.
+
+I define exposure as the availability of crop insurance, regardless of whether individual farms enroll. The national outcomes therefore cover both insured and uninsured farms. Two changes in data collection affect comparability over time. Sweet potato statistics shifted to administrative reporting in 2005, while spring napa cabbage and spring radish statistics shifted to a sample survey in 2012 (Statistics Korea, 2014, pp. 67, 79--80).
+
+Table 2 summarizes the unique crop-year observations used in the main comparison. It reports means, standard deviations, and ranges. Treated crops have more than three times the cultivated area of comparison crops on average. These differences in levels help describe the sample. Section 5.5 separately examines pre-pilot growth, which is more directly relevant to the comparison of changes.
+
+\begin{wordtable}{2}{Summary Statistics}
+\input{tables/t2}
+\wordnotes{\emph{Notes:} Statistics are based on unique crop-year observations in the main comparison. S.D. is the standard deviation of observations. The reference year for each treated crop is the year preceding each crop's year of pilot; the target years of each crop are the first 10 years of the expansion. For each comparison, the number of observations is recorded once per crop year for the reference years (2007 - 2009) and the target years (2011 - 2023) of the crops to which the comparisons apply.}
+\end{wordtable}
+
+\wordsection{4.2}{Sample and Exposure Timing}
+
+I select six annual crops: soybean, onion, sweet potato, corn, garlic, and red pepper. Each has a continuous series from 1991, documented pilot and nationwide sales seasons, and ten observed target years. I exclude fruit crops because orchard area and perennial production adjust over different time horizons. Potato series are excluded because the available introduction records do not provide a consistent match between insurance products and the crop forms in the production data (MAFRA, 2025, p. 44; Gouk et al., 2024, pp. 17--18, 221). They enter neither the treated sample nor the comparison pool. I examine rice separately using the municipal rollout described in Section 4.4.
+
+Table 3 reports timing in harvest years. Pilot seasons are identified from first-sale dates or first-year enrollment and indemnity records (Choi et al., 2010, p. 163; Gouk et al., 2024, pp. 17--21). Nationwide sales began in 2011 for soybean and onion, in 2012 for sweet potato, corn, and garlic, and in 2014 for red pepper (Gouk et al., 2024, pp. 18, 221; Ministry for Food, Agriculture, Forestry and Fisheries, 2011b, 2012; MAFRA, 2014). Autumn sales of onion and garlic cover the following harvest, giving expansion years of 2012 and 2013. Availability does not imply eligibility for every variety: the initial corn product covered specified waxy-corn varieties (Gouk et al., 2024, p. 20), whereas the outcome series aggregates corn production.
+
+\begin{wordtable}{3}{Insurance Timing for the Six Annual Crops}
+\input{tables/t3}
+\wordnotes{\emph{Notes:} Pilot and expansion years are first harvest years for which there are pilot and documented nationwide sales. Onion and garlic sales are deferred to the next harvest year in the fall. Reference year: pilot year -- 1; transition years: pilot introduction to year prior to expansion. Product-table years are the calendar years for which yearbook nationwide-sales data are provided and that Table 5, Panel E, uses. \emph{Sources}: MAFRA (2014, 2025, pp. 37, 44, 46), Choi et al. (2010, p. 163), Gouk et al. (2024, pp. 17--21, 221), and Ministry for Food, Agriculture, Forestry and Fisheries (2011b, 2012).}
+\end{wordtable}
+
+The candidate comparison pool contains 24 annual crop series; 22 enter the main contrast. A comparison crop must either have no pilot by 2024 or remain unexposed in both the reference and target years. All six treated crops entered pilots by 2010, before the first target year in 2011. They therefore do not serve as controls for one another in the main post-period comparisons.
+
+\wordsection{4.3}{National Crop Comparisons}
+
+For the national analysis, I calculate crop-specific difference-in-differences contrasts and average them across six crops and ten target years. For treated crop \(i\), let \(p_{i}\) denote the pilot year, \(g_{i}\) the expansion year, and \(b_{i} = p_{i} - 1\) the reference year. Event year \(e\) corresponds to target year \(g_{i} + e\). The set \(C_{i,e}\) contains the \(n_{i,e}\) comparison crops observed and not yet exposed in both \(b_{i}\) and \(g_{i} + e\). For log outcome \(y\), the crop-event contrast is
+
+\wordeq{12pt}{{\widehat{\delta}}_{i,e} = \left( y_{i,g_{i} + e} - y_{i,b_{i}} \right) - \frac{1}{n_{i,e}}\sum_{j \in C_{i,e}}^{}\left( y_{j,g_{i} + e} - y_{j,b_{i}} \right)}{4}
+
+I then average these contrasts equally across crops and event years:
+
+\wordeq{12pt}{{\widehat{\theta}}_{e} = \frac{1}{6}\sum_{i = 1}^{6}{\widehat{\delta}}_{i,e},\quad\quad\widehat{\theta} = \frac{1}{10}\sum_{e = 0}^{9}{\widehat{\theta}}_{e}}{5}
+
+The first term in equation (4) measures the treated crop's log change from the reference year. The second measures the average log change among eligible comparison crops over the same period. The contrast is the difference between these changes. The statistic \(\widehat{\theta}\) averages the contrasts across six crops and ten target years; multiplying it by 100 gives an approximate difference in percentage growth. Because the reference year is before the pilot, \(\widehat{\theta}\) includes changes during the pilot transition as well as after expansion.
+
+I also report an alternative that weights treated crops by their mean cultivated area in 2003-2007, before the earliest pilot:
+
+\wordeq{12pt}{{\widehat{\theta}}^{A} = \frac{1}{10}\sum_{e = 0}^{9}{\sum_{i = 1}^{6}w_{i}^{A}}\,{\widehat{\delta}}_{i,e},\quad\quad w_{i}^{A} = \frac{{\bar{A}}_{i}^{pre}}{\sum_{k = 1}^{6}{\bar{A}}_{k}^{pre}}}{6}
+
+For Figure 6, I apply equation (4) to pilot-relative target years, retaining the last pre-pilot year as the reference. Comparison crops must be observed and unexposed in both years and are drawn only from the comparison pool. I average the six crop-specific contrasts equally. The reference contrast is zero by construction. The joint test evaluates the nine earlier contrasts; non-rejection does not establish parallel trends. Post-pilot contrasts include the transition before expansion.
+
+\wordsection{4.4}{Municipal Rice Comparison}
+
+Rice insurance became available in 20 municipalities in 2009 and ten more in 2011 (Choi et al., 2010; Ministry for Food, Agriculture, Forestry and Fisheries, 2011a). Both cohorts were designated as major producing areas. I compare early entrants with later entrants through 2010. This common designation does not imply random rollout timing.
+
+The outcome is log paddy-rice planted area from the Crop Production Survey (KOSIS table DT\_1ET0033) for 2000--2010. I retain mainland municipalities with complete series and consistent boundaries. The resulting sample contains 17 early entrants and nine later entrants, yielding 286 municipality-years. I estimate
+
+\begin{equation*}
+\ln A_{mt} = \alpha_{m} + \lambda_{t} + \beta D_{mt} + \varepsilon_{mt}\tag{7}
+\end{equation*}\vspace{12pt}
+
+where \(A_{mt}\) is planted area in municipality \(m\) in year \(t\), and \(\alpha_{m}\) and \(\lambda_{t}\) denote municipality and year fixed effects. The indicator \(D_{mt}\) equals one for early entrants in 2009-2010. Municipality fixed effects absorb time-invariant differences in soil quality, irrigation infrastructure, and proximity to markets. Year fixed effects absorb changes common to all municipalities; they do not absorb regional differences in weather or investment.
+
+\wordsection{4.5}{Identification, Inference, and Scope}
+
+A causal interpretation requires parallel changes without insurance, correctly dated exposure, and no anticipation or spillovers. Crop substitution and common-market responses could change comparison-crop outcomes before those crops become eligible. Pre-pilot trajectories help assess observed comparability. The rice design holds crop identity fixed, although regional weather, investment, and other changing local conditions may still differ across cohorts.
+
+For national contrasts, I use crop-level scores and Webb six-point multipliers (Appendix A). This procedure is neither null-imposed nor studentized; its small-sample coverage is not established. Webb weights alone do not resolve inference with few treated clusters (MacKinnon \& Webb, 2018). For rice, I use a null-imposed, CR1-studentized wild cluster bootstrap with Webb weights, 9,999 draws, and confidence intervals from test inversion (Cameron et al., 2008; Webb, 2023). This analysis has 26 municipality clusters, including nine comparison municipalities. Tables report standard errors in parentheses and 95 percent intervals in brackets. Asterisks denote * p < 0.10, ** p < 0.05, and *** p < 0.01; the stated significance threshold is 5 percent.
+
+Precision and identification impose separate limits: narrow intervals do not correct a biased comparison, and wide intervals leave uncertainty even under valid assumptions. I treat national intervals as exploratory and examine alternative reference periods, comparison pools, and weights. These alternatives were examined after the main results were known.\footnote{A normal-approximation benchmark, treating the reported standard errors as fixed (0.168 for the national production contrast and 0.022 for the rice estimate), gives minimum detectable effects of approximately 0.47 and 0.06 log points for 80 percent power at a two-sided 5 percent level. These calculations do not establish the power of the bootstrap procedures used here.}
