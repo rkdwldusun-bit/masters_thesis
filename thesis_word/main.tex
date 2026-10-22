@@ -86,11 +86,11 @@
 \renewcommand{\textfraction}{0.07}
 \renewcommand{\floatpagefraction}{0.8}
 \setlength{\textfloatsep}{14pt plus 4pt minus 2pt}
-\setlength{\floatsep}{14pt plus 4pt minus 2pt}
-\setlength{\intextsep}{14pt plus 4pt minus 2pt}
+\setlength{\floatsep}{22pt plus 4pt minus 2pt}
+\setlength{\intextsep}{17pt plus 4pt minus 2pt}
 \makeatletter
 \setlength{\@fptop}{0pt}
-\setlength{\@fpsep}{14pt}
+\setlength{\@fpsep}{22pt}
 \setlength{\@fpbot}{0pt plus 1fil}
 \makeatother
 
@@ -117,7 +117,7 @@
 \newcommand{\wbottom}{\noalign{\vskip 2pt\hrule height 1pt}}
 \setlength{\tabcolsep}{5.4pt}                % Word cell margins (108 twips)
 % column widths are Word grid widths (fractions of the text width), cell margins included
-\newcommand{\cw}[1]{\dimexpr#1\linewidth-2\tabcolsep\relax}
+\newcommand{\cw}[1]{\dimexpr#1\textwidth-2\tabcolsep\relax}
 \newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{\cw{#1}}}
 \newcolumntype{C}[1]{>{\centering\arraybackslash}p{\cw{#1}}}
 \newcommand{\hd}[2]{\multicolumn{1}{>{\centering\arraybackslash}m{\cw{#1}}}{#2}}
@@ -130,6 +130,9 @@
 % ---------- Equations: centred paragraph "equation  (n)" as in Word ----------
 \newcommand{\wordeq}[3]{% #1 space before/after, #2 math, #3 number
   \par\vspace{#1}{\centering$\displaystyle #2\quad\quad$\hspace{2em}(#3)\par}\vspace{#1}}
+% Equation (7) is a Word display equation: centred, number at the right margin
+\newcommand{\wordeqright}[3]{%
+  \par\vspace{#1}{\noindent\hbox to\linewidth{\hfil$\displaystyle #2$\hfil\llap{(#3)}}\par}\vspace{#1}}
 
 % ---------- Headings (numbers are part of the Word heading text) ----------
 \newcommand{\wordchapter}[2]{% #1 number, #2 title; new page as in Word
